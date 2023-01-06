@@ -1,0 +1,501 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__handlers" xml:lang="en-US">
+<title>Device Handlers</title>
+<indexterm><primary>Device Handlers</primary></indexterm>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group__handlers_1gabc2b684fcc127e93aee54a3a45e25a7c">REFRESH_RATE</link>   (60/30)</para>
+
+<para>Every two ticks of the timer. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef enum <link linkend="_group__handlers_1gaa19be6305a5a4485e1e70de70ed7d677">states</link> <link linkend="_group__handlers_1gae0cf58533e88a77f4c51b53a9c495f43">state_t</link></para>
+
+<para>Enumerates the different possible game states. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_group__handlers_1gaa4b88f24716e66e8d41400b00e8ae8ae">devices</link> { 
+<link linkend="_group__handlers_1ggaa4b88f24716e66e8d41400b00e8ae8aea17ba9bae1b8d7e8d6c12d46ec58e0769">TIMER</link>
+, <link linkend="_group__handlers_1ggaa4b88f24716e66e8d41400b00e8ae8aead14e2514427609da194a72091721f4c7">KEYBOARD</link>
+, <link linkend="_group__handlers_1ggaa4b88f24716e66e8d41400b00e8ae8aea6abd13b0a6bf7894c7ceb5ff45ddbc14">MOUSE</link>
+, <link linkend="_group__handlers_1ggaa4b88f24716e66e8d41400b00e8ae8aea24073a11916b946561b8cb5c9dfe9bce">RTC</link>
+, 
+<link linkend="_group__handlers_1ggaa4b88f24716e66e8d41400b00e8ae8aea303393a7eb9e8c9e401f78471510cde3">SERIALPORT</link>
+ }</para>
+
+<para>Enumerates the devices used in the game. </para>
+</listitem>
+            <listitem><para>enum <link linkend="_group__handlers_1gaa19be6305a5a4485e1e70de70ed7d677">states</link> { 
+<link linkend="_group__handlers_1ggaa19be6305a5a4485e1e70de70ed7d677a4c40e60bc71a32b924ce1f08d57f9721">MENU</link>
+, <link linkend="_group__handlers_1ggaa19be6305a5a4485e1e70de70ed7d677abe919a0f5ab99b61ad3936c85701b517">ONEPGAME</link>
+, <link linkend="_group__handlers_1ggaa19be6305a5a4485e1e70de70ed7d677a912d5819e91e3a5378dfb72cc20fcc96">TWOPGAME</link>
+, <link linkend="_group__handlers_1ggaa19be6305a5a4485e1e70de70ed7d677a757971c0bc5a1972d5f1b1be2c0e2087">WAITING</link>
+, 
+<link linkend="_group__handlers_1ggaa19be6305a5a4485e1e70de70ed7d677aaef4dc1e4f450a4c9e61a3699d75af0a">ABOUT</link>
+, <link linkend="_group__handlers_1ggaa19be6305a5a4485e1e70de70ed7d677ae43a9c96693abae17eabf8751b5b84ba">ENDGAME</link>
+ }</para>
+
+<para>Enumerates the different possible game states. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__handlers_1gad932b9bf23b1de26f712a4aacdc7df9b">mainHandler</link> (int device)</para>
+
+<para>Invokes the respective handler according to the game state. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__handlers_1ga1bf786f0d1e4fb655a95618665e88b73">menuHandler</link> (int device)</para>
+
+<para>Proceed with the actions in the Menu State of the respective given device. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__handlers_1ga873159fcdceb7f2d32914e2f0332e918">gameOnePlayerHandler</link> (int device)</para>
+
+<para>Proceed with the actions in the One <link linkend="_struct_player">Player</link> Game State of the respective given device. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__handlers_1gac888ba9be6cce74613cae45eaa6a5a02">waitingHandler</link> (int device)</para>
+
+<para>Proceed with the actions in the Wait Menu State of the respective given device. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__handlers_1ga548238780299a9ec09e8056c88748815">gameTwoPlayersHandler</link> (int device)</para>
+
+<para>Proceed with the actions in the Two Players Game State of the respective given device. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__handlers_1gab87384990fed0586611e699156a7d24c">aboutHandler</link> (int device)</para>
+
+<para>Proceed with the actions in the About State of the respective given device. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__handlers_1gad133154583b6a956afcc4a3b7b15e0f4">endGameHandler</link> (int device)</para>
+
+<para>Proceed with the actions in the End Game State of the respective given device. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Functions and data structures to handle the devices in the different game modes </para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_group__handlers_1gabc2b684fcc127e93aee54a3a45e25a7c"/><section>
+    <title>REFRESH_RATE</title>
+<indexterm><primary>REFRESH_RATE</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>REFRESH_RATE</secondary></indexterm>
+<para><computeroutput>#define REFRESH_RATE   (60/30)</computeroutput></para><para>
+
+<para>Every two ticks of the timer. </para>
+</para>
+<para>
+Definition at line <link linkend="_handlers_8h_source_1l00020">20</link> of file <link linkend="_handlers_8h_source">handlers.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_group__handlers_1gae0cf58533e88a77f4c51b53a9c495f43"/><section>
+    <title>state_t</title>
+<indexterm><primary>state_t</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>state_t</secondary></indexterm>
+<para><computeroutput>typedef enum <link linkend="_group__handlers_1gaa19be6305a5a4485e1e70de70ed7d677">states</link> <link linkend="_group__handlers_1gae0cf58533e88a77f4c51b53a9c495f43">state_t</link></computeroutput></para><para>
+
+<para>Enumerates the different possible game states. </para>
+</para>
+</section>
+</section>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_group__handlers_1gaa4b88f24716e66e8d41400b00e8ae8ae"/><section>
+    <title>devices</title>
+<indexterm><primary>devices</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>devices</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_group__handlers_1gaa4b88f24716e66e8d41400b00e8ae8ae">devices</link></computeroutput></para><para>
+
+<para>Enumerates the devices used in the game. </para>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>TIMER</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>TIMER</secondary></indexterm>
+<anchor xml:id="_group__handlers_1ggaa4b88f24716e66e8d41400b00e8ae8aea17ba9bae1b8d7e8d6c12d46ec58e0769"/>TIMER</entry><entry>
+<para>Timer device. </para>
+</entry></row><row><entry><indexterm><primary>KEYBOARD</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>KEYBOARD</secondary></indexterm>
+<anchor xml:id="_group__handlers_1ggaa4b88f24716e66e8d41400b00e8ae8aead14e2514427609da194a72091721f4c7"/>KEYBOARD</entry><entry>
+<para>Keyboard device. </para>
+</entry></row><row><entry><indexterm><primary>MOUSE</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>MOUSE</secondary></indexterm>
+<anchor xml:id="_group__handlers_1ggaa4b88f24716e66e8d41400b00e8ae8aea6abd13b0a6bf7894c7ceb5ff45ddbc14"/>MOUSE</entry><entry>
+<para><link linkend="_struct_mouse">Mouse</link> device. </para>
+</entry></row><row><entry><indexterm><primary>RTC</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>RTC</secondary></indexterm>
+<anchor xml:id="_group__handlers_1ggaa4b88f24716e66e8d41400b00e8ae8aea24073a11916b946561b8cb5c9dfe9bce"/>RTC</entry><entry>
+<para>RTC device. </para>
+</entry></row><row><entry><indexterm><primary>SERIALPORT</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>SERIALPORT</secondary></indexterm>
+<anchor xml:id="_group__handlers_1ggaa4b88f24716e66e8d41400b00e8ae8aea303393a7eb9e8c9e401f78471510cde3"/>SERIALPORT</entry><entry>
+<para>Serial port device. </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_handlers_8h_source_1l00027">27</link> of file <link linkend="_handlers_8h_source">handlers.h</link>.</para>
+</section>
+<anchor xml:id="_group__handlers_1gaa19be6305a5a4485e1e70de70ed7d677"/><section>
+    <title>states</title>
+<indexterm><primary>states</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>states</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_group__handlers_1gaa19be6305a5a4485e1e70de70ed7d677">states</link></computeroutput></para><para>
+
+<para>Enumerates the different possible game states. </para>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>MENU</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>MENU</secondary></indexterm>
+<anchor xml:id="_group__handlers_1ggaa19be6305a5a4485e1e70de70ed7d677a4c40e60bc71a32b924ce1f08d57f9721"/>MENU</entry><entry>
+<para>Menu options. </para>
+</entry></row><row><entry><indexterm><primary>ONEPGAME</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>ONEPGAME</secondary></indexterm>
+<anchor xml:id="_group__handlers_1ggaa19be6305a5a4485e1e70de70ed7d677abe919a0f5ab99b61ad3936c85701b517"/>ONEPGAME</entry><entry>
+<para>Player1 Vs Computer. </para>
+</entry></row><row><entry><indexterm><primary>TWOPGAME</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>TWOPGAME</secondary></indexterm>
+<anchor xml:id="_group__handlers_1ggaa19be6305a5a4485e1e70de70ed7d677a912d5819e91e3a5378dfb72cc20fcc96"/>TWOPGAME</entry><entry>
+<para>Player1 Vs Player2 
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</entry></row><row><entry><indexterm><primary>WAITING</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>WAITING</secondary></indexterm>
+<anchor xml:id="_group__handlers_1ggaa19be6305a5a4485e1e70de70ed7d677a757971c0bc5a1972d5f1b1be2c0e2087"/>WAITING</entry><entry>
+<para>Waiting menu. </para>
+</entry></row><row><entry><indexterm><primary>ABOUT</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>ABOUT</secondary></indexterm>
+<anchor xml:id="_group__handlers_1ggaa19be6305a5a4485e1e70de70ed7d677aaef4dc1e4f450a4c9e61a3699d75af0a"/>ABOUT</entry><entry>
+<para>Informations about the project. </para>
+</entry></row><row><entry><indexterm><primary>ENDGAME</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>ENDGAME</secondary></indexterm>
+<anchor xml:id="_group__handlers_1ggaa19be6305a5a4485e1e70de70ed7d677ae43a9c96693abae17eabf8751b5b84ba"/>ENDGAME</entry><entry>
+<para>Informations about the end of the match. </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_handlers_8h_source_1l00038">38</link> of file <link linkend="_handlers_8h_source">handlers.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_group__handlers_1gab87384990fed0586611e699156a7d24c"/><section>
+    <title>aboutHandler()</title>
+<indexterm><primary>aboutHandler</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>aboutHandler</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() aboutHandler (int device)</computeroutput></para><para>
+
+<para>Proceed with the actions in the About State of the respective given device. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>device</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_handlers_8c_source_1l00248">248</link> of file <link linkend="_handlers_8c_source">handlers.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__handlers_gab87384990fed0586611e699156a7d24c_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__handlers_1gad133154583b6a956afcc4a3b7b15e0f4"/><section>
+    <title>endGameHandler()</title>
+<indexterm><primary>endGameHandler</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>endGameHandler</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() endGameHandler (int device)</computeroutput></para><para>
+
+<para>Proceed with the actions in the End Game State of the respective given device. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>device</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_handlers_8c_source_1l00269">269</link> of file <link linkend="_handlers_8c_source">handlers.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__handlers_gad133154583b6a956afcc4a3b7b15e0f4_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__handlers_1ga873159fcdceb7f2d32914e2f0332e918"/><section>
+    <title>gameOnePlayerHandler()</title>
+<indexterm><primary>gameOnePlayerHandler</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>gameOnePlayerHandler</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() gameOnePlayerHandler (int device)</computeroutput></para><para>
+
+<para>Proceed with the actions in the One <link linkend="_struct_player">Player</link> Game State of the respective given device. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>device</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_handlers_8c_source_1l00094">94</link> of file <link linkend="_handlers_8c_source">handlers.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__handlers_ga873159fcdceb7f2d32914e2f0332e918_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__handlers_1ga548238780299a9ec09e8056c88748815"/><section>
+    <title>gameTwoPlayersHandler()</title>
+<indexterm><primary>gameTwoPlayersHandler</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>gameTwoPlayersHandler</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() gameTwoPlayersHandler (int device)</computeroutput></para><para>
+
+<para>Proceed with the actions in the Two Players Game State of the respective given device. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>device</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_handlers_8c_source_1l00187">187</link> of file <link linkend="_handlers_8c_source">handlers.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__handlers_ga548238780299a9ec09e8056c88748815_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__handlers_1gad932b9bf23b1de26f712a4aacdc7df9b"/><section>
+    <title>mainHandler()</title>
+<indexterm><primary>mainHandler</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>mainHandler</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() mainHandler (int device)</computeroutput></para><para>
+
+<para>Invokes the respective handler according to the game state. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>device</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_handlers_8c_source_1l00018">18</link> of file <link linkend="_handlers_8c_source">handlers.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__handlers_gad932b9bf23b1de26f712a4aacdc7df9b_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__handlers_1ga1bf786f0d1e4fb655a95618665e88b73"/><section>
+    <title>menuHandler()</title>
+<indexterm><primary>menuHandler</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>menuHandler</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() menuHandler (int device)</computeroutput></para><para>
+
+<para>Proceed with the actions in the Menu State of the respective given device. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>device</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_handlers_8c_source_1l00047">47</link> of file <link linkend="_handlers_8c_source">handlers.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__handlers_ga1bf786f0d1e4fb655a95618665e88b73_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__handlers_1gac888ba9be6cce74613cae45eaa6a5a02"/><section>
+    <title>waitingHandler()</title>
+<indexterm><primary>waitingHandler</primary><secondary>Device Handlers</secondary></indexterm>
+<indexterm><primary>Device Handlers</primary><secondary>waitingHandler</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() waitingHandler (int device)</computeroutput></para><para>
+
+<para>Proceed with the actions in the Wait Menu State of the respective given device. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>device</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_handlers_8c_source_1l00159">159</link> of file <link linkend="_handlers_8c_source">handlers.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__handlers_gac888ba9be6cce74613cae45eaa6a5a02_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

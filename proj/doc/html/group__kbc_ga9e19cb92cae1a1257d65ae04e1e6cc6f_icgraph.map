@@ -1,0 +1,5 @@
+<map id="mouse_read_value" name="mouse_read_value">
+<area shape="rect" id="node1" title="Read a value from the mouse, to build the mouse packet." alt="" coords="289,5,419,32"/>
+<area shape="rect" id="node2" href="$group__kbc.html#gaed4404005e4c565ac36656307386e0ac" title="Control of mouse interrupts." alt="" coords="163,5,241,32"/>
+<area shape="rect" id="node3" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,115,32"/>
+</map>

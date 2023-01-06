@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_serialport_8h_source" xml:lang="en-US">
+<title>serialport.h</title>
+<indexterm><primary>serialport/serialport.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_serialport_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;lcom/lcf.h&gt;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;stdbool.h&gt;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00004"/>00004 
+<anchor xml:id="_serialport_8h_source_1l00011"/>00011 <emphasis role="comment">/********&#32;CONSTANTS&#32;********/</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00012"/>00012 
+<anchor xml:id="_serialport_8h_source_1l00013"/><link linkend="_group__serialport_1ga0bbbe5033c75850015a6532ae64097b3">00013</link> <emphasis role="preprocessor">#define&#32;SER_IRQ&#32;&#32;&#32;&#32;&#32;4&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00014"/><link linkend="_group__serialport_1ga0a6bd23d09bd13a268dc85a7fbaac454">00014</link> <emphasis role="preprocessor">#define&#32;SER_PORT&#32;&#32;&#32;&#32;0x3F8&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00016"/><link linkend="_group__serialport_1ga0921695d71206ba9d6855bb403acec9d">00016</link> <emphasis role="preprocessor">#define&#32;SER_INIT&#32;&#32;&#32;&#32;2&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00017"/><link linkend="_group__serialport_1gad549d3f7a678b727d6ae694e22378d05">00017</link> <emphasis role="preprocessor">#define&#32;SER_START&#32;&#32;&#32;3&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00019"/><link linkend="_group__serialport_1ga94f8dc88853cae790047363466bd2147">00019</link> <emphasis role="preprocessor">#define&#32;SER_GOAL_1&#32;&#32;40&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00020"/><link linkend="_group__serialport_1ga35048c7c149be52594fdf7255485a9be">00020</link> <emphasis role="preprocessor">#define&#32;SER_GOAL_2&#32;&#32;41&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00022"/><link linkend="_group__serialport_1ga4c5aa3c4ff5b1d3721bad5a64dcfa9f9">00022</link> <emphasis role="preprocessor">#define&#32;SER_WINNER&#32;&#32;100&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00023"/><link linkend="_group__serialport_1gaab10abea0297abdcf0aab7d7d0b5662f">00023</link> <emphasis role="preprocessor">#define&#32;SER_RBR&#32;0&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00024"/><link linkend="_group__serialport_1ga3702c28928f73b9841ab8269f64177ed">00024</link> <emphasis role="preprocessor">#define&#32;SER_THR&#32;0&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00026"/>00026 <emphasis role="comment">//---LSR----</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00027"/><link linkend="_group__serialport_1ga382b5d26eb113bfffbf2094eb4405042">00027</link> <emphasis role="preprocessor">#define&#32;SER_LSR&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;5&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00028"/><link linkend="_group__serialport_1gaf64e9d55e8b66fdeaaa02652614610b5">00028</link> <emphasis role="preprocessor">#define&#32;SER_DATA_READY&#32;&#32;BIT(0)&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00029"/><link linkend="_group__serialport_1gac22f7e8109686500cf878a26ea3af115">00029</link> <emphasis role="preprocessor">#define&#32;SER_OVERRUN_ERR&#32;BIT(1)&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00030"/><link linkend="_group__serialport_1ga356ae2e9093b65d87b35a303f3092057">00030</link> <emphasis role="preprocessor">#define&#32;SER_PARITY_ERR&#32;&#32;BIT(2)&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00031"/><link linkend="_group__serialport_1ga0182fcdfbfeb90906d60c3ddb411aece">00031</link> <emphasis role="preprocessor">#define&#32;SER_FRAME_ERR&#32;&#32;&#32;BIT(3)&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00032"/><link linkend="_group__serialport_1gaadd7d6748f7ddf10b6f87e350d6d1b26">00032</link> <emphasis role="preprocessor">#define&#32;SER_UART_READY&#32;&#32;BIT(5)&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00033"/><link linkend="_group__serialport_1ga7828169194de03d2e2cd9d1b15d3ea78">00033</link> <emphasis role="preprocessor">#define&#32;SER_THR_EMPTY&#32;&#32;&#32;BIT(6)&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00035"/>00035 <emphasis role="comment">//---IER----</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00036"/><link linkend="_group__serialport_1ga783f8e3973a5f87d8af120d49742f834">00036</link> <emphasis role="preprocessor">#define&#32;SER_IER&#32;&#32;&#32;&#32;&#32;1&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00037"/><link linkend="_group__serialport_1ga7b7cadf7e8da87ebbed4922556b94433">00037</link> <emphasis role="preprocessor">#define&#32;SER_ERBFI&#32;&#32;&#32;BIT(0)&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00039"/>00039 <emphasis role="comment">/********&#32;FUNCTIONS&#32;********/</emphasis>
+<anchor xml:id="_serialport_8h_source_1l00040"/>00040 
+<anchor xml:id="_serialport_8h_source_1l00045"/>00045 int&#32;(<link linkend="_group__serialport_1ga0310282e052b0d6daacdcf32745aad12">ser_init</link>)();
+<anchor xml:id="_serialport_8h_source_1l00050"/>00050 int&#32;(<link linkend="_group__serialport_1ga08071d8d2ad944789c1befd58b6fc6be">ser_read_lsr_status</link>)(uint8_t*&#32;status);
+<anchor xml:id="_serialport_8h_source_1l00055"/>00055 int&#32;(<link linkend="_group__serialport_1gafe652e0add554a59ead8c1960eefb6b1">ser_read_data</link>)();
+<anchor xml:id="_serialport_8h_source_1l00060"/>00060 int&#32;(<link linkend="_group__serialport_1ga9763e9d84c9c2217d5bfe4e59ee69d64">ser_transmit_data</link>)(uint8_t&#32;<link linkend="_kbc_8c_1a325819a8e492ac69542e8b31705af6e9">data</link>);
+<anchor xml:id="_serialport_8h_source_1l00065"/>00065 int&#32;(<link linkend="_group__serialport_1gab72ff27750fce4726c3861005ee392c6">ser_check_connection</link>)();
+<anchor xml:id="_serialport_8h_source_1l00070"/>00070 int&#32;(<link linkend="_group__serialport_1gaf21628f0f9d46b62067ae790f7861e84">ser_subscribe_int</link>)(uint8_t&#32;*bit_no);
+<anchor xml:id="_serialport_8h_source_1l00075"/>00075 int&#32;(<link linkend="_group__serialport_1ga30ae83ae28ebc465baa2d2f2ee51a145">ser_unsubscribe_int</link>)();
+<anchor xml:id="_serialport_8h_source_1l00076"/>00076 
+</programlisting></section>

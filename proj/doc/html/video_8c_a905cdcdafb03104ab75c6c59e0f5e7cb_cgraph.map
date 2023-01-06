@@ -1,0 +1,5 @@
+<map id="draw_rectangle" name="draw_rectangle">
+<area shape="rect" id="node1" title="Draw a rectangle." alt="" coords="5,5,115,32"/>
+<area shape="rect" id="node2" href="$video_8c.html#a5e5b25bd525250f61f40b9e9f212d5e6" title="Draw a horizontal line of pixels." alt="" coords="163,5,265,32"/>
+<area shape="rect" id="node3" href="$video_8c.html#a576ad65187107e487c85b9fb42fa0220" title="Set the color of a pixel." alt="" coords="313,5,407,32"/>
+</map>

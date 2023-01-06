@@ -1,0 +1,27 @@
+var view_8c =
+[
+    [ "drawAbout", "group__view.html#gada296e3c248457584fc6702e98aa5df9", null ],
+    [ "drawArena", "group__view.html#ga3a53f2894b80e553e4e9754e2a1b9b5d", null ],
+    [ "drawBall", "group__view.html#ga86cf8241a4f3a8daf2876e484636a650", null ],
+    [ "drawBoard", "group__view.html#gabf33bd02905aaba8995c238e140295bb", null ],
+    [ "drawEndGame", "group__view.html#ga56eabf3da014865044c6b983dbfafaec", null ],
+    [ "drawGame", "group__view.html#ga2fed2d7071be915d687d533e5a971414", null ],
+    [ "drawMenu", "group__view.html#ga5fd0c469e6f02d84c080f7cf71630109", null ],
+    [ "drawMouse", "group__view.html#gaa632458efe74b5b5009fab6cf993fdb2", null ],
+    [ "drawPlayer", "group__view.html#gab79e0b6f71e4ecf1f37d95fdafcf62b5", null ],
+    [ "drawWaitMenu", "group__view.html#gac03b90d30597233ea059a89bce73dbf3", null ],
+    [ "drawWall", "group__view.html#ga66a54e56b10b46d1f9fc29adc4de5b16", null ],
+    [ "getNumberImg", "view_8c.html#a34bb0b5ed37722af7b8463df6d522ee0", null ],
+    [ "actionLeftTimeout", "view_8c.html#af96da98283ea6c9838dd20bb99d3306e", null ],
+    [ "arena", "view_8c.html#a6d37abbeca8412cfc300df9ae931905d", null ],
+    [ "ball", "view_8c.html#aec7d031690b4f8260cedcca03ddc1854", null ],
+    [ "darkmode", "view_8c.html#aad078aa1776d7d886e8200f08329a2ca", null ],
+    [ "menu_entries", "view_8c.html#aa78eb907c87c35d826617a9b7b6c1231", null ],
+    [ "mouse", "view_8c.html#a761c3b7a78d8408dfbe76131209532d7", null ],
+    [ "PCplayer", "view_8c.html#abb792062f372b143af64719c959181b2", null ],
+    [ "player", "view_8c.html#a73090bb6f3fb51137a791fee01794a36", null ],
+    [ "player2", "view_8c.html#abf54e2844a0903331c1a36028f86f821", null ],
+    [ "state", "view_8c.html#a499e7824037af983d0524a98081e7f0b", null ],
+    [ "wall", "view_8c.html#a92865b9fee2bc0725731ca6eaffeead0", null ],
+    [ "winner", "view_8c.html#ac3897a350075920efc6bab8d04cc1215", null ]
+];

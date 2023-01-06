@@ -1,0 +1,9 @@
+<map id="game/view.h" name="game/view.h">
+<area shape="rect" id="node1" title=" " alt="" coords="93,5,186,32"/>
+<area shape="rect" id="node2" href="$handlers_8h.html" title=" " alt="" coords="80,80,199,107"/>
+<area shape="rect" id="node6" href="$proj_8c.html" title=" " alt="" coords="5,155,60,181"/>
+<area shape="rect" id="node7" href="$view_8c.html" title=" " alt="" coords="223,80,317,107"/>
+<area shape="rect" id="node3" href="$handlers_8c.html" title=" " alt="" coords="84,155,203,181"/>
+<area shape="rect" id="node4" href="$model_8h.html" title=" " alt="" coords="227,155,331,181"/>
+<area shape="rect" id="node5" href="$model_8c.html" title=" " alt="" coords="227,229,331,256"/>
+</map>

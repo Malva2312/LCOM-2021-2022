@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_video_8h_source" xml:lang="en-US">
+<title>video.h</title>
+<indexterm><primary>video/video.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_video_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;lcom/lcf.h&gt;</emphasis>
+<anchor xml:id="_video_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;math.h&gt;</emphasis>
+<anchor xml:id="_video_8h_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_video__macros_8h">video_macros.h</link>&quot;</emphasis>
+<anchor xml:id="_video_8h_source_1l00004"/>00004 
+<anchor xml:id="_video_8h_source_1l00011"/>00011 int&#32;(<link linkend="_video_8h_1a1e2de8664e2dade53b8b7e7a5bc83fb4">vg_mode</link>)(uint16_t&#32;mode);
+<anchor xml:id="_video_8h_source_1l00018"/>00018 unsigned(<link linkend="_video_8h_1ab4c6864582add7ea2f4a9014fd07baad">bits_to_byte_ceil</link>)(<emphasis role="keywordtype">unsigned</emphasis>&#32;bits_per_pixel);
+<anchor xml:id="_video_8h_source_1l00025"/>00025 int&#32;(<link linkend="_video_8h_1af58095ca3d3990e300b96bfe4c0a63e4">map_video_memory</link>)&#32;(uint16_t&#32;mode);
+<anchor xml:id="_video_8h_source_1l00030"/>00030 <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_video_8h_1a8241e421a3811f46b59bed9f166a48d1">refresh_buffer</link>)();
+<anchor xml:id="_video_8h_source_1l00035"/>00035 <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_video_8h_1af7831592ef04114ca9b46e672c0e646b">clear_buffer</link>)();
+<anchor xml:id="_video_8h_source_1l00044"/>00044 int&#32;(<link linkend="_video_8h_1a576ad65187107e487c85b9fb42fa0220">vg_set_pixel</link>)&#32;(uint32_t&#32;color,&#32;uint16_t&#32;x,&#32;uint16_t&#32;y);
+<anchor xml:id="_video_8h_source_1l00054"/>00054 int&#32;(<link linkend="_video_8h_1a1135e6421577648c6d1c0abc1e971663">vg_draw_vline</link>)&#32;(uint16_t&#32;x,&#32;uint16_t&#32;y,&#32;uint16_t&#32;len,&#32;uint32_t&#32;color);
+<anchor xml:id="_video_8h_source_1l00064"/>00064 int&#32;(<link linkend="_video_8h_1a5e5b25bd525250f61f40b9e9f212d5e6">vg_draw_hline</link>)&#32;(uint16_t&#32;x,&#32;uint16_t&#32;y,&#32;uint16_t&#32;len,&#32;uint32_t&#32;color);
+<anchor xml:id="_video_8h_source_1l00075"/>00075 int&#32;(<link linkend="_video_8h_1a905cdcdafb03104ab75c6c59e0f5e7cb">draw_rectangle</link>)(uint32_t&#32;color,&#32;uint16_t&#32;x,&#32;uint16_t&#32;y,&#32;uint16_t&#32;width,&#32;uint16_t&#32;height);
+<anchor xml:id="_video_8h_source_1l00084"/>00084 int&#32;(<link linkend="_video_8h_1abd983f84d9522b6deec0e784324357bb">draw_pattern</link>)(uint8_t&#32;no_rectangles,&#32;uint32_t&#32;first,&#32;uint8_t&#32;step);
+<anchor xml:id="_video_8h_source_1l00092"/>00092 int&#32;(<link linkend="_video_8h_1a9502773109672e86799bba9705b835bd">draw_sprite</link>)(uint16_t&#32;x,&#32;uint16_t&#32;y,&#32;xpm_image_t&#32;img);
+</programlisting></section>

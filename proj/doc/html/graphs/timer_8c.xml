@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_timer_8c" xml:lang="en-US">
+<title>timer/timer.c File Reference</title>
+<indexterm><primary>timer/timer.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;lcom/lcf.h&gt;
+#include &lt;lcom/timer.h&gt;
+#include &lt;stdint.h&gt;
+#include &quot;i8254.h&quot;
+</programlisting>Include dependency graph for timer.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="timer_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int() <link linkend="_group__timer_1gaf2c04fa8e97ffa748fd3f612886a92a7">timer_set_frequency</link> (uint8_t timer, uint32_t freq)</para>
+
+<para>Changes the operating frequency of a timer. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__timer_1gac57a7e1140a7e00ad95ac5488d2a671b">timer_subscribe_int</link> (uint8_t *bit_no)</para>
+
+<para>Subscribes and enables Timer 0 interrupts. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__timer_1gafabd21de449be154dd65d5fdb2d8045d">timer_unsubscribe_int</link> ()</para>
+
+<para>Unsubscribes Timer 0 interrupts. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__timer_1ga91a2072306c68353712a6b771287dc2c">timer_int_handler</link> ()</para>
+
+<para>Timer 0 interrupt handler. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__timer_1ga703c60b40c8c49607d6ecb6fef82d27a">timer_get_conf</link> (uint8_t timer, uint8_t *st)</para>
+
+<para>Reads the input timer configuration (status) via read-back command. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__timer_1ga140d8f092c0913cabdca949c4a1cc650">timer_display_conf</link> (uint8_t timer, uint8_t st, enum <link linkend="_group__timer_1gada782f3116a896caaa602b70c0c6d8b7">timer_status_field</link> field)</para>
+
+<para>Shows timer configuration. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>uint32_t <link linkend="_timer_8c_1a51322ddb267b4729d6b5f2bb05d49fff">counter</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_timer_8c_1a96e6321e488d93a8134897510c435eb7">timer_hook_id</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_timer_8c_1a51322ddb267b4729d6b5f2bb05d49fff"/><section>
+    <title>counter</title>
+<indexterm><primary>counter</primary><secondary>timer.c</secondary></indexterm>
+<indexterm><primary>timer.c</primary><secondary>counter</secondary></indexterm>
+<para><computeroutput>uint32_t counter = 0</computeroutput></para><para>
+Definition at line <link linkend="_timer_8c_source_1l00008">8</link> of file <link linkend="_timer_8c_source">timer.c</link>.</para>
+</section>
+<anchor xml:id="_timer_8c_1a96e6321e488d93a8134897510c435eb7"/><section>
+    <title>timer_hook_id</title>
+<indexterm><primary>timer_hook_id</primary><secondary>timer.c</secondary></indexterm>
+<indexterm><primary>timer.c</primary><secondary>timer_hook_id</secondary></indexterm>
+<para><computeroutput>int timer_hook_id</computeroutput></para><para>
+Definition at line <link linkend="_timer_8c_source_1l00009">9</link> of file <link linkend="_timer_8c_source">timer.c</link>.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_handlers_8c" xml:lang="en-US">
+<title>game/handlers.c File Reference</title>
+<indexterm><primary>game/handlers.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;handlers.h&quot;
+</programlisting>Include dependency graph for handlers.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="handlers_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__handlers_1gad932b9bf23b1de26f712a4aacdc7df9b">mainHandler</link> (int device)</para>
+
+<para>Invokes the respective handler according to the game state. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__handlers_1ga1bf786f0d1e4fb655a95618665e88b73">menuHandler</link> (int device)</para>
+
+<para>Proceed with the actions in the Menu State of the respective given device. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__handlers_1ga873159fcdceb7f2d32914e2f0332e918">gameOnePlayerHandler</link> (int device)</para>
+
+<para>Proceed with the actions in the One <link linkend="_struct_player">Player</link> Game State of the respective given device. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__handlers_1gac888ba9be6cce74613cae45eaa6a5a02">waitingHandler</link> (int device)</para>
+
+<para>Proceed with the actions in the Wait Menu State of the respective given device. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__handlers_1ga548238780299a9ec09e8056c88748815">gameTwoPlayersHandler</link> (int device)</para>
+
+<para>Proceed with the actions in the Two Players Game State of the respective given device. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__handlers_1gab87384990fed0586611e699156a7d24c">aboutHandler</link> (int device)</para>
+
+<para>Proceed with the actions in the About State of the respective given device. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__handlers_1gad133154583b6a956afcc4a3b7b15e0f4">endGameHandler</link> (int device)</para>
+
+<para>Proceed with the actions in the End Game State of the respective given device. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>uint8_t <link linkend="_handlers_8c_1a01577ed8d3646775ae6a8e00d24c1d94">scancode</link> [2]</para>
+</listitem>
+            <listitem><para>struct packet <link linkend="_handlers_8c_1a26e83eca70c2b9169fbbb0eac7e32e32">pp</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_handlers_8c_1aa78eb907c87c35d826617a9b7b6c1231">menu_entries</link> []</para>
+</listitem>
+            <listitem><para>int <link linkend="_handlers_8c_1a617a47c70795bcff659815ad0efd2266">counter</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_handlers_8c_1af96da98283ea6c9838dd20bb99d3306e">actionLeftTimeout</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_player">Player</link> <link linkend="_handlers_8c_1a73090bb6f3fb51137a791fee01794a36">player</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_player">Player</link> <link linkend="_handlers_8c_1abf54e2844a0903331c1a36028f86f821">player2</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_handlers_8c_1ac2e72b5a2e01b5b5ae740469f6c558b2">read_data</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_handlers_8c_1a48b10a1152d4bd8bc88cafe1a909c0c9">player1_initial_x</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_handlers_8c_1a302f9b847087f423fd8b5d60e9d64606">player2_initial_x</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_wall">Wall</link> <link linkend="_handlers_8c_1a92865b9fee2bc0725731ca6eaffeead0">wall</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_handlers_8c_1ac3897a350075920efc6bab8d04cc1215">winner</link></para>
+</listitem>
+            <listitem><para><link linkend="_group__handlers_1gae0cf58533e88a77f4c51b53a9c495f43">state_t</link> <link linkend="_handlers_8c_1a499e7824037af983d0524a98081e7f0b">state</link> = <link linkend="_group__handlers_1ggaa19be6305a5a4485e1e70de70ed7d677a4c40e60bc71a32b924ce1f08d57f9721">MENU</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_handlers_8c_1af96da98283ea6c9838dd20bb99d3306e"/><section>
+    <title>actionLeftTimeout</title>
+<indexterm><primary>actionLeftTimeout</primary><secondary>handlers.c</secondary></indexterm>
+<indexterm><primary>handlers.c</primary><secondary>actionLeftTimeout</secondary></indexterm>
+<para><computeroutput>int actionLeftTimeout<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_model_8c_source_1l00046">46</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_handlers_8c_1a617a47c70795bcff659815ad0efd2266"/><section>
+    <title>counter</title>
+<indexterm><primary>counter</primary><secondary>handlers.c</secondary></indexterm>
+<indexterm><primary>handlers.c</primary><secondary>counter</secondary></indexterm>
+<para><computeroutput>int counter<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timer_8c_source_1l00008">8</link> of file <link linkend="_timer_8c_source">timer.c</link>.</para>
+</section>
+<anchor xml:id="_handlers_8c_1aa78eb907c87c35d826617a9b7b6c1231"/><section>
+    <title>menu_entries</title>
+<indexterm><primary>menu_entries</primary><secondary>handlers.c</secondary></indexterm>
+<indexterm><primary>handlers.c</primary><secondary>menu_entries</secondary></indexterm>
+<para><computeroutput>int menu_entries[]<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_model_8c_source_1l00005">5</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_handlers_8c_1a73090bb6f3fb51137a791fee01794a36"/><section>
+    <title>player</title>
+<indexterm><primary>player</primary><secondary>handlers.c</secondary></indexterm>
+<indexterm><primary>handlers.c</primary><secondary>player</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_struct_player">Player</link> player<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_model_8c_source_1l00032">32</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_handlers_8c_1a48b10a1152d4bd8bc88cafe1a909c0c9"/><section>
+    <title>player1_initial_x</title>
+<indexterm><primary>player1_initial_x</primary><secondary>handlers.c</secondary></indexterm>
+<indexterm><primary>handlers.c</primary><secondary>player1_initial_x</secondary></indexterm>
+<para><computeroutput>int player1_initial_x<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_model_8c_source_1l00027">27</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_handlers_8c_1abf54e2844a0903331c1a36028f86f821"/><section>
+    <title>player2</title>
+<indexterm><primary>player2</primary><secondary>handlers.c</secondary></indexterm>
+<indexterm><primary>handlers.c</primary><secondary>player2</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_struct_player">Player</link> player2<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_model_8c_source_1l00034">34</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_handlers_8c_1a302f9b847087f423fd8b5d60e9d64606"/><section>
+    <title>player2_initial_x</title>
+<indexterm><primary>player2_initial_x</primary><secondary>handlers.c</secondary></indexterm>
+<indexterm><primary>handlers.c</primary><secondary>player2_initial_x</secondary></indexterm>
+<para><computeroutput>int player2_initial_x<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_model_8c_source_1l00028">28</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_handlers_8c_1a26e83eca70c2b9169fbbb0eac7e32e32"/><section>
+    <title>pp</title>
+<indexterm><primary>pp</primary><secondary>handlers.c</secondary></indexterm>
+<indexterm><primary>handlers.c</primary><secondary>pp</secondary></indexterm>
+<para><computeroutput>struct packet pp<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00101">101</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_handlers_8c_1ac2e72b5a2e01b5b5ae740469f6c558b2"/><section>
+    <title>read_data</title>
+<indexterm><primary>read_data</primary><secondary>handlers.c</secondary></indexterm>
+<indexterm><primary>handlers.c</primary><secondary>read_data</secondary></indexterm>
+<para><computeroutput>uint8_t read_data<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_serialport_8c_source_1l00009">9</link> of file <link linkend="_serialport_8c_source">serialport.c</link>.</para>
+</section>
+<anchor xml:id="_handlers_8c_1a01577ed8d3646775ae6a8e00d24c1d94"/><section>
+    <title>scancode</title>
+<indexterm><primary>scancode</primary><secondary>handlers.c</secondary></indexterm>
+<indexterm><primary>handlers.c</primary><secondary>scancode</secondary></indexterm>
+<para><computeroutput>uint8_t scancode[2]<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00012">12</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_handlers_8c_1a499e7824037af983d0524a98081e7f0b"/><section>
+    <title>state</title>
+<indexterm><primary>state</primary><secondary>handlers.c</secondary></indexterm>
+<indexterm><primary>handlers.c</primary><secondary>state</secondary></indexterm>
+<para><computeroutput><link linkend="_group__handlers_1gae0cf58533e88a77f4c51b53a9c495f43">state_t</link> state = <link linkend="_group__handlers_1ggaa19be6305a5a4485e1e70de70ed7d677a4c40e60bc71a32b924ce1f08d57f9721">MENU</link></computeroutput></para><para>
+Definition at line <link linkend="_handlers_8c_source_1l00016">16</link> of file <link linkend="_handlers_8c_source">handlers.c</link>.</para>
+</section>
+<anchor xml:id="_handlers_8c_1a92865b9fee2bc0725731ca6eaffeead0"/><section>
+    <title>wall</title>
+<indexterm><primary>wall</primary><secondary>handlers.c</secondary></indexterm>
+<indexterm><primary>handlers.c</primary><secondary>wall</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_struct_wall">Wall</link> wall<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_model_8c_source_1l00044">44</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_handlers_8c_1ac3897a350075920efc6bab8d04cc1215"/><section>
+    <title>winner</title>
+<indexterm><primary>winner</primary><secondary>handlers.c</secondary></indexterm>
+<indexterm><primary>handlers.c</primary><secondary>winner</secondary></indexterm>
+<para><computeroutput>int winner<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_model_8c_source_1l00025">25</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+</section>
+</section>

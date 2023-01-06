@@ -1,0 +1,505 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__kbc" xml:lang="en-US">
+<title>Keybord</title>
+<indexterm><primary>Keybord</primary></indexterm>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__kbc_1ga5761bd4aad91ac1d68916ad88f583d9f">kbc_ih</link> (<link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>)</para>
+
+<para>Control of keyboard interruptions. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga459c5f03316bc61703727fd38f1f1965">kbd_get_status_byte</link> ()</para>
+
+<para>Get status byte for keyboard. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1gad2fe6cbf61c2613cd7f4d7998979ee29">kbc_read_value</link> ()</para>
+
+<para>Read a value from the kbc output buffer. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__kbc_1ga8241f7a84e014002298dcaa15914baf3">kbc_issue_command</link> (uint8_t cmd)</para>
+
+<para>Issue a command to the kbc. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1gab06ce595703807400f3d90171f7f9884">kbc_write_cmd</link> (uint8_t cmd)</para>
+
+<para>Write a command to the kbc. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga4d01b87977dde6d295c19c982e5426ea">kbc_read_cmd</link> (uint8_t *cmd)</para>
+
+<para>Read a command from the kbc. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__kbc_1gac47c4cbc1a0bcfa157d20dd35d29da57">kbc_restore_interrupts</link> ()</para>
+
+<para>Restore keyboard interrupts. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga4ac9231a99a664d6a9f0b69767e0d707">kbd_subscribe_int</link> (uint8_t *bit_no)</para>
+
+<para>Subscribe interrupts from keyboard. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1gaee0a7b54ee426fade9c780418d110fe0">kbd_unsubscribe_int</link> ()</para>
+
+<para>Unsubscribe interrupts from keyboard. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga20285aed4b3ef45812cd967532dd09db">mouse_subscribe_int</link> (uint8_t *bit_no)</para>
+
+<para>Subscribe mouse interrupts. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga3ecf823d80520009ae5e0d76ae40a3c3">mouse_unsubscribe_int</link> ()</para>
+
+<para>Unsubscribe mouse interrupts. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1gad133813912d3da691a07674fb9e15455">enable_mouse</link> ()</para>
+
+<para>Enable mouse interrupts. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1gaaf62ad2fc57a009e413accb7373fe33d">disable_mouse</link> ()</para>
+
+<para>Disable mouse interrupts. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga486b669d172327d510db1fff96ea6b60">mouse_write_to_port</link> (uint8_t port, uint8_t cmd)</para>
+
+<para>Write a command to a port. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1gadce7a7604f8b0782158b70bf728eb411">mouse_write_cmd</link> (uint8_t cmd)</para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1gab03b20445da099487fdd96bc31007b0e">mouse_enbl_data_reporting</link> ()</para>
+
+<para>Enable data reporting. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga7e311379d4d64f88873ef8ade5c82a25">mouse_disable_data_reporting</link> ()</para>
+
+<para>Disable mouse data reporting. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__kbc_1gaed4404005e4c565ac36656307386e0ac">mouse_ih</link> (<link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>)</para>
+
+<para>Control of mouse interrupts. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga9e19cb92cae1a1257d65ae04e1e6cc6f">mouse_read_value</link> ()</para>
+
+<para>Read a value from the mouse, to build the mouse packet. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga4a3e729d49865f915c15092cfdda2835">parse_packet</link> ()</para>
+
+<para>Parse a packet with mouse information into a struct. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Lab3 - Keybord Fuctions </para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_group__kbc_1gaaf62ad2fc57a009e413accb7373fe33d"/><section>
+    <title>disable_mouse()</title>
+<indexterm><primary>disable_mouse</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>disable_mouse</secondary></indexterm>
+<para><computeroutput>int() disable_mouse ( )</computeroutput></para><para>
+
+<para>Disable mouse interrupts. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00116">116</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_group__kbc_1gad133813912d3da691a07674fb9e15455"/><section>
+    <title>enable_mouse()</title>
+<indexterm><primary>enable_mouse</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>enable_mouse</secondary></indexterm>
+<para><computeroutput>int() enable_mouse ( )</computeroutput></para><para>
+
+<para>Enable mouse interrupts. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00112">112</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_group__kbc_1ga5761bd4aad91ac1d68916ad88f583d9f"/><section>
+    <title>kbc_ih()</title>
+<indexterm><primary>kbc_ih</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>kbc_ih</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() kbc_ih (<link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link> )</computeroutput></para><para>
+
+<para>Control of keyboard interruptions. </para>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00014">14</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__kbc_ga5761bd4aad91ac1d68916ad88f583d9f_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__kbc_1ga8241f7a84e014002298dcaa15914baf3"/><section>
+    <title>kbc_issue_command()</title>
+<indexterm><primary>kbc_issue_command</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>kbc_issue_command</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() kbc_issue_command (uint8_t cmd)</computeroutput></para><para>
+
+<para>Issue a command to the kbc. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_group__kbc_1ga4d01b87977dde6d295c19c982e5426ea"/><section>
+    <title>kbc_read_cmd()</title>
+<indexterm><primary>kbc_read_cmd</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>kbc_read_cmd</secondary></indexterm>
+<para><computeroutput>int() kbc_read_cmd (uint8_t * cmd)</computeroutput></para><para>
+
+<para>Read a command from the kbc. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00064">64</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__kbc_ga4d01b87977dde6d295c19c982e5426ea_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__kbc_1gad2fe6cbf61c2613cd7f4d7998979ee29"/><section>
+    <title>kbc_read_value()</title>
+<indexterm><primary>kbc_read_value</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>kbc_read_value</secondary></indexterm>
+<para><computeroutput>int() kbc_read_value ( )</computeroutput></para><para>
+
+<para>Read a value from the kbc output buffer. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00039">39</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__kbc_gad2fe6cbf61c2613cd7f4d7998979ee29_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__kbc_1gac47c4cbc1a0bcfa157d20dd35d29da57"/><section>
+    <title>kbc_restore_interrupts()</title>
+<indexterm><primary>kbc_restore_interrupts</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>kbc_restore_interrupts</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() kbc_restore_interrupts ( )</computeroutput></para><para>
+
+<para>Restore keyboard interrupts. </para>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00076">76</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__kbc_gac47c4cbc1a0bcfa157d20dd35d29da57_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__kbc_1gab06ce595703807400f3d90171f7f9884"/><section>
+    <title>kbc_write_cmd()</title>
+<indexterm><primary>kbc_write_cmd</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>kbc_write_cmd</secondary></indexterm>
+<para><computeroutput>int() kbc_write_cmd (uint8_t cmd)</computeroutput></para><para>
+
+<para>Write a command to the kbc. </para>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00070">70</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_group__kbc_1ga459c5f03316bc61703727fd38f1f1965"/><section>
+    <title>kbd_get_status_byte()</title>
+<indexterm><primary>kbd_get_status_byte</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>kbd_get_status_byte</secondary></indexterm>
+<para><computeroutput>int() kbd_get_status_byte ( )</computeroutput></para><para>
+
+<para>Get status byte for keyboard. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00020">20</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__kbc_ga459c5f03316bc61703727fd38f1f1965_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__kbc_1ga4ac9231a99a664d6a9f0b69767e0d707"/><section>
+    <title>kbd_subscribe_int()</title>
+<indexterm><primary>kbd_subscribe_int</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>kbd_subscribe_int</secondary></indexterm>
+<para><computeroutput>int() kbd_subscribe_int (uint8_t * bit_no)</computeroutput></para><para>
+
+<para>Subscribe interrupts from keyboard. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00086">86</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_group__kbc_1gaee0a7b54ee426fade9c780418d110fe0"/><section>
+    <title>kbd_unsubscribe_int()</title>
+<indexterm><primary>kbd_unsubscribe_int</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>kbd_unsubscribe_int</secondary></indexterm>
+<para><computeroutput>int() kbd_unsubscribe_int ( )</computeroutput></para><para>
+
+<para>Unsubscribe interrupts from keyboard. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00091">91</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_group__kbc_1ga7e311379d4d64f88873ef8ade5c82a25"/><section>
+    <title>mouse_disable_data_reporting()</title>
+<indexterm><primary>mouse_disable_data_reporting</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>mouse_disable_data_reporting</secondary></indexterm>
+<para><computeroutput>int() mouse_disable_data_reporting ( )</computeroutput></para><para>
+
+<para>Disable mouse data reporting. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00219">219</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__kbc_ga7e311379d4d64f88873ef8ade5c82a25_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__kbc_1gab03b20445da099487fdd96bc31007b0e"/><section>
+    <title>mouse_enbl_data_reporting()</title>
+<indexterm><primary>mouse_enbl_data_reporting</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>mouse_enbl_data_reporting</secondary></indexterm>
+<para><computeroutput>int() mouse_enbl_data_reporting ( )</computeroutput></para><para>
+
+<para>Enable data reporting. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00213">213</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__kbc_gab03b20445da099487fdd96bc31007b0e_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__kbc_1gaed4404005e4c565ac36656307386e0ac"/><section>
+    <title>mouse_ih()</title>
+<indexterm><primary>mouse_ih</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>mouse_ih</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() mouse_ih (<link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link> )</computeroutput></para><para>
+
+<para>Control of mouse interrupts. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00139">139</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__kbc_gaed4404005e4c565ac36656307386e0ac_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__kbc_1ga9e19cb92cae1a1257d65ae04e1e6cc6f"/><section>
+    <title>mouse_read_value()</title>
+<indexterm><primary>mouse_read_value</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>mouse_read_value</secondary></indexterm>
+<para><computeroutput>int() mouse_read_value ( )</computeroutput></para><para>
+
+<para>Read a value from the mouse, to build the mouse packet. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00153">153</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__kbc_ga9e19cb92cae1a1257d65ae04e1e6cc6f_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__kbc_1ga20285aed4b3ef45812cd967532dd09db"/><section>
+    <title>mouse_subscribe_int()</title>
+<indexterm><primary>mouse_subscribe_int</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>mouse_subscribe_int</secondary></indexterm>
+<para><computeroutput>int() mouse_subscribe_int (uint8_t * bit_no)</computeroutput></para><para>
+
+<para>Subscribe mouse interrupts. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00103">103</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_group__kbc_1ga3ecf823d80520009ae5e0d76ae40a3c3"/><section>
+    <title>mouse_unsubscribe_int()</title>
+<indexterm><primary>mouse_unsubscribe_int</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>mouse_unsubscribe_int</secondary></indexterm>
+<para><computeroutput>int() mouse_unsubscribe_int ( )</computeroutput></para><para>
+
+<para>Unsubscribe mouse interrupts. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00108">108</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_group__kbc_1gadce7a7604f8b0782158b70bf728eb411"/><section>
+    <title>mouse_write_cmd()</title>
+<indexterm><primary>mouse_write_cmd</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>mouse_write_cmd</secondary></indexterm>
+<para><computeroutput>int() mouse_write_cmd (uint8_t cmd)</computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00240">240</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__kbc_gadce7a7604f8b0782158b70bf728eb411_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__kbc_1ga486b669d172327d510db1fff96ea6b60"/><section>
+    <title>mouse_write_to_port()</title>
+<indexterm><primary>mouse_write_to_port</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>mouse_write_to_port</secondary></indexterm>
+<para><computeroutput>int() mouse_write_to_port (uint8_t port, uint8_t cmd)</computeroutput></para><para>
+
+<para>Write a command to a port. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00225">225</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__kbc_ga486b669d172327d510db1fff96ea6b60_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__kbc_1ga4a3e729d49865f915c15092cfdda2835"/><section>
+    <title>parse_packet()</title>
+<indexterm><primary>parse_packet</primary><secondary>Keybord</secondary></indexterm>
+<indexterm><primary>Keybord</primary><secondary>parse_packet</secondary></indexterm>
+<para><computeroutput>int() parse_packet ( )</computeroutput></para><para>
+
+<para>Parse a packet with mouse information into a struct. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_kbc_8c_source_1l00185">185</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+</section>
+</section>

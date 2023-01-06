@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_serialport_8h" xml:lang="en-US">
+<title>serialport/serialport.h File Reference</title>
+<indexterm><primary>serialport/serialport.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;lcom/lcf.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stdint.h&gt;
+</programlisting>Include dependency graph for serialport.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="serialport_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="serialport_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group__serialport_1ga0bbbe5033c75850015a6532ae64097b3">SER_IRQ</link>   4</para>
+
+<para>IRQ line of the serial port. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1ga0a6bd23d09bd13a268dc85a7fbaac454">SER_PORT</link>   0x3F8</para>
+
+<para>Address of the host pipe. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1ga0921695d71206ba9d6855bb403acec9d">SER_INIT</link>   2</para>
+
+<para>Message signaling being ready for connection. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1gad549d3f7a678b727d6ae694e22378d05">SER_START</link>   3</para>
+
+<para>Message signaling to start game execution. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1ga94f8dc88853cae790047363466bd2147">SER_GOAL_1</link>   40</para>
+
+<para>Message signaling goal from player 1. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1ga35048c7c149be52594fdf7255485a9be">SER_GOAL_2</link>   41</para>
+
+<para>Message signaling goal from player 2. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1ga4c5aa3c4ff5b1d3721bad5a64dcfa9f9">SER_WINNER</link>   100</para>
+
+<para>Winner number are transferred with this number added. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1gaab10abea0297abdcf0aab7d7d0b5662f">SER_RBR</link>   0</para>
+
+<para>Byte offset of the Reciever Buffer Register. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1ga3702c28928f73b9841ab8269f64177ed">SER_THR</link>   0</para>
+
+<para>Byte offset of the Transmitter Holding Register. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1ga382b5d26eb113bfffbf2094eb4405042">SER_LSR</link>   5</para>
+
+<para>Byte offset of the Line Status Register. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1gaf64e9d55e8b66fdeaaa02652614610b5">SER_DATA_READY</link>   BIT(0)</para>
+
+<para>Bit in LSR signaling data available and ready for reading. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1gac22f7e8109686500cf878a26ea3af115">SER_OVERRUN_ERR</link>   BIT(1)</para>
+
+<para>Bit in LSR signaling overrun error. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1ga356ae2e9093b65d87b35a303f3092057">SER_PARITY_ERR</link>   BIT(2)</para>
+
+<para>Bit in LSR signaling parity error. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1ga0182fcdfbfeb90906d60c3ddb411aece">SER_FRAME_ERR</link>   BIT(3)</para>
+
+<para>Bit in LSR signaling framing error. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1gaadd7d6748f7ddf10b6f87e350d6d1b26">SER_UART_READY</link>   BIT(5)</para>
+
+<para>Bit in LSR signaling transmitter register ready for recieving data. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1ga7828169194de03d2e2cd9d1b15d3ea78">SER_THR_EMPTY</link>   BIT(6)</para>
+
+<para>Bit in LSR signaling transmitter register empty. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1ga783f8e3973a5f87d8af120d49742f834">SER_IER</link>   1</para>
+
+<para>Byte offset of the Interrupt Enable Register. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__serialport_1ga7b7cadf7e8da87ebbed4922556b94433">SER_ERBFI</link>   BIT(0)</para>
+
+<para>Bit in LSR signaling to enable recieved data available interrupts. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int() <link linkend="_group__serialport_1ga0310282e052b0d6daacdcf32745aad12">ser_init</link> ()</para>
+
+<para>Enables interrupts for recieving data, reads leftover data in the Receiver Buffer Register and transmits a initial message saying it is ready to connect. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__serialport_1ga08071d8d2ad944789c1befd58b6fc6be">ser_read_lsr_status</link> (uint8_t *status)</para>
+
+<para>Reads the Line Status Register to check for errors and available data. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__serialport_1gafe652e0add554a59ead8c1960eefb6b1">ser_read_data</link> ()</para>
+
+<para>If data is available it will read all entries in the buffer until there are none left(to maintain it updated) </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__serialport_1ga9763e9d84c9c2217d5bfe4e59ee69d64">ser_transmit_data</link> (uint8_t <link linkend="_proj_8c_1a325819a8e492ac69542e8b31705af6e9">data</link>)</para>
+
+<para>Sends the given data to the Transmitter Holding Register. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__serialport_1gab72ff27750fce4726c3861005ee392c6">ser_check_connection</link> ()</para>
+
+<para>Used in the beginning of the connection to determine what to do next. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__serialport_1gaf21628f0f9d46b62067ae790f7861e84">ser_subscribe_int</link> (uint8_t *bit_no)</para>
+
+<para>Unubscribes to interrupts from the Serial Port. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__serialport_1ga30ae83ae28ebc465baa2d2f2ee51a145">ser_unsubscribe_int</link> ()</para>
+
+<para>Unubscribes to interrupts from the Serial Port. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

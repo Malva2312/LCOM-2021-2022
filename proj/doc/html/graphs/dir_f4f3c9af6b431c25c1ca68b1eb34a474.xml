@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_f4f3c9af6b431c25c1ca68b1eb34a474" xml:lang="en-US">
+<title>sprites/numbers Directory Reference</title>
+<indexterm><primary>sprites/numbers Directory Reference</primary></indexterm>
+Directory dependency graph for numbers:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_f4f3c9af6b431c25c1ca68b1eb34a474_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_0_8h">0.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_1_8h">1.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_2_8h">2.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_3_8h">3.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_4_8h">4.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_5_8h">5.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

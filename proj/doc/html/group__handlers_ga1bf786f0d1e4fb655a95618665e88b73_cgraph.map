@@ -1,0 +1,17 @@
+<map id="menuHandler" name="menuHandler">
+<area shape="rect" id="node1" title="Proceed with the actions in the Menu State of the respective given device." alt="" coords="5,183,104,209"/>
+<area shape="rect" id="node2" href="$group__model.html#gac5e7c173213772b349ccecd660397b85" title="In the menu, it goes to the next option. If there is no next option, the selection remains unchanged." alt="" coords="155,5,262,32"/>
+<area shape="rect" id="node3" href="$group__model.html#ga6c4d95dd6d5eef5cc2de39f9f71604fd" title="In the menu, it goes to the previous option. If there is no previous option, the selection remains un..." alt="" coords="152,56,265,83"/>
+<area shape="rect" id="node4" href="$video_8c.html#af7831592ef04114ca9b46e672c0e646b" title="Clear the secondary buffer." alt="" coords="165,107,253,133"/>
+<area shape="rect" id="node5" href="$group__view.html#ga5fd0c469e6f02d84c080f7cf71630109" title="Calls the functions responsible for drawing the menu." alt="" coords="168,208,249,235"/>
+<area shape="rect" id="node8" href="$group__model.html#gafe5875991840df952715c5f334c06df4" title="Returns the value of the corrent entry in the menu." alt="" coords="313,233,448,260"/>
+<area shape="rect" id="node9" href="$group__view.html#gac03b90d30597233ea059a89bce73dbf3" title="Calls the function responsible for drawing the waiting menu, while waiting other player." alt="" coords="155,157,263,184"/>
+<area shape="rect" id="node10" href="$video_8c.html#a8241e421a3811f46b59bed9f166a48d1" title="Copy the secondary buffer contents to the main buffer." alt="" coords="159,309,258,336"/>
+<area shape="rect" id="node11" href="$group__serialport.html#ga0310282e052b0d6daacdcf32745aad12" title="Enables interrupts for recieving data, reads leftover data in the Receiver Buffer Register and transm..." alt="" coords="177,360,241,387"/>
+<area shape="rect" id="node6" href="$video_8c.html#a9502773109672e86799bba9705b835bd" title="Draw a sprite." alt="" coords="337,171,425,197"/>
+<area shape="rect" id="node7" href="$video_8c.html#a576ad65187107e487c85b9fb42fa0220" title="Set the color of a pixel." alt="" coords="517,171,611,197"/>
+<area shape="rect" id="node12" href="$group__serialport.html#gafe652e0add554a59ead8c1960eefb6b1" title="If data is available it will read all entries in the buffer until there are none left(to maintain it ..." alt="" coords="329,385,433,412"/>
+<area shape="rect" id="node15" href="$group__serialport.html#ga9763e9d84c9c2217d5bfe4e59ee69d64" title="Sends the given data to the Transmitter Holding Register." alt="" coords="317,335,444,361"/>
+<area shape="rect" id="node13" href="$group__serialport.html#ga08071d8d2ad944789c1befd58b6fc6be" title="Reads the Line Status Register to check for errors and available data." alt="" coords="496,335,632,361"/>
+<area shape="rect" id="node14" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="680,360,771,387"/>
+</map>

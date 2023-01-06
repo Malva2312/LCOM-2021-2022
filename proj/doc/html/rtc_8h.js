@@ -1,0 +1,26 @@
+var rtc_8h =
+[
+    [ "RTC_A_UIP", "group__rtc.html#ga1e6e1cd792f1947834dbbfff106fa6f9", null ],
+    [ "RTC_ADDR_REG", "group__rtc.html#ga710b98232df2c563009e6f8a6cd18220", null ],
+    [ "RTC_D_MONTH", "group__rtc.html#ga86a86319b7ac65ca54ae96cb722053d9", null ],
+    [ "RTC_D_WEEK", "group__rtc.html#ga2d8479354f796c5abb615344ad67ad75", null ],
+    [ "RTC_DATA_REG", "group__rtc.html#ga2f258a00c59c3f347c8d2d4a75471ce0", null ],
+    [ "RTC_HRS", "group__rtc.html#gafcde079409215e1bc489858dc183d922", null ],
+    [ "RTC_HRS_ALRM", "group__rtc.html#gae4323188b40fadd52ef91dff864955e4", null ],
+    [ "RTC_IRQ", "group__rtc.html#ga4e22feb6ffbc1cda32fadff5c740dc51", null ],
+    [ "RTC_MIN", "group__rtc.html#ga34fc4e7c0e5db231217aa3174e394c72", null ],
+    [ "RTC_MIN_ALRM", "group__rtc.html#gacb4d37c4cd49fef00f32706032c9414e", null ],
+    [ "RTC_MONTH", "group__rtc.html#gabda0c877ee1a02b8351c0cfe72838088", null ],
+    [ "RTC_REG_A", "group__rtc.html#gae5ffad506b363f28bed1bb5e5926bd2d", null ],
+    [ "RTC_REG_B", "group__rtc.html#ga03954a63ead3f02b7790ce79e9877eea", null ],
+    [ "RTC_REG_C", "group__rtc.html#ga1bd6f771dc313129723812fe7ac52d9e", null ],
+    [ "RTC_REG_D", "group__rtc.html#ga34c8604ade07f4f7ff7e919f2d4c56b4", null ],
+    [ "RTC_SEC", "group__rtc.html#ga2507e650d4ccc8a2bdf3001800a3e743", null ],
+    [ "RTC_SEC_ALRM", "group__rtc.html#ga781a1b48b16eed41ae70464b00003aca", null ],
+    [ "RTC_YEAR", "group__rtc.html#ga1df5568e6774b73aa4c6e59fc40e9147", null ],
+    [ "rtc_convert_BCD", "group__rtc.html#gaef48ce217f5c004635226cc27c0d4081", null ],
+    [ "rtc_subscribe_int", "group__rtc.html#ga6bbe679f115cec90d36d50eb2aac1b89", null ],
+    [ "rtc_unsubscribe_int", "group__rtc.html#ga9d4850bb2a488644672d43287f160622", null ],
+    [ "rtc_update_darkmode", "group__rtc.html#gac06a0a3580daf870240d95679167b593", null ],
+    [ "rtc_wait_for_access", "group__rtc.html#ga861d2f079d8248ed95f305600eaa0567", null ]
+];

@@ -1,0 +1,10 @@
+<map id="moveBall" name="moveBall">
+<area shape="rect" id="node1" title="Calculates and moves the ball to its next position Changes trajectory if collisions are detected." alt="" coords="5,81,80,108"/>
+<area shape="rect" id="node2" href="$model_8c.html#a4cf55b77cc02efad5aaebe5e3a79a7c6" title=" " alt="" coords="128,5,253,32"/>
+<area shape="rect" id="node3" href="$model_8c.html#a113f4b3fda8579a672c13893e8e2347a" title=" " alt="" coords="133,56,248,83"/>
+<area shape="rect" id="node4" href="$group__model.html#ga7c9c7f327063d813b3f52c0bc6044d14" title="Checks if any player has scored a point and raises his score if so Returns true if someone has scored..." alt="" coords="167,107,214,133"/>
+<area shape="rect" id="node8" href="$group__model.html#ga9d486c3d9622330fe1190c3fb7b8663e" title="Resets the ball and the player(s) after someone has scored a point." alt="" coords="138,157,243,184"/>
+<area shape="rect" id="node5" href="$group__serialport.html#ga9763e9d84c9c2217d5bfe4e59ee69d64" title="Sends the given data to the Transmitter Holding Register." alt="" coords="301,107,428,133"/>
+<area shape="rect" id="node6" href="$group__serialport.html#ga08071d8d2ad944789c1befd58b6fc6be" title="Reads the Line Status Register to check for errors and available data." alt="" coords="476,107,612,133"/>
+<area shape="rect" id="node7" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="660,107,751,133"/>
+</map>

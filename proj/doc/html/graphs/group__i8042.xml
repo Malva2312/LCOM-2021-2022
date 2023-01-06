@@ -1,0 +1,630 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__i8042" xml:lang="en-US">
+<title>i8042</title>
+<indexterm><primary>i8042</primary></indexterm>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group__i8042_1ga1a522aa19bcb695a9df30032a893bee3">DELAY_US</link>   20000</para>
+
+<para>Delay between commands. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga16c5827f043d82f87c726c2d4369c11d">KBC_IRQ</link>   1</para>
+
+<para>KBC interrupt line. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga85964cb90343bb1a029b1d1b4229f910">MOUSE_IRQ</link>   12</para>
+
+<para>mouse interrupt line </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga322b65f62d443658a88cfd7ec20fc9d3">KBC_TWO_BYTE</link>   0xE0</para>
+
+<para>First byte of a two byte key. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gaab234bf892e4394a628452e593bddec4">KBC_ESC_KEY</link>   0x81</para>
+
+<para>ESC key scancode. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga1ccde68b2b6d4e45b50eef1403e10bb7">KBC_OUT_BUF</link>   0x60</para>
+
+<para>Output buffer of kbc. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga02e4d55add7b39e9d9d1af03f2f89b5d">KBC_ARG_CMD</link>   0x60</para>
+
+<para>Argumment commands for kbc. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga6f977b36b770dca3092d0bdf8c949cfe">KBC_ST_REG</link>   0x64</para>
+
+<para>Status register of kbc. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga6d57c7927a10f638c83046b52c8caac9">KBC_CMD_REG</link>   0x64</para>
+
+<para>Command register of kbc. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gaea2ef6dda1aabebf291eeee29b66c04a">KBC_PAR_ERR</link>   BIT(7)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gae31c3653f5881b02cbfdd4ccbb7ccf50">KBC_TO_ERR</link>   BIT(6)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga5a01c98e394aedacd058f4dc3b953bb0">KBC_ST_AUX</link>   BIT(5)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gaadde2ef3c9f5f2e49b8c83900dda7776">KBC_ST_INH</link>   BIT(4)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga141ccbc1ab10dfcdd1d450414dba13d4">KBC_ST_IBF</link>   BIT(1)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga38010ed603a29beee559b2c20de50dcd">KBC_ST_OBF</link>   BIT(0)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga595a5cad2d3c793963da50865b2c1b47">KBC_READ_CMD</link>   0x20</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gaaa62a6987753a109d2f7a609ce8b7334">KBC_WRITE_CMD</link>   0x60</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga55fefff08c94153a53592686472a6c80">CHECK_KBC</link>   0xAA</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gab9a647901ad332940f65763e0c593243">CHECK_KB_INTERFACE</link>   0xAB</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga7f39eed2aefadffa3c7a2b29513483d1">DISABLE_KBI</link>   0xAD</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gade93f9dc1a4c20bc5c4c78c983a0c973">ENABLE_KBI</link>   0xAE</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga12d3b0abea66d191d47fe6860e58865e">DISABLE_MOUSE</link>   0xA7</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga618bdf461c25d552e654d6b899de2d37">ENABLE_MOUSE</link>   0xA8</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga8b6ad5cab3f7946154fe5457b0b24ca8">CHECK_MOUSE_INTERFACE</link>   0xA9</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga0fcdbd39ed7dcf62fede44082d09cb7a">WRITE_BYTE_TO_MOUSE</link>   0xD4</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga6ffc184930d4db38b97f4baf79a2d9ca">KBC_DIS_MOUSE</link>   BIT(5)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga10d4c81a5af19c229b586d5b83a562f3">KBC_DIS_KBI</link>   BIT(4)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga302164a11254248a39e2a2ecb01b21c3">KBC_ENA_OBF_MOUSE</link>   BIT(1)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gacd4a7162d51e71f1c02616eed39e9825">KBC_ENA_OBF_KB</link>   BIT(0)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gafa086fc916a81e7fd348ec00cf786916">KEY_UP</link>   0x48</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga203163bc0189184a1de6ca8d1e53c6bf">KEY_DOWN</link>   0x50</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gabaee5edb96e542206ae6c8102ac228af">KEY_ENTER</link>   0x1C</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gafdebd5d771ee260c703a74f459767c09">KEY_W</link>   0x11</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga024e62650f02bfd64a4ce2b158ec2dd7">KEY_A</link>   0x1e</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga6f09e2899747f5db41369ce1dae11ebd">KEY_S</link>   0x1F</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gad2017b35fcff527a10050ab7c9af2d5c">KEY_D</link>   0x20</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gaaa583bb56e5e2a9757d5d78a3c83f285">MOUSE_Y_OVFL</link>   BIT(7)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gac113431b56bb3f19e4e81c6af3e47a26">MOUSE_X_OVFL</link>   BIT(6)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gae0f95694f6f137fcae25644972556873">MOUSE_Y_SIGN</link>   BIT(5)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gacd43b7d72e2f4da511b0f8a73df0fe79">MOUSE_X_SIGN</link>   BIT(4)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga7512d0cbbfd6071491dbd3d0758edadf">MOUSE_ALWAYS_1</link>   BIT(3)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga16131e6f23b536ee7b3138a11cffa3b9">MOUSE_MIDDLE_BUTT</link>   BIT(2)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga888b7cb1d96e369e6669f633b748fa1f">MOUSE_RIGHT_BUTT</link>   BIT(1)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga79628b2d41b95ed700b7206635917000">MOUSE_LEFT_BUTT</link>   BIT(0)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gaa824f0a1b0d9aa9c5fdd3c7e1d59233e">MCM_RESET</link>   0xFF</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga2ce5d67937ec4d21dd26ad31b6ebfbff">MCM_RESEND</link>   0xFE</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga06058dba67c4ec1fe5bbf5d206ad271e">MCM_SET_DEFAULTS</link>   0xF6</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gad954c0d7cc6021941c2fb0c8bbb7bf0b">MCM_DISABLE_DATA_REP</link>   0xF5</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gaed841950e2d83a4cb873f6b1e691e219">MCM_ENABLE_DATA_REP</link>   0xF4</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga33146b7ec8d0241492d562076dd906fc">MCM_SET_SMPL_RATE</link>   0xF3</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gae3b4cd4b499d8eb7a6b3720128ed76c0">MCM_SET_REM_MODE</link>   0xF0</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga79fe1129725953ca1840f4b55c6039d5">MCM_READ_DATA</link>   0xEB</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga754337587348c7bc757c921b836575a1">MCM_SET_STREAM_MODE</link>   0xEA</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gae056e7350fa5468ee41e74069187ebf5">MCM_STATUS_REQUEST</link>   0xE9</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gafc96bd11a353c3a5a2704a086df76544">MCM_SET_RESOLUTION</link>   0xE8</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gabfad2a8bbc6d36d99a9194a027bcd04f">MCM_SET_SCAL_2</link>   0xE7</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga3a9a3ebba73b8343e97810dbc2ebaeac">MCM_SET_SCAL_1</link>   0xE6</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga6a41a192d262d92b57a80ee61f4dd096">MCM_ACK</link>   0xFA</para>
+
+<para>Response when everything is OK. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1gab4aefb5c7e5edb2647d44f386124e558">MCM_NACK</link>   0xFE</para>
+
+<para>First invalid byte. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8042_1ga04b45d2391bf02219b7b4c184c6bb0e2">MCM_ERROR</link>   0xFC</para>
+
+<para>Second consecutive invalid byte. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Constants for programming the i8042 Keyboard and <link linkend="_struct_mouse">Mouse</link> and KBC. </para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_group__i8042_1gab9a647901ad332940f65763e0c593243"/><section>
+    <title>CHECK_KB_INTERFACE</title>
+<indexterm><primary>CHECK_KB_INTERFACE</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>CHECK_KB_INTERFACE</secondary></indexterm>
+<para><computeroutput>#define CHECK_KB_INTERFACE   0xAB</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00045">45</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga55fefff08c94153a53592686472a6c80"/><section>
+    <title>CHECK_KBC</title>
+<indexterm><primary>CHECK_KBC</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>CHECK_KBC</secondary></indexterm>
+<para><computeroutput>#define CHECK_KBC   0xAA</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00044">44</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga8b6ad5cab3f7946154fe5457b0b24ca8"/><section>
+    <title>CHECK_MOUSE_INTERFACE</title>
+<indexterm><primary>CHECK_MOUSE_INTERFACE</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>CHECK_MOUSE_INTERFACE</secondary></indexterm>
+<para><computeroutput>#define CHECK_MOUSE_INTERFACE   0xA9</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00052">52</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga1a522aa19bcb695a9df30032a893bee3"/><section>
+    <title>DELAY_US</title>
+<indexterm><primary>DELAY_US</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>DELAY_US</secondary></indexterm>
+<para><computeroutput>#define DELAY_US   20000</computeroutput></para><para>
+
+<para>Delay between commands. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8042_8h_source_1l00012">12</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga7f39eed2aefadffa3c7a2b29513483d1"/><section>
+    <title>DISABLE_KBI</title>
+<indexterm><primary>DISABLE_KBI</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>DISABLE_KBI</secondary></indexterm>
+<para><computeroutput>#define DISABLE_KBI   0xAD</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00046">46</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga12d3b0abea66d191d47fe6860e58865e"/><section>
+    <title>DISABLE_MOUSE</title>
+<indexterm><primary>DISABLE_MOUSE</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>DISABLE_MOUSE</secondary></indexterm>
+<para><computeroutput>#define DISABLE_MOUSE   0xA7</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00050">50</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gade93f9dc1a4c20bc5c4c78c983a0c973"/><section>
+    <title>ENABLE_KBI</title>
+<indexterm><primary>ENABLE_KBI</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>ENABLE_KBI</secondary></indexterm>
+<para><computeroutput>#define ENABLE_KBI   0xAE</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00047">47</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga618bdf461c25d552e654d6b899de2d37"/><section>
+    <title>ENABLE_MOUSE</title>
+<indexterm><primary>ENABLE_MOUSE</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>ENABLE_MOUSE</secondary></indexterm>
+<para><computeroutput>#define ENABLE_MOUSE   0xA8</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00051">51</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga02e4d55add7b39e9d9d1af03f2f89b5d"/><section>
+    <title>KBC_ARG_CMD</title>
+<indexterm><primary>KBC_ARG_CMD</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_ARG_CMD</secondary></indexterm>
+<para><computeroutput>#define KBC_ARG_CMD   0x60</computeroutput></para><para>
+
+<para>Argumment commands for kbc. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8042_8h_source_1l00022">22</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga6d57c7927a10f638c83046b52c8caac9"/><section>
+    <title>KBC_CMD_REG</title>
+<indexterm><primary>KBC_CMD_REG</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_CMD_REG</secondary></indexterm>
+<para><computeroutput>#define KBC_CMD_REG   0x64</computeroutput></para><para>
+
+<para>Command register of kbc. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8042_8h_source_1l00024">24</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga10d4c81a5af19c229b586d5b83a562f3"/><section>
+    <title>KBC_DIS_KBI</title>
+<indexterm><primary>KBC_DIS_KBI</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_DIS_KBI</secondary></indexterm>
+<para><computeroutput>#define KBC_DIS_KBI   BIT(4)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00062">62</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga6ffc184930d4db38b97f4baf79a2d9ca"/><section>
+    <title>KBC_DIS_MOUSE</title>
+<indexterm><primary>KBC_DIS_MOUSE</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_DIS_MOUSE</secondary></indexterm>
+<para><computeroutput>#define KBC_DIS_MOUSE   BIT(5)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00061">61</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gacd4a7162d51e71f1c02616eed39e9825"/><section>
+    <title>KBC_ENA_OBF_KB</title>
+<indexterm><primary>KBC_ENA_OBF_KB</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_ENA_OBF_KB</secondary></indexterm>
+<para><computeroutput>#define KBC_ENA_OBF_KB   BIT(0)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00064">64</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga302164a11254248a39e2a2ecb01b21c3"/><section>
+    <title>KBC_ENA_OBF_MOUSE</title>
+<indexterm><primary>KBC_ENA_OBF_MOUSE</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_ENA_OBF_MOUSE</secondary></indexterm>
+<para><computeroutput>#define KBC_ENA_OBF_MOUSE   BIT(1)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00063">63</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gaab234bf892e4394a628452e593bddec4"/><section>
+    <title>KBC_ESC_KEY</title>
+<indexterm><primary>KBC_ESC_KEY</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_ESC_KEY</secondary></indexterm>
+<para><computeroutput>#define KBC_ESC_KEY   0x81</computeroutput></para><para>
+
+<para>ESC key scancode. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8042_8h_source_1l00019">19</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga16c5827f043d82f87c726c2d4369c11d"/><section>
+    <title>KBC_IRQ</title>
+<indexterm><primary>KBC_IRQ</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_IRQ</secondary></indexterm>
+<para><computeroutput>#define KBC_IRQ   1</computeroutput></para><para>
+
+<para>KBC interrupt line. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8042_8h_source_1l00014">14</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga1ccde68b2b6d4e45b50eef1403e10bb7"/><section>
+    <title>KBC_OUT_BUF</title>
+<indexterm><primary>KBC_OUT_BUF</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_OUT_BUF</secondary></indexterm>
+<para><computeroutput>#define KBC_OUT_BUF   0x60</computeroutput></para><para>
+
+<para>Output buffer of kbc. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8042_8h_source_1l00021">21</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gaea2ef6dda1aabebf291eeee29b66c04a"/><section>
+    <title>KBC_PAR_ERR</title>
+<indexterm><primary>KBC_PAR_ERR</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_PAR_ERR</secondary></indexterm>
+<para><computeroutput>#define KBC_PAR_ERR   BIT(7)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00028">28</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga595a5cad2d3c793963da50865b2c1b47"/><section>
+    <title>KBC_READ_CMD</title>
+<indexterm><primary>KBC_READ_CMD</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_READ_CMD</secondary></indexterm>
+<para><computeroutput>#define KBC_READ_CMD   0x20</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00042">42</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga5a01c98e394aedacd058f4dc3b953bb0"/><section>
+    <title>KBC_ST_AUX</title>
+<indexterm><primary>KBC_ST_AUX</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_ST_AUX</secondary></indexterm>
+<para><computeroutput>#define KBC_ST_AUX   BIT(5)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00030">30</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga141ccbc1ab10dfcdd1d450414dba13d4"/><section>
+    <title>KBC_ST_IBF</title>
+<indexterm><primary>KBC_ST_IBF</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_ST_IBF</secondary></indexterm>
+<para><computeroutput>#define KBC_ST_IBF   BIT(1)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00032">32</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gaadde2ef3c9f5f2e49b8c83900dda7776"/><section>
+    <title>KBC_ST_INH</title>
+<indexterm><primary>KBC_ST_INH</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_ST_INH</secondary></indexterm>
+<para><computeroutput>#define KBC_ST_INH   BIT(4)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00031">31</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga38010ed603a29beee559b2c20de50dcd"/><section>
+    <title>KBC_ST_OBF</title>
+<indexterm><primary>KBC_ST_OBF</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_ST_OBF</secondary></indexterm>
+<para><computeroutput>#define KBC_ST_OBF   BIT(0)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00033">33</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga6f977b36b770dca3092d0bdf8c949cfe"/><section>
+    <title>KBC_ST_REG</title>
+<indexterm><primary>KBC_ST_REG</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_ST_REG</secondary></indexterm>
+<para><computeroutput>#define KBC_ST_REG   0x64</computeroutput></para><para>
+
+<para>Status register of kbc. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8042_8h_source_1l00023">23</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gae31c3653f5881b02cbfdd4ccbb7ccf50"/><section>
+    <title>KBC_TO_ERR</title>
+<indexterm><primary>KBC_TO_ERR</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_TO_ERR</secondary></indexterm>
+<para><computeroutput>#define KBC_TO_ERR   BIT(6)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00029">29</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga322b65f62d443658a88cfd7ec20fc9d3"/><section>
+    <title>KBC_TWO_BYTE</title>
+<indexterm><primary>KBC_TWO_BYTE</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_TWO_BYTE</secondary></indexterm>
+<para><computeroutput>#define KBC_TWO_BYTE   0xE0</computeroutput></para><para>
+
+<para>First byte of a two byte key. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8042_8h_source_1l00017">17</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gaaa62a6987753a109d2f7a609ce8b7334"/><section>
+    <title>KBC_WRITE_CMD</title>
+<indexterm><primary>KBC_WRITE_CMD</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KBC_WRITE_CMD</secondary></indexterm>
+<para><computeroutput>#define KBC_WRITE_CMD   0x60</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00043">43</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga024e62650f02bfd64a4ce2b158ec2dd7"/><section>
+    <title>KEY_A</title>
+<indexterm><primary>KEY_A</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KEY_A</secondary></indexterm>
+<para><computeroutput>#define KEY_A   0x1e</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00071">71</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gad2017b35fcff527a10050ab7c9af2d5c"/><section>
+    <title>KEY_D</title>
+<indexterm><primary>KEY_D</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KEY_D</secondary></indexterm>
+<para><computeroutput>#define KEY_D   0x20</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00073">73</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga203163bc0189184a1de6ca8d1e53c6bf"/><section>
+    <title>KEY_DOWN</title>
+<indexterm><primary>KEY_DOWN</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KEY_DOWN</secondary></indexterm>
+<para><computeroutput>#define KEY_DOWN   0x50</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00068">68</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gabaee5edb96e542206ae6c8102ac228af"/><section>
+    <title>KEY_ENTER</title>
+<indexterm><primary>KEY_ENTER</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KEY_ENTER</secondary></indexterm>
+<para><computeroutput>#define KEY_ENTER   0x1C</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00069">69</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga6f09e2899747f5db41369ce1dae11ebd"/><section>
+    <title>KEY_S</title>
+<indexterm><primary>KEY_S</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KEY_S</secondary></indexterm>
+<para><computeroutput>#define KEY_S   0x1F</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00072">72</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gafa086fc916a81e7fd348ec00cf786916"/><section>
+    <title>KEY_UP</title>
+<indexterm><primary>KEY_UP</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KEY_UP</secondary></indexterm>
+<para><computeroutput>#define KEY_UP   0x48</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00067">67</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gafdebd5d771ee260c703a74f459767c09"/><section>
+    <title>KEY_W</title>
+<indexterm><primary>KEY_W</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>KEY_W</secondary></indexterm>
+<para><computeroutput>#define KEY_W   0x11</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00070">70</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga6a41a192d262d92b57a80ee61f4dd096"/><section>
+    <title>MCM_ACK</title>
+<indexterm><primary>MCM_ACK</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MCM_ACK</secondary></indexterm>
+<para><computeroutput>#define MCM_ACK   0xFA</computeroutput></para><para>
+
+<para>Response when everything is OK. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8042_8h_source_1l00108">108</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gad954c0d7cc6021941c2fb0c8bbb7bf0b"/><section>
+    <title>MCM_DISABLE_DATA_REP</title>
+<indexterm><primary>MCM_DISABLE_DATA_REP</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MCM_DISABLE_DATA_REP</secondary></indexterm>
+<para><computeroutput>#define MCM_DISABLE_DATA_REP   0xF5</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00094">94</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gaed841950e2d83a4cb873f6b1e691e219"/><section>
+    <title>MCM_ENABLE_DATA_REP</title>
+<indexterm><primary>MCM_ENABLE_DATA_REP</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MCM_ENABLE_DATA_REP</secondary></indexterm>
+<para><computeroutput>#define MCM_ENABLE_DATA_REP   0xF4</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00095">95</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga04b45d2391bf02219b7b4c184c6bb0e2"/><section>
+    <title>MCM_ERROR</title>
+<indexterm><primary>MCM_ERROR</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MCM_ERROR</secondary></indexterm>
+<para><computeroutput>#define MCM_ERROR   0xFC</computeroutput></para><para>
+
+<para>Second consecutive invalid byte. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8042_8h_source_1l00110">110</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gab4aefb5c7e5edb2647d44f386124e558"/><section>
+    <title>MCM_NACK</title>
+<indexterm><primary>MCM_NACK</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MCM_NACK</secondary></indexterm>
+<para><computeroutput>#define MCM_NACK   0xFE</computeroutput></para><para>
+
+<para>First invalid byte. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8042_8h_source_1l00109">109</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga79fe1129725953ca1840f4b55c6039d5"/><section>
+    <title>MCM_READ_DATA</title>
+<indexterm><primary>MCM_READ_DATA</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MCM_READ_DATA</secondary></indexterm>
+<para><computeroutput>#define MCM_READ_DATA   0xEB</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00098">98</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga2ce5d67937ec4d21dd26ad31b6ebfbff"/><section>
+    <title>MCM_RESEND</title>
+<indexterm><primary>MCM_RESEND</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MCM_RESEND</secondary></indexterm>
+<para><computeroutput>#define MCM_RESEND   0xFE</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00092">92</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gaa824f0a1b0d9aa9c5fdd3c7e1d59233e"/><section>
+    <title>MCM_RESET</title>
+<indexterm><primary>MCM_RESET</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MCM_RESET</secondary></indexterm>
+<para><computeroutput>#define MCM_RESET   0xFF</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00091">91</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga06058dba67c4ec1fe5bbf5d206ad271e"/><section>
+    <title>MCM_SET_DEFAULTS</title>
+<indexterm><primary>MCM_SET_DEFAULTS</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MCM_SET_DEFAULTS</secondary></indexterm>
+<para><computeroutput>#define MCM_SET_DEFAULTS   0xF6</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00093">93</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gae3b4cd4b499d8eb7a6b3720128ed76c0"/><section>
+    <title>MCM_SET_REM_MODE</title>
+<indexterm><primary>MCM_SET_REM_MODE</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MCM_SET_REM_MODE</secondary></indexterm>
+<para><computeroutput>#define MCM_SET_REM_MODE   0xF0</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00097">97</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gafc96bd11a353c3a5a2704a086df76544"/><section>
+    <title>MCM_SET_RESOLUTION</title>
+<indexterm><primary>MCM_SET_RESOLUTION</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MCM_SET_RESOLUTION</secondary></indexterm>
+<para><computeroutput>#define MCM_SET_RESOLUTION   0xE8</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00101">101</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga3a9a3ebba73b8343e97810dbc2ebaeac"/><section>
+    <title>MCM_SET_SCAL_1</title>
+<indexterm><primary>MCM_SET_SCAL_1</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MCM_SET_SCAL_1</secondary></indexterm>
+<para><computeroutput>#define MCM_SET_SCAL_1   0xE6</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00103">103</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gabfad2a8bbc6d36d99a9194a027bcd04f"/><section>
+    <title>MCM_SET_SCAL_2</title>
+<indexterm><primary>MCM_SET_SCAL_2</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MCM_SET_SCAL_2</secondary></indexterm>
+<para><computeroutput>#define MCM_SET_SCAL_2   0xE7</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00102">102</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga33146b7ec8d0241492d562076dd906fc"/><section>
+    <title>MCM_SET_SMPL_RATE</title>
+<indexterm><primary>MCM_SET_SMPL_RATE</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MCM_SET_SMPL_RATE</secondary></indexterm>
+<para><computeroutput>#define MCM_SET_SMPL_RATE   0xF3</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00096">96</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga754337587348c7bc757c921b836575a1"/><section>
+    <title>MCM_SET_STREAM_MODE</title>
+<indexterm><primary>MCM_SET_STREAM_MODE</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MCM_SET_STREAM_MODE</secondary></indexterm>
+<para><computeroutput>#define MCM_SET_STREAM_MODE   0xEA</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00099">99</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gae056e7350fa5468ee41e74069187ebf5"/><section>
+    <title>MCM_STATUS_REQUEST</title>
+<indexterm><primary>MCM_STATUS_REQUEST</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MCM_STATUS_REQUEST</secondary></indexterm>
+<para><computeroutput>#define MCM_STATUS_REQUEST   0xE9</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00100">100</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga7512d0cbbfd6071491dbd3d0758edadf"/><section>
+    <title>MOUSE_ALWAYS_1</title>
+<indexterm><primary>MOUSE_ALWAYS_1</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MOUSE_ALWAYS_1</secondary></indexterm>
+<para><computeroutput>#define MOUSE_ALWAYS_1   BIT(3)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00082">82</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga85964cb90343bb1a029b1d1b4229f910"/><section>
+    <title>MOUSE_IRQ</title>
+<indexterm><primary>MOUSE_IRQ</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MOUSE_IRQ</secondary></indexterm>
+<para><computeroutput>#define MOUSE_IRQ   12</computeroutput></para><para>
+
+<para>mouse interrupt line </para>
+</para>
+<para>
+Definition at line <link linkend="_i8042_8h_source_1l00015">15</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga79628b2d41b95ed700b7206635917000"/><section>
+    <title>MOUSE_LEFT_BUTT</title>
+<indexterm><primary>MOUSE_LEFT_BUTT</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MOUSE_LEFT_BUTT</secondary></indexterm>
+<para><computeroutput>#define MOUSE_LEFT_BUTT   BIT(0)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00085">85</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga16131e6f23b536ee7b3138a11cffa3b9"/><section>
+    <title>MOUSE_MIDDLE_BUTT</title>
+<indexterm><primary>MOUSE_MIDDLE_BUTT</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MOUSE_MIDDLE_BUTT</secondary></indexterm>
+<para><computeroutput>#define MOUSE_MIDDLE_BUTT   BIT(2)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00083">83</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga888b7cb1d96e369e6669f633b748fa1f"/><section>
+    <title>MOUSE_RIGHT_BUTT</title>
+<indexterm><primary>MOUSE_RIGHT_BUTT</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MOUSE_RIGHT_BUTT</secondary></indexterm>
+<para><computeroutput>#define MOUSE_RIGHT_BUTT   BIT(1)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00084">84</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gac113431b56bb3f19e4e81c6af3e47a26"/><section>
+    <title>MOUSE_X_OVFL</title>
+<indexterm><primary>MOUSE_X_OVFL</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MOUSE_X_OVFL</secondary></indexterm>
+<para><computeroutput>#define MOUSE_X_OVFL   BIT(6)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00079">79</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gacd43b7d72e2f4da511b0f8a73df0fe79"/><section>
+    <title>MOUSE_X_SIGN</title>
+<indexterm><primary>MOUSE_X_SIGN</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MOUSE_X_SIGN</secondary></indexterm>
+<para><computeroutput>#define MOUSE_X_SIGN   BIT(4)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00081">81</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gaaa583bb56e5e2a9757d5d78a3c83f285"/><section>
+    <title>MOUSE_Y_OVFL</title>
+<indexterm><primary>MOUSE_Y_OVFL</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MOUSE_Y_OVFL</secondary></indexterm>
+<para><computeroutput>#define MOUSE_Y_OVFL   BIT(7)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00078">78</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1gae0f95694f6f137fcae25644972556873"/><section>
+    <title>MOUSE_Y_SIGN</title>
+<indexterm><primary>MOUSE_Y_SIGN</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>MOUSE_Y_SIGN</secondary></indexterm>
+<para><computeroutput>#define MOUSE_Y_SIGN   BIT(5)</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00080">80</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8042_1ga0fcdbd39ed7dcf62fede44082d09cb7a"/><section>
+    <title>WRITE_BYTE_TO_MOUSE</title>
+<indexterm><primary>WRITE_BYTE_TO_MOUSE</primary><secondary>i8042</secondary></indexterm>
+<indexterm><primary>i8042</primary><secondary>WRITE_BYTE_TO_MOUSE</secondary></indexterm>
+<para><computeroutput>#define WRITE_BYTE_TO_MOUSE   0xD4</computeroutput></para><para>
+Definition at line <link linkend="_i8042_8h_source_1l00053">53</link> of file <link linkend="_i8042_8h_source">i8042.h</link>.</para>
+</section>
+</section>
+</section>

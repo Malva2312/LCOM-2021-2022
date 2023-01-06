@@ -1,0 +1,5 @@
+<map id="movePCPlayer" name="movePCPlayer">
+<area shape="rect" id="node1" title="Moves the computer&#45;controlled player in the case of Single Player mode." alt="" coords="5,31,112,57"/>
+<area shape="rect" id="node2" href="$model_8c.html#a24c1dbdf1ef1689d51bf55d12e98911a" title=" " alt="" coords="160,5,249,32"/>
+<area shape="rect" id="node3" href="$model_8c.html#a5f56ae59c8261c8b496175d01ab0db16" title=" " alt="" coords="168,56,241,83"/>
+</map>

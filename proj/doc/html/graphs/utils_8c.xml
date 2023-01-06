@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_utils_8c" xml:lang="en-US">
+<title>utils.c File Reference</title>
+<indexterm><primary>utils.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;lcom/lcf.h&gt;
+#include &lt;stdint.h&gt;
+</programlisting>Include dependency graph for utils.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="utils_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int() <link linkend="_utils_8c_1a81621440b3d65680979425e39aa8c789">util_get_LSB</link> (uint16_t val, uint8_t *lsb)</para>
+</listitem>
+            <listitem><para>int() <link linkend="_utils_8c_1a6a880076cd2ec468834438b6e0c58836">util_get_MSB</link> (uint16_t val, uint8_t *msb)</para>
+</listitem>
+            <listitem><para>int() <link linkend="_utils_8c_1a79a031a8611f5b2d6afa4158e92b0fb4">util_sys_inb</link> (int port, uint8_t *value)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_utils_8c_1a81621440b3d65680979425e39aa8c789"/><section>
+    <title>util_get_LSB()</title>
+<indexterm><primary>util_get_LSB</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>util_get_LSB</secondary></indexterm>
+<para><computeroutput>int() util_get_LSB (uint16_t val, uint8_t * lsb)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00005">5</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8c_1a6a880076cd2ec468834438b6e0c58836"/><section>
+    <title>util_get_MSB()</title>
+<indexterm><primary>util_get_MSB</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>util_get_MSB</secondary></indexterm>
+<para><computeroutput>int() util_get_MSB (uint16_t val, uint8_t * msb)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00011">11</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8c_1a79a031a8611f5b2d6afa4158e92b0fb4"/><section>
+    <title>util_sys_inb()</title>
+<indexterm><primary>util_sys_inb</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>util_sys_inb</secondary></indexterm>
+<para><computeroutput>int() util_sys_inb (int port, uint8_t * value)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00017">17</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+</section>
+</section>

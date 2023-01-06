@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_8f8a56174db7e55aeabbf7ac0df246a0" xml:lang="en-US">
+<title>sprites/menu Directory Reference</title>
+<indexterm><primary>sprites/menu Directory Reference</primary></indexterm>
+Directory dependency graph for menu:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_8f8a56174db7e55aeabbf7ac0df246a0_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_about__selected_8h">about_selected.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_menu_8h">menu.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_player1__selected_8h">player1_selected.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_player2__selected_8h">player2_selected.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

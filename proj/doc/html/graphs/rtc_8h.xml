@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_rtc_8h" xml:lang="en-US">
+<title>rtc/rtc.h File Reference</title>
+<indexterm><primary>rtc/rtc.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;lcom/lcf.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stdint.h&gt;
+</programlisting>Include dependency graph for rtc.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="rtc_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="rtc_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group__rtc_1ga4e22feb6ffbc1cda32fadff5c740dc51">RTC_IRQ</link>   8</para>
+
+<para>IRQ line of the RTC. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1ga710b98232df2c563009e6f8a6cd18220">RTC_ADDR_REG</link>   0x70</para>
+
+<para>Address to sent the byte offet of the RTC data. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1ga2f258a00c59c3f347c8d2d4a75471ce0">RTC_DATA_REG</link>   0x71</para>
+
+<para>Address from which to read the selected data. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1ga2507e650d4ccc8a2bdf3001800a3e743">RTC_SEC</link>   0</para>
+
+<para>Byte offset of the seconds. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1ga781a1b48b16eed41ae70464b00003aca">RTC_SEC_ALRM</link>   1</para>
+
+<para>Byte offset of the seconds alarm. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1ga34fc4e7c0e5db231217aa3174e394c72">RTC_MIN</link>   2</para>
+
+<para>Byte offset of the minutes. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1gacb4d37c4cd49fef00f32706032c9414e">RTC_MIN_ALRM</link>   3</para>
+
+<para>Byte offset of the minutes alarm. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1gafcde079409215e1bc489858dc183d922">RTC_HRS</link>   4</para>
+
+<para>Byte offset of the hours. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1gae4323188b40fadd52ef91dff864955e4">RTC_HRS_ALRM</link>   5</para>
+
+<para>Byte offset of the hours alarm. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1ga2d8479354f796c5abb615344ad67ad75">RTC_D_WEEK</link>   6</para>
+
+<para>Byte offset of the day of the week. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1ga86a86319b7ac65ca54ae96cb722053d9">RTC_D_MONTH</link>   7</para>
+
+<para>Byte offset of the day of the month. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1gabda0c877ee1a02b8351c0cfe72838088">RTC_MONTH</link>   8</para>
+
+<para>Byte offset of the month. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1ga1df5568e6774b73aa4c6e59fc40e9147">RTC_YEAR</link>   9</para>
+
+<para>Byte offset of the year. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1gae5ffad506b363f28bed1bb5e5926bd2d">RTC_REG_A</link>   10</para>
+
+<para>Byte offset of the register A. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1ga03954a63ead3f02b7790ce79e9877eea">RTC_REG_B</link>   11</para>
+
+<para>Byte offset of the register B. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1ga1bd6f771dc313129723812fe7ac52d9e">RTC_REG_C</link>   12</para>
+
+<para>Byte offset of the register C. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1ga34c8604ade07f4f7ff7e919f2d4c56b4">RTC_REG_D</link>   13</para>
+
+<para>Byte offset of the register D. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__rtc_1ga1e6e1cd792f1947834dbbfff106fa6f9">RTC_A_UIP</link>   BIT(7)</para>
+
+<para>Bit in Register A signaling Update in Progress (do not read or write) </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__rtc_1ga861d2f079d8248ed95f305600eaa0567">rtc_wait_for_access</link> ()</para>
+
+<para>Waits until Update in Progress in Register A is complete. </para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_group__rtc_1gaef48ce217f5c004635226cc27c0d4081">rtc_convert_BCD</link> (uint8_t n)</para>
+
+<para>Converts the number in BCD to hexadecimal. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__rtc_1gac06a0a3580daf870240d95679167b593">rtc_update_darkmode</link> ()</para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__rtc_1ga6bbe679f115cec90d36d50eb2aac1b89">rtc_subscribe_int</link> (uint8_t *bit_no)</para>
+
+<para>Subscribes to interrupts from the RTC. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__rtc_1ga9d4850bb2a488644672d43287f160622">rtc_unsubscribe_int</link> ()</para>
+
+<para>Unubscribes to interrupts from the RTC. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

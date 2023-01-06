@@ -1,0 +1,4 @@
+<map id="vg_draw_hline" name="vg_draw_hline">
+<area shape="rect" id="node1" title="Draw a horizontal line of pixels." alt="" coords="5,5,108,32"/>
+<area shape="rect" id="node2" href="$video_8c.html#a576ad65187107e487c85b9fb42fa0220" title="Set the color of a pixel." alt="" coords="156,5,249,32"/>
+</map>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_view_8h_source" xml:lang="en-US">
+<title>view.h</title>
+<indexterm><primary>game/view.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_view_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="_view_8h_source_1l00002"/>00002 
+<anchor xml:id="_view_8h_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;lcom/lcf.h&gt;</emphasis>
+<anchor xml:id="_view_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
+<anchor xml:id="_view_8h_source_1l00005"/>00005 
+<anchor xml:id="_view_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_model_8h">model.h</link>&quot;</emphasis>
+<anchor xml:id="_view_8h_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_images_8h">images.h</link>&quot;</emphasis>
+<anchor xml:id="_view_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&quot;../video/video.h&quot;</emphasis>
+<anchor xml:id="_view_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_handlers_8h">handlers.h</link>&quot;</emphasis>
+<anchor xml:id="_view_8h_source_1l00010"/>00010 
+<anchor xml:id="_view_8h_source_1l00011"/>00011 <emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_player">Player</link>;
+<anchor xml:id="_view_8h_source_1l00012"/>00012 
+<anchor xml:id="_view_8h_source_1l00022"/>00022 <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__view_1ga5fd0c469e6f02d84c080f7cf71630109">drawMenu</link>)();
+<anchor xml:id="_view_8h_source_1l00027"/>00027 <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__view_1gac03b90d30597233ea059a89bce73dbf3">drawWaitMenu</link>)();
+<anchor xml:id="_view_8h_source_1l00032"/>00032 <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__view_1gabf33bd02905aaba8995c238e140295bb">drawBoard</link>)();
+<anchor xml:id="_view_8h_source_1l00037"/>00037 <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__view_1gab79e0b6f71e4ecf1f37d95fdafcf62b5">drawPlayer</link>)(<emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_player">Player</link>&#32;*p);
+<anchor xml:id="_view_8h_source_1l00042"/>00042 <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__view_1ga86cf8241a4f3a8daf2876e484636a650">drawBall</link>)();
+<anchor xml:id="_view_8h_source_1l00047"/>00047 <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__view_1ga2fed2d7071be915d687d533e5a971414">drawGame</link>)();
+<anchor xml:id="_view_8h_source_1l00052"/>00052 <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__view_1ga3a53f2894b80e553e4e9754e2a1b9b5d">drawArena</link>)();
+<anchor xml:id="_view_8h_source_1l00057"/>00057 <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>(<link linkend="_group__view_1gaa632458efe74b5b5009fab6cf993fdb2">drawMouse</link>)();
+<anchor xml:id="_view_8h_source_1l00062"/>00062 <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>(<link linkend="_group__view_1ga66a54e56b10b46d1f9fc29adc4de5b16">drawWall</link>)();
+<anchor xml:id="_view_8h_source_1l00067"/>00067 <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__view_1ga56eabf3da014865044c6b983dbfafaec">drawEndGame</link>)();
+<anchor xml:id="_view_8h_source_1l00072"/>00072 <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__view_1gada296e3c248457584fc6702e98aa5df9">drawAbout</link>)();
+</programlisting></section>

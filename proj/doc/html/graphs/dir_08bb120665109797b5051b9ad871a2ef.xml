@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_08bb120665109797b5051b9ad871a2ef" xml:lang="en-US">
+<title>sprites Directory Reference</title>
+<indexterm><primary>sprites Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_b34f835ed49015c14ca93cb72c0d3b66">end</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_8f8a56174db7e55aeabbf7ac0df246a0">menu</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_f4f3c9af6b431c25c1ca68b1eb34a474">numbers</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_96824858afbf970510d2b65cd16330a9">powerups</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_about_8h">about.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_discoball_8h">discoball.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_sun_8h">sun.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_wait__menu_8h">wait_menu.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

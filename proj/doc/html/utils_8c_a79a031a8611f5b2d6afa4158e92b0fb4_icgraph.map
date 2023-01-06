@@ -1,0 +1,32 @@
+<map id="util_sys_inb" name="util_sys_inb">
+<area shape="rect" id="node1" title=" " alt="" coords="1360,233,1451,260"/>
+<area shape="rect" id="node2" href="$group__kbc.html#ga4d01b87977dde6d295c19c982e5426ea" title="Read a command from the kbc." alt="" coords="1178,5,1285,32"/>
+<area shape="rect" id="node4" href="$group__kbc.html#gad2fe6cbf61c2613cd7f4d7998979ee29" title="Read a value from the kbc output buffer." alt="" coords="1176,56,1287,83"/>
+<area shape="rect" id="node7" href="$group__kbc.html#ga459c5f03316bc61703727fd38f1f1965" title="Get status byte for keyboard." alt="" coords="1160,107,1303,133"/>
+<area shape="rect" id="node8" href="$kbc_8c.html#a999549fe35157d4137626fa8c0b2ee99" title=" " alt="" coords="1151,208,1312,235"/>
+<area shape="rect" id="node11" href="$group__kbc.html#gadce7a7604f8b0782158b70bf728eb411" title=" " alt="" coords="765,228,891,255"/>
+<area shape="rect" id="node14" href="$group__kbc.html#ga9e19cb92cae1a1257d65ae04e1e6cc6f" title="Read a value from the mouse, to build the mouse packet." alt="" coords="1167,157,1296,184"/>
+<area shape="rect" id="node15" href="$group__rtc.html#gac06a0a3580daf870240d95679167b593" title=" " alt="" coords="180,305,327,332"/>
+<area shape="rect" id="node16" href="$group__serialport.html#gafe652e0add554a59ead8c1960eefb6b1" title="If data is available it will read all entries in the buffer until there are none left(to maintain it ..." alt="" coords="975,385,1079,412"/>
+<area shape="rect" id="node20" href="$group__serialport.html#ga08071d8d2ad944789c1befd58b6fc6be" title="Reads the Line Status Register to check for errors and available data." alt="" coords="1163,411,1299,437"/>
+<area shape="rect" id="node29" href="$group__timer.html#ga703c60b40c8c49607d6ecb6fef82d27a" title="Reads the input timer configuration (status) via read&#45;back command." alt="" coords="1178,487,1285,513"/>
+<area shape="rect" id="node3" href="$group__kbc.html#gac47c4cbc1a0bcfa157d20dd35d29da57" title="Restore keyboard interrupts." alt="" coords="952,5,1103,32"/>
+<area shape="rect" id="node5" href="$group__kbc.html#ga5761bd4aad91ac1d68916ad88f583d9f" title="Control of keyboard interruptions." alt="" coords="997,91,1057,117"/>
+<area shape="rect" id="node6" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,251,115,277"/>
+<area shape="rect" id="node9" href="$group__kbc.html#gaed4404005e4c565ac36656307386e0ac" title="Control of mouse interrupts." alt="" coords="988,157,1067,184"/>
+<area shape="rect" id="node10" href="$group__kbc.html#ga486b669d172327d510db1fff96ea6b60" title="Write a command to a port." alt="" coords="956,208,1099,235"/>
+<area shape="rect" id="node12" href="$group__kbc.html#ga7e311379d4d64f88873ef8ade5c82a25" title="Disable mouse data reporting." alt="" coords="404,243,545,285"/>
+<area shape="rect" id="node13" href="$group__kbc.html#gab03b20445da099487fdd96bc31007b0e" title="Enable data reporting." alt="" coords="163,196,344,223"/>
+<area shape="rect" id="node17" href="$group__serialport.html#ga0310282e052b0d6daacdcf32745aad12" title="Enables interrupts for recieving data, reads leftover data in the Receiver Buffer Register and transm..." alt="" coords="796,411,860,437"/>
+<area shape="rect" id="node18" href="$group__handlers.html#ga1bf786f0d1e4fb655a95618665e88b73" title="Proceed with the actions in the Menu State of the respective given device." alt="" coords="605,411,704,437"/>
+<area shape="rect" id="node19" href="$group__handlers.html#gad932b9bf23b1de26f712a4aacdc7df9b" title="Invokes the respective handler according to the game state." alt="" coords="206,461,301,488"/>
+<area shape="rect" id="node21" href="$group__serialport.html#ga9763e9d84c9c2217d5bfe4e59ee69d64" title="Sends the given data to the Transmitter Holding Register." alt="" coords="964,461,1091,488"/>
+<area shape="rect" id="node22" href="$group__handlers.html#ga548238780299a9ec09e8056c88748815" title="Proceed with the actions in the Two Players Game State of the respective given device." alt="" coords="392,512,557,539"/>
+<area shape="rect" id="node23" href="$group__model.html#ga24da2da95651b6475088ef64735a50d6" title="Return true if any of the players has won the game." alt="" coords="607,512,702,539"/>
+<area shape="rect" id="node25" href="$group__model.html#ga7c9c7f327063d813b3f52c0bc6044d14" title="Checks if any player has scored a point and raises his score if so Returns true if someone has scored..." alt="" coords="805,461,851,488"/>
+<area shape="rect" id="node27" href="$group__serialport.html#gab72ff27750fce4726c3861005ee392c6" title="Used in the beginning of the connection to determine what to do next." alt="" coords="752,613,904,640"/>
+<area shape="rect" id="node24" href="$group__handlers.html#ga873159fcdceb7f2d32914e2f0332e918" title="Proceed with the actions in the One Player Game State of the respective given device." alt="" coords="395,461,554,488"/>
+<area shape="rect" id="node26" href="$group__model.html#ga888f87088027abf44920c0b80e7e91b5" title="Calculates and moves the ball to its next position Changes trajectory if collisions are detected." alt="" coords="617,461,692,488"/>
+<area shape="rect" id="node28" href="$group__handlers.html#gac888ba9be6cce74613cae45eaa6a5a02" title="Proceed with the actions in the Wait Menu State of the respective given device." alt="" coords="421,588,528,615"/>
+<area shape="rect" id="node30" href="$group__timer.html#gaf2c04fa8e97ffa748fd3f612886a92a7" title="Changes the operating frequency of a timer." alt="" coords="958,512,1097,539"/>
+</map>

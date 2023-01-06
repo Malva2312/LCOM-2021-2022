@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_i8042_8h_source" xml:lang="en-US">
+<title>i8042.h</title>
+<indexterm><primary>keyboard/i8042.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_i8042_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;_LCOM_I8254_H_</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;_LCOM_I8254_H_</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00003"/>00003 
+<anchor xml:id="_i8042_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;lcom/lcf.h&gt;</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00005"/>00005 
+<anchor xml:id="_i8042_8h_source_1l00012"/><link linkend="_group__i8042_1ga1a522aa19bcb695a9df30032a893bee3">00012</link> <emphasis role="preprocessor">#define&#32;DELAY_US&#32;&#32;&#32;&#32;20000&#32;</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00014"/><link linkend="_group__i8042_1ga16c5827f043d82f87c726c2d4369c11d">00014</link> <emphasis role="preprocessor">#define&#32;KBC_IRQ&#32;&#32;&#32;&#32;&#32;1&#32;</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00015"/><link linkend="_group__i8042_1ga85964cb90343bb1a029b1d1b4229f910">00015</link> <emphasis role="preprocessor">#define&#32;MOUSE_IRQ&#32;&#32;&#32;12&#32;</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00017"/><link linkend="_group__i8042_1ga322b65f62d443658a88cfd7ec20fc9d3">00017</link> <emphasis role="preprocessor">#define&#32;KBC_TWO_BYTE&#32;0xE0&#32;</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00019"/><link linkend="_group__i8042_1gaab234bf892e4394a628452e593bddec4">00019</link> <emphasis role="preprocessor">#define&#32;KBC_ESC_KEY&#32;0x81&#32;</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00021"/><link linkend="_group__i8042_1ga1ccde68b2b6d4e45b50eef1403e10bb7">00021</link> <emphasis role="preprocessor">#define&#32;KBC_OUT_BUF&#32;0x60&#32;</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00022"/><link linkend="_group__i8042_1ga02e4d55add7b39e9d9d1af03f2f89b5d">00022</link> <emphasis role="preprocessor">#define&#32;KBC_ARG_CMD&#32;0x60&#32;</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00023"/><link linkend="_group__i8042_1ga6f977b36b770dca3092d0bdf8c949cfe">00023</link> <emphasis role="preprocessor">#define&#32;KBC_ST_REG&#32;&#32;0x64&#32;</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00024"/><link linkend="_group__i8042_1ga6d57c7927a10f638c83046b52c8caac9">00024</link> <emphasis role="preprocessor">#define&#32;KBC_CMD_REG&#32;0x64&#32;</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00027"/>00027 <emphasis role="comment">//&#32;&#32;Status&#32;register</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00028"/><link linkend="_group__i8042_1gaea2ef6dda1aabebf291eeee29b66c04a">00028</link> <emphasis role="preprocessor">#define&#32;KBC_PAR_ERR&#32;&#32;&#32;&#32;&#32;BIT(7)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00029"/><link linkend="_group__i8042_1gae31c3653f5881b02cbfdd4ccbb7ccf50">00029</link> <emphasis role="preprocessor">#define&#32;KBC_TO_ERR&#32;&#32;&#32;&#32;&#32;&#32;BIT(6)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00030"/><link linkend="_group__i8042_1ga5a01c98e394aedacd058f4dc3b953bb0">00030</link> <emphasis role="preprocessor">#define&#32;KBC_ST_AUX&#32;&#32;&#32;&#32;&#32;&#32;BIT(5)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00031"/><link linkend="_group__i8042_1gaadde2ef3c9f5f2e49b8c83900dda7776">00031</link> <emphasis role="preprocessor">#define&#32;KBC_ST_INH&#32;&#32;&#32;&#32;&#32;&#32;BIT(4)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00032"/><link linkend="_group__i8042_1ga141ccbc1ab10dfcdd1d450414dba13d4">00032</link> <emphasis role="preprocessor">#define&#32;KBC_ST_IBF&#32;&#32;&#32;&#32;&#32;&#32;BIT(1)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00033"/><link linkend="_group__i8042_1ga38010ed603a29beee559b2c20de50dcd">00033</link> <emphasis role="preprocessor">#define&#32;KBC_ST_OBF&#32;&#32;&#32;&#32;&#32;&#32;BIT(0)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00034"/>00034 
+<anchor xml:id="_i8042_8h_source_1l00035"/>00035 
+<anchor xml:id="_i8042_8h_source_1l00036"/>00036 <emphasis role="comment">//&#32;&#32;Keyboard-Related&#32;KBC&#32;Commands</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00037"/>00037 <emphasis role="comment">/*&#32;&#32;</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00038"/>00038 <emphasis role="comment">&#32;&#32;&#32;&#32;Written&#32;using&#32;KBC_CMD_REG</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00039"/>00039 <emphasis role="comment">&#32;&#32;&#32;&#32;Arguments&#32;are&#32;passed&#32;using&#32;0x60&#32;(KBC_ARG_CMD)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00040"/>00040 <emphasis role="comment">&#32;&#32;&#32;&#32;Return&#32;values&#32;are&#32;passed&#32;in&#32;the&#32;KBC_OUT_BUF</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00041"/>00041 <emphasis role="comment">*/</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00042"/><link linkend="_group__i8042_1ga595a5cad2d3c793963da50865b2c1b47">00042</link> <emphasis role="preprocessor">#define&#32;KBC_READ_CMD&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0x20</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00043"/><link linkend="_group__i8042_1gaaa62a6987753a109d2f7a609ce8b7334">00043</link> <emphasis role="preprocessor">#define&#32;KBC_WRITE_CMD&#32;&#32;&#32;&#32;&#32;&#32;&#32;0x60</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00044"/><link linkend="_group__i8042_1ga55fefff08c94153a53592686472a6c80">00044</link> <emphasis role="preprocessor">#define&#32;CHECK_KBC&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0xAA&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">//0x55&#32;if&#32;OK,&#32;0xFC&#32;if&#32;error</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00045"/><link linkend="_group__i8042_1gab9a647901ad332940f65763e0c593243">00045</link> <emphasis role="preprocessor">#define&#32;CHECK_KB_INTERFACE&#32;&#32;0xAB&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">//0&#32;if&#32;OK</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00046"/><link linkend="_group__i8042_1ga7f39eed2aefadffa3c7a2b29513483d1">00046</link> <emphasis role="preprocessor">#define&#32;DISABLE_KBI&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0xAD</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00047"/><link linkend="_group__i8042_1gade93f9dc1a4c20bc5c4c78c983a0c973">00047</link> <emphasis role="preprocessor">#define&#32;ENABLE_KBI&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0xAE</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00048"/>00048 
+<anchor xml:id="_i8042_8h_source_1l00049"/>00049 <emphasis role="comment">//&#32;&#32;Mouse&#32;related&#32;KBC&#32;Commands</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00050"/><link linkend="_group__i8042_1ga12d3b0abea66d191d47fe6860e58865e">00050</link> <emphasis role="preprocessor">#define&#32;DISABLE_MOUSE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0xA7</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00051"/><link linkend="_group__i8042_1ga618bdf461c25d552e654d6b899de2d37">00051</link> <emphasis role="preprocessor">#define&#32;ENABLE_MOUSE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0xA8</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00052"/><link linkend="_group__i8042_1ga8b6ad5cab3f7946154fe5457b0b24ca8">00052</link> <emphasis role="preprocessor">#define&#32;CHECK_MOUSE_INTERFACE&#32;&#32;&#32;0xA9&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">//0&#32;if&#32;OK</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00053"/><link linkend="_group__i8042_1ga0fcdbd39ed7dcf62fede44082d09cb7a">00053</link> <emphasis role="preprocessor">#define&#32;WRITE_BYTE_TO_MOUSE&#32;&#32;&#32;&#32;&#32;0xD4&#32;&#32;&#32;&#32;</emphasis><emphasis role="comment">//byte/args&#32;to&#32;KBC_ARG_CMD</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00054"/>00054 
+<anchor xml:id="_i8042_8h_source_1l00055"/>00055 
+<anchor xml:id="_i8042_8h_source_1l00056"/>00056 <emphasis role="comment">//&#32;&#32;KBC&#32;&quot;Command&#32;Byte&quot;</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00057"/>00057 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;&#32;</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00058"/>00058 <emphasis role="comment">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;First,&#32;issue&#32;a&#32;command&#32;(KBC_RCB&#32;/&#32;KBC_RCB)&#32;to&#32;KBC_CMD_REG</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00059"/>00059 <emphasis role="comment">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;It&apos;s&#32;value&#32;must&#32;be&#32;read/written&#32;to&#32;0x60&#32;(KBC_OUT_BUF)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00060"/>00060 <emphasis role="comment">&#32;&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00061"/><link linkend="_group__i8042_1ga6ffc184930d4db38b97f4baf79a2d9ca">00061</link> <emphasis role="preprocessor">#define&#32;KBC_DIS_MOUSE&#32;&#32;&#32;&#32;&#32;&#32;&#32;BIT(5)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00062"/><link linkend="_group__i8042_1ga10d4c81a5af19c229b586d5b83a562f3">00062</link> <emphasis role="preprocessor">#define&#32;KBC_DIS_KBI&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;BIT(4)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00063"/><link linkend="_group__i8042_1ga302164a11254248a39e2a2ecb01b21c3">00063</link> <emphasis role="preprocessor">#define&#32;KBC_ENA_OBF_MOUSE&#32;&#32;&#32;BIT(1)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00064"/><link linkend="_group__i8042_1gacd4a7162d51e71f1c02616eed39e9825">00064</link> <emphasis role="preprocessor">#define&#32;KBC_ENA_OBF_KB&#32;&#32;&#32;&#32;&#32;&#32;BIT(0)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00065"/>00065 
+<anchor xml:id="_i8042_8h_source_1l00066"/>00066 <emphasis role="comment">//&#32;Scancodes&#32;for&#32;keyboard&#32;keys</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00067"/><link linkend="_group__i8042_1gafa086fc916a81e7fd348ec00cf786916">00067</link> <emphasis role="preprocessor">#define&#32;KEY_UP&#32;0x48</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00068"/><link linkend="_group__i8042_1ga203163bc0189184a1de6ca8d1e53c6bf">00068</link> <emphasis role="preprocessor">#define&#32;KEY_DOWN&#32;0x50</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00069"/><link linkend="_group__i8042_1gabaee5edb96e542206ae6c8102ac228af">00069</link> <emphasis role="preprocessor">#define&#32;KEY_ENTER&#32;0x1C</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00070"/><link linkend="_group__i8042_1gafdebd5d771ee260c703a74f459767c09">00070</link> <emphasis role="preprocessor">#define&#32;KEY_W&#32;&#32;&#32;0x11</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00071"/><link linkend="_group__i8042_1ga024e62650f02bfd64a4ce2b158ec2dd7">00071</link> <emphasis role="preprocessor">#define&#32;KEY_A&#32;&#32;&#32;0x1e</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00072"/><link linkend="_group__i8042_1ga6f09e2899747f5db41369ce1dae11ebd">00072</link> <emphasis role="preprocessor">#define&#32;KEY_S&#32;&#32;&#32;0x1F</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00073"/><link linkend="_group__i8042_1gad2017b35fcff527a10050ab7c9af2d5c">00073</link> <emphasis role="preprocessor">#define&#32;KEY_D&#32;&#32;&#32;0x20</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00074"/>00074 
+<anchor xml:id="_i8042_8h_source_1l00075"/>00075 <emphasis role="comment">//*********&#32;MOUSE&#32;***************</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00076"/>00076 
+<anchor xml:id="_i8042_8h_source_1l00077"/>00077 <emphasis role="comment">//&#32;Data&#32;from&#32;mouse</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00078"/><link linkend="_group__i8042_1gaaa583bb56e5e2a9757d5d78a3c83f285">00078</link> <emphasis role="preprocessor">#define&#32;MOUSE_Y_OVFL&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;BIT(7)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00079"/><link linkend="_group__i8042_1gac113431b56bb3f19e4e81c6af3e47a26">00079</link> <emphasis role="preprocessor">#define&#32;MOUSE_X_OVFL&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;BIT(6)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00080"/><link linkend="_group__i8042_1gae0f95694f6f137fcae25644972556873">00080</link> <emphasis role="preprocessor">#define&#32;MOUSE_Y_SIGN&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;BIT(5)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00081"/><link linkend="_group__i8042_1gacd43b7d72e2f4da511b0f8a73df0fe79">00081</link> <emphasis role="preprocessor">#define&#32;MOUSE_X_SIGN&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;BIT(4)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00082"/><link linkend="_group__i8042_1ga7512d0cbbfd6071491dbd3d0758edadf">00082</link> <emphasis role="preprocessor">#define&#32;MOUSE_ALWAYS_1&#32;&#32;&#32;&#32;&#32;&#32;BIT(3)&#32;&#32;</emphasis><emphasis role="comment">//MISSING&#32;NAME</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00083"/><link linkend="_group__i8042_1ga16131e6f23b536ee7b3138a11cffa3b9">00083</link> <emphasis role="preprocessor">#define&#32;MOUSE_MIDDLE_BUTT&#32;&#32;&#32;BIT(2)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00084"/><link linkend="_group__i8042_1ga888b7cb1d96e369e6669f633b748fa1f">00084</link> <emphasis role="preprocessor">#define&#32;MOUSE_RIGHT_BUTT&#32;&#32;&#32;&#32;BIT(1)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00085"/><link linkend="_group__i8042_1ga79628b2d41b95ed700b7206635917000">00085</link> <emphasis role="preprocessor">#define&#32;MOUSE_LEFT_BUTT&#32;&#32;&#32;&#32;&#32;BIT(0)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00086"/>00086 
+<anchor xml:id="_i8042_8h_source_1l00087"/>00087 <emphasis role="comment">//Arguments&#32;to&#32;the&#32;mouse&#32;commands</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00088"/>00088 &#32;&#32;&#32;&#32;<emphasis role="comment">/*</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00089"/>00089 <emphasis role="comment">&#32;&#32;&#32;&#32;Sent&#32;as&#32;args&#32;after&#32;a&#32;new&#32;call&#32;to&#32;command&#32;0xD4&#32;(WRITE_BYTE_TO_MOUSE)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00090"/>00090 <emphasis role="comment">&#32;&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00091"/><link linkend="_group__i8042_1gaa824f0a1b0d9aa9c5fdd3c7e1d59233e">00091</link> <emphasis role="preprocessor">#define&#32;MCM_RESET&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0xFF</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00092"/><link linkend="_group__i8042_1ga2ce5d67937ec4d21dd26ad31b6ebfbff">00092</link> <emphasis role="preprocessor">#define&#32;MCM_RESEND&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0xFE</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00093"/><link linkend="_group__i8042_1ga06058dba67c4ec1fe5bbf5d206ad271e">00093</link> <emphasis role="preprocessor">#define&#32;MCM_SET_DEFAULTS&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0xF6</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00094"/><link linkend="_group__i8042_1gad954c0d7cc6021941c2fb0c8bbb7bf0b">00094</link> <emphasis role="preprocessor">#define&#32;MCM_DISABLE_DATA_REP&#32;&#32;&#32;&#32;0xF5</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00095"/><link linkend="_group__i8042_1gaed841950e2d83a4cb873f6b1e691e219">00095</link> <emphasis role="preprocessor">#define&#32;MCM_ENABLE_DATA_REP&#32;&#32;&#32;&#32;&#32;0xF4</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00096"/><link linkend="_group__i8042_1ga33146b7ec8d0241492d562076dd906fc">00096</link> <emphasis role="preprocessor">#define&#32;MCM_SET_SMPL_RATE&#32;&#32;&#32;&#32;&#32;&#32;&#32;0xF3</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00097"/><link linkend="_group__i8042_1gae3b4cd4b499d8eb7a6b3720128ed76c0">00097</link> <emphasis role="preprocessor">#define&#32;MCM_SET_REM_MODE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0xF0</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00098"/><link linkend="_group__i8042_1ga79fe1129725953ca1840f4b55c6039d5">00098</link> <emphasis role="preprocessor">#define&#32;MCM_READ_DATA&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0xEB</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00099"/><link linkend="_group__i8042_1ga754337587348c7bc757c921b836575a1">00099</link> <emphasis role="preprocessor">#define&#32;MCM_SET_STREAM_MODE&#32;&#32;&#32;&#32;&#32;0xEA</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00100"/><link linkend="_group__i8042_1gae056e7350fa5468ee41e74069187ebf5">00100</link> <emphasis role="preprocessor">#define&#32;MCM_STATUS_REQUEST&#32;&#32;&#32;&#32;&#32;&#32;0xE9</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00101"/><link linkend="_group__i8042_1gafc96bd11a353c3a5a2704a086df76544">00101</link> <emphasis role="preprocessor">#define&#32;MCM_SET_RESOLUTION&#32;&#32;&#32;&#32;&#32;&#32;0xE8</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00102"/><link linkend="_group__i8042_1gabfad2a8bbc6d36d99a9194a027bcd04f">00102</link> <emphasis role="preprocessor">#define&#32;MCM_SET_SCAL_2&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0xE7</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00103"/><link linkend="_group__i8042_1ga3a9a3ebba73b8343e97810dbc2ebaeac">00103</link> <emphasis role="preprocessor">#define&#32;MCM_SET_SCAL_1&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;0xE6</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00104"/>00104 
+<anchor xml:id="_i8042_8h_source_1l00105"/>00105 <emphasis role="comment">//&#32;acknowledgement&#32;is&#32;read&#32;from&#32;KBC_OUT_BUF&#32;within&#32;25ms</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00106"/>00106 <emphasis role="comment">//&#32;(for&#32;multi-byte&#32;responses,&#32;the&#32;time&#32;between&#32;bytes&#32;should&#32;be&#32;lower&#32;than&#32;20&#32;ms)</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00107"/>00107 
+<anchor xml:id="_i8042_8h_source_1l00108"/><link linkend="_group__i8042_1ga6a41a192d262d92b57a80ee61f4dd096">00108</link> <emphasis role="preprocessor">#define&#32;MCM_ACK&#32;&#32;&#32;&#32;&#32;0xFA&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00109"/><link linkend="_group__i8042_1gab4aefb5c7e5edb2647d44f386124e558">00109</link> <emphasis role="preprocessor">#define&#32;MCM_NACK&#32;&#32;&#32;&#32;0xFE&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00110"/><link linkend="_group__i8042_1ga04b45d2391bf02219b7b4c184c6bb0e2">00110</link> <emphasis role="preprocessor">#define&#32;MCM_ERROR&#32;&#32;&#32;0xFC&#32;&#32;&#32;&#32;</emphasis>
+<anchor xml:id="_i8042_8h_source_1l00113"/>00113 <emphasis role="preprocessor">#endif</emphasis>
+</programlisting></section>

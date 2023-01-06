@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_wall" xml:lang="en-US">
+<title>Wall Struct Reference</title>
+<indexterm><primary>Wall</primary></indexterm>
+<para>
+
+<para>Struct that saves all data about the wall (origianted by a power-up) </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;model.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_struct_wall_1af1617c91937fbd9d9d670940427d9b44">x_pos</link></para>
+
+<para>Position of the <link linkend="_struct_wall">Wall</link> on the x-axis. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_wall_1a375120430014d7e06dcc37d9ca4fcdb8">y_pos</link></para>
+
+<para>Position of the <link linkend="_struct_wall">Wall</link> on the y-axis. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_wall_1ad12fc34ce789bce6c8a05d8a17138534">height</link></para>
+
+<para>Lenght of the <link linkend="_struct_wall">Wall</link>. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_wall_1a2474a5474cbff19523a51eb1de01cda4">width</link></para>
+
+<para>Width of the <link linkend="_struct_wall">Wall</link>. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_struct_wall_1a03c996f9fcf0e10baeb3e700be0c409a">active</link></para>
+
+<para>true if the power-up is activated, false otherwise </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_wall_1ab862aa46e28fcffcd4c149964c8c2444">decreaseRate</link></para>
+
+<para>Rate at which the <link linkend="_struct_wall">Wall</link> is reducing in size. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_wall_1a493b57f443cc38b3d3df9c1e584d9d82">timeout</link></para>
+
+<para>Time needed to use the power-up again. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Struct that saves all data about the wall (origianted by a power-up) </para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00088">88</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_struct_wall_1a03c996f9fcf0e10baeb3e700be0c409a"/><section>
+    <title>active</title>
+<indexterm><primary>active</primary><secondary>Wall</secondary></indexterm>
+<indexterm><primary>Wall</primary><secondary>active</secondary></indexterm>
+<para><computeroutput>bool active</computeroutput></para><para>
+
+<para>true if the power-up is activated, false otherwise </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00093">93</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_wall_1ab862aa46e28fcffcd4c149964c8c2444"/><section>
+    <title>decreaseRate</title>
+<indexterm><primary>decreaseRate</primary><secondary>Wall</secondary></indexterm>
+<indexterm><primary>Wall</primary><secondary>decreaseRate</secondary></indexterm>
+<para><computeroutput>int decreaseRate</computeroutput></para><para>
+
+<para>Rate at which the <link linkend="_struct_wall">Wall</link> is reducing in size. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00094">94</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_wall_1ad12fc34ce789bce6c8a05d8a17138534"/><section>
+    <title>height</title>
+<indexterm><primary>height</primary><secondary>Wall</secondary></indexterm>
+<indexterm><primary>Wall</primary><secondary>height</secondary></indexterm>
+<para><computeroutput>int height</computeroutput></para><para>
+
+<para>Lenght of the <link linkend="_struct_wall">Wall</link>. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00091">91</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_wall_1a493b57f443cc38b3d3df9c1e584d9d82"/><section>
+    <title>timeout</title>
+<indexterm><primary>timeout</primary><secondary>Wall</secondary></indexterm>
+<indexterm><primary>Wall</primary><secondary>timeout</secondary></indexterm>
+<para><computeroutput>int timeout</computeroutput></para><para>
+
+<para>Time needed to use the power-up again. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00095">95</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_wall_1a2474a5474cbff19523a51eb1de01cda4"/><section>
+    <title>width</title>
+<indexterm><primary>width</primary><secondary>Wall</secondary></indexterm>
+<indexterm><primary>Wall</primary><secondary>width</secondary></indexterm>
+<para><computeroutput>int width</computeroutput></para><para>
+
+<para>Width of the <link linkend="_struct_wall">Wall</link>. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00092">92</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_wall_1af1617c91937fbd9d9d670940427d9b44"/><section>
+    <title>x_pos</title>
+<indexterm><primary>x_pos</primary><secondary>Wall</secondary></indexterm>
+<indexterm><primary>Wall</primary><secondary>x_pos</secondary></indexterm>
+<para><computeroutput>int x_pos</computeroutput></para><para>
+
+<para>Position of the <link linkend="_struct_wall">Wall</link> on the x-axis. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00089">89</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_wall_1a375120430014d7e06dcc37d9ca4fcdb8"/><section>
+    <title>y_pos</title>
+<indexterm><primary>y_pos</primary><secondary>Wall</secondary></indexterm>
+<indexterm><primary>Wall</primary><secondary>y_pos</secondary></indexterm>
+<para><computeroutput>int y_pos</computeroutput></para><para>
+
+<para>Position of the <link linkend="_struct_wall">Wall</link> on the y-axis. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00090">90</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+game/<link linkend="_model_8h">model.h</link></section>
+</section>

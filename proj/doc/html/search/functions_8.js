@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['main_0',['main',['../proj_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'proj.c']]],
+  ['mainhandler_1',['mainHandler',['../group__handlers.html#gad932b9bf23b1de26f712a4aacdc7df9b',1,'mainHandler(int device):&#160;handlers.c'],['../group__handlers.html#gad932b9bf23b1de26f712a4aacdc7df9b',1,'mainHandler(int device):&#160;handlers.c']]],
+  ['map_5fvideo_5fmemory_2',['map_video_memory',['../video_8c.html#af58095ca3d3990e300b96bfe4c0a63e4',1,'map_video_memory(uint16_t mode):&#160;video.c'],['../video_8h.html#af58095ca3d3990e300b96bfe4c0a63e4',1,'map_video_memory(uint16_t mode):&#160;video.c']]],
+  ['menuhandler_3',['menuHandler',['../group__handlers.html#ga1bf786f0d1e4fb655a95618665e88b73',1,'menuHandler(int device):&#160;handlers.c'],['../group__handlers.html#ga1bf786f0d1e4fb655a95618665e88b73',1,'menuHandler(int device):&#160;handlers.c']]],
+  ['mouse_5fdisable_5fdata_5freporting_4',['mouse_disable_data_reporting',['../group__kbc.html#ga7e311379d4d64f88873ef8ade5c82a25',1,'mouse_disable_data_reporting():&#160;kbc.c'],['../group__kbc.html#ga7e311379d4d64f88873ef8ade5c82a25',1,'mouse_disable_data_reporting():&#160;kbc.c']]],
+  ['mouse_5fenbl_5fdata_5freporting_5',['mouse_enbl_data_reporting',['../group__kbc.html#gab03b20445da099487fdd96bc31007b0e',1,'mouse_enbl_data_reporting(void):&#160;kbc.c'],['../group__kbc.html#gab03b20445da099487fdd96bc31007b0e',1,'mouse_enbl_data_reporting():&#160;kbc.c']]],
+  ['mouse_5fget_5fstatus_5fbyte_6',['mouse_get_status_byte',['../kbc_8c.html#a999549fe35157d4137626fa8c0b2ee99',1,'kbc.c']]],
+  ['mouse_5fih_7',['mouse_ih',['../group__kbc.html#gaed4404005e4c565ac36656307386e0ac',1,'mouse_ih():&#160;kbc.c'],['../group__kbc.html#gaed4404005e4c565ac36656307386e0ac',1,'mouse_ih(void):&#160;kbc.c']]],
+  ['mouse_5fread_5fvalue_8',['mouse_read_value',['../group__kbc.html#ga9e19cb92cae1a1257d65ae04e1e6cc6f',1,'mouse_read_value():&#160;kbc.c'],['../group__kbc.html#ga9e19cb92cae1a1257d65ae04e1e6cc6f',1,'mouse_read_value():&#160;kbc.c']]],
+  ['mouse_5fsubscribe_5fint_9',['mouse_subscribe_int',['../group__kbc.html#ga20285aed4b3ef45812cd967532dd09db',1,'mouse_subscribe_int(uint8_t *bit_no):&#160;kbc.c'],['../group__kbc.html#ga20285aed4b3ef45812cd967532dd09db',1,'mouse_subscribe_int(uint8_t *bit_no):&#160;kbc.c']]],
+  ['mouse_5funsubscribe_5fint_10',['mouse_unsubscribe_int',['../group__kbc.html#ga3ecf823d80520009ae5e0d76ae40a3c3',1,'mouse_unsubscribe_int():&#160;kbc.c'],['../group__kbc.html#ga3ecf823d80520009ae5e0d76ae40a3c3',1,'mouse_unsubscribe_int():&#160;kbc.c']]],
+  ['mouse_5fwrite_5fcmd_11',['mouse_write_cmd',['../group__kbc.html#gadce7a7604f8b0782158b70bf728eb411',1,'mouse_write_cmd(uint8_t command):&#160;kbc.c'],['../group__kbc.html#gadce7a7604f8b0782158b70bf728eb411',1,'mouse_write_cmd(uint8_t cmd):&#160;kbc.c']]],
+  ['mouse_5fwrite_5fto_5fport_12',['mouse_write_to_port',['../group__kbc.html#ga486b669d172327d510db1fff96ea6b60',1,'mouse_write_to_port(uint8_t port, uint8_t cmd):&#160;kbc.c'],['../group__kbc.html#ga486b669d172327d510db1fff96ea6b60',1,'mouse_write_to_port(uint8_t port, uint8_t cmd):&#160;kbc.c']]],
+  ['mouseactionleft_13',['mouseActionLeft',['../group__model.html#ga74a986100caea06aac8df2db6574176e',1,'mouseActionLeft():&#160;model.c'],['../group__model.html#ga74a986100caea06aac8df2db6574176e',1,'mouseActionLeft():&#160;model.c']]],
+  ['mouseactionright_14',['mouseActionRight',['../group__model.html#ga1f3df81991dde3d050e1cab3691be1da',1,'mouseActionRight():&#160;model.c'],['../group__model.html#ga1f3df81991dde3d050e1cab3691be1da',1,'mouseActionRight():&#160;model.c']]],
+  ['moveball_15',['moveBall',['../group__model.html#ga888f87088027abf44920c0b80e7e91b5',1,'moveBall():&#160;model.c'],['../group__model.html#ga888f87088027abf44920c0b80e7e91b5',1,'moveBall():&#160;model.c']]],
+  ['movemouse_16',['moveMouse',['../group__model.html#ga9c904e10fe53d2e0439050c1f363c399',1,'moveMouse(int x, int y):&#160;model.c'],['../group__model.html#ga9c904e10fe53d2e0439050c1f363c399',1,'moveMouse(int x, int y):&#160;model.c']]],
+  ['movepcplayer_17',['movePCPlayer',['../group__model.html#gab0666b83c2e0f39b683b43eb5e5ecb3e',1,'movePCPlayer():&#160;model.c'],['../group__model.html#gab0666b83c2e0f39b683b43eb5e5ecb3e',1,'movePCPlayer():&#160;model.c']]]
+];

@@ -1,0 +1,7 @@
+<map id="aboutHandler" name="aboutHandler">
+<area shape="rect" id="node1" title="Proceed with the actions in the About State of the respective given device." alt="" coords="5,31,104,57"/>
+<area shape="rect" id="node2" href="$group__view.html#gada296e3c248457584fc6702e98aa5df9" title="Draws about menu." alt="" coords="160,5,243,32"/>
+<area shape="rect" id="node5" href="$video_8c.html#a8241e421a3811f46b59bed9f166a48d1" title="Copy the secondary buffer contents to the main buffer." alt="" coords="152,56,251,83"/>
+<area shape="rect" id="node3" href="$video_8c.html#a9502773109672e86799bba9705b835bd" title="Draw a sprite." alt="" coords="299,5,387,32"/>
+<area shape="rect" id="node4" href="$video_8c.html#a576ad65187107e487c85b9fb42fa0220" title="Set the color of a pixel." alt="" coords="435,5,528,32"/>
+</map>

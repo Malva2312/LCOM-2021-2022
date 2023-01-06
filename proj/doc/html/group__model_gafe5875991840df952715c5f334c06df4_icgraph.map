@@ -1,0 +1,7 @@
+<map id="getCurrentEntryImg" name="getCurrentEntryImg">
+<area shape="rect" id="node1" title="Returns the value of the corrent entry in the menu." alt="" coords="581,31,716,57"/>
+<area shape="rect" id="node2" href="$group__view.html#ga5fd0c469e6f02d84c080f7cf71630109" title="Calls the functions responsible for drawing the menu." alt="" coords="452,56,533,83"/>
+<area shape="rect" id="node3" href="$group__handlers.html#ga1bf786f0d1e4fb655a95618665e88b73" title="Proceed with the actions in the Menu State of the respective given device." alt="" coords="305,5,404,32"/>
+<area shape="rect" id="node5" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,31,115,57"/>
+<area shape="rect" id="node4" href="$group__handlers.html#gad932b9bf23b1de26f712a4aacdc7df9b" title="Invokes the respective handler according to the game state." alt="" coords="163,5,257,32"/>
+</map>

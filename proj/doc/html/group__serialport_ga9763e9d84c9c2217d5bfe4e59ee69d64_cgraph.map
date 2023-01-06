@@ -1,0 +1,5 @@
+<map id="ser_transmit_data" name="ser_transmit_data">
+<area shape="rect" id="node1" title="Sends the given data to the Transmitter Holding Register." alt="" coords="5,5,132,32"/>
+<area shape="rect" id="node2" href="$group__serialport.html#ga08071d8d2ad944789c1befd58b6fc6be" title="Reads the Line Status Register to check for errors and available data." alt="" coords="180,5,316,32"/>
+<area shape="rect" id="node3" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="364,5,455,32"/>
+</map>

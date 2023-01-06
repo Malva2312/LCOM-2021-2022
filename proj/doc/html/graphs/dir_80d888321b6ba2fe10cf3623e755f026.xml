@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_80d888321b6ba2fe10cf3623e755f026" xml:lang="en-US">
+<title>serialport Directory Reference</title>
+<indexterm><primary>serialport Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_serialport_8c">serialport.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_serialport_8h">serialport.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

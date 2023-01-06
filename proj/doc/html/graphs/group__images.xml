@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__images" xml:lang="en-US">
+<title>Game Images</title>
+<indexterm><primary>Game Images</primary></indexterm>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group__images_1ga9cb64526659b4bebea0d36565debb187">NUM_IMAGES</link>   20</para>
+
+<para>Total number od images to be load. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_group__images_1ga50f04280d5437776a6ed5478ce534846">game_image_t</link> { 
+<link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a4f87871d1956e15e335db3338223fb39">MENU_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a2b318d4c04620dcbbdc0e35beeb29ae0">PLAYER1_SELECTED_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a1e320be59ca91ee4d6a8a7672f2f111a">PLAYER2_SELECTED_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846ab97432162a763d4e846beac38a9bb66c">ABOUT_SELECTED_IMG</link>
+, 
+<link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a8c2b58ce41523e65625036f2f80dc51e">NUMBER0_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a9a7e5c43117339ac3086132cc1d3acdd">NUMBER1_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a6e0f66f95f700a2c631f98532478e920">NUMBER2_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a5663965641f210c87d5437990b1baffb">NUMBER3_IMG</link>
+, 
+<link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a005bc580342043700cea0a08ecda201c">NUMBER4_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a9584074a47973e30035ea44ac19f93d7">NUMBER5_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a485529d59d2efb0aa461baa63c6afd30">LOST_MENU_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846af61a1fe5c028fc23eb2c6e17a1cf1d73">LOST_MENU_PLAYER_IMG</link>
+, 
+<link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a1db0d2cdba94409852adb864c56131c9">WON_P1_MENU_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846ab3b1b54a9a9207e135286723794d7abe">WON_P2_MENU_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846aaa003715583e12e7d335e4f5ca250724">POWER1_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a68af1bef087f8e65f6eefe6e3796d358">POWER2_IMG</link>
+, 
+<link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846ab316890bcc162088f6726dd12a74c187">WAIT_MENU_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a4d9cc8fbf9e36ca5aef7447edd1bd95e">SUN_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a1e17279e92245e136640874adec99d2f">DISCO_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a527aebcfaaac1410ac8684c4ae012440">ABOUT_PAGE_IMG</link>
+ }</para>
+
+<para>Enumerates each image in the game. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__images_1ga8a6bd0a6090487314e7d566acd5dbf7f">load_all_images</link> ()</para>
+
+<para>Load all images into the game. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>xpm_image_t <link linkend="_group__images_1ga34bcf325103efe12271f8e301024e7a9">game_images</link> [<link linkend="_group__images_1ga9cb64526659b4bebea0d36565debb187">NUM_IMAGES</link>]</para>
+
+<para>Images data cointainer. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Constants for programming the i8254 Timer. </para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_group__images_1ga9cb64526659b4bebea0d36565debb187"/><section>
+    <title>NUM_IMAGES</title>
+<indexterm><primary>NUM_IMAGES</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>NUM_IMAGES</secondary></indexterm>
+<para><computeroutput>#define NUM_IMAGES   20</computeroutput></para><para>
+
+<para>Total number od images to be load. </para>
+</para>
+<para>
+Definition at line <link linkend="_images_8h_source_1l00034">34</link> of file <link linkend="_images_8h_source">images.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_group__images_1ga50f04280d5437776a6ed5478ce534846"/><section>
+    <title>game_image_t</title>
+<indexterm><primary>game_image_t</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>game_image_t</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_group__images_1ga50f04280d5437776a6ed5478ce534846">game_image_t</link></computeroutput></para><para>
+
+<para>Enumerates each image in the game. </para>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>MENU_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>MENU_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846a4f87871d1956e15e335db3338223fb39"/>MENU_IMG</entry><entry>
+<para>Menu image and layout. </para>
+</entry></row><row><entry><indexterm><primary>PLAYER1_SELECTED_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>PLAYER1_SELECTED_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846a2b318d4c04620dcbbdc0e35beeb29ae0"/>PLAYER1_SELECTED_IMG</entry><entry>
+<para>Player1 option selected in menu. </para>
+</entry></row><row><entry><indexterm><primary>PLAYER2_SELECTED_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>PLAYER2_SELECTED_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846a1e320be59ca91ee4d6a8a7672f2f111a"/>PLAYER2_SELECTED_IMG</entry><entry>
+<para>Player1 Vs Player2 option selected in menu. </para>
+</entry></row><row><entry><indexterm><primary>ABOUT_SELECTED_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>ABOUT_SELECTED_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846ab97432162a763d4e846beac38a9bb66c"/>ABOUT_SELECTED_IMG</entry><entry>
+<para>About option selected in menu. </para>
+</entry></row><row><entry><indexterm><primary>NUMBER0_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>NUMBER0_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846a8c2b58ce41523e65625036f2f80dc51e"/>NUMBER0_IMG</entry><entry>
+<para>Number &quot;0&quot; for score display. </para>
+</entry></row><row><entry><indexterm><primary>NUMBER1_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>NUMBER1_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846a9a7e5c43117339ac3086132cc1d3acdd"/>NUMBER1_IMG</entry><entry>
+<para>Number &quot;1&quot; for score display. </para>
+</entry></row><row><entry><indexterm><primary>NUMBER2_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>NUMBER2_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846a6e0f66f95f700a2c631f98532478e920"/>NUMBER2_IMG</entry><entry>
+<para>Number &quot;2&quot; for score display. </para>
+</entry></row><row><entry><indexterm><primary>NUMBER3_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>NUMBER3_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846a5663965641f210c87d5437990b1baffb"/>NUMBER3_IMG</entry><entry>
+<para>Number &quot;3&quot; for score display. </para>
+</entry></row><row><entry><indexterm><primary>NUMBER4_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>NUMBER4_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846a005bc580342043700cea0a08ecda201c"/>NUMBER4_IMG</entry><entry>
+<para>Number &quot;4&quot; for score display. </para>
+</entry></row><row><entry><indexterm><primary>NUMBER5_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>NUMBER5_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846a9584074a47973e30035ea44ac19f93d7"/>NUMBER5_IMG</entry><entry>
+<para>Number &quot;5&quot; for score display. </para>
+</entry></row><row><entry><indexterm><primary>LOST_MENU_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>LOST_MENU_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846a485529d59d2efb0aa461baa63c6afd30"/>LOST_MENU_IMG</entry><entry>
+<para>Message that indicates that the player has lost. </para>
+</entry></row><row><entry><indexterm><primary>LOST_MENU_PLAYER_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>LOST_MENU_PLAYER_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846af61a1fe5c028fc23eb2c6e17a1cf1d73"/>LOST_MENU_PLAYER_IMG</entry><entry></entry></row><row><entry><indexterm><primary>WON_P1_MENU_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>WON_P1_MENU_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846a1db0d2cdba94409852adb864c56131c9"/>WON_P1_MENU_IMG</entry><entry>
+<para>Message that indicates that the Player1 has won. </para>
+</entry></row><row><entry><indexterm><primary>WON_P2_MENU_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>WON_P2_MENU_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846ab3b1b54a9a9207e135286723794d7abe"/>WON_P2_MENU_IMG</entry><entry>
+<para>Message that indicates that the Player2 has won. </para>
+</entry></row><row><entry><indexterm><primary>POWER1_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>POWER1_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846aaa003715583e12e7d335e4f5ca250724"/>POWER1_IMG</entry><entry>
+<para>Power-Up-1 Icon. </para>
+</entry></row><row><entry><indexterm><primary>POWER2_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>POWER2_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846a68af1bef087f8e65f6eefe6e3796d358"/>POWER2_IMG</entry><entry>
+<para>Power-Up-2 Icon. </para>
+</entry></row><row><entry><indexterm><primary>WAIT_MENU_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>WAIT_MENU_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846ab316890bcc162088f6726dd12a74c187"/>WAIT_MENU_IMG</entry><entry>
+<para>Wait menu image and layout. </para>
+</entry></row><row><entry><indexterm><primary>SUN_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>SUN_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846a4d9cc8fbf9e36ca5aef7447edd1bd95e"/>SUN_IMG</entry><entry>
+<para>Sun image for a given RTC time. </para>
+</entry></row><row><entry><indexterm><primary>DISCO_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>DISCO_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846a1e17279e92245e136640874adec99d2f"/>DISCO_IMG</entry><entry>
+<para>Disco image for a given RTC time. </para>
+</entry></row><row><entry><indexterm><primary>ABOUT_PAGE_IMG</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>ABOUT_PAGE_IMG</secondary></indexterm>
+<anchor xml:id="_group__images_1gga50f04280d5437776a6ed5478ce534846a527aebcfaaac1410ac8684c4ae012440"/>ABOUT_PAGE_IMG</entry><entry>
+<para>About page image. </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_images_8h_source_1l00040">40</link> of file <link linkend="_images_8h_source">images.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_group__images_1ga8a6bd0a6090487314e7d566acd5dbf7f"/><section>
+    <title>load_all_images()</title>
+<indexterm><primary>load_all_images</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>load_all_images</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() load_all_images ( )</computeroutput></para><para>
+
+<para>Load all images into the game. </para>
+</para>
+<para>
+Definition at line <link linkend="_images_8c_source_1l00003">3</link> of file <link linkend="_images_8c_source">images.c</link>.</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_group__images_1ga34bcf325103efe12271f8e301024e7a9"/><section>
+    <title>game_images</title>
+<indexterm><primary>game_images</primary><secondary>Game Images</secondary></indexterm>
+<indexterm><primary>Game Images</primary><secondary>game_images</secondary></indexterm>
+<para><computeroutput>xpm_image_t game_images[<link linkend="_group__images_1ga9cb64526659b4bebea0d36565debb187">NUM_IMAGES</link>]</computeroutput></para><para>
+
+<para>Images data cointainer. </para>
+</para>
+<para>
+Definition at line <link linkend="_images_8h_source_1l00067">67</link> of file <link linkend="_images_8h_source">images.h</link>.</para>
+</section>
+</section>
+</section>

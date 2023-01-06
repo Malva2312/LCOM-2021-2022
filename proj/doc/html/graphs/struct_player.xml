@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_player" xml:lang="en-US">
+<title>Player Struct Reference</title>
+<indexterm><primary>Player</primary></indexterm>
+<para>
+
+<para>Struct that saves all data about one player. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;model.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_struct_player_1af1617c91937fbd9d9d670940427d9b44">x_pos</link></para>
+
+<para>Position of the player on the x-axis. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_player_1a375120430014d7e06dcc37d9ca4fcdb8">y_pos</link></para>
+
+<para>Position of the player on the y-axis. </para>
+</listitem>
+            <listitem><para>unsigned int <link linkend="_struct_player_1aeedc2afa1e522527db2235d0700a3b0d">color</link></para>
+
+<para>Colour with which the player is drawn 
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_player_1a2e839d402befe03988451b3a1f6f80cf">vel</link></para>
+
+<para>Distance, on the y-axis, per unit of time. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_player_1ad12fc34ce789bce6c8a05d8a17138534">height</link></para>
+
+<para>Height of the player&apos;s paddle. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_player_1a2474a5474cbff19523a51eb1de01cda4">width</link></para>
+
+<para>Width of the player&apos;s paddle. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_player_1aef160b7437d94056f1dc59646cd5b87d">score</link></para>
+
+<para>Total points scored in the match. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Struct that saves all data about one player. </para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00038">38</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_struct_player_1aeedc2afa1e522527db2235d0700a3b0d"/><section>
+    <title>color</title>
+<indexterm><primary>color</primary><secondary>Player</secondary></indexterm>
+<indexterm><primary>Player</primary><secondary>color</secondary></indexterm>
+<para><computeroutput>unsigned int color</computeroutput></para><para>
+
+<para>Colour with which the player is drawn 
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00041">41</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_player_1ad12fc34ce789bce6c8a05d8a17138534"/><section>
+    <title>height</title>
+<indexterm><primary>height</primary><secondary>Player</secondary></indexterm>
+<indexterm><primary>Player</primary><secondary>height</secondary></indexterm>
+<para><computeroutput>int height</computeroutput></para><para>
+
+<para>Height of the player&apos;s paddle. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00043">43</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_player_1aef160b7437d94056f1dc59646cd5b87d"/><section>
+    <title>score</title>
+<indexterm><primary>score</primary><secondary>Player</secondary></indexterm>
+<indexterm><primary>Player</primary><secondary>score</secondary></indexterm>
+<para><computeroutput>int score</computeroutput></para><para>
+
+<para>Total points scored in the match. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00045">45</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_player_1a2e839d402befe03988451b3a1f6f80cf"/><section>
+    <title>vel</title>
+<indexterm><primary>vel</primary><secondary>Player</secondary></indexterm>
+<indexterm><primary>Player</primary><secondary>vel</secondary></indexterm>
+<para><computeroutput>int vel</computeroutput></para><para>
+
+<para>Distance, on the y-axis, per unit of time. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00042">42</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_player_1a2474a5474cbff19523a51eb1de01cda4"/><section>
+    <title>width</title>
+<indexterm><primary>width</primary><secondary>Player</secondary></indexterm>
+<indexterm><primary>Player</primary><secondary>width</secondary></indexterm>
+<para><computeroutput>int width</computeroutput></para><para>
+
+<para>Width of the player&apos;s paddle. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00044">44</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_player_1af1617c91937fbd9d9d670940427d9b44"/><section>
+    <title>x_pos</title>
+<indexterm><primary>x_pos</primary><secondary>Player</secondary></indexterm>
+<indexterm><primary>Player</primary><secondary>x_pos</secondary></indexterm>
+<para><computeroutput>int x_pos</computeroutput></para><para>
+
+<para>Position of the player on the x-axis. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00039">39</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_player_1a375120430014d7e06dcc37d9ca4fcdb8"/><section>
+    <title>y_pos</title>
+<indexterm><primary>y_pos</primary><secondary>Player</secondary></indexterm>
+<indexterm><primary>Player</primary><secondary>y_pos</secondary></indexterm>
+<para><computeroutput>int y_pos</computeroutput></para><para>
+
+<para>Position of the player on the y-axis. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00040">40</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+game/<link linkend="_model_8h">model.h</link></section>
+</section>

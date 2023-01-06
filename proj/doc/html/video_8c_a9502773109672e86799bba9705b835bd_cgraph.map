@@ -1,0 +1,4 @@
+<map id="draw_sprite" name="draw_sprite">
+<area shape="rect" id="node1" title="Draw a sprite." alt="" coords="5,5,93,32"/>
+<area shape="rect" id="node2" href="$video_8c.html#a576ad65187107e487c85b9fb42fa0220" title="Set the color of a pixel." alt="" coords="141,5,235,32"/>
+</map>

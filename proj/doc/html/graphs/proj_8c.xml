@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_proj_8c" xml:lang="en-US">
+<title>proj.c File Reference</title>
+<indexterm><primary>proj.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;lcom/lcf.h&gt;
+#include &lt;lcom/proj.h&gt;
+#include &lt;lcom/pixmap.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stdint.h&gt;
+#include &quot;video/video.h&quot;
+#include &quot;keyboard/kbc.h&quot;
+#include &quot;game/handlers.h&quot;
+#include &quot;game/images.h&quot;
+#include &quot;game/view.h&quot;
+#include &quot;serialport/serialport.h&quot;
+#include &quot;rtc/rtc.h&quot;
+</programlisting>Include dependency graph for proj.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="proj_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_proj_8c_1a0ddf1224851353fc92bfbff6f499fa97">main</link> (int argc, char *argv[])</para>
+</listitem>
+            <listitem><para>int() <link linkend="_proj_8c_1a2a16f651eccbd248e1ad3b3b924b143b">proj_main_loop</link> (int argc, char *argv[])</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>uint8_t <link linkend="_proj_8c_1a01577ed8d3646775ae6a8e00d24c1d94">scancode</link> [2]</para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_proj_8c_1a325819a8e492ac69542e8b31705af6e9">data</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_proj_8c_1a0210a44039b20cccb04801fb03ae47c1">full_code_ready</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_proj_8c_1aa02e483eb21e700531ca2ddf2508d189">kbd_valid</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_proj_8c_1a8a7aa94c9cf59b217a36bea458c1f8d4">mouse_valid</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_proj_8c_1a5d9c2a41be94ab895b834e18856183b6">mouse_packet_ready</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_proj_8c_1a0ddf1224851353fc92bfbff6f499fa97"/><section>
+    <title>main()</title>
+<indexterm><primary>main</primary><secondary>proj.c</secondary></indexterm>
+<indexterm><primary>proj.c</primary><secondary>main</secondary></indexterm>
+<para><computeroutput>int main (int argc, char * argv[])</computeroutput></para><para>
+Definition at line <link linkend="_proj_8c_source_1l00021">21</link> of file <link linkend="_proj_8c_source">proj.c</link>.</para>
+</section>
+<anchor xml:id="_proj_8c_1a2a16f651eccbd248e1ad3b3b924b143b"/><section>
+    <title>proj_main_loop()</title>
+<indexterm><primary>proj_main_loop</primary><secondary>proj.c</secondary></indexterm>
+<indexterm><primary>proj.c</primary><secondary>proj_main_loop</secondary></indexterm>
+<para><computeroutput>int() proj_main_loop (int argc, char * argv[])</computeroutput></para><para>
+Definition at line <link linkend="_proj_8c_source_1l00046">46</link> of file <link linkend="_proj_8c_source">proj.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="proj_8c_a2a16f651eccbd248e1ad3b3b924b143b_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_proj_8c_1a325819a8e492ac69542e8b31705af6e9"/><section>
+    <title>data</title>
+<indexterm><primary>data</primary><secondary>proj.c</secondary></indexterm>
+<indexterm><primary>proj.c</primary><secondary>data</secondary></indexterm>
+<para><computeroutput>uint8_t data<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00009">9</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_proj_8c_1a0210a44039b20cccb04801fb03ae47c1"/><section>
+    <title>full_code_ready</title>
+<indexterm><primary>full_code_ready</primary><secondary>proj.c</secondary></indexterm>
+<indexterm><primary>proj.c</primary><secondary>full_code_ready</secondary></indexterm>
+<para><computeroutput>bool full_code_ready<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00010">10</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_proj_8c_1aa02e483eb21e700531ca2ddf2508d189"/><section>
+    <title>kbd_valid</title>
+<indexterm><primary>kbd_valid</primary><secondary>proj.c</secondary></indexterm>
+<indexterm><primary>proj.c</primary><secondary>kbd_valid</secondary></indexterm>
+<para><computeroutput>bool kbd_valid</computeroutput></para><para>
+Definition at line <link linkend="_proj_8c_source_1l00018">18</link> of file <link linkend="_proj_8c_source">proj.c</link>.</para>
+</section>
+<anchor xml:id="_proj_8c_1a5d9c2a41be94ab895b834e18856183b6"/><section>
+    <title>mouse_packet_ready</title>
+<indexterm><primary>mouse_packet_ready</primary><secondary>proj.c</secondary></indexterm>
+<indexterm><primary>proj.c</primary><secondary>mouse_packet_ready</secondary></indexterm>
+<para><computeroutput>bool mouse_packet_ready</computeroutput></para><para>
+Definition at line <link linkend="_proj_8c_source_1l00019">19</link> of file <link linkend="_proj_8c_source">proj.c</link>.</para>
+</section>
+<anchor xml:id="_proj_8c_1a8a7aa94c9cf59b217a36bea458c1f8d4"/><section>
+    <title>mouse_valid</title>
+<indexterm><primary>mouse_valid</primary><secondary>proj.c</secondary></indexterm>
+<indexterm><primary>proj.c</primary><secondary>mouse_valid</secondary></indexterm>
+<para><computeroutput>bool mouse_valid<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00099">99</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_proj_8c_1a01577ed8d3646775ae6a8e00d24c1d94"/><section>
+    <title>scancode</title>
+<indexterm><primary>scancode</primary><secondary>proj.c</secondary></indexterm>
+<indexterm><primary>proj.c</primary><secondary>scancode</secondary></indexterm>
+<para><computeroutput>uint8_t scancode[2]<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00012">12</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+</section>
+</section>

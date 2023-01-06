@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_b34f835ed49015c14ca93cb72c0d3b66" xml:lang="en-US">
+<title>sprites/end Directory Reference</title>
+<indexterm><primary>sprites/end Directory Reference</primary></indexterm>
+Directory dependency graph for end:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_b34f835ed49015c14ca93cb72c0d3b66_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__lost__menu_8h">Lost_menu.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__lost__menu__player_8h">Lost_menu_player.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__won__p1__menu_8h">Won_p1_menu.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__won__p2__menu_8h">Won_p2_menu.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

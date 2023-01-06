@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_images_8c" xml:lang="en-US">
+<title>game/images.c File Reference</title>
+<indexterm><primary>game/images.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;images.h&quot;
+</programlisting>Include dependency graph for images.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="images_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__images_1ga8a6bd0a6090487314e7d566acd5dbf7f">load_all_images</link> ()</para>
+
+<para>Load all images into the game. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

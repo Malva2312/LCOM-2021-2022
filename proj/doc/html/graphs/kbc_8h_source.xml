@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_kbc_8h_source" xml:lang="en-US">
+<title>kbc.h</title>
+<indexterm><primary>keyboard/kbc.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_kbc_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;lcom/lcf.h&gt;</emphasis>
+<anchor xml:id="_kbc_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;stdbool.h&gt;</emphasis>
+<anchor xml:id="_kbc_8h_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>&#32;
+<anchor xml:id="_kbc_8h_source_1l00004"/>00004 
+<anchor xml:id="_kbc_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_i8042_8h">i8042.h</link>&quot;</emphasis>
+<anchor xml:id="_kbc_8h_source_1l00006"/>00006 
+<anchor xml:id="_kbc_8h_source_1l00017"/>00017 <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__kbc_1ga5761bd4aad91ac1d68916ad88f583d9f">kbc_ih</link>)(<link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>);
+<anchor xml:id="_kbc_8h_source_1l00023"/>00023 int&#32;(<link linkend="_group__kbc_1ga459c5f03316bc61703727fd38f1f1965">kbd_get_status_byte</link>)();
+<anchor xml:id="_kbc_8h_source_1l00028"/>00028 int&#32;(<link linkend="_group__kbc_1gad2fe6cbf61c2613cd7f4d7998979ee29">kbc_read_value</link>)();
+<anchor xml:id="_kbc_8h_source_1l00033"/><link linkend="_group__kbc_1ga8241f7a84e014002298dcaa15914baf3">00033</link> <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__kbc_1ga8241f7a84e014002298dcaa15914baf3">kbc_issue_command</link>)(uint8_t&#32;cmd);
+<anchor xml:id="_kbc_8h_source_1l00038"/>00038 int&#32;(<link linkend="_group__kbc_1gab06ce595703807400f3d90171f7f9884">kbc_write_cmd</link>)(uint8_t&#32;cmd);
+<anchor xml:id="_kbc_8h_source_1l00043"/>00043 int&#32;(<link linkend="_group__kbc_1ga4d01b87977dde6d295c19c982e5426ea">kbc_read_cmd</link>)(uint8_t*&#32;cmd);
+<anchor xml:id="_kbc_8h_source_1l00048"/>00048 <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__kbc_1gac47c4cbc1a0bcfa157d20dd35d29da57">kbc_restore_interrupts</link>)();
+<anchor xml:id="_kbc_8h_source_1l00053"/>00053 int&#32;(<link linkend="_group__kbc_1ga4ac9231a99a664d6a9f0b69767e0d707">kbd_subscribe_int</link>)(uint8_t&#32;*bit_no);
+<anchor xml:id="_kbc_8h_source_1l00058"/>00058 int&#32;(<link linkend="_group__kbc_1gaee0a7b54ee426fade9c780418d110fe0">kbd_unsubscribe_int</link>)();
+<anchor xml:id="_kbc_8h_source_1l00059"/>00059 
+<anchor xml:id="_kbc_8h_source_1l00060"/>00060 <emphasis role="comment">/*---------------MOUSE--------------*/</emphasis>
+<anchor xml:id="_kbc_8h_source_1l00061"/>00061 
+<anchor xml:id="_kbc_8h_source_1l00066"/>00066 int&#32;(<link linkend="_group__kbc_1ga20285aed4b3ef45812cd967532dd09db">mouse_subscribe_int</link>)(uint8_t&#32;*bit_no);
+<anchor xml:id="_kbc_8h_source_1l00071"/>00071 int&#32;(<link linkend="_group__kbc_1ga3ecf823d80520009ae5e0d76ae40a3c3">mouse_unsubscribe_int</link>)();
+<anchor xml:id="_kbc_8h_source_1l00076"/>00076 int&#32;(<link linkend="_group__kbc_1gad133813912d3da691a07674fb9e15455">enable_mouse</link>)();
+<anchor xml:id="_kbc_8h_source_1l00081"/>00081 int&#32;(<link linkend="_group__kbc_1gaaf62ad2fc57a009e413accb7373fe33d">disable_mouse</link>)();
+<anchor xml:id="_kbc_8h_source_1l00086"/>00086 int&#32;(<link linkend="_group__kbc_1ga486b669d172327d510db1fff96ea6b60">mouse_write_to_port</link>)(uint8_t&#32;port,&#32;uint8_t&#32;cmd);
+<anchor xml:id="_kbc_8h_source_1l00087"/>00087 int&#32;(<link linkend="_group__kbc_1gadce7a7604f8b0782158b70bf728eb411">mouse_write_cmd</link>)(uint8_t&#32;cmd);
+<anchor xml:id="_kbc_8h_source_1l00092"/>00092 int&#32;(<link linkend="_group__kbc_1gab03b20445da099487fdd96bc31007b0e">mouse_enbl_data_reporting</link>)();
+<anchor xml:id="_kbc_8h_source_1l00097"/>00097 int&#32;(<link linkend="_group__kbc_1ga7e311379d4d64f88873ef8ade5c82a25">mouse_disable_data_reporting</link>)();
+<anchor xml:id="_kbc_8h_source_1l00102"/>00102 <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__kbc_1gaed4404005e4c565ac36656307386e0ac">mouse_ih</link>)(<link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>);
+<anchor xml:id="_kbc_8h_source_1l00107"/>00107 int&#32;(<link linkend="_group__kbc_1ga9e19cb92cae1a1257d65ae04e1e6cc6f">mouse_read_value</link>)();
+<anchor xml:id="_kbc_8h_source_1l00112"/>00112 int&#32;(<link linkend="_group__kbc_1ga4a3e729d49865f915c15092cfdda2835">parse_packet</link>)();
+<anchor xml:id="_kbc_8h_source_1l00113"/>00113 
+</programlisting></section>

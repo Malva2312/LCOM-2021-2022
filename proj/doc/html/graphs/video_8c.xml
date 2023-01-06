@@ -1,0 +1,563 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_video_8c" xml:lang="en-US">
+<title>video/video.c File Reference</title>
+<indexterm><primary>video/video.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;lcom/lcf.h&gt;
+#include &lt;lcom/lab5.h&gt;
+#include &quot;video.h&quot;
+</programlisting>Include dependency graph for video.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="video_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>unsigned() <link linkend="_video_8c_1ab4c6864582add7ea2f4a9014fd07baad">bits_to_byte_ceil</link> (unsigned bits_per_pixel)</para>
+
+<para>Bits to bytes (ceiling aproximation) </para>
+</listitem>
+            <listitem><para>int() <link linkend="_video_8c_1a1e2de8664e2dade53b8b7e7a5bc83fb4">vg_mode</link> (uint16_t mode)</para>
+
+<para>Initialize a given graphic mode. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_video_8c_1af58095ca3d3990e300b96bfe4c0a63e4">map_video_memory</link> (uint16_t mode)</para>
+
+<para>Create a virtual adress space for video memory. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_video_8c_1a8241e421a3811f46b59bed9f166a48d1">refresh_buffer</link> ()</para>
+
+<para>Copy the secondary buffer contents to the main buffer. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_video_8c_1af7831592ef04114ca9b46e672c0e646b">clear_buffer</link> ()</para>
+
+<para>Clear the secondary buffer. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_video_8c_1a576ad65187107e487c85b9fb42fa0220">vg_set_pixel</link> (uint32_t color, uint16_t x, uint16_t y)</para>
+
+<para>Set the color of a pixel. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_video_8c_1a1135e6421577648c6d1c0abc1e971663">vg_draw_vline</link> (uint16_t x, uint16_t y, uint16_t len, uint32_t color)</para>
+
+<para>Draw a vertical line of pixels. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_video_8c_1a5e5b25bd525250f61f40b9e9f212d5e6">vg_draw_hline</link> (uint16_t x, uint16_t y, uint16_t len, uint32_t color)</para>
+
+<para>Draw a horizontal line of pixels. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_video_8c_1a905cdcdafb03104ab75c6c59e0f5e7cb">draw_rectangle</link> (uint32_t color, uint16_t x, uint16_t y, uint16_t width, uint16_t height)</para>
+
+<para>Draw a rectangle. </para>
+</listitem>
+            <listitem><para>uint32_t() <link linkend="_video_8c_1ab2f6fe650a84644d78d3f122a34d972e">color_mask</link> (uint32_t <link linkend="_kbc_8c_1a439227feff9d7f55384e8780cfc2eb82">size</link>, uint32_t pos)</para>
+</listitem>
+            <listitem><para>uint32_t() <link linkend="_video_8c_1aec90bbe52b0db0466324550212ec1bfe">direct_color_mode_RGB</link> (uint16_t row, uint16_t col, uint32_t first, uint8_t step)</para>
+</listitem>
+            <listitem><para>int() <link linkend="_video_8c_1abd983f84d9522b6deec0e784324357bb">draw_pattern</link> (uint8_t no_rectangles, uint32_t first, uint8_t step)</para>
+
+<para>Draw a pattern of different colored rectangles. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_video_8c_1a9502773109672e86799bba9705b835bd">draw_sprite</link> (uint16_t x, uint16_t y, xpm_image_t img)</para>
+
+<para>Draw a sprite. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_video_8c_1ab4c6864582add7ea2f4a9014fd07baad"/><section>
+    <title>bits_to_byte_ceil()</title>
+<indexterm><primary>bits_to_byte_ceil</primary><secondary>video.c</secondary></indexterm>
+<indexterm><primary>video.c</primary><secondary>bits_to_byte_ceil</secondary></indexterm>
+<para><computeroutput>unsigned() bits_to_byte_ceil (unsigned bits_per_pixel)</computeroutput></para><para>
+
+<para>Bits to bytes (ceiling aproximation) </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bits_per_pixel</entry><entry>
+<para>Number of bits per pixel </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Number of bytes per pixel </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_video_8c_source_1l00021">21</link> of file <link linkend="_video_8c_source">video.c</link>.</para>
+</section>
+<anchor xml:id="_video_8c_1af7831592ef04114ca9b46e672c0e646b"/><section>
+    <title>clear_buffer()</title>
+<indexterm><primary>clear_buffer</primary><secondary>video.c</secondary></indexterm>
+<indexterm><primary>video.c</primary><secondary>clear_buffer</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() clear_buffer ( )</computeroutput></para><para>
+
+<para>Clear the secondary buffer. </para>
+</para>
+<para>
+Definition at line <link linkend="_video_8c_source_1l00091">91</link> of file <link linkend="_video_8c_source">video.c</link>.</para>
+</section>
+<anchor xml:id="_video_8c_1ab2f6fe650a84644d78d3f122a34d972e"/><section>
+    <title>color_mask()</title>
+<indexterm><primary>color_mask</primary><secondary>video.c</secondary></indexterm>
+<indexterm><primary>video.c</primary><secondary>color_mask</secondary></indexterm>
+<para><computeroutput>uint32_t() color_mask (uint32_t size, uint32_t pos)</computeroutput></para><para>
+Definition at line <link linkend="_video_8c_source_1l00131">131</link> of file <link linkend="_video_8c_source">video.c</link>.</para>
+</section>
+<anchor xml:id="_video_8c_1aec90bbe52b0db0466324550212ec1bfe"/><section>
+    <title>direct_color_mode_RGB()</title>
+<indexterm><primary>direct_color_mode_RGB</primary><secondary>video.c</secondary></indexterm>
+<indexterm><primary>video.c</primary><secondary>direct_color_mode_RGB</secondary></indexterm>
+<para><computeroutput>uint32_t() direct_color_mode_RGB (uint16_t row, uint16_t col, uint32_t first, uint8_t step)</computeroutput></para><para>
+Definition at line <link linkend="_video_8c_source_1l00136">136</link> of file <link linkend="_video_8c_source">video.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="video_8c_aec90bbe52b0db0466324550212ec1bfe_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_video_8c_1abd983f84d9522b6deec0e784324357bb"/><section>
+    <title>draw_pattern()</title>
+<indexterm><primary>draw_pattern</primary><secondary>video.c</secondary></indexterm>
+<indexterm><primary>video.c</primary><secondary>draw_pattern</secondary></indexterm>
+<para><computeroutput>int() draw_pattern (uint8_t no_rectangles, uint32_t first, uint8_t step)</computeroutput></para><para>
+
+<para>Draw a pattern of different colored rectangles. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>no_rectangles</entry><entry>
+<para>Number of rectangles per side </para>
+</entry>
+                            </row>
+                            <row>
+<entry>first</entry><entry>
+<para>Color of first rectangle </para>
+</entry>
+                            </row>
+                            <row>
+<entry>step</entry><entry>
+<para>Step for next rectangle color </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_video_8c_source_1l00149">149</link> of file <link linkend="_video_8c_source">video.c</link>.</para>
+</section>
+<anchor xml:id="_video_8c_1a905cdcdafb03104ab75c6c59e0f5e7cb"/><section>
+    <title>draw_rectangle()</title>
+<indexterm><primary>draw_rectangle</primary><secondary>video.c</secondary></indexterm>
+<indexterm><primary>video.c</primary><secondary>draw_rectangle</secondary></indexterm>
+<para><computeroutput>int() draw_rectangle (uint32_t color, uint16_t x, uint16_t y, uint16_t width, uint16_t height)</computeroutput></para><para>
+
+<para>Draw a rectangle. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>color</entry><entry>
+<para>Color of the pixel </para>
+</entry>
+                            </row>
+                            <row>
+<entry>x</entry><entry>
+<para>X position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>y</entry><entry>
+<para>Y position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>width</entry><entry>
+<para>Width of the rectangle </para>
+</entry>
+                            </row>
+                            <row>
+<entry>height</entry><entry>
+<para>Height of the rectangle </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_video_8c_source_1l00123">123</link> of file <link linkend="_video_8c_source">video.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="video_8c_a905cdcdafb03104ab75c6c59e0f5e7cb_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_video_8c_1a9502773109672e86799bba9705b835bd"/><section>
+    <title>draw_sprite()</title>
+<indexterm><primary>draw_sprite</primary><secondary>video.c</secondary></indexterm>
+<indexterm><primary>video.c</primary><secondary>draw_sprite</secondary></indexterm>
+<para><computeroutput>int() draw_sprite (uint16_t x, uint16_t y, xpm_image_t img)</computeroutput></para><para>
+
+<para>Draw a sprite. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>x</entry><entry>
+<para>X position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>y</entry><entry>
+<para>Y position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>img</entry><entry>
+<para>Xpm of the image </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_video_8c_source_1l00169">169</link> of file <link linkend="_video_8c_source">video.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="video_8c_a9502773109672e86799bba9705b835bd_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_video_8c_1af58095ca3d3990e300b96bfe4c0a63e4"/><section>
+    <title>map_video_memory()</title>
+<indexterm><primary>map_video_memory</primary><secondary>video.c</secondary></indexterm>
+<indexterm><primary>video.c</primary><secondary>map_video_memory</secondary></indexterm>
+<para><computeroutput>int() map_video_memory (uint16_t mode)</computeroutput></para><para>
+
+<para>Create a virtual adress space for video memory. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mode</entry><entry>
+<para>Mode of operation </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_video_8c_source_1l00046">46</link> of file <link linkend="_video_8c_source">video.c</link>.</para>
+</section>
+<anchor xml:id="_video_8c_1a8241e421a3811f46b59bed9f166a48d1"/><section>
+    <title>refresh_buffer()</title>
+<indexterm><primary>refresh_buffer</primary><secondary>video.c</secondary></indexterm>
+<indexterm><primary>video.c</primary><secondary>refresh_buffer</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() refresh_buffer ( )</computeroutput></para><para>
+
+<para>Copy the secondary buffer contents to the main buffer. </para>
+</para>
+<para>
+Definition at line <link linkend="_video_8c_source_1l00087">87</link> of file <link linkend="_video_8c_source">video.c</link>.</para>
+</section>
+<anchor xml:id="_video_8c_1a5e5b25bd525250f61f40b9e9f212d5e6"/><section>
+    <title>vg_draw_hline()</title>
+<indexterm><primary>vg_draw_hline</primary><secondary>video.c</secondary></indexterm>
+<indexterm><primary>video.c</primary><secondary>vg_draw_hline</secondary></indexterm>
+<para><computeroutput>int() vg_draw_hline (uint16_t x, uint16_t y, uint16_t len, uint32_t color)</computeroutput></para><para>
+
+<para>Draw a horizontal line of pixels. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>x</entry><entry>
+<para>X position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>y</entry><entry>
+<para>Y position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>len</entry><entry>
+<para>Length of the line </para>
+</entry>
+                            </row>
+                            <row>
+<entry>color</entry><entry>
+<para>Color of the line </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_video_8c_source_1l00115">115</link> of file <link linkend="_video_8c_source">video.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="video_8c_a5e5b25bd525250f61f40b9e9f212d5e6_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_video_8c_1a1135e6421577648c6d1c0abc1e971663"/><section>
+    <title>vg_draw_vline()</title>
+<indexterm><primary>vg_draw_vline</primary><secondary>video.c</secondary></indexterm>
+<indexterm><primary>video.c</primary><secondary>vg_draw_vline</secondary></indexterm>
+<para><computeroutput>int() vg_draw_vline (uint16_t x, uint16_t y, uint16_t len, uint32_t color)</computeroutput></para><para>
+
+<para>Draw a vertical line of pixels. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>x</entry><entry>
+<para>X position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>y</entry><entry>
+<para>Y position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>len</entry><entry>
+<para>Length of the line </para>
+</entry>
+                            </row>
+                            <row>
+<entry>color</entry><entry>
+<para>Color of the line </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_video_8c_source_1l00107">107</link> of file <link linkend="_video_8c_source">video.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="video_8c_a1135e6421577648c6d1c0abc1e971663_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_video_8c_1a1e2de8664e2dade53b8b7e7a5bc83fb4"/><section>
+    <title>vg_mode()</title>
+<indexterm><primary>vg_mode</primary><secondary>video.c</secondary></indexterm>
+<indexterm><primary>video.c</primary><secondary>vg_mode</secondary></indexterm>
+<para><computeroutput>int() vg_mode (uint16_t mode)</computeroutput></para><para>
+
+<para>Initialize a given graphic mode. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mode</entry><entry>
+<para>Mode of operation </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_video_8c_source_1l00026">26</link> of file <link linkend="_video_8c_source">video.c</link>.</para>
+</section>
+<anchor xml:id="_video_8c_1a576ad65187107e487c85b9fb42fa0220"/><section>
+    <title>vg_set_pixel()</title>
+<indexterm><primary>vg_set_pixel</primary><secondary>video.c</secondary></indexterm>
+<indexterm><primary>video.c</primary><secondary>vg_set_pixel</secondary></indexterm>
+<para><computeroutput>int() vg_set_pixel (uint32_t color, uint16_t x, uint16_t y)</computeroutput></para><para>
+
+<para>Set the color of a pixel. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>color</entry><entry>
+<para>Color of the pixel </para>
+</entry>
+                            </row>
+                            <row>
+<entry>x</entry><entry>
+<para>X position </para>
+</entry>
+                            </row>
+                            <row>
+<entry>y</entry><entry>
+<para>Y position </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if OK, 1 otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_video_8c_source_1l00095">95</link> of file <link linkend="_video_8c_source">video.c</link>.</para>
+</section>
+</section>
+</section>

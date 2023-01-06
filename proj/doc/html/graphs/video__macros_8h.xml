@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_video__macros_8h" xml:lang="en-US">
+<title>video/video_macros.h File Reference</title>
+<indexterm><primary>video/video_macros.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;lcom/lcf.h&gt;
+</programlisting>Include dependency graph for video_macros.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="video__macros_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="video__macros_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga3c5cde2577e877adb5f9827014079dde">VIDEO_MODE</link>   0x115</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga6f413bd85a0e7a99d4300605ba08034a">VBE_AH_CALL_FUNCTION</link>   0x4F</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga67f264124681f9698713bb2b4ae0c904">VBE_AL_SET_VBE_MODE</link>   0x02</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga4cc320958a14fbddc6c316f1690bf815">VBE_AL_RETURN_VBE_MODE_INFO</link>   0x01</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga1b7a91f6b79588f27c2fc1cbf5c1f88e">VBE_AL_RETURN_VBE_CONTROLLER_INFO</link>   0x02</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1gae7f2a61f3796cb09725a12cf9e65c0f9">VBE_AH_FUN_SUCCESS</link>   0x00</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga70312f757567f59adf11ab393d2bf364">VBE_AH_FUN_CALL_FAILED</link>   0x01</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga6ef2f65d639ba995b6611d58d551c42a">VBE_AH_FUN_NOT_SUPPORTED</link>   0x02</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga86709670d93e4315c37c5d9b1832a51e">VBE_AH_FUN_INVALID_MODE</link>   0x03</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga0eb3f5348376766c04f05dbab81771e6">VBE_INTNO_BIOS_VIDEO_SERVICES</link>   0x10</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga32c54370baa8fbcf13ed1cb40d251afd">VBE_RES_1024x768</link>   0x105</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga0da31a2e279970e09fbc99d83159c525">VBE_RES_640x480</link>   0x110</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga5c061346f9c5bad28f4fe58c84fcc50b">VBE_RES_800x600</link>   0x115</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1gaa13d671cbe4a7208933a23846715da8d">VBE_RES_1280x1024</link>   0x11A</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1gaeb531b96103956e89ae004bcfcb0cbb9">VBE_RES_1152x864</link>   0x14C</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1gae43d16ffe87b80dfb60ef0b93abbb30f">VBE_BX_SET_MODE</link>   BIT(14)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1gad8d76e6c21761d3b5e993d24e73310f0">GET_N_BYTE</link>(w,  n)   ((w &gt;&gt; (8*n)) &amp; 0xFF)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

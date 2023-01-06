@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_video_8c_source" xml:lang="en-US">
+<title>video.c</title>
+<indexterm><primary>video/video.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_video_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;lcom/lcf.h&gt;</emphasis>
+<anchor xml:id="_video_8c_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;lcom/lab5.h&gt;</emphasis>
+<anchor xml:id="_video_8c_source_1l00003"/>00003 
+<anchor xml:id="_video_8c_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_video_8h">video.h</link>&quot;</emphasis>
+<anchor xml:id="_video_8c_source_1l00005"/>00005 
+<anchor xml:id="_video_8c_source_1l00006"/>00006 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*video_mem;
+<anchor xml:id="_video_8c_source_1l00007"/>00007 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*video_buff;
+<anchor xml:id="_video_8c_source_1l00008"/>00008 
+<anchor xml:id="_video_8c_source_1l00009"/>00009 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;x_res;
+<anchor xml:id="_video_8c_source_1l00010"/>00010 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;y_res;
+<anchor xml:id="_video_8c_source_1l00011"/>00011 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;bytes_per_pixel;
+<anchor xml:id="_video_8c_source_1l00012"/>00012 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;red_mask_size;
+<anchor xml:id="_video_8c_source_1l00013"/>00013 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;red_field_pos;
+<anchor xml:id="_video_8c_source_1l00014"/>00014 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;green_mask_size;
+<anchor xml:id="_video_8c_source_1l00015"/>00015 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;green_field_pos;
+<anchor xml:id="_video_8c_source_1l00016"/>00016 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;blue_mask_size;
+<anchor xml:id="_video_8c_source_1l00017"/>00017 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;blue_field_pos;
+<anchor xml:id="_video_8c_source_1l00018"/>00018 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;bytes_per_pixel;
+<anchor xml:id="_video_8c_source_1l00019"/>00019 
+<anchor xml:id="_video_8c_source_1l00020"/>00020 
+<anchor xml:id="_video_8c_source_1l00021"/><link linkend="_video_8c_1ab4c6864582add7ea2f4a9014fd07baad">00021</link> unsigned(<link linkend="_video_8c_1ab4c6864582add7ea2f4a9014fd07baad">bits_to_byte_ceil</link>)(<emphasis role="keywordtype">unsigned</emphasis>&#32;bits_per_pixel){
+<anchor xml:id="_video_8c_source_1l00022"/>00022 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;bytes&#32;=&#32;bits_per_pixel&#32;/&#32;8.0;
+<anchor xml:id="_video_8c_source_1l00023"/>00023 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;ceil(bytes);&#32;<emphasis role="comment">//need&#32;to&#32;do&#32;ceil&#32;because&#32;of&#32;the&#32;mode&#32;0x110&#32;which&#32;takes&#32;15&#32;bits&#32;per&#32;pixel</emphasis>
+<anchor xml:id="_video_8c_source_1l00024"/>00024 }
+<anchor xml:id="_video_8c_source_1l00025"/>00025 
+<anchor xml:id="_video_8c_source_1l00026"/><link linkend="_video_8c_1a1e2de8664e2dade53b8b7e7a5bc83fb4">00026</link> int(<link linkend="_video_8c_1a1e2de8664e2dade53b8b7e7a5bc83fb4">vg_mode</link>)(uint16_t&#32;mode){
+<anchor xml:id="_video_8c_source_1l00027"/>00027 &#32;&#32;<emphasis role="comment">//alterar&#32;a&#32;struct</emphasis>
+<anchor xml:id="_video_8c_source_1l00028"/>00028 &#32;&#32;reg86_t&#32;r86;
+<anchor xml:id="_video_8c_source_1l00029"/>00029 
+<anchor xml:id="_video_8c_source_1l00030"/>00030 &#32;&#32;memset(&amp;r86,&#32;0,&#32;<emphasis role="keyword">sizeof</emphasis>(r86));&#32;<emphasis role="comment">/*&#32;zero&#32;the&#32;structure&#32;*/</emphasis>
+<anchor xml:id="_video_8c_source_1l00031"/>00031 
+<anchor xml:id="_video_8c_source_1l00032"/>00032 &#32;&#32;r86.intno&#32;=&#32;<link linkend="_group__video__macros_1ga0eb3f5348376766c04f05dbab81771e6">VBE_INTNO_BIOS_VIDEO_SERVICES</link>;
+<anchor xml:id="_video_8c_source_1l00033"/>00033 &#32;&#32;r86.ah&#32;=&#32;<link linkend="_group__video__macros_1ga6f413bd85a0e7a99d4300605ba08034a">VBE_AH_CALL_FUNCTION</link>;
+<anchor xml:id="_video_8c_source_1l00034"/>00034 &#32;&#32;r86.al&#32;=&#32;<link linkend="_group__video__macros_1ga67f264124681f9698713bb2b4ae0c904">VBE_AL_SET_VBE_MODE</link>;
+<anchor xml:id="_video_8c_source_1l00035"/>00035 &#32;&#32;r86.bx&#32;=&#32;mode&#32;|&#32;<link linkend="_group__video__macros_1gae43d16ffe87b80dfb60ef0b93abbb30f">VBE_BX_SET_MODE</link>;
+<anchor xml:id="_video_8c_source_1l00036"/>00036 
+<anchor xml:id="_video_8c_source_1l00037"/>00037 &#32;&#32;<emphasis role="comment">//chamar&#32;a&#32;função&#32;sys_int86</emphasis>
+<anchor xml:id="_video_8c_source_1l00038"/>00038 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(&#32;sys_int86(&amp;r86)&#32;!=&#32;OK&#32;)&#32;{
+<anchor xml:id="_video_8c_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;sys_int86()&#32;failed.\n&quot;</emphasis>);
+<anchor xml:id="_video_8c_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_video_8c_source_1l00041"/>00041 &#32;&#32;}
+<anchor xml:id="_video_8c_source_1l00042"/>00042 
+<anchor xml:id="_video_8c_source_1l00043"/>00043 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_video_8c_source_1l00044"/>00044 }
+<anchor xml:id="_video_8c_source_1l00045"/>00045 
+<anchor xml:id="_video_8c_source_1l00046"/><link linkend="_video_8c_1af58095ca3d3990e300b96bfe4c0a63e4">00046</link> int&#32;(<link linkend="_video_8c_1af58095ca3d3990e300b96bfe4c0a63e4">map_video_memory</link>)&#32;(uint16_t&#32;mode){
+<anchor xml:id="_video_8c_source_1l00047"/>00047 &#32;&#32;<emphasis role="keyword">struct&#32;</emphasis>minix_mem_range&#32;mr;
+<anchor xml:id="_video_8c_source_1l00048"/>00048 &#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;vram_base;&#32;&#32;<emphasis role="comment">/*&#32;VRAM&apos;s&#32;physical&#32;addresss&#32;*/</emphasis>
+<anchor xml:id="_video_8c_source_1l00049"/>00049 &#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;vram_size;&#32;&#32;<emphasis role="comment">/*&#32;VRAM&apos;s&#32;size,&#32;but&#32;you&#32;can&#32;use&#32;the&#32;frame-buffer&#32;size,&#32;instead&#32;*/</emphasis>
+<anchor xml:id="_video_8c_source_1l00050"/>00050 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;r;&#32;&#32;&#32;&#32;
+<anchor xml:id="_video_8c_source_1l00051"/>00051 
+<anchor xml:id="_video_8c_source_1l00052"/>00052 &#32;&#32;vbe_mode_info_t&#32;mode_info;
+<anchor xml:id="_video_8c_source_1l00053"/>00053 &#32;&#32;vbe_get_mode_info(mode,&#32;&amp;mode_info);
+<anchor xml:id="_video_8c_source_1l00054"/>00054 &#32;&#32;
+<anchor xml:id="_video_8c_source_1l00055"/>00055 &#32;&#32;<emphasis role="comment">/*save&#32;the&#32;variables&#32;that&#32;are&#32;useful&#32;in&#32;static&#32;variables*/</emphasis>
+<anchor xml:id="_video_8c_source_1l00056"/>00056 &#32;&#32;x_res&#32;=&#32;mode_info.XResolution;
+<anchor xml:id="_video_8c_source_1l00057"/>00057 &#32;&#32;y_res&#32;=&#32;mode_info.YResolution;
+<anchor xml:id="_video_8c_source_1l00058"/>00058 &#32;&#32;bytes_per_pixel&#32;=&#32;<link linkend="_video_8c_1ab4c6864582add7ea2f4a9014fd07baad">bits_to_byte_ceil</link>(mode_info.BitsPerPixel);
+<anchor xml:id="_video_8c_source_1l00059"/>00059 &#32;&#32;vram_base&#32;=&#32;mode_info.PhysBasePtr;
+<anchor xml:id="_video_8c_source_1l00060"/>00060 &#32;&#32;vram_size&#32;=&#32;x_res&#32;*&#32;y_res&#32;*&#32;bytes_per_pixel;
+<anchor xml:id="_video_8c_source_1l00061"/>00061 &#32;&#32;red_mask_size&#32;=&#32;mode_info.RedMaskSize;
+<anchor xml:id="_video_8c_source_1l00062"/>00062 &#32;&#32;red_field_pos&#32;=&#32;mode_info.RedFieldPosition;
+<anchor xml:id="_video_8c_source_1l00063"/>00063 &#32;&#32;green_mask_size&#32;=&#32;mode_info.GreenMaskSize;
+<anchor xml:id="_video_8c_source_1l00064"/>00064 &#32;&#32;green_field_pos&#32;=&#32;mode_info.GreenFieldPosition;
+<anchor xml:id="_video_8c_source_1l00065"/>00065 &#32;&#32;blue_mask_size&#32;=&#32;mode_info.BlueMaskSize;
+<anchor xml:id="_video_8c_source_1l00066"/>00066 &#32;&#32;blue_field_pos&#32;=&#32;mode_info.BlueFieldPosition;
+<anchor xml:id="_video_8c_source_1l00067"/>00067 
+<anchor xml:id="_video_8c_source_1l00068"/>00068 &#32;&#32;<emphasis role="comment">/*&#32;Allow&#32;memory&#32;mapping&#32;*/</emphasis>
+<anchor xml:id="_video_8c_source_1l00069"/>00069 
+<anchor xml:id="_video_8c_source_1l00070"/>00070 &#32;&#32;mr.mr_base&#32;=&#32;(phys_bytes)&#32;vram_base;&#32;&#32;
+<anchor xml:id="_video_8c_source_1l00071"/>00071 &#32;&#32;mr.mr_limit&#32;=&#32;mr.mr_base&#32;+&#32;vram_size;&#32;&#32;
+<anchor xml:id="_video_8c_source_1l00072"/>00072 
+<anchor xml:id="_video_8c_source_1l00073"/>00073 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(&#32;OK&#32;!=&#32;(r&#32;=&#32;sys_privctl(SELF,&#32;SYS_PRIV_ADD_MEM,&#32;&amp;mr)))
+<anchor xml:id="_video_8c_source_1l00074"/>00074 &#32;&#32;&#32;&#32;panic(<emphasis role="stringliteral">&quot;sys_privctl&#32;(ADD_MEM)&#32;failed:&#32;%d\n&quot;</emphasis>,&#32;r);
+<anchor xml:id="_video_8c_source_1l00075"/>00075 
+<anchor xml:id="_video_8c_source_1l00076"/>00076 &#32;&#32;<emphasis role="comment">/*&#32;Map&#32;memory&#32;*/</emphasis>
+<anchor xml:id="_video_8c_source_1l00077"/>00077 
+<anchor xml:id="_video_8c_source_1l00078"/>00078 &#32;&#32;video_mem&#32;=&#32;vm_map_phys(SELF,&#32;(<emphasis role="keywordtype">void</emphasis>&#32;*)mr.mr_base,&#32;vram_size);
+<anchor xml:id="_video_8c_source_1l00079"/>00079 &#32;&#32;video_buff&#32;=&#32;malloc(vram_size);
+<anchor xml:id="_video_8c_source_1l00080"/>00080 
+<anchor xml:id="_video_8c_source_1l00081"/>00081 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(video_mem&#32;==&#32;MAP_FAILED)
+<anchor xml:id="_video_8c_source_1l00082"/>00082 &#32;&#32;&#32;&#32;panic(<emphasis role="stringliteral">&quot;couldn&apos;t&#32;map&#32;video&#32;memory&quot;</emphasis>);
+<anchor xml:id="_video_8c_source_1l00083"/>00083 
+<anchor xml:id="_video_8c_source_1l00084"/>00084 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_video_8c_source_1l00085"/>00085 }
+<anchor xml:id="_video_8c_source_1l00086"/>00086 
+<anchor xml:id="_video_8c_source_1l00087"/><link linkend="_video_8c_1a8241e421a3811f46b59bed9f166a48d1">00087</link> <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_video_8c_1a8241e421a3811f46b59bed9f166a48d1">refresh_buffer</link>)()&#32;{
+<anchor xml:id="_video_8c_source_1l00088"/>00088 &#32;&#32;memcpy((<emphasis role="keywordtype">void</emphasis>*)video_mem,&#32;video_buff,&#32;x_res&#32;*&#32;y_res&#32;*&#32;bytes_per_pixel);
+<anchor xml:id="_video_8c_source_1l00089"/>00089 }
+<anchor xml:id="_video_8c_source_1l00090"/>00090 
+<anchor xml:id="_video_8c_source_1l00091"/><link linkend="_video_8c_1af7831592ef04114ca9b46e672c0e646b">00091</link> <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_video_8c_1af7831592ef04114ca9b46e672c0e646b">clear_buffer</link>)(){
+<anchor xml:id="_video_8c_source_1l00092"/>00092 &#32;&#32;memset(video_buff,&#32;0,&#32;x_res*y_res*bytes_per_pixel);
+<anchor xml:id="_video_8c_source_1l00093"/>00093 }
+<anchor xml:id="_video_8c_source_1l00094"/>00094 
+<anchor xml:id="_video_8c_source_1l00095"/><link linkend="_video_8c_1a576ad65187107e487c85b9fb42fa0220">00095</link> int&#32;(<link linkend="_video_8c_1a576ad65187107e487c85b9fb42fa0220">vg_set_pixel</link>)&#32;(uint32_t&#32;color,&#32;uint16_t&#32;x,&#32;uint16_t&#32;y){
+<anchor xml:id="_video_8c_source_1l00096"/>00096 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(x&#32;&lt;&#32;0&#32;||&#32;y&#32;&lt;&#32;0&#32;||&#32;x&#32;&gt;&#32;x_res&#32;||&#32;y&#32;&gt;&#32;y_res){
+<anchor xml:id="_video_8c_source_1l00097"/>00097 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Pixel&#32;out&#32;of&#32;the&#32;screen.\n&quot;</emphasis>);
+<anchor xml:id="_video_8c_source_1l00098"/>00098 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_video_8c_source_1l00099"/>00099 &#32;&#32;}
+<anchor xml:id="_video_8c_source_1l00100"/>00100 
+<anchor xml:id="_video_8c_source_1l00101"/>00101 &#32;&#32;<emphasis role="keywordtype">void</emphasis>*&#32;pos&#32;=&#32;video_buff&#32;+&#32;x_res*bytes_per_pixel*y&#32;+&#32;x*bytes_per_pixel;
+<anchor xml:id="_video_8c_source_1l00102"/>00102 &#32;&#32;memcpy(pos,&#32;&amp;color,&#32;bytes_per_pixel);
+<anchor xml:id="_video_8c_source_1l00103"/>00103 
+<anchor xml:id="_video_8c_source_1l00104"/>00104 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_video_8c_source_1l00105"/>00105 }
+<anchor xml:id="_video_8c_source_1l00106"/>00106 
+<anchor xml:id="_video_8c_source_1l00107"/><link linkend="_video_8c_1a1135e6421577648c6d1c0abc1e971663">00107</link> int&#32;(<link linkend="_video_8c_1a1135e6421577648c6d1c0abc1e971663">vg_draw_vline</link>)&#32;(uint16_t&#32;x,&#32;uint16_t&#32;y,&#32;uint16_t&#32;len,&#32;uint32_t&#32;color){
+<anchor xml:id="_video_8c_source_1l00108"/>00108 
+<anchor xml:id="_video_8c_source_1l00109"/>00109 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(uint16_t&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;len;&#32;i++){
+<anchor xml:id="_video_8c_source_1l00110"/>00110 &#32;&#32;&#32;&#32;<link linkend="_video_8c_1a576ad65187107e487c85b9fb42fa0220">vg_set_pixel</link>(color,&#32;x,&#32;y+i);
+<anchor xml:id="_video_8c_source_1l00111"/>00111 &#32;&#32;}
+<anchor xml:id="_video_8c_source_1l00112"/>00112 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_video_8c_source_1l00113"/>00113 }
+<anchor xml:id="_video_8c_source_1l00114"/>00114 
+<anchor xml:id="_video_8c_source_1l00115"/><link linkend="_video_8c_1a5e5b25bd525250f61f40b9e9f212d5e6">00115</link> int&#32;(<link linkend="_video_8c_1a5e5b25bd525250f61f40b9e9f212d5e6">vg_draw_hline</link>)&#32;(uint16_t&#32;x,&#32;uint16_t&#32;y,&#32;uint16_t&#32;len,&#32;uint32_t&#32;color){
+<anchor xml:id="_video_8c_source_1l00116"/>00116 
+<anchor xml:id="_video_8c_source_1l00117"/>00117 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(uint16_t&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;len;&#32;i++){
+<anchor xml:id="_video_8c_source_1l00118"/>00118 &#32;&#32;&#32;&#32;<link linkend="_video_8c_1a576ad65187107e487c85b9fb42fa0220">vg_set_pixel</link>(color,&#32;x+i,&#32;y);
+<anchor xml:id="_video_8c_source_1l00119"/>00119 &#32;&#32;}
+<anchor xml:id="_video_8c_source_1l00120"/>00120 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_video_8c_source_1l00121"/>00121 }
+<anchor xml:id="_video_8c_source_1l00122"/>00122 
+<anchor xml:id="_video_8c_source_1l00123"/><link linkend="_video_8c_1a905cdcdafb03104ab75c6c59e0f5e7cb">00123</link> int&#32;(<link linkend="_video_8c_1a905cdcdafb03104ab75c6c59e0f5e7cb">draw_rectangle</link>)(uint32_t&#32;color,&#32;uint16_t&#32;x,&#32;uint16_t&#32;y,&#32;uint16_t&#32;width,&#32;uint16_t&#32;height){
+<anchor xml:id="_video_8c_source_1l00124"/>00124 
+<anchor xml:id="_video_8c_source_1l00125"/>00125 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(uint16_t&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;height;&#32;i++){
+<anchor xml:id="_video_8c_source_1l00126"/>00126 &#32;&#32;&#32;&#32;<link linkend="_video_8c_1a5e5b25bd525250f61f40b9e9f212d5e6">vg_draw_hline</link>(x,&#32;y&#32;+&#32;i,&#32;width,&#32;color);
+<anchor xml:id="_video_8c_source_1l00127"/>00127 &#32;&#32;}
+<anchor xml:id="_video_8c_source_1l00128"/>00128 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_video_8c_source_1l00129"/>00129 }
+<anchor xml:id="_video_8c_source_1l00130"/>00130 
+<anchor xml:id="_video_8c_source_1l00131"/><link linkend="_video_8c_1ab2f6fe650a84644d78d3f122a34d972e">00131</link> uint32_t&#32;(<link linkend="_video_8c_1ab2f6fe650a84644d78d3f122a34d972e">color_mask</link>)(uint32_t&#32;<link linkend="_kbc_8c_1a439227feff9d7f55384e8780cfc2eb82">size</link>,&#32;uint32_t&#32;pos){
+<anchor xml:id="_video_8c_source_1l00132"/>00132 &#32;&#32;<emphasis role="comment">//(1&#32;&lt;&lt;&#32;size)&#32;-&#32;1&#32;=&#32;Number&#32;in&#32;binary&#32;composed&#32;of&#32;n(size)&#32;1&apos;s&#32;</emphasis>
+<anchor xml:id="_video_8c_source_1l00133"/>00133 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;((1&#32;&lt;&lt;&#32;<link linkend="_kbc_8c_1a439227feff9d7f55384e8780cfc2eb82">size</link>)&#32;-&#32;1)&#32;&lt;&lt;&#32;pos;
+<anchor xml:id="_video_8c_source_1l00134"/>00134 }
+<anchor xml:id="_video_8c_source_1l00135"/>00135 
+<anchor xml:id="_video_8c_source_1l00136"/><link linkend="_video_8c_1aec90bbe52b0db0466324550212ec1bfe">00136</link> uint32_t&#32;(<link linkend="_video_8c_1aec90bbe52b0db0466324550212ec1bfe">direct_color_mode_RGB</link>)(uint16_t&#32;row,&#32;uint16_t&#32;col,&#32;uint32_t&#32;first,&#32;uint8_t&#32;step){
+<anchor xml:id="_video_8c_source_1l00137"/>00137 &#32;&#32;uint32_t&#32;r,&#32;g,&#32;b;
+<anchor xml:id="_video_8c_source_1l00138"/>00138 &#32;&#32;uint32_t&#32;red_mask&#32;=&#32;<link linkend="_video_8c_1ab2f6fe650a84644d78d3f122a34d972e">color_mask</link>(red_mask_size,&#32;red_field_pos);
+<anchor xml:id="_video_8c_source_1l00139"/>00139 &#32;&#32;uint32_t&#32;green_mask&#32;=&#32;<link linkend="_video_8c_1ab2f6fe650a84644d78d3f122a34d972e">color_mask</link>(green_mask_size,&#32;green_field_pos);
+<anchor xml:id="_video_8c_source_1l00140"/>00140 &#32;&#32;uint32_t&#32;blue_mask&#32;=&#32;<link linkend="_video_8c_1ab2f6fe650a84644d78d3f122a34d972e">color_mask</link>(blue_mask_size,&#32;blue_field_pos);
+<anchor xml:id="_video_8c_source_1l00141"/>00141 
+<anchor xml:id="_video_8c_source_1l00142"/>00142 &#32;&#32;&#32;r&#32;=&#32;((((first&#32;&amp;&#32;red_mask)&#32;&gt;&gt;&#32;red_field_pos)&#32;+&#32;col&#32;*&#32;step)&#32;%&#32;(1&#32;&lt;&lt;&#32;red_mask_size))&#32;&lt;&lt;&#32;red_field_pos;
+<anchor xml:id="_video_8c_source_1l00143"/>00143 &#32;&#32;&#32;g&#32;=&#32;((((first&#32;&amp;&#32;green_mask)&#32;&gt;&gt;&#32;green_field_pos)&#32;+&#32;row&#32;*&#32;step)&#32;%&#32;(1&#32;&lt;&lt;&#32;green_mask_size))&#32;&lt;&lt;&#32;green_field_pos;
+<anchor xml:id="_video_8c_source_1l00144"/>00144 &#32;&#32;&#32;b&#32;=&#32;((((first&#32;&amp;&#32;blue_mask)&#32;&gt;&gt;&#32;blue_field_pos)&#32;+&#32;(col&#32;+&#32;row)&#32;*&#32;step)&#32;%&#32;(1&#32;&lt;&lt;&#32;blue_mask_size))&#32;&lt;&lt;&#32;blue_field_pos;
+<anchor xml:id="_video_8c_source_1l00145"/>00145 
+<anchor xml:id="_video_8c_source_1l00146"/>00146 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;r&#32;|&#32;g&#32;|&#32;b;
+<anchor xml:id="_video_8c_source_1l00147"/>00147 }
+<anchor xml:id="_video_8c_source_1l00148"/>00148 
+<anchor xml:id="_video_8c_source_1l00149"/><link linkend="_video_8c_1abd983f84d9522b6deec0e784324357bb">00149</link> int&#32;(<link linkend="_video_8c_1abd983f84d9522b6deec0e784324357bb">draw_pattern</link>)(uint8_t&#32;no_rectangles,&#32;uint32_t&#32;first,&#32;uint8_t&#32;step)&#32;{
+<anchor xml:id="_video_8c_source_1l00150"/>00150 &#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;width&#32;=&#32;x_res&#32;/&#32;no_rectangles;
+<anchor xml:id="_video_8c_source_1l00151"/>00151 &#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;height&#32;=&#32;y_res&#32;/&#32;no_rectangles;
+<anchor xml:id="_video_8c_source_1l00152"/>00152 &#32;&#32;uint32_t&#32;color;
+<anchor xml:id="_video_8c_source_1l00153"/>00153 
+<anchor xml:id="_video_8c_source_1l00154"/>00154 &#32;&#32;<emphasis role="keywordflow">for</emphasis>(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;row&#32;=&#32;0;&#32;row&#32;&lt;&#32;no_rectangles;&#32;row++){
+<anchor xml:id="_video_8c_source_1l00155"/>00155 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;col&#32;=&#32;0;&#32;col&#32;&lt;&#32;no_rectangles;&#32;col++){
+<anchor xml:id="_video_8c_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//mode&#32;0x105&#32;is&#32;the&#32;only&#32;indexed&#32;mode,&#32;and&#32;is&#32;the&#32;only&#32;that&#32;takes&#32;only&#32;1&#32;byte&#32;per&#32;pixel</emphasis>
+<anchor xml:id="_video_8c_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(bytes_per_pixel&#32;==&#32;1){
+<anchor xml:id="_video_8c_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;color&#32;=&#32;(first&#32;+&#32;(row&#32;*&#32;no_rectangles&#32;+&#32;col)&#32;*&#32;step)&#32;%&#32;(1&#32;&lt;&lt;&#32;bytes_per_pixel*8);&#32;<emphasis role="comment">//from&#32;point&#32;5.3&#32;on&#32;the&#32;sheet</emphasis>
+<anchor xml:id="_video_8c_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_video_8c_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>{
+<anchor xml:id="_video_8c_source_1l00161"/>00161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;color&#32;=&#32;<link linkend="_video_8c_1aec90bbe52b0db0466324550212ec1bfe">direct_color_mode_RGB</link>(row,&#32;col,&#32;first,&#32;step);
+<anchor xml:id="_video_8c_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_video_8c_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_video_8c_1a905cdcdafb03104ab75c6c59e0f5e7cb">draw_rectangle</link>(color,&#32;col*width,&#32;row*height,&#32;width,&#32;height);
+<anchor xml:id="_video_8c_source_1l00164"/>00164 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_video_8c_source_1l00165"/>00165 &#32;&#32;}
+<anchor xml:id="_video_8c_source_1l00166"/>00166 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_video_8c_source_1l00167"/>00167 }
+<anchor xml:id="_video_8c_source_1l00168"/>00168 
+<anchor xml:id="_video_8c_source_1l00169"/><link linkend="_video_8c_1a9502773109672e86799bba9705b835bd">00169</link> int&#32;(<link linkend="_video_8c_1a9502773109672e86799bba9705b835bd">draw_sprite</link>)(uint16_t&#32;x,&#32;uint16_t&#32;y,&#32;xpm_image_t&#32;img){
+<anchor xml:id="_video_8c_source_1l00170"/>00170 &#32;&#32;&#32;&#32;uint32_t&#32;*sprite&#32;=&#32;(uint32_t*)img.bytes;
+<anchor xml:id="_video_8c_source_1l00171"/>00171 &#32;&#32;&#32;&#32;for&#32;(<emphasis role="keywordtype">int</emphasis>&#32;row&#32;=&#32;0;&#32;row&#32;&lt;&#32;img.height;&#32;row++){
+<anchor xml:id="_video_8c_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;col&#32;=&#32;0;&#32;col&#32;&lt;&#32;img.width;&#32;col++){
+<anchor xml:id="_video_8c_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint32_t&#32;color&#32;=&#32;sprite[img.width*row&#32;+&#32;col];
+<anchor xml:id="_video_8c_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(color&#32;!=&#32;TRANSPARENCY_COLOR_8_8_8_8){
+<anchor xml:id="_video_8c_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_video_8c_1a576ad65187107e487c85b9fb42fa0220">vg_set_pixel</link>(sprite[img.width*row&#32;+&#32;col],&#32;col+x,&#32;row+y);
+<anchor xml:id="_video_8c_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_video_8c_source_1l00177"/>00177 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_video_8c_source_1l00178"/>00178 &#32;&#32;}
+<anchor xml:id="_video_8c_source_1l00179"/>00179 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_video_8c_source_1l00180"/>00180 }
+</programlisting></section>

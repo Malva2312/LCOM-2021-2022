@@ -1,0 +1,52 @@
+<map id="proj_main_loop" name="proj_main_loop">
+<area shape="rect" id="node1" title=" " alt="" coords="5,883,115,909"/>
+<area shape="rect" id="node2" href="$group__kbc.html#gaaf62ad2fc57a009e413accb7373fe33d" title="Disable mouse interrupts." alt="" coords="199,5,308,32"/>
+<area shape="rect" id="node3" href="$group__view.html#ga5fd0c469e6f02d84c080f7cf71630109" title="Calls the functions responsible for drawing the menu." alt="" coords="618,157,699,184"/>
+<area shape="rect" id="node7" href="$group__kbc.html#gad133813912d3da691a07674fb9e15455" title="Enable mouse interrupts." alt="" coords="200,461,307,488"/>
+<area shape="rect" id="node8" href="$group__kbc.html#ga5761bd4aad91ac1d68916ad88f583d9f" title="Control of keyboard interruptions." alt="" coords="223,512,283,539"/>
+<area shape="rect" id="node12" href="$group__kbc.html#ga4ac9231a99a664d6a9f0b69767e0d707" title="Subscribe interrupts from keyboard." alt="" coords="190,832,317,859"/>
+<area shape="rect" id="node13" href="$group__kbc.html#gaee0a7b54ee426fade9c780418d110fe0" title="Unsubscribe interrupts from keyboard." alt="" coords="183,883,324,909"/>
+<area shape="rect" id="node14" href="$group__images.html#ga8a6bd0a6090487314e7d566acd5dbf7f" title="Load all images into the game." alt="" coords="196,933,311,960"/>
+<area shape="rect" id="node15" href="$group__handlers.html#gad932b9bf23b1de26f712a4aacdc7df9b" title="Invokes the respective handler according to the game state." alt="" coords="206,309,301,336"/>
+<area shape="rect" id="node18" href="$video_8c.html#a8241e421a3811f46b59bed9f166a48d1" title="Copy the secondary buffer contents to the main buffer." alt="" coords="609,208,708,235"/>
+<area shape="rect" id="node29" href="$video_8c.html#af58095ca3d3990e300b96bfe4c0a63e4" title="Create a virtual adress space for video memory." alt="" coords="185,984,322,1011"/>
+<area shape="rect" id="node30" href="$group__kbc.html#ga7e311379d4d64f88873ef8ade5c82a25" title="Disable mouse data reporting." alt="" coords="183,614,324,655"/>
+<area shape="rect" id="node32" href="$group__kbc.html#gab03b20445da099487fdd96bc31007b0e" title="Enable data reporting." alt="" coords="163,680,344,707"/>
+<area shape="rect" id="node33" href="$group__kbc.html#gaed4404005e4c565ac36656307386e0ac" title="Control of mouse interrupts." alt="" coords="214,731,293,757"/>
+<area shape="rect" id="node36" href="$group__kbc.html#ga20285aed4b3ef45812cd967532dd09db" title="Subscribe mouse interrupts." alt="" coords="181,1035,326,1061"/>
+<area shape="rect" id="node37" href="$group__kbc.html#ga3ecf823d80520009ae5e0d76ae40a3c3" title="Unsubscribe mouse interrupts." alt="" coords="174,1085,333,1112"/>
+<area shape="rect" id="node38" href="$group__rtc.html#ga6bbe679f115cec90d36d50eb2aac1b89" title="Subscribes to interrupts from the RTC." alt="" coords="193,1136,314,1163"/>
+<area shape="rect" id="node39" href="$group__rtc.html#ga9d4850bb2a488644672d43287f160622" title="Unubscribes to interrupts from the RTC." alt="" coords="186,1187,321,1213"/>
+<area shape="rect" id="node40" href="$group__rtc.html#gac06a0a3580daf870240d95679167b593" title=" " alt="" coords="180,781,327,808"/>
+<area shape="rect" id="node43" href="$group__serialport.html#gafe652e0add554a59ead8c1960eefb6b1" title="If data is available it will read all entries in the buffer until there are none left(to maintain it ..." alt="" coords="201,563,305,589"/>
+<area shape="rect" id="node45" href="$group__serialport.html#gaf21628f0f9d46b62067ae790f7861e84" title="Unubscribes to interrupts from the Serial Port." alt="" coords="191,1237,315,1264"/>
+<area shape="rect" id="node46" href="$group__serialport.html#ga30ae83ae28ebc465baa2d2f2ee51a145" title="Unubscribes to interrupts from the Serial Port." alt="" coords="184,1288,323,1315"/>
+<area shape="rect" id="node47" href="$group__timer.html#ga91a2072306c68353712a6b771287dc2c" title="Timer 0 interrupt handler." alt="" coords="193,1339,314,1365"/>
+<area shape="rect" id="node48" href="$group__timer.html#gac57a7e1140a7e00ad95ac5488d2a671b" title="Subscribes and enables Timer 0 interrupts." alt="" coords="186,1389,321,1416"/>
+<area shape="rect" id="node49" href="$group__timer.html#gafabd21de449be154dd65d5fdb2d8045d" title="Unsubscribes Timer 0 interrupts." alt="" coords="179,1440,328,1467"/>
+<area shape="rect" id="node50" href="$video_8c.html#a1e2de8664e2dade53b8b7e7a5bc83fb4" title="Initialize a given graphic mode." alt="" coords="217,1491,290,1517"/>
+<area shape="rect" id="node4" href="$video_8c.html#a9502773109672e86799bba9705b835bd" title="Draw a sprite." alt="" coords="783,107,871,133"/>
+<area shape="rect" id="node6" href="$group__model.html#gafe5875991840df952715c5f334c06df4" title="Returns the value of the corrent entry in the menu." alt="" coords="760,208,895,235"/>
+<area shape="rect" id="node5" href="$video_8c.html#a576ad65187107e487c85b9fb42fa0220" title="Set the color of a pixel." alt="" coords="943,107,1036,133"/>
+<area shape="rect" id="node9" href="$group__kbc.html#gad2fe6cbf61c2613cd7f4d7998979ee29" title="Read a value from the kbc output buffer." alt="" coords="419,461,530,488"/>
+<area shape="rect" id="node11" href="$group__kbc.html#ga459c5f03316bc61703727fd38f1f1965" title="Get status byte for keyboard." alt="" coords="403,512,546,539"/>
+<area shape="rect" id="node10" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="613,639,704,665"/>
+<area shape="rect" id="node16" href="$group__handlers.html#gab87384990fed0586611e699156a7d24c" title="Proceed with the actions in the About State of the respective given device." alt="" coords="425,107,524,133"/>
+<area shape="rect" id="node19" href="$group__handlers.html#gad133154583b6a956afcc4a3b7b15e0f4" title="Proceed with the actions in the End Game State of the respective given device." alt="" coords="413,157,536,184"/>
+<area shape="rect" id="node21" href="$group__handlers.html#ga873159fcdceb7f2d32914e2f0332e918" title="Proceed with the actions in the One Player Game State of the respective given device." alt="" coords="395,411,554,437"/>
+<area shape="rect" id="node26" href="$group__handlers.html#ga548238780299a9ec09e8056c88748815" title="Proceed with the actions in the Two Players Game State of the respective given device." alt="" coords="392,309,557,336"/>
+<area shape="rect" id="node27" href="$group__handlers.html#ga1bf786f0d1e4fb655a95618665e88b73" title="Proceed with the actions in the Menu State of the respective given device." alt="" coords="425,259,524,285"/>
+<area shape="rect" id="node28" href="$group__handlers.html#gac888ba9be6cce74613cae45eaa6a5a02" title="Proceed with the actions in the Wait Menu State of the respective given device." alt="" coords="421,360,528,387"/>
+<area shape="rect" id="node17" href="$group__view.html#gada296e3c248457584fc6702e98aa5df9" title="Draws about menu." alt="" coords="617,56,700,83"/>
+<area shape="rect" id="node20" href="$group__view.html#ga56eabf3da014865044c6b983dbfafaec" title="Draws an end&#45;of&#45;game message depending on whether the player wins or loses." alt="" coords="605,107,712,133"/>
+<area shape="rect" id="node22" href="$group__view.html#ga3a53f2894b80e553e4e9754e2a1b9b5d" title="Draw the Arena and its boundaries." alt="" coords="617,309,700,336"/>
+<area shape="rect" id="node23" href="$group__view.html#ga2fed2d7071be915d687d533e5a971414" title="Calls the functions needed to draw the match." alt="" coords="617,360,701,387"/>
+<area shape="rect" id="node24" href="$group__view.html#gaa632458efe74b5b5009fab6cf993fdb2" title="Draws the mouse cursor according to its position." alt="" coords="615,411,703,437"/>
+<area shape="rect" id="node25" href="$group__view.html#ga66a54e56b10b46d1f9fc29adc4de5b16" title="Draw the wall originated by a power&#45;up." alt="" coords="621,461,696,488"/>
+<area shape="rect" id="node31" href="$group__kbc.html#gadce7a7604f8b0782158b70bf728eb411" title=" " alt="" coords="411,664,538,691"/>
+<area shape="rect" id="node34" href="$kbc_8c.html#a999549fe35157d4137626fa8c0b2ee99" title=" " alt="" coords="394,715,555,741"/>
+<area shape="rect" id="node35" href="$group__kbc.html#ga9e19cb92cae1a1257d65ae04e1e6cc6f" title="Read a value from the mouse, to build the mouse packet." alt="" coords="410,765,539,792"/>
+<area shape="rect" id="node41" href="$group__rtc.html#gaef48ce217f5c004635226cc27c0d4081" title="Converts the number in BCD to hexadecimal." alt="" coords="415,867,534,893"/>
+<area shape="rect" id="node42" href="$group__rtc.html#ga861d2f079d8248ed95f305600eaa0567" title="Waits until Update in Progress in Register A is complete." alt="" coords="406,917,543,944"/>
+<area shape="rect" id="node44" href="$group__serialport.html#ga08071d8d2ad944789c1befd58b6fc6be" title="Reads the Line Status Register to check for errors and available data." alt="" coords="407,563,543,589"/>
+</map>

@@ -1,0 +1,355 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__i8254" xml:lang="en-US">
+<title>i8254</title>
+<indexterm><primary>i8254</primary></indexterm>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group__i8254_1gacf926951944b6cf370b7229ebd50dd8b">TIMER_FREQ</link>   1193182</para>
+
+<para>clock frequency for timer in PC and AT </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga30bf84c312af248cb81bb224e09f9ba8">TIMER0_IRQ</link>   0</para>
+
+<para>Timer 0 IRQ line. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga6db8ef0c78c8127416c655dbb916d69d">GET_TIMER</link>(n)   (0x40 + n)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1gacc9ff9df4a9674a1ce9ba08fc4a4679e">TIMER_0</link>   0x40</para>
+
+<para>Timer 0 count register. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1gac62c99c2a9289891c1b83052242cca49">TIMER_1</link>   0x41</para>
+
+<para>Timer 1 count register. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga1f34f18ad0ab8cace46b615773b48735">TIMER_2</link>   0x42</para>
+
+<para>Timer 2 count register. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga282832448fb0281ef53d243c1cd48491">TIMER_CTRL</link>   0x43</para>
+
+<para>Control register. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga51b3a5e3d4811ca063fe25e35560ab40">SPEAKER_CTRL</link>   0x61</para>
+
+<para>Register for speaker control 
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga6a4822642d40c248435692324a818010">TIMER_SEL0</link>   0x00</para>
+
+<para>Control Word for Timer 0. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga8349623fd8d99f9cc5d8ae29d78594fc">TIMER_SEL1</link>   BIT(6)</para>
+
+<para>Control Word for Timer 1. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga142a255de0dbc48aeabd45fc10c33672">TIMER_SEL2</link>   BIT(7)</para>
+
+<para>Control Word for Timer 2. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga4c2eecbfb96744a9c2af71dba75ecb18">TIMER_RB_CMD</link>   (BIT(7) | BIT(6))</para>
+
+<para>Read Back Command. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1gac18cb814ebd0d67235392c330e0e3504">TIMER_LSB</link>   BIT(4)</para>
+
+<para>Initialize Counter LSB only. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga2a8a6d363c612d756cd8d78480f7cd04">TIMER_MSB</link>   BIT(5)</para>
+
+<para>Initialize Counter MSB only. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga8c0f1933323274c765e23837e4fbc8c7">TIMER_LSB_MSB</link>   (<link linkend="_group__i8254_1gac18cb814ebd0d67235392c330e0e3504">TIMER_LSB</link> | <link linkend="_group__i8254_1ga2a8a6d363c612d756cd8d78480f7cd04">TIMER_MSB</link>)</para>
+
+<para>Initialize LSB first and MSB afterwards. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga1bcc664edce3ef15bc96564471e07dde">TIMER_GET_COUNTING_MODE</link>   (BIT(3) | BIT(2) | BIT(1))</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga4745cbf21da3d3fea5dbb080b2b73bac">TIMER_SQR_WAVE</link>   (BIT(2) | BIT(1))</para>
+
+<para>Mode 3: square wave generator. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga5d4449e0fa1cf4a4d107a48a04a1265f">TIMER_RATE_GEN</link>   BIT(2)</para>
+
+<para>Mode 2: rate generator. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga325b992a371d5d981c4eceff42fa5956">TIMER_BCD</link>   0x01</para>
+
+<para>Count in BCD. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1gad2913dcf2f91453317bd035589ac0a7d">TIMER_BIN</link>   0x00</para>
+
+<para>Count in binary. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga6c248216df24b5e9d907d126d80bd195">TIMER_RB_COUNT_</link>   BIT(5)</para>
+
+<para>Read counter value. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1ga08b4952bb7058684a3f8f66be04dd45e">TIMER_RB_STATUS_</link>   BIT(4)</para>
+
+<para>Read programmed mode. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__i8254_1gaf598b17740e07842a0545af512714711">TIMER_RB_SEL</link>(n)   BIT((n) + 1)</para>
+
+<para>Select timer. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Constants for programming the i8254 Timer. </para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_group__i8254_1ga6db8ef0c78c8127416c655dbb916d69d"/><section>
+    <title>GET_TIMER</title>
+<indexterm><primary>GET_TIMER</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>GET_TIMER</secondary></indexterm>
+<para><computeroutput>#define GET_TIMER( n)   (0x40 + n)</computeroutput></para><para>
+Definition at line <link linkend="_i8254_8h_source_1l00017">17</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1ga51b3a5e3d4811ca063fe25e35560ab40"/><section>
+    <title>SPEAKER_CTRL</title>
+<indexterm><primary>SPEAKER_CTRL</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>SPEAKER_CTRL</secondary></indexterm>
+<para><computeroutput>#define SPEAKER_CTRL   0x61</computeroutput></para><para>
+
+<para>Register for speaker control 
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00024">24</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1ga30bf84c312af248cb81bb224e09f9ba8"/><section>
+    <title>TIMER0_IRQ</title>
+<indexterm><primary>TIMER0_IRQ</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER0_IRQ</secondary></indexterm>
+<para><computeroutput>#define TIMER0_IRQ   0</computeroutput></para><para>
+
+<para>Timer 0 IRQ line. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00013">13</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1gacc9ff9df4a9674a1ce9ba08fc4a4679e"/><section>
+    <title>TIMER_0</title>
+<indexterm><primary>TIMER_0</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_0</secondary></indexterm>
+<para><computeroutput>#define TIMER_0   0x40</computeroutput></para><para>
+
+<para>Timer 0 count register. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00019">19</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1gac62c99c2a9289891c1b83052242cca49"/><section>
+    <title>TIMER_1</title>
+<indexterm><primary>TIMER_1</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_1</secondary></indexterm>
+<para><computeroutput>#define TIMER_1   0x41</computeroutput></para><para>
+
+<para>Timer 1 count register. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00020">20</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1ga1f34f18ad0ab8cace46b615773b48735"/><section>
+    <title>TIMER_2</title>
+<indexterm><primary>TIMER_2</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_2</secondary></indexterm>
+<para><computeroutput>#define TIMER_2   0x42</computeroutput></para><para>
+
+<para>Timer 2 count register. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00021">21</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1ga325b992a371d5d981c4eceff42fa5956"/><section>
+    <title>TIMER_BCD</title>
+<indexterm><primary>TIMER_BCD</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_BCD</secondary></indexterm>
+<para><computeroutput>#define TIMER_BCD   0x01</computeroutput></para><para>
+
+<para>Count in BCD. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00049">49</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1gad2913dcf2f91453317bd035589ac0a7d"/><section>
+    <title>TIMER_BIN</title>
+<indexterm><primary>TIMER_BIN</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_BIN</secondary></indexterm>
+<para><computeroutput>#define TIMER_BIN   0x00</computeroutput></para><para>
+
+<para>Count in binary. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00050">50</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1ga282832448fb0281ef53d243c1cd48491"/><section>
+    <title>TIMER_CTRL</title>
+<indexterm><primary>TIMER_CTRL</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_CTRL</secondary></indexterm>
+<para><computeroutput>#define TIMER_CTRL   0x43</computeroutput></para><para>
+
+<para>Control register. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00022">22</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1gacf926951944b6cf370b7229ebd50dd8b"/><section>
+    <title>TIMER_FREQ</title>
+<indexterm><primary>TIMER_FREQ</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_FREQ</secondary></indexterm>
+<para><computeroutput>#define TIMER_FREQ   1193182</computeroutput></para><para>
+
+<para>clock frequency for timer in PC and AT </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00012">12</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1ga1bcc664edce3ef15bc96564471e07dde"/><section>
+    <title>TIMER_GET_COUNTING_MODE</title>
+<indexterm><primary>TIMER_GET_COUNTING_MODE</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_GET_COUNTING_MODE</secondary></indexterm>
+<para><computeroutput>#define TIMER_GET_COUNTING_MODE   (BIT(3) | BIT(2) | BIT(1))</computeroutput></para><para>
+Definition at line <link linkend="_i8254_8h_source_1l00043">43</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1gac18cb814ebd0d67235392c330e0e3504"/><section>
+    <title>TIMER_LSB</title>
+<indexterm><primary>TIMER_LSB</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_LSB</secondary></indexterm>
+<para><computeroutput>#define TIMER_LSB   BIT(4)</computeroutput></para><para>
+
+<para>Initialize Counter LSB only. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00037">37</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1ga8c0f1933323274c765e23837e4fbc8c7"/><section>
+    <title>TIMER_LSB_MSB</title>
+<indexterm><primary>TIMER_LSB_MSB</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_LSB_MSB</secondary></indexterm>
+<para><computeroutput>#define TIMER_LSB_MSB   (<link linkend="_group__i8254_1gac18cb814ebd0d67235392c330e0e3504">TIMER_LSB</link> | <link linkend="_group__i8254_1ga2a8a6d363c612d756cd8d78480f7cd04">TIMER_MSB</link>)</computeroutput></para><para>
+
+<para>Initialize LSB first and MSB afterwards. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00039">39</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1ga2a8a6d363c612d756cd8d78480f7cd04"/><section>
+    <title>TIMER_MSB</title>
+<indexterm><primary>TIMER_MSB</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_MSB</secondary></indexterm>
+<para><computeroutput>#define TIMER_MSB   BIT(5)</computeroutput></para><para>
+
+<para>Initialize Counter MSB only. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00038">38</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1ga5d4449e0fa1cf4a4d107a48a04a1265f"/><section>
+    <title>TIMER_RATE_GEN</title>
+<indexterm><primary>TIMER_RATE_GEN</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_RATE_GEN</secondary></indexterm>
+<para><computeroutput>#define TIMER_RATE_GEN   BIT(2)</computeroutput></para><para>
+
+<para>Mode 2: rate generator. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00045">45</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1ga4c2eecbfb96744a9c2af71dba75ecb18"/><section>
+    <title>TIMER_RB_CMD</title>
+<indexterm><primary>TIMER_RB_CMD</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_RB_CMD</secondary></indexterm>
+<para><computeroutput>#define TIMER_RB_CMD   (BIT(7) | BIT(6))</computeroutput></para><para>
+
+<para>Read Back Command. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00033">33</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1ga6c248216df24b5e9d907d126d80bd195"/><section>
+    <title>TIMER_RB_COUNT_</title>
+<indexterm><primary>TIMER_RB_COUNT_</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_RB_COUNT_</secondary></indexterm>
+<para><computeroutput>#define TIMER_RB_COUNT_   BIT(5)</computeroutput></para><para>
+
+<para>Read counter value. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00054">54</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1gaf598b17740e07842a0545af512714711"/><section>
+    <title>TIMER_RB_SEL</title>
+<indexterm><primary>TIMER_RB_SEL</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_RB_SEL</secondary></indexterm>
+<para><computeroutput>#define TIMER_RB_SEL( n)   BIT((n) + 1)</computeroutput></para><para>
+
+<para>Select timer. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00056">56</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1ga08b4952bb7058684a3f8f66be04dd45e"/><section>
+    <title>TIMER_RB_STATUS_</title>
+<indexterm><primary>TIMER_RB_STATUS_</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_RB_STATUS_</secondary></indexterm>
+<para><computeroutput>#define TIMER_RB_STATUS_   BIT(4)</computeroutput></para><para>
+
+<para>Read programmed mode. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00055">55</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1ga6a4822642d40c248435692324a818010"/><section>
+    <title>TIMER_SEL0</title>
+<indexterm><primary>TIMER_SEL0</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_SEL0</secondary></indexterm>
+<para><computeroutput>#define TIMER_SEL0   0x00</computeroutput></para><para>
+
+<para>Control Word for Timer 0. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00030">30</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1ga8349623fd8d99f9cc5d8ae29d78594fc"/><section>
+    <title>TIMER_SEL1</title>
+<indexterm><primary>TIMER_SEL1</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_SEL1</secondary></indexterm>
+<para><computeroutput>#define TIMER_SEL1   BIT(6)</computeroutput></para><para>
+
+<para>Control Word for Timer 1. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00031">31</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1ga142a255de0dbc48aeabd45fc10c33672"/><section>
+    <title>TIMER_SEL2</title>
+<indexterm><primary>TIMER_SEL2</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_SEL2</secondary></indexterm>
+<para><computeroutput>#define TIMER_SEL2   BIT(7)</computeroutput></para><para>
+
+<para>Control Word for Timer 2. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00032">32</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+<anchor xml:id="_group__i8254_1ga4745cbf21da3d3fea5dbb080b2b73bac"/><section>
+    <title>TIMER_SQR_WAVE</title>
+<indexterm><primary>TIMER_SQR_WAVE</primary><secondary>i8254</secondary></indexterm>
+<indexterm><primary>i8254</primary><secondary>TIMER_SQR_WAVE</secondary></indexterm>
+<para><computeroutput>#define TIMER_SQR_WAVE   (BIT(2) | BIT(1))</computeroutput></para><para>
+
+<para>Mode 3: square wave generator. </para>
+</para>
+<para>
+Definition at line <link linkend="_i8254_8h_source_1l00044">44</link> of file <link linkend="_i8254_8h_source">i8254.h</link>.</para>
+</section>
+</section>
+</section>

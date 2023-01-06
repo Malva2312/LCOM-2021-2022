@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_serialport_8c_source" xml:lang="en-US">
+<title>serialport.c</title>
+<indexterm><primary>serialport/serialport.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_serialport_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;lcom/lcf.h&gt;</emphasis>
+<anchor xml:id="_serialport_8c_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;stdbool.h&gt;</emphasis>
+<anchor xml:id="_serialport_8c_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
+<anchor xml:id="_serialport_8c_source_1l00004"/>00004 
+<anchor xml:id="_serialport_8c_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;lcom/utils.h&gt;</emphasis>
+<anchor xml:id="_serialport_8c_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_serialport_8h">serialport.h</link>&quot;</emphasis>
+<anchor xml:id="_serialport_8c_source_1l00007"/>00007 
+<anchor xml:id="_serialport_8c_source_1l00008"/><link linkend="_serialport_8c_1a965a9c411b8854c55368dfef16b58cf5">00008</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_serialport_8c_1a965a9c411b8854c55368dfef16b58cf5">ser_hook_id</link>&#32;=&#32;1;
+<anchor xml:id="_serialport_8c_source_1l00009"/><link linkend="_handlers_8c_1ac2e72b5a2e01b5b5ae740469f6c558b2">00009</link> uint8_t&#32;<link linkend="_serialport_8c_1ac2e72b5a2e01b5b5ae740469f6c558b2">read_data</link>&#32;=&#32;0x00;
+<anchor xml:id="_serialport_8c_source_1l00010"/><link linkend="_serialport_8c_1a5e44ca6acb60e6dd2ccda995b1e3e3f3">00010</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_serialport_8c_1a5e44ca6acb60e6dd2ccda995b1e3e3f3">other_ready</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_serialport_8c_source_1l00011"/>00011 
+<anchor xml:id="_serialport_8c_source_1l00012"/><link linkend="_group__serialport_1ga0310282e052b0d6daacdcf32745aad12">00012</link> int&#32;(<link linkend="_group__serialport_1ga0310282e052b0d6daacdcf32745aad12">ser_init</link>)()&#32;{
+<anchor xml:id="_serialport_8c_source_1l00013"/>00013 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(sys_outb(<link linkend="_group__serialport_1ga0a6bd23d09bd13a268dc85a7fbaac454">SER_PORT</link>&#32;+&#32;<link linkend="_group__serialport_1ga783f8e3973a5f87d8af120d49742f834">SER_IER</link>,&#32;<link linkend="_group__serialport_1ga7b7cadf7e8da87ebbed4922556b94433">SER_ERBFI</link>))&#32;{
+<anchor xml:id="_serialport_8c_source_1l00014"/>00014 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;writing&#32;to&#32;IER&#32;from&#32;serial&#32;port\n&quot;</emphasis>);
+<anchor xml:id="_serialport_8c_source_1l00015"/>00015 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_serialport_8c_source_1l00016"/>00016 &#32;&#32;&#32;&#32;}&#32;&#32;&#32;&#32;
+<anchor xml:id="_serialport_8c_source_1l00017"/>00017 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(!<link linkend="_group__serialport_1gafe652e0add554a59ead8c1960eefb6b1">ser_read_data</link>())&#32;printf(<emphasis role="stringliteral">&quot;Read&#32;trash\n&quot;</emphasis>);
+<anchor xml:id="_serialport_8c_source_1l00018"/>00018 &#32;&#32;&#32;&#32;
+<anchor xml:id="_serialport_8c_source_1l00019"/>00019 &#32;&#32;&#32;&#32;<link linkend="_group__serialport_1ga9763e9d84c9c2217d5bfe4e59ee69d64">ser_transmit_data</link>(<link linkend="_group__serialport_1ga0921695d71206ba9d6855bb403acec9d">SER_INIT</link>);
+<anchor xml:id="_serialport_8c_source_1l00020"/>00020 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_serialport_8c_source_1l00021"/>00021 }
+<anchor xml:id="_serialport_8c_source_1l00022"/>00022 
+<anchor xml:id="_serialport_8c_source_1l00023"/><link linkend="_group__serialport_1ga08071d8d2ad944789c1befd58b6fc6be">00023</link> int&#32;(<link linkend="_group__serialport_1ga08071d8d2ad944789c1befd58b6fc6be">ser_read_lsr_status</link>)(uint8_t*&#32;status)&#32;{
+<anchor xml:id="_serialport_8c_source_1l00024"/>00024 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_utils_8c_1a79a031a8611f5b2d6afa4158e92b0fb4">util_sys_inb</link>(<link linkend="_group__serialport_1ga0a6bd23d09bd13a268dc85a7fbaac454">SER_PORT</link>&#32;+&#32;<link linkend="_group__serialport_1ga382b5d26eb113bfffbf2094eb4405042">SER_LSR</link>,&#32;status)&#32;!=&#32;OK)&#32;{
+<anchor xml:id="_serialport_8c_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;reading&#32;LSR&#32;from&#32;serial&#32;port\n&quot;</emphasis>);
+<anchor xml:id="_serialport_8c_source_1l00026"/>00026 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_serialport_8c_source_1l00027"/>00027 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_serialport_8c_source_1l00028"/>00028 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(*status&#32;&amp;&#32;(<link linkend="_group__serialport_1gac22f7e8109686500cf878a26ea3af115">SER_OVERRUN_ERR</link>&#32;|&#32;<link linkend="_group__serialport_1ga356ae2e9093b65d87b35a303f3092057">SER_PARITY_ERR</link>&#32;|&#32;<link linkend="_group__serialport_1ga0182fcdfbfeb90906d60c3ddb411aece">SER_FRAME_ERR</link>))&#32;{
+<anchor xml:id="_serialport_8c_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Overrun,&#32;parity&#32;or&#32;framing&#32;error&#32;from&#32;serial&#32;port\n&quot;</emphasis>);
+<anchor xml:id="_serialport_8c_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_serialport_8c_source_1l00031"/>00031 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_serialport_8c_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_serialport_8c_source_1l00033"/>00033 }
+<anchor xml:id="_serialport_8c_source_1l00034"/>00034 
+<anchor xml:id="_serialport_8c_source_1l00035"/><link linkend="_group__serialport_1gafe652e0add554a59ead8c1960eefb6b1">00035</link> int&#32;(<link linkend="_group__serialport_1gafe652e0add554a59ead8c1960eefb6b1">ser_read_data</link>)()&#32;{
+<anchor xml:id="_serialport_8c_source_1l00036"/>00036 &#32;&#32;&#32;&#32;uint8_t&#32;status;
+<anchor xml:id="_serialport_8c_source_1l00037"/>00037 &#32;&#32;&#32;&#32;<link linkend="_group__serialport_1ga08071d8d2ad944789c1befd58b6fc6be">ser_read_lsr_status</link>(&amp;status);
+<anchor xml:id="_serialport_8c_source_1l00038"/>00038 
+<anchor xml:id="_serialport_8c_source_1l00039"/>00039 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!(status&#32;&amp;&#32;<link linkend="_group__serialport_1gaf64e9d55e8b66fdeaaa02652614610b5">SER_DATA_READY</link>)){
+<anchor xml:id="_serialport_8c_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_serialport_8c_1ac2e72b5a2e01b5b5ae740469f6c558b2">read_data</link>&#32;=&#32;0;
+<anchor xml:id="_serialport_8c_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Data&#32;not&#32;ready!\n&quot;</emphasis>);
+<anchor xml:id="_serialport_8c_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_serialport_8c_source_1l00043"/>00043 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_serialport_8c_source_1l00044"/>00044 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(status&#32;&amp;&#32;<link linkend="_group__serialport_1gaf64e9d55e8b66fdeaaa02652614610b5">SER_DATA_READY</link>)&#32;{
+<anchor xml:id="_serialport_8c_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_utils_8c_1a79a031a8611f5b2d6afa4158e92b0fb4">util_sys_inb</link>(<link linkend="_group__serialport_1ga0a6bd23d09bd13a268dc85a7fbaac454">SER_PORT</link>&#32;+&#32;<link linkend="_group__serialport_1gaab10abea0297abdcf0aab7d7d0b5662f">SER_RBR</link>,&#32;&amp;<link linkend="_serialport_8c_1ac2e72b5a2e01b5b5ae740469f6c558b2">read_data</link>))&#32;{
+<anchor xml:id="_serialport_8c_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;reading&#32;recieved&#32;data&#32;from&#32;serial&#32;port!\n&quot;</emphasis>);
+<anchor xml:id="_serialport_8c_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;&#32;&#32;&#32;&#32;
+<anchor xml:id="_serialport_8c_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_serialport_8c_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Read&#32;data:&#32;%d\n&quot;</emphasis>,&#32;<link linkend="_serialport_8c_1ac2e72b5a2e01b5b5ae740469f6c558b2">read_data</link>);
+<anchor xml:id="_serialport_8c_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_serialport_8c_1ac2e72b5a2e01b5b5ae740469f6c558b2">read_data</link>&#32;==&#32;<link linkend="_group__serialport_1ga94f8dc88853cae790047363466bd2147">SER_GOAL_1</link>&#32;||&#32;<link linkend="_serialport_8c_1ac2e72b5a2e01b5b5ae740469f6c558b2">read_data</link>&#32;==&#32;<link linkend="_group__serialport_1ga35048c7c149be52594fdf7255485a9be">SER_GOAL_2</link>)&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_serialport_8c_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_serialport_8c_1ac2e72b5a2e01b5b5ae740469f6c558b2">read_data</link>&#32;==&#32;(<link linkend="_group__serialport_1ga4c5aa3c4ff5b1d3721bad5a64dcfa9f9">SER_WINNER</link>&#32;+&#32;1)&#32;||&#32;<link linkend="_serialport_8c_1ac2e72b5a2e01b5b5ae740469f6c558b2">read_data</link>&#32;==&#32;(<link linkend="_group__serialport_1ga4c5aa3c4ff5b1d3721bad5a64dcfa9f9">SER_WINNER</link>&#32;+&#32;2)&#32;||&#32;<link linkend="_serialport_8c_1ac2e72b5a2e01b5b5ae740469f6c558b2">read_data</link>&#32;==&#32;(<link linkend="_group__serialport_1ga4c5aa3c4ff5b1d3721bad5a64dcfa9f9">SER_WINNER</link>&#32;+&#32;3))&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_serialport_8c_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_group__serialport_1ga08071d8d2ad944789c1befd58b6fc6be">ser_read_lsr_status</link>(&amp;status);
+<anchor xml:id="_serialport_8c_source_1l00053"/>00053 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_serialport_8c_source_1l00054"/>00054 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_serialport_8c_source_1l00055"/>00055 }
+<anchor xml:id="_serialport_8c_source_1l00056"/>00056 
+<anchor xml:id="_serialport_8c_source_1l00057"/><link linkend="_group__serialport_1ga9763e9d84c9c2217d5bfe4e59ee69d64">00057</link> int&#32;(<link linkend="_group__serialport_1ga9763e9d84c9c2217d5bfe4e59ee69d64">ser_transmit_data</link>)(uint8_t&#32;<link linkend="_kbc_8c_1a325819a8e492ac69542e8b31705af6e9">data</link>)&#32;{
+<anchor xml:id="_serialport_8c_source_1l00058"/>00058 &#32;&#32;&#32;&#32;uint8_t&#32;status;
+<anchor xml:id="_serialport_8c_source_1l00059"/>00059 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(<emphasis role="keyword">true</emphasis>)&#32;{
+<anchor xml:id="_serialport_8c_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_group__serialport_1ga08071d8d2ad944789c1befd58b6fc6be">ser_read_lsr_status</link>(&amp;status);
+<anchor xml:id="_serialport_8c_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(status&#32;&amp;&#32;(<link linkend="_group__serialport_1gaadd7d6748f7ddf10b6f87e350d6d1b26">SER_UART_READY</link>&#32;|&#32;<link linkend="_group__serialport_1ga7828169194de03d2e2cd9d1b15d3ea78">SER_THR_EMPTY</link>)){
+<anchor xml:id="_serialport_8c_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(sys_outb(<link linkend="_group__serialport_1ga0a6bd23d09bd13a268dc85a7fbaac454">SER_PORT</link>&#32;+&#32;<link linkend="_group__serialport_1ga3702c28928f73b9841ab8269f64177ed">SER_THR</link>,<link linkend="_kbc_8c_1a325819a8e492ac69542e8b31705af6e9">data</link>))&#32;{
+<anchor xml:id="_serialport_8c_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;reading&#32;recieved&#32;data&#32;from&#32;serial&#32;port!\n&quot;</emphasis>);
+<anchor xml:id="_serialport_8c_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;&#32;&#32;&#32;&#32;
+<anchor xml:id="_serialport_8c_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_serialport_8c_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Transmitted&#32;%d\n&quot;</emphasis>,&#32;<link linkend="_kbc_8c_1a325819a8e492ac69542e8b31705af6e9">data</link>);
+<anchor xml:id="_serialport_8c_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_serialport_8c_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_serialport_8c_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tickdelay(micros_to_ticks(5));
+<anchor xml:id="_serialport_8c_source_1l00070"/>00070 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_serialport_8c_source_1l00071"/>00071 }
+<anchor xml:id="_serialport_8c_source_1l00072"/>00072 
+<anchor xml:id="_serialport_8c_source_1l00073"/><link linkend="_group__serialport_1gab72ff27750fce4726c3861005ee392c6">00073</link> int&#32;(<link linkend="_group__serialport_1gab72ff27750fce4726c3861005ee392c6">ser_check_connection</link>)()&#32;{
+<anchor xml:id="_serialport_8c_source_1l00074"/>00074 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_serialport_8c_1ac2e72b5a2e01b5b5ae740469f6c558b2">read_data</link>&#32;==&#32;<link linkend="_group__serialport_1ga0921695d71206ba9d6855bb403acec9d">SER_INIT</link>){
+<anchor xml:id="_serialport_8c_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_serialport_8c_1a5e44ca6acb60e6dd2ccda995b1e3e3f3">other_ready</link>&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_serialport_8c_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_group__serialport_1ga9763e9d84c9c2217d5bfe4e59ee69d64">ser_transmit_data</link>(<link linkend="_group__serialport_1gad549d3f7a678b727d6ae694e22378d05">SER_START</link>);
+<anchor xml:id="_serialport_8c_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_group__serialport_1ga0921695d71206ba9d6855bb403acec9d">SER_INIT</link>;
+<anchor xml:id="_serialport_8c_source_1l00078"/>00078 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_serialport_8c_source_1l00079"/>00079 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_serialport_8c_1ac2e72b5a2e01b5b5ae740469f6c558b2">read_data</link>&#32;==&#32;<link linkend="_group__serialport_1gad549d3f7a678b727d6ae694e22378d05">SER_START</link>)
+<anchor xml:id="_serialport_8c_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_group__serialport_1gad549d3f7a678b727d6ae694e22378d05">SER_START</link>;
+<anchor xml:id="_serialport_8c_source_1l00081"/>00081 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_serialport_8c_source_1l00082"/>00082 }
+<anchor xml:id="_serialport_8c_source_1l00083"/>00083 
+<anchor xml:id="_serialport_8c_source_1l00084"/><link linkend="_group__serialport_1gaf21628f0f9d46b62067ae790f7861e84">00084</link> int&#32;(<link linkend="_group__serialport_1gaf21628f0f9d46b62067ae790f7861e84">ser_subscribe_int</link>)(uint8_t&#32;*bit_no)&#32;{
+<anchor xml:id="_serialport_8c_source_1l00085"/>00085 &#32;&#32;<link linkend="_serialport_8c_1a965a9c411b8854c55368dfef16b58cf5">ser_hook_id</link>&#32;=&#32;*bit_no;
+<anchor xml:id="_serialport_8c_source_1l00086"/>00086 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;sys_irqsetpolicy(<link linkend="_group__serialport_1ga0bbbe5033c75850015a6532ae64097b3">SER_IRQ</link>,IRQ_REENABLE|IRQ_EXCLUSIVE,&amp;<link linkend="_serialport_8c_1a965a9c411b8854c55368dfef16b58cf5">ser_hook_id</link>);
+<anchor xml:id="_serialport_8c_source_1l00087"/>00087 }
+<anchor xml:id="_serialport_8c_source_1l00088"/>00088 
+<anchor xml:id="_serialport_8c_source_1l00089"/><link linkend="_group__serialport_1ga30ae83ae28ebc465baa2d2f2ee51a145">00089</link> int&#32;(<link linkend="_group__serialport_1ga30ae83ae28ebc465baa2d2f2ee51a145">ser_unsubscribe_int</link>)()&#32;{
+<anchor xml:id="_serialport_8c_source_1l00090"/>00090 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;sys_irqrmpolicy(&amp;<link linkend="_serialport_8c_1a965a9c411b8854c55368dfef16b58cf5">ser_hook_id</link>);
+<anchor xml:id="_serialport_8c_source_1l00091"/>00091 }
+<anchor xml:id="_serialport_8c_source_1l00092"/>00092 
+</programlisting></section>

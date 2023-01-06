@@ -1,0 +1,28 @@
+var group__serialport =
+[
+    [ "SER_DATA_READY", "group__serialport.html#gaf64e9d55e8b66fdeaaa02652614610b5", null ],
+    [ "SER_ERBFI", "group__serialport.html#ga7b7cadf7e8da87ebbed4922556b94433", null ],
+    [ "SER_FRAME_ERR", "group__serialport.html#ga0182fcdfbfeb90906d60c3ddb411aece", null ],
+    [ "SER_GOAL_1", "group__serialport.html#ga94f8dc88853cae790047363466bd2147", null ],
+    [ "SER_GOAL_2", "group__serialport.html#ga35048c7c149be52594fdf7255485a9be", null ],
+    [ "SER_IER", "group__serialport.html#ga783f8e3973a5f87d8af120d49742f834", null ],
+    [ "SER_INIT", "group__serialport.html#ga0921695d71206ba9d6855bb403acec9d", null ],
+    [ "SER_IRQ", "group__serialport.html#ga0bbbe5033c75850015a6532ae64097b3", null ],
+    [ "SER_LSR", "group__serialport.html#ga382b5d26eb113bfffbf2094eb4405042", null ],
+    [ "SER_OVERRUN_ERR", "group__serialport.html#gac22f7e8109686500cf878a26ea3af115", null ],
+    [ "SER_PARITY_ERR", "group__serialport.html#ga356ae2e9093b65d87b35a303f3092057", null ],
+    [ "SER_PORT", "group__serialport.html#ga0a6bd23d09bd13a268dc85a7fbaac454", null ],
+    [ "SER_RBR", "group__serialport.html#gaab10abea0297abdcf0aab7d7d0b5662f", null ],
+    [ "SER_START", "group__serialport.html#gad549d3f7a678b727d6ae694e22378d05", null ],
+    [ "SER_THR", "group__serialport.html#ga3702c28928f73b9841ab8269f64177ed", null ],
+    [ "SER_THR_EMPTY", "group__serialport.html#ga7828169194de03d2e2cd9d1b15d3ea78", null ],
+    [ "SER_UART_READY", "group__serialport.html#gaadd7d6748f7ddf10b6f87e350d6d1b26", null ],
+    [ "SER_WINNER", "group__serialport.html#ga4c5aa3c4ff5b1d3721bad5a64dcfa9f9", null ],
+    [ "ser_check_connection", "group__serialport.html#gab72ff27750fce4726c3861005ee392c6", null ],
+    [ "ser_init", "group__serialport.html#ga0310282e052b0d6daacdcf32745aad12", null ],
+    [ "ser_read_data", "group__serialport.html#gafe652e0add554a59ead8c1960eefb6b1", null ],
+    [ "ser_read_lsr_status", "group__serialport.html#ga08071d8d2ad944789c1befd58b6fc6be", null ],
+    [ "ser_subscribe_int", "group__serialport.html#gaf21628f0f9d46b62067ae790f7861e84", null ],
+    [ "ser_transmit_data", "group__serialport.html#ga9763e9d84c9c2217d5bfe4e59ee69d64", null ],
+    [ "ser_unsubscribe_int", "group__serialport.html#ga30ae83ae28ebc465baa2d2f2ee51a145", null ]
+];

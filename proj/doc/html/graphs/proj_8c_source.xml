@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_proj_8c_source" xml:lang="en-US">
+<title>proj.c</title>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_proj_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;lcom/lcf.h&gt;</emphasis>
+<anchor xml:id="_proj_8c_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;lcom/proj.h&gt;</emphasis>
+<anchor xml:id="_proj_8c_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;lcom/pixmap.h&gt;</emphasis>
+<anchor xml:id="_proj_8c_source_1l00004"/>00004 
+<anchor xml:id="_proj_8c_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;stdbool.h&gt;</emphasis>
+<anchor xml:id="_proj_8c_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
+<anchor xml:id="_proj_8c_source_1l00007"/>00007 
+<anchor xml:id="_proj_8c_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_video_8h">video/video.h</link>&quot;</emphasis>
+<anchor xml:id="_proj_8c_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_kbc_8h">keyboard/kbc.h</link>&quot;</emphasis>
+<anchor xml:id="_proj_8c_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_handlers_8h">game/handlers.h</link>&quot;</emphasis>
+<anchor xml:id="_proj_8c_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_images_8h">game/images.h</link>&quot;</emphasis>
+<anchor xml:id="_proj_8c_source_1l00012"/>00012 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_view_8h">game/view.h</link>&quot;</emphasis>
+<anchor xml:id="_proj_8c_source_1l00013"/>00013 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_serialport_8h">serialport/serialport.h</link>&quot;</emphasis>
+<anchor xml:id="_proj_8c_source_1l00014"/>00014 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_rtc_8h">rtc/rtc.h</link>&quot;</emphasis>
+<anchor xml:id="_proj_8c_source_1l00015"/>00015 
+<anchor xml:id="_proj_8c_source_1l00016"/>00016 <emphasis role="keyword">extern</emphasis>&#32;uint8_t&#32;<link linkend="_proj_8c_1a01577ed8d3646775ae6a8e00d24c1d94">scancode</link>[2];
+<anchor xml:id="_proj_8c_source_1l00017"/>00017 <emphasis role="keyword">extern</emphasis>&#32;uint8_t&#32;<link linkend="_proj_8c_1a325819a8e492ac69542e8b31705af6e9">data</link>;
+<anchor xml:id="_proj_8c_source_1l00018"/><link linkend="_proj_8c_1aa02e483eb21e700531ca2ddf2508d189">00018</link> <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_proj_8c_1a0210a44039b20cccb04801fb03ae47c1">full_code_ready</link>,&#32;<link linkend="_proj_8c_1aa02e483eb21e700531ca2ddf2508d189">kbd_valid</link>;
+<anchor xml:id="_proj_8c_source_1l00019"/><link linkend="_proj_8c_1a5d9c2a41be94ab895b834e18856183b6">00019</link> <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_proj_8c_1a8a7aa94c9cf59b217a36bea458c1f8d4">mouse_valid</link>,&#32;<link linkend="_proj_8c_1a5d9c2a41be94ab895b834e18856183b6">mouse_packet_ready</link>;
+<anchor xml:id="_proj_8c_source_1l00020"/>00020 
+<anchor xml:id="_proj_8c_source_1l00021"/><link linkend="_proj_8c_1a0ddf1224851353fc92bfbff6f499fa97">00021</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_proj_8c_1a0ddf1224851353fc92bfbff6f499fa97">main</link>(<emphasis role="keywordtype">int</emphasis>&#32;argc,&#32;<emphasis role="keywordtype">char</emphasis>&#32;*argv[])&#32;{
+<anchor xml:id="_proj_8c_source_1l00022"/>00022 &#32;&#32;<emphasis role="comment">//&#32;sets&#32;the&#32;language&#32;of&#32;LCF&#32;messages&#32;(can&#32;be&#32;either&#32;EN-US&#32;or&#32;PT-PT)</emphasis>
+<anchor xml:id="_proj_8c_source_1l00023"/>00023 &#32;&#32;lcf_set_language(<emphasis role="stringliteral">&quot;EN-US&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00024"/>00024 
+<anchor xml:id="_proj_8c_source_1l00025"/>00025 &#32;&#32;<emphasis role="comment">//&#32;enables&#32;to&#32;log&#32;function&#32;invocations&#32;that&#32;are&#32;being&#32;&quot;wrapped&quot;&#32;by&#32;LCF</emphasis>
+<anchor xml:id="_proj_8c_source_1l00026"/>00026 &#32;&#32;<emphasis role="comment">//&#32;[comment&#32;this&#32;out&#32;if&#32;you&#32;don&apos;t&#32;want/need&#32;it]</emphasis>
+<anchor xml:id="_proj_8c_source_1l00027"/>00027 &#32;&#32;lcf_trace_calls(<emphasis role="stringliteral">&quot;/home/lcom/labs/proj/trace.txt&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00028"/>00028 
+<anchor xml:id="_proj_8c_source_1l00029"/>00029 &#32;&#32;<emphasis role="comment">//&#32;enables&#32;to&#32;save&#32;the&#32;output&#32;of&#32;printf&#32;function&#32;calls&#32;on&#32;a&#32;file</emphasis>
+<anchor xml:id="_proj_8c_source_1l00030"/>00030 &#32;&#32;<emphasis role="comment">//&#32;[comment&#32;this&#32;out&#32;if&#32;you&#32;don&apos;t&#32;want/need&#32;it]</emphasis>
+<anchor xml:id="_proj_8c_source_1l00031"/>00031 &#32;&#32;lcf_log_output(<emphasis role="stringliteral">&quot;/home/lcom/labs/proj/output.txt&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00032"/>00032 
+<anchor xml:id="_proj_8c_source_1l00033"/>00033 &#32;&#32;<emphasis role="comment">//&#32;handles&#32;control&#32;over&#32;to&#32;LCF</emphasis>
+<anchor xml:id="_proj_8c_source_1l00034"/>00034 &#32;&#32;<emphasis role="comment">//&#32;[LCF&#32;handles&#32;command&#32;line&#32;arguments&#32;and&#32;invokes&#32;the&#32;right&#32;function]</emphasis>
+<anchor xml:id="_proj_8c_source_1l00035"/>00035 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(lcf_start(argc,&#32;argv))
+<anchor xml:id="_proj_8c_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00037"/>00037 
+<anchor xml:id="_proj_8c_source_1l00038"/>00038 &#32;&#32;<emphasis role="comment">//&#32;LCF&#32;clean&#32;up&#32;tasks</emphasis>
+<anchor xml:id="_proj_8c_source_1l00039"/>00039 &#32;&#32;<emphasis role="comment">//&#32;[must&#32;be&#32;the&#32;last&#32;statement&#32;before&#32;return]</emphasis>
+<anchor xml:id="_proj_8c_source_1l00040"/>00040 &#32;&#32;lcf_cleanup();
+<anchor xml:id="_proj_8c_source_1l00041"/>00041 
+<anchor xml:id="_proj_8c_source_1l00042"/>00042 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_proj_8c_source_1l00043"/>00043 }
+<anchor xml:id="_proj_8c_source_1l00044"/>00044 
+<anchor xml:id="_proj_8c_source_1l00045"/>00045 
+<anchor xml:id="_proj_8c_source_1l00046"/><link linkend="_proj_8c_1a2a16f651eccbd248e1ad3b3b924b143b">00046</link> int(<link linkend="_proj_8c_1a2a16f651eccbd248e1ad3b3b924b143b">proj_main_loop</link>)(<emphasis role="keywordtype">int</emphasis>&#32;argc,&#32;<emphasis role="keywordtype">char</emphasis>*&#32;argv[])
+<anchor xml:id="_proj_8c_source_1l00047"/>00047 {
+<anchor xml:id="_proj_8c_source_1l00048"/>00048 &#32;&#32;<emphasis role="comment">/*initialize&#32;graphic&#32;mode*/</emphasis>
+<anchor xml:id="_proj_8c_source_1l00049"/>00049 &#32;&#32;
+<anchor xml:id="_proj_8c_source_1l00050"/>00050 &#32;&#32;<link linkend="_video_8c_1af58095ca3d3990e300b96bfe4c0a63e4">map_video_memory</link>(<link linkend="_group__video__macros_1ga3c5cde2577e877adb5f9827014079dde">VIDEO_MODE</link>);
+<anchor xml:id="_proj_8c_source_1l00051"/>00051 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_video_8c_1a1e2de8664e2dade53b8b7e7a5bc83fb4">vg_mode</link>(<link linkend="_group__video__macros_1ga3c5cde2577e877adb5f9827014079dde">VIDEO_MODE</link>)&#32;!=&#32;OK){
+<anchor xml:id="_proj_8c_source_1l00052"/>00052 &#32;&#32;&#32;&#32;vg_exit();
+<anchor xml:id="_proj_8c_source_1l00053"/>00053 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Failed&#32;to&#32;go&#32;into&#32;graphic&#32;mode.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00054"/>00054 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00055"/>00055 &#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00056"/>00056 
+<anchor xml:id="_proj_8c_source_1l00057"/>00057 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;ipc_status;
+<anchor xml:id="_proj_8c_source_1l00058"/>00058 &#32;&#32;message&#32;msg;
+<anchor xml:id="_proj_8c_source_1l00059"/>00059 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;r;
+<anchor xml:id="_proj_8c_source_1l00060"/>00060 
+<anchor xml:id="_proj_8c_source_1l00061"/>00061 &#32;&#32;uint8_t&#32;mouse_int_bit&#32;=&#32;2;
+<anchor xml:id="_proj_8c_source_1l00062"/>00062 &#32;&#32;uint8_t&#32;timer_int_bit&#32;=&#32;0;
+<anchor xml:id="_proj_8c_source_1l00063"/>00063 &#32;&#32;uint8_t&#32;kbc_int_bit&#32;=&#32;1;&#32;
+<anchor xml:id="_proj_8c_source_1l00064"/>00064 &#32;&#32;uint8_t&#32;rtc_int_bit&#32;=&#32;8;&#32;
+<anchor xml:id="_proj_8c_source_1l00065"/>00065 &#32;&#32;uint8_t&#32;ser_int_bit&#32;=&#32;4;&#32;
+<anchor xml:id="_proj_8c_source_1l00066"/>00066 
+<anchor xml:id="_proj_8c_source_1l00067"/>00067 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_group__kbc_1ga4ac9231a99a664d6a9f0b69767e0d707">kbd_subscribe_int</link>(&amp;kbc_int_bit)&#32;!=&#32;OK){
+<anchor xml:id="_proj_8c_source_1l00068"/>00068 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;subscribing&#32;to&#32;keyboard.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00069"/>00069 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00070"/>00070 &#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00071"/>00071 
+<anchor xml:id="_proj_8c_source_1l00072"/>00072 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_group__timer_1gac57a7e1140a7e00ad95ac5488d2a671b">timer_subscribe_int</link>(&amp;timer_int_bit)&#32;!=&#32;OK){
+<anchor xml:id="_proj_8c_source_1l00073"/>00073 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;subscribing&#32;to&#32;timer.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00074"/>00074 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00075"/>00075 &#32;&#32;}&#32;
+<anchor xml:id="_proj_8c_source_1l00076"/>00076 
+<anchor xml:id="_proj_8c_source_1l00077"/>00077 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_group__kbc_1ga20285aed4b3ef45812cd967532dd09db">mouse_subscribe_int</link>(&amp;mouse_int_bit))&#32;{
+<anchor xml:id="_proj_8c_source_1l00078"/>00078 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;subscribing&#32;to&#32;kbc.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00079"/>00079 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00080"/>00080 &#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00081"/>00081 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_group__kbc_1gaaf62ad2fc57a009e413accb7373fe33d">disable_mouse</link>()){
+<anchor xml:id="_proj_8c_source_1l00082"/>00082 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;disabling&#32;mouse.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00083"/>00083 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00084"/>00084 &#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00085"/>00085 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_group__kbc_1gab03b20445da099487fdd96bc31007b0e">mouse_enbl_data_reporting</link>()){
+<anchor xml:id="_proj_8c_source_1l00086"/>00086 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;enabiling&#32;data&#32;reporting&#32;on&#32;mouse.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00087"/>00087 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00088"/>00088 &#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00089"/>00089 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_group__kbc_1gad133813912d3da691a07674fb9e15455">enable_mouse</link>()){
+<anchor xml:id="_proj_8c_source_1l00090"/>00090 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;enabling&#32;mouse.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00091"/>00091 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00092"/>00092 &#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00093"/>00093 
+<anchor xml:id="_proj_8c_source_1l00094"/>00094 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_group__rtc_1ga6bbe679f115cec90d36d50eb2aac1b89">rtc_subscribe_int</link>(&amp;rtc_int_bit)&#32;!=&#32;OK){
+<anchor xml:id="_proj_8c_source_1l00095"/>00095 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;subscribing&#32;to&#32;RTC.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00096"/>00096 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00097"/>00097 &#32;&#32;}&#32;
+<anchor xml:id="_proj_8c_source_1l00098"/>00098 &#32;&#32;<link linkend="_group__rtc_1gac06a0a3580daf870240d95679167b593">rtc_update_darkmode</link>();
+<anchor xml:id="_proj_8c_source_1l00099"/>00099 
+<anchor xml:id="_proj_8c_source_1l00100"/>00100 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_group__serialport_1gaf21628f0f9d46b62067ae790f7861e84">ser_subscribe_int</link>(&amp;ser_int_bit)&#32;!=&#32;OK){
+<anchor xml:id="_proj_8c_source_1l00101"/>00101 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;subscribing&#32;to&#32;serial&#32;port.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00102"/>00102 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00103"/>00103 &#32;&#32;}&#32;
+<anchor xml:id="_proj_8c_source_1l00104"/>00104 &#32;&#32;<emphasis role="comment">//ser_init();</emphasis>
+<anchor xml:id="_proj_8c_source_1l00105"/>00105 
+<anchor xml:id="_proj_8c_source_1l00106"/>00106 &#32;&#32;<link linkend="_group__images_1ga8a6bd0a6090487314e7d566acd5dbf7f">load_all_images</link>();
+<anchor xml:id="_proj_8c_source_1l00107"/>00107 
+<anchor xml:id="_proj_8c_source_1l00108"/>00108 &#32;&#32;<link linkend="_group__view_1ga5fd0c469e6f02d84c080f7cf71630109">drawMenu</link>();
+<anchor xml:id="_proj_8c_source_1l00109"/>00109 &#32;&#32;<link linkend="_video_8c_1a8241e421a3811f46b59bed9f166a48d1">refresh_buffer</link>();
+<anchor xml:id="_proj_8c_source_1l00110"/>00110 
+<anchor xml:id="_proj_8c_source_1l00111"/>00111 &#32;&#32;<emphasis role="keywordflow">while</emphasis>(&#32;<link linkend="_proj_8c_1a325819a8e492ac69542e8b31705af6e9">data</link>&#32;!=&#32;<link linkend="_group__i8042_1gaab234bf892e4394a628452e593bddec4">KBC_ESC_KEY</link>&#32;)&#32;{&#32;<emphasis role="comment">//terminar&#32;quando&#32;o&#32;scancode&#32;é&#32;0x81</emphasis>
+<anchor xml:id="_proj_8c_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Get&#32;a&#32;request&#32;message.&#32;*/</emphasis>
+<anchor xml:id="_proj_8c_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(&#32;(r&#32;=&#32;driver_receive(ANY,&#32;&amp;msg,&#32;&amp;ipc_status))&#32;!=&#32;OK&#32;)&#32;{&#32;
+<anchor xml:id="_proj_8c_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;driver_receive&#32;failed&#32;with:&#32;%d&quot;</emphasis>,&#32;r);
+<anchor xml:id="_proj_8c_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">continue</emphasis>;
+<anchor xml:id="_proj_8c_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(is_ipc_notify(ipc_status))&#32;{&#32;<emphasis role="comment">/*&#32;received&#32;notification&#32;*/</emphasis>
+<anchor xml:id="_proj_8c_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(_ENDPOINT_P(msg.m_source))&#32;{
+<anchor xml:id="_proj_8c_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;HARDWARE:&#32;<emphasis role="comment">/*&#32;hardware&#32;interrupt&#32;notification&#32;*/</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_proj_8c_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msg.m_notify.interrupts&#32;&amp;&#32;BIT(kbc_int_bit))&#32;{&#32;<emphasis role="comment">/*&#32;subscribed&#32;interrupt&#32;*/</emphasis>
+<anchor xml:id="_proj_8c_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_group__kbc_1ga5761bd4aad91ac1d68916ad88f583d9f">kbc_ih</link>();
+<anchor xml:id="_proj_8c_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_proj_8c_1aa02e483eb21e700531ca2ddf2508d189">kbd_valid</link>&#32;&amp;&#32;<link linkend="_proj_8c_1a0210a44039b20cccb04801fb03ae47c1">full_code_ready</link>)&#32;<link linkend="_group__handlers_1gad932b9bf23b1de26f712a4aacdc7df9b">mainHandler</link>(<link linkend="_group__handlers_1ggaa4b88f24716e66e8d41400b00e8ae8aead14e2514427609da194a72091721f4c7">KEYBOARD</link>);
+<anchor xml:id="_proj_8c_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_proj_8c_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msg.m_notify.interrupts&#32;&amp;&#32;BIT(timer_int_bit))&#32;{&#32;<emphasis role="comment">/*&#32;subscribed&#32;interrupt&#32;*/</emphasis>
+<anchor xml:id="_proj_8c_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_group__timer_1ga91a2072306c68353712a6b771287dc2c">timer_int_handler</link>();
+<anchor xml:id="_proj_8c_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_group__handlers_1gad932b9bf23b1de26f712a4aacdc7df9b">mainHandler</link>(<link linkend="_group__handlers_1ggaa4b88f24716e66e8d41400b00e8ae8aea17ba9bae1b8d7e8d6c12d46ec58e0769">TIMER</link>);
+<anchor xml:id="_proj_8c_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00129"/>00129 
+<anchor xml:id="_proj_8c_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msg.m_notify.interrupts&#32;&amp;&#32;BIT(mouse_int_bit))&#32;{&#32;<emphasis role="comment">/*&#32;subscribed&#32;interrupt&#32;*/</emphasis>
+<anchor xml:id="_proj_8c_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_group__kbc_1gaed4404005e4c565ac36656307386e0ac">mouse_ih</link>();
+<anchor xml:id="_proj_8c_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_proj_8c_1a8a7aa94c9cf59b217a36bea458c1f8d4">mouse_valid</link>&#32;&amp;&#32;<link linkend="_proj_8c_1a5d9c2a41be94ab895b834e18856183b6">mouse_packet_ready</link>)&#32;<link linkend="_group__handlers_1gad932b9bf23b1de26f712a4aacdc7df9b">mainHandler</link>(<link linkend="_group__handlers_1ggaa4b88f24716e66e8d41400b00e8ae8aea6abd13b0a6bf7894c7ceb5ff45ddbc14">MOUSE</link>);
+<anchor xml:id="_proj_8c_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00134"/>00134 
+<anchor xml:id="_proj_8c_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(msg.m_notify.interrupts&#32;&amp;&#32;BIT(ser_int_bit))&#32;{&#32;<emphasis role="comment">/*&#32;subscribed&#32;interrupt&#32;*/</emphasis>
+<anchor xml:id="_proj_8c_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_group__serialport_1gafe652e0add554a59ead8c1960eefb6b1">ser_read_data</link>();
+<anchor xml:id="_proj_8c_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_group__handlers_1gad932b9bf23b1de26f712a4aacdc7df9b">mainHandler</link>(<link linkend="_group__handlers_1ggaa4b88f24716e66e8d41400b00e8ae8aea303393a7eb9e8c9e401f78471510cde3">SERIALPORT</link>);
+<anchor xml:id="_proj_8c_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00139"/>00139 
+<anchor xml:id="_proj_8c_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_proj_8c_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+<anchor xml:id="_proj_8c_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;&#32;<emphasis role="comment">/*&#32;no&#32;other&#32;notifications&#32;expected:&#32;do&#32;nothing&#32;*/</emphasis>&#32;&#32;
+<anchor xml:id="_proj_8c_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{&#32;<emphasis role="comment">/*&#32;received&#32;a&#32;standard&#32;message,&#32;not&#32;a&#32;notification&#32;*/</emphasis>
+<anchor xml:id="_proj_8c_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;no&#32;standard&#32;messages&#32;expected:&#32;do&#32;nothing&#32;*/</emphasis>
+<anchor xml:id="_proj_8c_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00147"/>00147 &#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00148"/>00148 &#32;&#32;printf(<emphasis role="stringliteral">&quot;Finishing\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00149"/>00149 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(!<link linkend="_group__serialport_1gafe652e0add554a59ead8c1960eefb6b1">ser_read_data</link>())&#32;printf(<emphasis role="stringliteral">&quot;Read&#32;trash\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00150"/>00150 
+<anchor xml:id="_proj_8c_source_1l00151"/>00151 &#32;&#32;<emphasis role="comment">//back&#32;to&#32;text</emphasis>
+<anchor xml:id="_proj_8c_source_1l00152"/>00152 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(vg_exit()&#32;!=&#32;OK){
+<anchor xml:id="_proj_8c_source_1l00153"/>00153 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;exiting&#32;video.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00154"/>00154 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00155"/>00155 &#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00156"/>00156 &#32;&#32;
+<anchor xml:id="_proj_8c_source_1l00157"/>00157 
+<anchor xml:id="_proj_8c_source_1l00158"/>00158 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_group__timer_1gafabd21de449be154dd65d5fdb2d8045d">timer_unsubscribe_int</link>()&#32;!=&#32;OK){
+<anchor xml:id="_proj_8c_source_1l00159"/>00159 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;unsubscribing&#32;KBC.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00160"/>00160 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00161"/>00161 &#32;&#32;}&#32;
+<anchor xml:id="_proj_8c_source_1l00162"/>00162 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_group__kbc_1gaaf62ad2fc57a009e413accb7373fe33d">disable_mouse</link>()){
+<anchor xml:id="_proj_8c_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;disabling&#32;mouse.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00165"/>00165 &#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00166"/>00166 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_group__kbc_1ga7e311379d4d64f88873ef8ade5c82a25">mouse_disable_data_reporting</link>()){
+<anchor xml:id="_proj_8c_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;disabiling&#32;data&#32;reporting&#32;on&#32;mouse.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00168"/>00168 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00169"/>00169 &#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00170"/>00170 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_group__kbc_1gad133813912d3da691a07674fb9e15455">enable_mouse</link>()){
+<anchor xml:id="_proj_8c_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;disabling&#32;mouse.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00173"/>00173 &#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00174"/>00174 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_group__kbc_1ga3ecf823d80520009ae5e0d76ae40a3c3">mouse_unsubscribe_int</link>()){
+<anchor xml:id="_proj_8c_source_1l00175"/>00175 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;unsubscribing&#32;mouse.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00176"/>00176 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00177"/>00177 &#32;&#32;}
+<anchor xml:id="_proj_8c_source_1l00178"/>00178 
+<anchor xml:id="_proj_8c_source_1l00179"/>00179 
+<anchor xml:id="_proj_8c_source_1l00180"/>00180 
+<anchor xml:id="_proj_8c_source_1l00181"/>00181 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_group__kbc_1gaee0a7b54ee426fade9c780418d110fe0">kbd_unsubscribe_int</link>()&#32;!=&#32;OK){
+<anchor xml:id="_proj_8c_source_1l00182"/>00182 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;unsubscribing&#32;KBC.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00183"/>00183 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00184"/>00184 &#32;&#32;}&#32;
+<anchor xml:id="_proj_8c_source_1l00185"/>00185 
+<anchor xml:id="_proj_8c_source_1l00186"/>00186 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_group__rtc_1ga9d4850bb2a488644672d43287f160622">rtc_unsubscribe_int</link>()&#32;!=&#32;OK){
+<anchor xml:id="_proj_8c_source_1l00187"/>00187 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;unsubscribing&#32;RTC.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00188"/>00188 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00189"/>00189 &#32;&#32;}&#32;
+<anchor xml:id="_proj_8c_source_1l00190"/>00190 
+<anchor xml:id="_proj_8c_source_1l00191"/>00191 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_group__serialport_1ga30ae83ae28ebc465baa2d2f2ee51a145">ser_unsubscribe_int</link>()&#32;!=&#32;OK){
+<anchor xml:id="_proj_8c_source_1l00192"/>00192 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;unsubscribing&#32;serial&#32;port.\n&quot;</emphasis>);
+<anchor xml:id="_proj_8c_source_1l00193"/>00193 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_proj_8c_source_1l00194"/>00194 &#32;&#32;}&#32;
+<anchor xml:id="_proj_8c_source_1l00195"/>00195 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_proj_8c_source_1l00196"/>00196 }
+</programlisting></section>

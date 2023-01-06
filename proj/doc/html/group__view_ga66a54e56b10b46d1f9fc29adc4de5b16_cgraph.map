@@ -1,0 +1,6 @@
+<map id="drawWall" name="drawWall">
+<area shape="rect" id="node1" title="Draw the wall originated by a power&#45;up." alt="" coords="5,5,80,32"/>
+<area shape="rect" id="node2" href="$video_8c.html#a905cdcdafb03104ab75c6c59e0f5e7cb" title="Draw a rectangle." alt="" coords="128,5,237,32"/>
+<area shape="rect" id="node3" href="$video_8c.html#a5e5b25bd525250f61f40b9e9f212d5e6" title="Draw a horizontal line of pixels." alt="" coords="285,5,388,32"/>
+<area shape="rect" id="node4" href="$video_8c.html#a576ad65187107e487c85b9fb42fa0220" title="Set the color of a pixel." alt="" coords="436,5,529,32"/>
+</map>

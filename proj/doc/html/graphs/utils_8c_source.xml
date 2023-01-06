@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_utils_8c_source" xml:lang="en-US">
+<title>utils.c</title>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_utils_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;lcom/lcf.h&gt;</emphasis>
+<anchor xml:id="_utils_8c_source_1l00002"/>00002 
+<anchor xml:id="_utils_8c_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
+<anchor xml:id="_utils_8c_source_1l00004"/>00004 
+<anchor xml:id="_utils_8c_source_1l00005"/><link linkend="_utils_8c_1a81621440b3d65680979425e39aa8c789">00005</link> int(<link linkend="_utils_8c_1a81621440b3d65680979425e39aa8c789">util_get_LSB</link>)(uint16_t&#32;val,&#32;uint8_t&#32;*lsb)&#32;{
+<anchor xml:id="_utils_8c_source_1l00006"/>00006 &#32;&#32;
+<anchor xml:id="_utils_8c_source_1l00007"/>00007 &#32;&#32;*lsb&#32;=&#32;(uint8_t)&#32;(val&#32;&amp;&#32;0x00ff);
+<anchor xml:id="_utils_8c_source_1l00008"/>00008 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_utils_8c_source_1l00009"/>00009 }
+<anchor xml:id="_utils_8c_source_1l00010"/>00010 
+<anchor xml:id="_utils_8c_source_1l00011"/><link linkend="_utils_8c_1a6a880076cd2ec468834438b6e0c58836">00011</link> int(<link linkend="_utils_8c_1a6a880076cd2ec468834438b6e0c58836">util_get_MSB</link>)(uint16_t&#32;val,&#32;uint8_t&#32;*msb)&#32;{
+<anchor xml:id="_utils_8c_source_1l00012"/>00012 &#32;&#32;
+<anchor xml:id="_utils_8c_source_1l00013"/>00013 &#32;&#32;*msb&#32;=&#32;(uint8_t)&#32;(val&#32;&gt;&gt;&#32;8);
+<anchor xml:id="_utils_8c_source_1l00014"/>00014 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_utils_8c_source_1l00015"/>00015 }
+<anchor xml:id="_utils_8c_source_1l00016"/>00016 
+<anchor xml:id="_utils_8c_source_1l00017"/><link linkend="_utils_8c_1a79a031a8611f5b2d6afa4158e92b0fb4">00017</link> int&#32;(<link linkend="_utils_8c_1a79a031a8611f5b2d6afa4158e92b0fb4">util_sys_inb</link>)(<emphasis role="keywordtype">int</emphasis>&#32;port,&#32;uint8_t&#32;*value)&#32;{
+<anchor xml:id="_utils_8c_source_1l00018"/>00018 &#32;&#32;uint32_t&#32;stub;
+<anchor xml:id="_utils_8c_source_1l00019"/>00019 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;not_valid&#32;=&#32;sys_inb(port,&#32;&amp;stub);
+<anchor xml:id="_utils_8c_source_1l00020"/>00020 
+<anchor xml:id="_utils_8c_source_1l00021"/>00021 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(not_valid)&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_utils_8c_source_1l00022"/>00022 &#32;&#32;*value&#32;=&#32;(uint8_t)&#32;stub;
+<anchor xml:id="_utils_8c_source_1l00023"/>00023 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_utils_8c_source_1l00024"/>00024 }
+</programlisting></section>

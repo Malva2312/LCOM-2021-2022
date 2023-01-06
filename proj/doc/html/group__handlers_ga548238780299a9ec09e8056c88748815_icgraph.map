@@ -1,0 +1,5 @@
+<map id="gameTwoPlayersHandler" name="gameTwoPlayersHandler">
+<area shape="rect" id="node1" title="Proceed with the actions in the Two Players Game State of the respective given device." alt="" coords="305,5,471,32"/>
+<area shape="rect" id="node2" href="$group__handlers.html#gad932b9bf23b1de26f712a4aacdc7df9b" title="Invokes the respective handler according to the game state." alt="" coords="163,5,257,32"/>
+<area shape="rect" id="node3" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,115,32"/>
+</map>

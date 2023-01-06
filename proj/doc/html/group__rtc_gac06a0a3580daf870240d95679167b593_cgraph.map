@@ -1,0 +1,6 @@
+<map id="rtc_update_darkmode" name="rtc_update_darkmode">
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,152,83"/>
+<area shape="rect" id="node2" href="$group__rtc.html#gaef48ce217f5c004635226cc27c0d4081" title="Converts the number in BCD to hexadecimal." alt="" coords="209,5,328,32"/>
+<area shape="rect" id="node3" href="$group__rtc.html#ga861d2f079d8248ed95f305600eaa0567" title="Waits until Update in Progress in Register A is complete." alt="" coords="200,56,337,83"/>
+<area shape="rect" id="node4" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="223,107,314,133"/>
+</map>

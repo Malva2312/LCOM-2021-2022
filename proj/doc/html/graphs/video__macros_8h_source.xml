@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_video__macros_8h_source" xml:lang="en-US">
+<title>video_macros.h</title>
+<indexterm><primary>video/video_macros.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_video__macros_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;_LCOM_VIDEO_MACROS_H_</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;_LCOM_VIDEO_MACROS_H_</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00003"/>00003 
+<anchor xml:id="_video__macros_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;lcom/lcf.h&gt;</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00005"/>00005 
+<anchor xml:id="_video__macros_8h_source_1l00012"/><link linkend="_group__video__macros_1ga3c5cde2577e877adb5f9827014079dde">00012</link> <emphasis role="preprocessor">#define&#32;VIDEO_MODE&#32;0x115</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00013"/>00013 
+<anchor xml:id="_video__macros_8h_source_1l00014"/>00014 <emphasis role="comment">//Call&#32;functions&#32;-&#32;AH</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00015"/><link linkend="_group__video__macros_1ga6f413bd85a0e7a99d4300605ba08034a">00015</link> <emphasis role="preprocessor">#define&#32;VBE_AH_CALL_FUNCTION&#32;0x4F</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00016"/>00016 
+<anchor xml:id="_video__macros_8h_source_1l00017"/>00017 <emphasis role="comment">//VBE&#32;functions&#32;-&#32;AL</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00018"/><link linkend="_group__video__macros_1ga67f264124681f9698713bb2b4ae0c904">00018</link> <emphasis role="preprocessor">#define&#32;VBE_AL_SET_VBE_MODE&#32;0x02</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00019"/><link linkend="_group__video__macros_1ga4cc320958a14fbddc6c316f1690bf815">00019</link> <emphasis role="preprocessor">#define&#32;VBE_AL_RETURN_VBE_MODE_INFO&#32;0x01</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00020"/><link linkend="_group__video__macros_1ga1b7a91f6b79588f27c2fc1cbf5c1f88e">00020</link> <emphasis role="preprocessor">#define&#32;VBE_AL_RETURN_VBE_CONTROLLER_INFO&#32;0x02</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00021"/>00021 
+<anchor xml:id="_video__macros_8h_source_1l00022"/>00022 <emphasis role="comment">//(Un)successful&#32;call&#32;return&#32;codes&#32;-AH</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00023"/><link linkend="_group__video__macros_1gae7f2a61f3796cb09725a12cf9e65c0f9">00023</link> <emphasis role="preprocessor">#define&#32;VBE_AH_FUN_SUCCESS&#32;0x00</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00024"/><link linkend="_group__video__macros_1ga70312f757567f59adf11ab393d2bf364">00024</link> <emphasis role="preprocessor">#define&#32;VBE_AH_FUN_CALL_FAILED&#32;0x01</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00025"/><link linkend="_group__video__macros_1ga6ef2f65d639ba995b6611d58d551c42a">00025</link> <emphasis role="preprocessor">#define&#32;VBE_AH_FUN_NOT_SUPPORTED&#32;0x02</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00026"/><link linkend="_group__video__macros_1ga86709670d93e4315c37c5d9b1832a51e">00026</link> <emphasis role="preprocessor">#define&#32;VBE_AH_FUN_INVALID_MODE&#32;0x03</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00027"/>00027 
+<anchor xml:id="_video__macros_8h_source_1l00028"/>00028 <emphasis role="comment">//INTNO</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00029"/><link linkend="_group__video__macros_1ga0eb3f5348376766c04f05dbab81771e6">00029</link> <emphasis role="preprocessor">#define&#32;VBE_INTNO_BIOS_VIDEO_SERVICES&#32;0x10</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00030"/>00030 
+<anchor xml:id="_video__macros_8h_source_1l00031"/>00031 <emphasis role="comment">//Graphic&#32;modes&#32;-&#32;BX&#32;in&#32;SET&#32;VBE&#32;MODE,&#32;CX&#32;in&#32;RETRUN&#32;MODE&#32;INFO</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00032"/><link linkend="_group__video__macros_1ga32c54370baa8fbcf13ed1cb40d251afd">00032</link> <emphasis role="preprocessor">#define&#32;VBE_RES_1024x768&#32;0x105</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00033"/><link linkend="_group__video__macros_1ga0da31a2e279970e09fbc99d83159c525">00033</link> <emphasis role="preprocessor">#define&#32;VBE_RES_640x480&#32;0x110</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00034"/><link linkend="_group__video__macros_1ga5c061346f9c5bad28f4fe58c84fcc50b">00034</link> <emphasis role="preprocessor">#define&#32;VBE_RES_800x600&#32;0x115</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00035"/><link linkend="_group__video__macros_1gaa13d671cbe4a7208933a23846715da8d">00035</link> <emphasis role="preprocessor">#define&#32;VBE_RES_1280x1024&#32;0x11A</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00036"/><link linkend="_group__video__macros_1gaeb531b96103956e89ae004bcfcb0cbb9">00036</link> <emphasis role="preprocessor">#define&#32;VBE_RES_1152x864&#32;0x14C</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00037"/>00037 
+<anchor xml:id="_video__macros_8h_source_1l00038"/>00038 <emphasis role="comment">//BX&#32;for&#32;mode&#32;-&#32;BIT&#32;14&#32;must&#32;be&#32;set</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00039"/><link linkend="_group__video__macros_1gae43d16ffe87b80dfb60ef0b93abbb30f">00039</link> <emphasis role="preprocessor">#define&#32;VBE_BX_SET_MODE&#32;BIT(14)</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00040"/>00040 
+<anchor xml:id="_video__macros_8h_source_1l00041"/><link linkend="_group__video__macros_1gad8d76e6c21761d3b5e993d24e73310f0">00041</link> <emphasis role="preprocessor">#define&#32;GET_N_BYTE(w,&#32;n)&#32;((w&#32;&gt;&gt;&#32;(8*n))&#32;&amp;&#32;0xFF)&#32;</emphasis>
+<anchor xml:id="_video__macros_8h_source_1l00044"/>00044 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*_LCOM_VIDEO_MACROS_H_&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+</programlisting></section>

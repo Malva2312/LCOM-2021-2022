@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_timer_8c_source" xml:lang="en-US">
+<title>timer.c</title>
+<indexterm><primary>timer/timer.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_timer_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;lcom/lcf.h&gt;</emphasis>
+<anchor xml:id="_timer_8c_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;lcom/timer.h&gt;</emphasis>
+<anchor xml:id="_timer_8c_source_1l00003"/>00003 
+<anchor xml:id="_timer_8c_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
+<anchor xml:id="_timer_8c_source_1l00005"/>00005 
+<anchor xml:id="_timer_8c_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_i8254_8h">i8254.h</link>&quot;</emphasis>
+<anchor xml:id="_timer_8c_source_1l00007"/>00007 
+<anchor xml:id="_timer_8c_source_1l00008"/><link linkend="_handlers_8c_1a617a47c70795bcff659815ad0efd2266">00008</link> uint32_t&#32;<link linkend="_timer_8c_1a51322ddb267b4729d6b5f2bb05d49fff">counter</link>&#32;=&#32;0;
+<anchor xml:id="_timer_8c_source_1l00009"/><link linkend="_timer_8c_1a96e6321e488d93a8134897510c435eb7">00009</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_timer_8c_1a96e6321e488d93a8134897510c435eb7">timer_hook_id</link>;
+<anchor xml:id="_timer_8c_source_1l00010"/>00010 
+<anchor xml:id="_timer_8c_source_1l00011"/><link linkend="_group__timer_1gaf2c04fa8e97ffa748fd3f612886a92a7">00011</link> int&#32;(<link linkend="_group__timer_1gaf2c04fa8e97ffa748fd3f612886a92a7">timer_set_frequency</link>)(uint8_t&#32;timer,&#32;uint32_t&#32;freq)&#32;{
+<anchor xml:id="_timer_8c_source_1l00012"/>00012 &#32;&#32;
+<anchor xml:id="_timer_8c_source_1l00013"/>00013 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(((<link linkend="_group__i8254_1gacf926951944b6cf370b7229ebd50dd8b">TIMER_FREQ</link>&#32;/&#32;freq)&#32;&lt;&#32;BIT(0))&#32;||&#32;((<link linkend="_group__i8254_1gacf926951944b6cf370b7229ebd50dd8b">TIMER_FREQ</link>&#32;/&#32;freq)&#32;&gt;=&#32;BIT(16))){
+<anchor xml:id="_timer_8c_source_1l00014"/>00014 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Invalid&#32;frequency.&#32;\n&quot;</emphasis>);
+<anchor xml:id="_timer_8c_source_1l00015"/>00015 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_timer_8c_source_1l00016"/>00016 &#32;&#32;}
+<anchor xml:id="_timer_8c_source_1l00017"/>00017 
+<anchor xml:id="_timer_8c_source_1l00018"/>00018 &#32;&#32;<emphasis role="comment">//separar&#32;as&#32;duas&#32;partes&#32;da&#32;frequencia</emphasis>
+<anchor xml:id="_timer_8c_source_1l00019"/>00019 
+<anchor xml:id="_timer_8c_source_1l00020"/>00020 &#32;&#32;uint8_t&#32;lsb,&#32;msb;
+<anchor xml:id="_timer_8c_source_1l00021"/>00021 &#32;&#32;uint16_t&#32;newfreq&#32;=&#32;<link linkend="_group__i8254_1gacf926951944b6cf370b7229ebd50dd8b">TIMER_FREQ</link>&#32;/&#32;freq;&#32;&#32;&#32;
+<anchor xml:id="_timer_8c_source_1l00022"/>00022 
+<anchor xml:id="_timer_8c_source_1l00023"/>00023 &#32;&#32;<link linkend="_utils_8c_1a81621440b3d65680979425e39aa8c789">util_get_LSB</link>(newfreq,&#32;&amp;lsb);
+<anchor xml:id="_timer_8c_source_1l00024"/>00024 &#32;&#32;<link linkend="_utils_8c_1a6a880076cd2ec468834438b6e0c58836">util_get_MSB</link>(newfreq,&#32;&amp;msb);
+<anchor xml:id="_timer_8c_source_1l00025"/>00025 
+<anchor xml:id="_timer_8c_source_1l00026"/>00026 
+<anchor xml:id="_timer_8c_source_1l00027"/>00027 &#32;&#32;<emphasis role="comment">//enviar&#32;a&#32;control&#32;word</emphasis>
+<anchor xml:id="_timer_8c_source_1l00028"/>00028 
+<anchor xml:id="_timer_8c_source_1l00029"/>00029 &#32;&#32;uint8_t&#32;st;
+<anchor xml:id="_timer_8c_source_1l00030"/>00030 &#32;&#32;<link linkend="_group__timer_1ga703c60b40c8c49607d6ecb6fef82d27a">timer_get_conf</link>(timer,&#32;&amp;st);
+<anchor xml:id="_timer_8c_source_1l00031"/>00031 
+<anchor xml:id="_timer_8c_source_1l00032"/>00032 &#32;&#32;st&#32;=&#32;(st&#32;&amp;&#32;0x0f)&#32;|&#32;<link linkend="_group__i8254_1ga8c0f1933323274c765e23837e4fbc8c7">TIMER_LSB_MSB</link>;
+<anchor xml:id="_timer_8c_source_1l00033"/>00033 
+<anchor xml:id="_timer_8c_source_1l00034"/>00034 &#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(timer)
+<anchor xml:id="_timer_8c_source_1l00035"/>00035 &#32;&#32;{
+<anchor xml:id="_timer_8c_source_1l00036"/>00036 &#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;0:
+<anchor xml:id="_timer_8c_source_1l00037"/>00037 &#32;&#32;&#32;&#32;st&#32;=&#32;st&#32;|&#32;<link linkend="_group__i8254_1ga6a4822642d40c248435692324a818010">TIMER_SEL0</link>;
+<anchor xml:id="_timer_8c_source_1l00038"/>00038 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_timer_8c_source_1l00039"/>00039 &#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;1:
+<anchor xml:id="_timer_8c_source_1l00040"/>00040 &#32;&#32;&#32;&#32;st&#32;=&#32;st&#32;|&#32;<link linkend="_group__i8254_1ga8349623fd8d99f9cc5d8ae29d78594fc">TIMER_SEL1</link>;
+<anchor xml:id="_timer_8c_source_1l00041"/>00041 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_timer_8c_source_1l00042"/>00042 &#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;2:
+<anchor xml:id="_timer_8c_source_1l00043"/>00043 &#32;&#32;&#32;&#32;st&#32;=&#32;st&#32;|&#32;<link linkend="_group__i8254_1ga142a255de0dbc48aeabd45fc10c33672">TIMER_SEL2</link>;
+<anchor xml:id="_timer_8c_source_1l00044"/>00044 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_timer_8c_source_1l00045"/>00045 &#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+<anchor xml:id="_timer_8c_source_1l00046"/>00046 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Invalid&#32;timer(timer_set_frequency)&quot;</emphasis>);
+<anchor xml:id="_timer_8c_source_1l00047"/>00047 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_timer_8c_source_1l00048"/>00048 &#32;&#32;}
+<anchor xml:id="_timer_8c_source_1l00049"/>00049 
+<anchor xml:id="_timer_8c_source_1l00050"/>00050 &#32;&#32;sys_outb(<link linkend="_group__i8254_1ga282832448fb0281ef53d243c1cd48491">TIMER_CTRL</link>,st);
+<anchor xml:id="_timer_8c_source_1l00051"/>00051 
+<anchor xml:id="_timer_8c_source_1l00052"/>00052 &#32;&#32;<emphasis role="comment">//enviar&#32;a&#32;nova&#32;frequencia</emphasis>
+<anchor xml:id="_timer_8c_source_1l00053"/>00053 &#32;&#32;sys_outb(<link linkend="_group__i8254_1ga6db8ef0c78c8127416c655dbb916d69d">GET_TIMER</link>(timer),lsb);
+<anchor xml:id="_timer_8c_source_1l00054"/>00054 &#32;&#32;sys_outb(<link linkend="_group__i8254_1ga6db8ef0c78c8127416c655dbb916d69d">GET_TIMER</link>(timer),msb);
+<anchor xml:id="_timer_8c_source_1l00055"/>00055 
+<anchor xml:id="_timer_8c_source_1l00056"/>00056 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_timer_8c_source_1l00057"/>00057 }
+<anchor xml:id="_timer_8c_source_1l00058"/>00058 
+<anchor xml:id="_timer_8c_source_1l00059"/><link linkend="_group__timer_1gac57a7e1140a7e00ad95ac5488d2a671b">00059</link> int&#32;(<link linkend="_group__timer_1gac57a7e1140a7e00ad95ac5488d2a671b">timer_subscribe_int</link>)(uint8_t&#32;*bit_no)&#32;{
+<anchor xml:id="_timer_8c_source_1l00060"/>00060 &#32;&#32;<link linkend="_timer_8c_1a96e6321e488d93a8134897510c435eb7">timer_hook_id</link>&#32;=&#32;*bit_no;
+<anchor xml:id="_timer_8c_source_1l00061"/>00061 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;sys_irqsetpolicy(<link linkend="_group__i8254_1ga30bf84c312af248cb81bb224e09f9ba8">TIMER0_IRQ</link>,IRQ_REENABLE,&amp;<link linkend="_timer_8c_1a96e6321e488d93a8134897510c435eb7">timer_hook_id</link>);
+<anchor xml:id="_timer_8c_source_1l00062"/>00062 }
+<anchor xml:id="_timer_8c_source_1l00063"/>00063 
+<anchor xml:id="_timer_8c_source_1l00064"/><link linkend="_group__timer_1gafabd21de449be154dd65d5fdb2d8045d">00064</link> int&#32;(<link linkend="_group__timer_1gafabd21de449be154dd65d5fdb2d8045d">timer_unsubscribe_int</link>)()&#32;{
+<anchor xml:id="_timer_8c_source_1l00065"/>00065 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;sys_irqrmpolicy(&amp;<link linkend="_timer_8c_1a96e6321e488d93a8134897510c435eb7">timer_hook_id</link>);
+<anchor xml:id="_timer_8c_source_1l00066"/>00066 }
+<anchor xml:id="_timer_8c_source_1l00067"/>00067 
+<anchor xml:id="_timer_8c_source_1l00068"/><link linkend="_group__timer_1ga91a2072306c68353712a6b771287dc2c">00068</link> <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__timer_1ga91a2072306c68353712a6b771287dc2c">timer_int_handler</link>)()&#32;{
+<anchor xml:id="_timer_8c_source_1l00069"/>00069 &#32;&#32;<link linkend="_timer_8c_1a51322ddb267b4729d6b5f2bb05d49fff">counter</link>++;
+<anchor xml:id="_timer_8c_source_1l00070"/>00070 }
+<anchor xml:id="_timer_8c_source_1l00071"/>00071 
+<anchor xml:id="_timer_8c_source_1l00072"/><link linkend="_group__timer_1ga703c60b40c8c49607d6ecb6fef82d27a">00072</link> int&#32;(<link linkend="_group__timer_1ga703c60b40c8c49607d6ecb6fef82d27a">timer_get_conf</link>)(uint8_t&#32;timer,&#32;uint8_t&#32;*st)&#32;{
+<anchor xml:id="_timer_8c_source_1l00073"/>00073 
+<anchor xml:id="_timer_8c_source_1l00074"/>00074 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(timer&#32;&lt;&#32;0&#32;||&#32;timer&#32;&gt;&#32;2)&#32;{
+<anchor xml:id="_timer_8c_source_1l00075"/>00075 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Invalid&#32;timer(timer_get_conf)&quot;</emphasis>);
+<anchor xml:id="_timer_8c_source_1l00076"/>00076 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_timer_8c_source_1l00077"/>00077 &#32;&#32;}
+<anchor xml:id="_timer_8c_source_1l00078"/>00078 &#32;&#32;
+<anchor xml:id="_timer_8c_source_1l00079"/>00079 &#32;&#32;uint8_t&#32;<emphasis role="keywordtype">byte</emphasis>&#32;=&#32;<link linkend="_group__i8254_1ga4c2eecbfb96744a9c2af71dba75ecb18">TIMER_RB_CMD</link>&#32;|&#32;<link linkend="_group__i8254_1ga6c248216df24b5e9d907d126d80bd195">TIMER_RB_COUNT_</link>&#32;|&#32;<link linkend="_group__i8254_1gaf598b17740e07842a0545af512714711">TIMER_RB_SEL</link>(timer);
+<anchor xml:id="_timer_8c_source_1l00080"/>00080 
+<anchor xml:id="_timer_8c_source_1l00081"/>00081 &#32;&#32;sys_outb(<link linkend="_group__i8254_1ga282832448fb0281ef53d243c1cd48491">TIMER_CTRL</link>,<emphasis role="keywordtype">byte</emphasis>);
+<anchor xml:id="_timer_8c_source_1l00082"/>00082 
+<anchor xml:id="_timer_8c_source_1l00083"/>00083 &#32;&#32;<link linkend="_utils_8c_1a79a031a8611f5b2d6afa4158e92b0fb4">util_sys_inb</link>(<link linkend="_group__i8254_1ga6db8ef0c78c8127416c655dbb916d69d">GET_TIMER</link>(timer),st);
+<anchor xml:id="_timer_8c_source_1l00084"/>00084 
+<anchor xml:id="_timer_8c_source_1l00085"/>00085 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_timer_8c_source_1l00086"/>00086 }
+<anchor xml:id="_timer_8c_source_1l00087"/>00087 
+<anchor xml:id="_timer_8c_source_1l00088"/><link linkend="_group__timer_1ga140d8f092c0913cabdca949c4a1cc650">00088</link> int&#32;(<link linkend="_group__timer_1ga140d8f092c0913cabdca949c4a1cc650">timer_display_conf</link>)(uint8_t&#32;timer,&#32;uint8_t&#32;st,&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_group__timer_1gada782f3116a896caaa602b70c0c6d8b7">timer_status_field</link>&#32;field)&#32;{
+<anchor xml:id="_timer_8c_source_1l00089"/>00089 &#32;&#32;
+<anchor xml:id="_timer_8c_source_1l00090"/>00090 &#32;&#32;<emphasis role="keyword">union&#32;</emphasis><link linkend="_uniontimer__status__field__val">timer_status_field_val</link>&#32;val;
+<anchor xml:id="_timer_8c_source_1l00091"/>00091 
+<anchor xml:id="_timer_8c_source_1l00092"/>00092 &#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(field)
+<anchor xml:id="_timer_8c_source_1l00093"/>00093 &#32;&#32;{
+<anchor xml:id="_timer_8c_source_1l00094"/>00094 &#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__timer_1ggada782f3116a896caaa602b70c0c6d8b7a92376d84969da91547254fc7461f0da2">tsf_all</link>:
+<anchor xml:id="_timer_8c_source_1l00095"/>00095 &#32;&#32;&#32;&#32;val.<link linkend="_group__timer_1ga96f44d20f1dbf1c8785a7bc99a46164c">byte</link>&#32;=&#32;st;
+<anchor xml:id="_timer_8c_source_1l00096"/>00096 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_timer_8c_source_1l00097"/>00097 &#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__timer_1ggada782f3116a896caaa602b70c0c6d8b7aa84c2f6462a2deb90fda229c89453dfa">tsf_mode</link>:
+<anchor xml:id="_timer_8c_source_1l00098"/>00098 &#32;&#32;&#32;&#32;val.<link linkend="_group__timer_1gabd6e94a182fc2daff67dfb46f732644a">count_mode</link>&#32;=&#32;(st&amp;<link linkend="_group__i8254_1ga1bcc664edce3ef15bc96564471e07dde">TIMER_GET_COUNTING_MODE</link>)&gt;&gt;1;
+<anchor xml:id="_timer_8c_source_1l00099"/>00099 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(val.<link linkend="_group__timer_1gabd6e94a182fc2daff67dfb46f732644a">count_mode</link>&#32;==&#32;6&#32;||&#32;val.<link linkend="_group__timer_1gabd6e94a182fc2daff67dfb46f732644a">count_mode</link>&#32;==&#32;7){
+<anchor xml:id="_timer_8c_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;val.<link linkend="_group__timer_1gabd6e94a182fc2daff67dfb46f732644a">count_mode</link>&#32;-=&#32;4;
+<anchor xml:id="_timer_8c_source_1l00101"/>00101 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_timer_8c_source_1l00102"/>00102 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_timer_8c_source_1l00103"/>00103 &#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__timer_1ggada782f3116a896caaa602b70c0c6d8b7aa89f72faf31fa0e4db8cab25364a4583">tsf_initial</link>:
+<anchor xml:id="_timer_8c_source_1l00104"/>00104 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(<link linkend="_group__i8254_1ga8c0f1933323274c765e23837e4fbc8c7">TIMER_LSB_MSB</link>&#32;&amp;&#32;st)
+<anchor xml:id="_timer_8c_source_1l00105"/>00105 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_timer_8c_source_1l00106"/>00106 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__i8254_1gac18cb814ebd0d67235392c330e0e3504">TIMER_LSB</link>:
+<anchor xml:id="_timer_8c_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;val.<link linkend="_group__timer_1gad414fb8742e435f9bda1f199a6200645">in_mode</link>&#32;=&#32;<link linkend="_group__timer_1gga5cc20f14fd50625eea9b20f58fbe2a55a9a2e8b22f6d5ee33cc37829164a55955">LSB_only</link>;
+<anchor xml:id="_timer_8c_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_timer_8c_source_1l00109"/>00109 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__i8254_1ga2a8a6d363c612d756cd8d78480f7cd04">TIMER_MSB</link>:
+<anchor xml:id="_timer_8c_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;val.<link linkend="_group__timer_1gad414fb8742e435f9bda1f199a6200645">in_mode</link>&#32;=&#32;<link linkend="_group__timer_1gga5cc20f14fd50625eea9b20f58fbe2a55ae46d93c3576b5f78ae1aeb4ee4fc4938">MSB_only</link>;
+<anchor xml:id="_timer_8c_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_timer_8c_source_1l00112"/>00112 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__i8254_1ga8c0f1933323274c765e23837e4fbc8c7">TIMER_LSB_MSB</link>:
+<anchor xml:id="_timer_8c_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;val.<link linkend="_group__timer_1gad414fb8742e435f9bda1f199a6200645">in_mode</link>&#32;=&#32;<link linkend="_group__timer_1gga5cc20f14fd50625eea9b20f58fbe2a55a7d392c02b4f52d93c10e4c646f8cedc7">MSB_after_LSB</link>;
+<anchor xml:id="_timer_8c_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_timer_8c_source_1l00115"/>00115 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+<anchor xml:id="_timer_8c_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;val.<link linkend="_group__timer_1gad414fb8742e435f9bda1f199a6200645">in_mode</link>&#32;=&#32;<link linkend="_group__timer_1gga5cc20f14fd50625eea9b20f58fbe2a55a829d958875d8e92068f1b07f858721a4">INVAL_val</link>;
+<anchor xml:id="_timer_8c_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_timer_8c_source_1l00118"/>00118 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_timer_8c_source_1l00119"/>00119 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_timer_8c_source_1l00120"/>00120 &#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_group__timer_1ggada782f3116a896caaa602b70c0c6d8b7af4b69eace6b1cc952de198acee4c5e32">tsf_base</link>:
+<anchor xml:id="_timer_8c_source_1l00121"/>00121 &#32;&#32;&#32;&#32;val.<link linkend="_group__timer_1gaa2444cde256beeae6fb06bb7a5ebd0c9">bcd</link>&#32;=&#32;(st&amp;<link linkend="_group__i8254_1ga325b992a371d5d981c4eceff42fa5956">TIMER_BCD</link>)&#32;==&#32;<link linkend="_group__i8254_1ga325b992a371d5d981c4eceff42fa5956">TIMER_BCD</link>;
+<anchor xml:id="_timer_8c_source_1l00122"/>00122 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_timer_8c_source_1l00123"/>00123 &#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+<anchor xml:id="_timer_8c_source_1l00124"/>00124 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_timer_8c_source_1l00125"/>00125 &#32;&#32;}
+<anchor xml:id="_timer_8c_source_1l00126"/>00126 
+<anchor xml:id="_timer_8c_source_1l00127"/>00127 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_group__timer_1gad3902e029b27c80982873394c0290496">timer_print_config</link>(timer,field,val);;&#32;
+<anchor xml:id="_timer_8c_source_1l00128"/>00128 }
+</programlisting></section>

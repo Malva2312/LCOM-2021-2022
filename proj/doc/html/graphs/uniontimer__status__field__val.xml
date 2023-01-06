@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_uniontimer__status__field__val" xml:lang="en-US">
+<title>timer_status_field_val Union Reference</title>
+<indexterm><primary>timer_status_field_val</primary></indexterm>
+<para>
+
+<para>Union for storing values of timer status fields, including the full status byte. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;timer.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>uint8_t <link linkend="_group__timer_1ga96f44d20f1dbf1c8785a7bc99a46164c">byte</link></para>
+
+<para>status </para>
+</listitem>
+            <listitem><para>enum <link linkend="_group__timer_1ga5cc20f14fd50625eea9b20f58fbe2a55">timer_init</link> <link linkend="_group__timer_1gad414fb8742e435f9bda1f199a6200645">in_mode</link></para>
+
+<para>initialization mode </para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_group__timer_1gabd6e94a182fc2daff67dfb46f732644a">count_mode</link></para>
+
+<para>counting mode: 0, 1,.., 5 </para>
+</listitem>
+            <listitem><para>bool <link linkend="_group__timer_1gaa2444cde256beeae6fb06bb7a5ebd0c9">bcd</link></para>
+
+<para>counting base, true if BCD </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Union for storing values of timer status fields, including the full status byte. </para>
+<para>
+Definition at line <link linkend="_timer_8h_source_1l00036">36</link> of file <link linkend="_timer_8h_source">timer.h</link>.</para>
+<para>
+The documentation for this union was generated from the following file:</para>
+timer/<link linkend="_timer_8h">timer.h</link></section>
+</section>

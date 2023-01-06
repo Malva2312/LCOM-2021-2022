@@ -1,0 +1,4 @@
+<map id="kbc_write_cmd" name="kbc_write_cmd">
+<area shape="rect" id="node1" title="Write a command to the kbc." alt="" coords="204,5,313,32"/>
+<area shape="rect" id="node2" href="$group__kbc.html#gac47c4cbc1a0bcfa157d20dd35d29da57" title="Restore keyboard interrupts." alt="" coords="5,5,156,32"/>
+</map>

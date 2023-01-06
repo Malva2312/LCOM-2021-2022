@@ -1,0 +1,6 @@
+<map id="backMenuEntry" name="backMenuEntry">
+<area shape="rect" id="node1" title="In the menu, it goes to the previous option. If there is no previous option, the selection remains un..." alt="" coords="452,5,565,32"/>
+<area shape="rect" id="node2" href="$group__handlers.html#ga1bf786f0d1e4fb655a95618665e88b73" title="Proceed with the actions in the Menu State of the respective given device." alt="" coords="305,5,404,32"/>
+<area shape="rect" id="node3" href="$group__handlers.html#gad932b9bf23b1de26f712a4aacdc7df9b" title="Invokes the respective handler according to the game state." alt="" coords="163,5,257,32"/>
+<area shape="rect" id="node4" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,115,32"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="ser_init" name="ser_init">
+<area shape="rect" id="node1" title="Enables interrupts for recieving data, reads leftover data in the Receiver Buffer Register and transm..." alt="" coords="5,31,69,57"/>
+<area shape="rect" id="node2" href="$group__serialport.html#gafe652e0add554a59ead8c1960eefb6b1" title="If data is available it will read all entries in the buffer until there are none left(to maintain it ..." alt="" coords="129,56,233,83"/>
+<area shape="rect" id="node5" href="$group__serialport.html#ga9763e9d84c9c2217d5bfe4e59ee69d64" title="Sends the given data to the Transmitter Holding Register." alt="" coords="117,5,244,32"/>
+<area shape="rect" id="node3" href="$group__serialport.html#ga08071d8d2ad944789c1befd58b6fc6be" title="Reads the Line Status Register to check for errors and available data." alt="" coords="292,5,428,32"/>
+<area shape="rect" id="node4" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="476,31,567,57"/>
+</map>

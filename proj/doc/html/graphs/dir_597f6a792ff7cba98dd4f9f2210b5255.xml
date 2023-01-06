@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_597f6a792ff7cba98dd4f9f2210b5255" xml:lang="en-US">
+<title>video Directory Reference</title>
+<indexterm><primary>video Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_video_8c">video.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_video_8h">video.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_video__macros_8h">video_macros.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

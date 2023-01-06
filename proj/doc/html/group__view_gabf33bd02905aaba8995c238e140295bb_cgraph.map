@@ -1,0 +1,6 @@
+<map id="drawBoard" name="drawBoard">
+<area shape="rect" id="node1" title="Calls the functions responsable for drawing the score board." alt="" coords="5,31,88,57"/>
+<area shape="rect" id="node2" href="$video_8c.html#a9502773109672e86799bba9705b835bd" title="Draw a sprite." alt="" coords="145,5,233,32"/>
+<area shape="rect" id="node4" href="$view_8c.html#a34bb0b5ed37722af7b8463df6d522ee0" title=" " alt="" coords="136,56,243,83"/>
+<area shape="rect" id="node3" href="$video_8c.html#a576ad65187107e487c85b9fb42fa0220" title="Set the color of a pixel." alt="" coords="291,5,384,32"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="kbd_get_status_byte" name="kbd_get_status_byte">
+<area shape="rect" id="node1" title="Get status byte for keyboard." alt="" coords="271,5,413,32"/>
+<area shape="rect" id="node2" href="$group__kbc.html#ga5761bd4aad91ac1d68916ad88f583d9f" title="Control of keyboard interruptions." alt="" coords="163,5,223,32"/>
+<area shape="rect" id="node3" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,115,32"/>
+</map>

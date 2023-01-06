@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_kbc_8c" xml:lang="en-US">
+<title>keyboard/kbc.c File Reference</title>
+<indexterm><primary>keyboard/kbc.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;kbc.h&quot;
+#include &lt;minix/sysutil.h&gt;
+</programlisting>Include dependency graph for kbc.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="kbc_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__kbc_1ga5761bd4aad91ac1d68916ad88f583d9f">kbc_ih</link> (<link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>)</para>
+
+<para>Control of keyboard interruptions. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga459c5f03316bc61703727fd38f1f1965">kbd_get_status_byte</link> ()</para>
+
+<para>Get status byte for keyboard. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1gad2fe6cbf61c2613cd7f4d7998979ee29">kbc_read_value</link> ()</para>
+
+<para>Read a value from the kbc output buffer. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga4d01b87977dde6d295c19c982e5426ea">kbc_read_cmd</link> (uint8_t *cmd)</para>
+
+<para>Read a command from the kbc. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1gab06ce595703807400f3d90171f7f9884">kbc_write_cmd</link> (uint8_t cmd)</para>
+
+<para>Write a command to the kbc. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__kbc_1gac47c4cbc1a0bcfa157d20dd35d29da57">kbc_restore_interrupts</link> ()</para>
+
+<para>Restore keyboard interrupts. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga4ac9231a99a664d6a9f0b69767e0d707">kbd_subscribe_int</link> (uint8_t *bit_no)</para>
+
+<para>Subscribe interrupts from keyboard. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1gaee0a7b54ee426fade9c780418d110fe0">kbd_unsubscribe_int</link> ()</para>
+
+<para>Unsubscribe interrupts from keyboard. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga20285aed4b3ef45812cd967532dd09db">mouse_subscribe_int</link> (uint8_t *bit_no)</para>
+
+<para>Subscribe mouse interrupts. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga3ecf823d80520009ae5e0d76ae40a3c3">mouse_unsubscribe_int</link> ()</para>
+
+<para>Unsubscribe mouse interrupts. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1gad133813912d3da691a07674fb9e15455">enable_mouse</link> ()</para>
+
+<para>Enable mouse interrupts. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1gaaf62ad2fc57a009e413accb7373fe33d">disable_mouse</link> ()</para>
+
+<para>Disable mouse interrupts. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_kbc_8c_1a999549fe35157d4137626fa8c0b2ee99">mouse_get_status_byte</link> (uint8_t *status)</para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__kbc_1gaed4404005e4c565ac36656307386e0ac">mouse_ih</link> ()</para>
+
+<para>Control of mouse interrupts. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga9e19cb92cae1a1257d65ae04e1e6cc6f">mouse_read_value</link> ()</para>
+
+<para>Read a value from the mouse, to build the mouse packet. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga4a3e729d49865f915c15092cfdda2835">parse_packet</link> ()</para>
+
+<para>Parse a packet with mouse information into a struct. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1gab03b20445da099487fdd96bc31007b0e">mouse_enbl_data_reporting</link> (<link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>)</para>
+
+<para>Enable data reporting. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga7e311379d4d64f88873ef8ade5c82a25">mouse_disable_data_reporting</link> ()</para>
+
+<para>Disable mouse data reporting. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1ga486b669d172327d510db1fff96ea6b60">mouse_write_to_port</link> (uint8_t port, uint8_t cmd)</para>
+
+<para>Write a command to a port. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__kbc_1gadce7a7604f8b0782158b70bf728eb411">mouse_write_cmd</link> (uint8_t command)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_kbc_8c_1a66950d98786a9b087f74991e4b6794e3">kbc_hook_id</link> = 1</para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_kbc_8c_1a325819a8e492ac69542e8b31705af6e9">data</link> = 0</para>
+</listitem>
+            <listitem><para>bool <link linkend="_kbc_8c_1a83b83f0755f115b133c5afa21cbcfd1b">makecode</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_kbc_8c_1aa02e483eb21e700531ca2ddf2508d189">kbd_valid</link> = false</para>
+</listitem>
+            <listitem><para>bool <link linkend="_kbc_8c_1a0210a44039b20cccb04801fb03ae47c1">full_code_ready</link> = false</para>
+</listitem>
+            <listitem><para>int <link linkend="_kbc_8c_1a439227feff9d7f55384e8780cfc2eb82">size</link> = 0</para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_kbc_8c_1a01577ed8d3646775ae6a8e00d24c1d94">scancode</link> [2]</para>
+</listitem>
+            <listitem><para>int <link linkend="_kbc_8c_1a37cad7cad93664f8a1ed1b0258fe958b">mouse_hook_id</link> = 2</para>
+</listitem>
+            <listitem><para>int <link linkend="_kbc_8c_1a705fcc072b6072606ca4e4aae812d598">mouse_packet_size</link> = 0</para>
+</listitem>
+            <listitem><para>bool <link linkend="_kbc_8c_1a8a7aa94c9cf59b217a36bea458c1f8d4">mouse_valid</link> = false</para>
+</listitem>
+            <listitem><para>bool <link linkend="_kbc_8c_1a5d9c2a41be94ab895b834e18856183b6">mouse_packet_ready</link> = false</para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link> [3]</para>
+</listitem>
+            <listitem><para>struct packet <link linkend="_kbc_8c_1a26e83eca70c2b9169fbbb0eac7e32e32">pp</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_kbc_8c_1a999549fe35157d4137626fa8c0b2ee99"/><section>
+    <title>mouse_get_status_byte()</title>
+<indexterm><primary>mouse_get_status_byte</primary><secondary>kbc.c</secondary></indexterm>
+<indexterm><primary>kbc.c</primary><secondary>mouse_get_status_byte</secondary></indexterm>
+<para><computeroutput>int() mouse_get_status_byte (uint8_t * status)</computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00120">120</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="kbc_8c_a999549fe35157d4137626fa8c0b2ee99_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_kbc_8c_1a325819a8e492ac69542e8b31705af6e9"/><section>
+    <title>data</title>
+<indexterm><primary>data</primary><secondary>kbc.c</secondary></indexterm>
+<indexterm><primary>kbc.c</primary><secondary>data</secondary></indexterm>
+<para><computeroutput>uint8_t data = 0</computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00009">9</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_kbc_8c_1a0210a44039b20cccb04801fb03ae47c1"/><section>
+    <title>full_code_ready</title>
+<indexterm><primary>full_code_ready</primary><secondary>kbc.c</secondary></indexterm>
+<indexterm><primary>kbc.c</primary><secondary>full_code_ready</secondary></indexterm>
+<para><computeroutput>bool full_code_ready = false</computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00010">10</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_kbc_8c_1a66950d98786a9b087f74991e4b6794e3"/><section>
+    <title>kbc_hook_id</title>
+<indexterm><primary>kbc_hook_id</primary><secondary>kbc.c</secondary></indexterm>
+<indexterm><primary>kbc.c</primary><secondary>kbc_hook_id</secondary></indexterm>
+<para><computeroutput>int kbc_hook_id = 1</computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00008">8</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_kbc_8c_1aa02e483eb21e700531ca2ddf2508d189"/><section>
+    <title>kbd_valid</title>
+<indexterm><primary>kbd_valid</primary><secondary>kbc.c</secondary></indexterm>
+<indexterm><primary>kbc.c</primary><secondary>kbd_valid</secondary></indexterm>
+<para><computeroutput>bool kbd_valid = false</computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00010">10</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_kbc_8c_1a83b83f0755f115b133c5afa21cbcfd1b"/><section>
+    <title>makecode</title>
+<indexterm><primary>makecode</primary><secondary>kbc.c</secondary></indexterm>
+<indexterm><primary>kbc.c</primary><secondary>makecode</secondary></indexterm>
+<para><computeroutput>bool makecode</computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00010">10</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_kbc_8c_1a37cad7cad93664f8a1ed1b0258fe958b"/><section>
+    <title>mouse_hook_id</title>
+<indexterm><primary>mouse_hook_id</primary><secondary>kbc.c</secondary></indexterm>
+<indexterm><primary>kbc.c</primary><secondary>mouse_hook_id</secondary></indexterm>
+<para><computeroutput>int mouse_hook_id = 2</computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00098">98</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc"/><section>
+    <title>mouse_packet</title>
+<indexterm><primary>mouse_packet</primary><secondary>kbc.c</secondary></indexterm>
+<indexterm><primary>kbc.c</primary><secondary>mouse_packet</secondary></indexterm>
+<para><computeroutput>uint8_t mouse_packet[3]</computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00100">100</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_kbc_8c_1a5d9c2a41be94ab895b834e18856183b6"/><section>
+    <title>mouse_packet_ready</title>
+<indexterm><primary>mouse_packet_ready</primary><secondary>kbc.c</secondary></indexterm>
+<indexterm><primary>kbc.c</primary><secondary>mouse_packet_ready</secondary></indexterm>
+<para><computeroutput>bool mouse_packet_ready = false</computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00099">99</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_kbc_8c_1a705fcc072b6072606ca4e4aae812d598"/><section>
+    <title>mouse_packet_size</title>
+<indexterm><primary>mouse_packet_size</primary><secondary>kbc.c</secondary></indexterm>
+<indexterm><primary>kbc.c</primary><secondary>mouse_packet_size</secondary></indexterm>
+<para><computeroutput>int mouse_packet_size = 0</computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00098">98</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_kbc_8c_1a8a7aa94c9cf59b217a36bea458c1f8d4"/><section>
+    <title>mouse_valid</title>
+<indexterm><primary>mouse_valid</primary><secondary>kbc.c</secondary></indexterm>
+<indexterm><primary>kbc.c</primary><secondary>mouse_valid</secondary></indexterm>
+<para><computeroutput>bool mouse_valid = false</computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00099">99</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_kbc_8c_1a26e83eca70c2b9169fbbb0eac7e32e32"/><section>
+    <title>pp</title>
+<indexterm><primary>pp</primary><secondary>kbc.c</secondary></indexterm>
+<indexterm><primary>kbc.c</primary><secondary>pp</secondary></indexterm>
+<para><computeroutput>struct packet pp</computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00101">101</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_kbc_8c_1a01577ed8d3646775ae6a8e00d24c1d94"/><section>
+    <title>scancode</title>
+<indexterm><primary>scancode</primary><secondary>kbc.c</secondary></indexterm>
+<indexterm><primary>kbc.c</primary><secondary>scancode</secondary></indexterm>
+<para><computeroutput>uint8_t scancode[2]</computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00012">12</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+<anchor xml:id="_kbc_8c_1a439227feff9d7f55384e8780cfc2eb82"/><section>
+    <title>size</title>
+<indexterm><primary>size</primary><secondary>kbc.c</secondary></indexterm>
+<indexterm><primary>kbc.c</primary><secondary>size</secondary></indexterm>
+<para><computeroutput>int size = 0</computeroutput></para><para>
+Definition at line <link linkend="_kbc_8c_source_1l00011">11</link> of file <link linkend="_kbc_8c_source">kbc.c</link>.</para>
+</section>
+</section>
+</section>

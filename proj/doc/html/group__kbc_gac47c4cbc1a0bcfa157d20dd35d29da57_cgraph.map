@@ -1,0 +1,6 @@
+<map id="kbc_restore_interrupts" name="kbc_restore_interrupts">
+<area shape="rect" id="node1" title="Restore keyboard interrupts." alt="" coords="5,31,156,57"/>
+<area shape="rect" id="node2" href="$group__kbc.html#ga4d01b87977dde6d295c19c982e5426ea" title="Read a command from the kbc." alt="" coords="205,5,312,32"/>
+<area shape="rect" id="node4" href="$group__kbc.html#gab06ce595703807400f3d90171f7f9884" title="Write a command to the kbc." alt="" coords="204,56,313,83"/>
+<area shape="rect" id="node3" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="361,5,452,32"/>
+</map>

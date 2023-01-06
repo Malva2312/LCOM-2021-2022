@@ -1,0 +1,9 @@
+<map id="refresh_buffer" name="refresh_buffer">
+<area shape="rect" id="node1" title="Copy the secondary buffer contents to the main buffer." alt="" coords="519,107,617,133"/>
+<area shape="rect" id="node2" href="$group__handlers.html#gad133154583b6a956afcc4a3b7b15e0f4" title="Proceed with the actions in the End Game State of the respective given device." alt="" coords="327,5,449,32"/>
+<area shape="rect" id="node4" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,157,115,184"/>
+<area shape="rect" id="node5" href="$group__handlers.html#ga873159fcdceb7f2d32914e2f0332e918" title="Proceed with the actions in the One Player Game State of the respective given device." alt="" coords="309,56,467,83"/>
+<area shape="rect" id="node6" href="$group__handlers.html#ga548238780299a9ec09e8056c88748815" title="Proceed with the actions in the Two Players Game State of the respective given device." alt="" coords="305,107,471,133"/>
+<area shape="rect" id="node7" href="$group__handlers.html#ga1bf786f0d1e4fb655a95618665e88b73" title="Proceed with the actions in the Menu State of the respective given device." alt="" coords="339,157,437,184"/>
+<area shape="rect" id="node3" href="$group__handlers.html#gad932b9bf23b1de26f712a4aacdc7df9b" title="Invokes the respective handler according to the game state." alt="" coords="163,107,257,133"/>
+</map>

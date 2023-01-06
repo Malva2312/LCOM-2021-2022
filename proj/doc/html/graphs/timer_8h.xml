@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_timer_8h" xml:lang="en-US">
+<title>timer/timer.h File Reference</title>
+<indexterm><primary>timer/timer.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdbool.h&gt;
+#include &lt;stdint.h&gt;
+</programlisting>Include dependency graph for timer.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="timer_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>union <link linkend="_uniontimer__status__field__val">timer_status_field_val</link></para>
+
+<para>Union for storing values of timer status fields, including the full status byte. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_group__timer_1ga5cc20f14fd50625eea9b20f58fbe2a55">timer_init</link> { <link linkend="_group__timer_1gga5cc20f14fd50625eea9b20f58fbe2a55a829d958875d8e92068f1b07f858721a4">INVAL_val</link>
+, <link linkend="_group__timer_1gga5cc20f14fd50625eea9b20f58fbe2a55a9a2e8b22f6d5ee33cc37829164a55955">LSB_only</link>
+, <link linkend="_group__timer_1gga5cc20f14fd50625eea9b20f58fbe2a55ae46d93c3576b5f78ae1aeb4ee4fc4938">MSB_only</link>
+, <link linkend="_group__timer_1gga5cc20f14fd50625eea9b20f58fbe2a55a7d392c02b4f52d93c10e4c646f8cedc7">MSB_after_LSB</link>
+ }</para>
+
+<para>Enumerated type for specifying the timer value initialization. </para>
+</listitem>
+            <listitem><para>enum <link linkend="_group__timer_1gada782f3116a896caaa602b70c0c6d8b7">timer_status_field</link> { <link linkend="_group__timer_1ggada782f3116a896caaa602b70c0c6d8b7a92376d84969da91547254fc7461f0da2">tsf_all</link>
+, <link linkend="_group__timer_1ggada782f3116a896caaa602b70c0c6d8b7aa89f72faf31fa0e4db8cab25364a4583">tsf_initial</link>
+, <link linkend="_group__timer_1ggada782f3116a896caaa602b70c0c6d8b7aa84c2f6462a2deb90fda229c89453dfa">tsf_mode</link>
+, <link linkend="_group__timer_1ggada782f3116a896caaa602b70c0c6d8b7af4b69eace6b1cc952de198acee4c5e32">tsf_base</link>
+ }</para>
+
+<para>Enumerated type for identifying the timer status fields. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int() <link linkend="_group__timer_1gaf2c04fa8e97ffa748fd3f612886a92a7">timer_set_frequency</link> (uint8_t timer, uint32_t freq)</para>
+
+<para>Changes the operating frequency of a timer. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__timer_1gac57a7e1140a7e00ad95ac5488d2a671b">timer_subscribe_int</link> (uint8_t *bit_no)</para>
+
+<para>Subscribes and enables Timer 0 interrupts. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__timer_1gafabd21de449be154dd65d5fdb2d8045d">timer_unsubscribe_int</link> ()</para>
+
+<para>Unsubscribes Timer 0 interrupts. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__timer_1ga91a2072306c68353712a6b771287dc2c">timer_int_handler</link> ()</para>
+
+<para>Timer 0 interrupt handler. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__timer_1ga703c60b40c8c49607d6ecb6fef82d27a">timer_get_conf</link> (uint8_t timer, uint8_t *st)</para>
+
+<para>Reads the input timer configuration (status) via read-back command. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__timer_1ga140d8f092c0913cabdca949c4a1cc650">timer_display_conf</link> (uint8_t timer, uint8_t st, enum <link linkend="_group__timer_1gada782f3116a896caaa602b70c0c6d8b7">timer_status_field</link> field)</para>
+
+<para>Shows timer configuration. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__timer_1gad3902e029b27c80982873394c0290496">timer_print_config</link> (uint8_t timer, enum <link linkend="_group__timer_1gada782f3116a896caaa602b70c0c6d8b7">timer_status_field</link> field, union <link linkend="_uniontimer__status__field__val">timer_status_field_val</link> val)</para>
+
+<para>Prints a timer config field value. </para>
+</listitem>
+            <listitem><para>uint32_t() <link linkend="_group__timer_1ga43b221cba0c39b32f89688dcfee5aefa">timer_print_elapsed_time</link> ()</para>
+
+<para>Increments elapsed time count. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

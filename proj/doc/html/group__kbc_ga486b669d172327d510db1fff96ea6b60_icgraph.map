@@ -1,0 +1,7 @@
+<map id="mouse_write_to_port" name="mouse_write_to_port">
+<area shape="rect" id="node1" title="Write a command to a port." alt="" coords="567,42,709,69"/>
+<area shape="rect" id="node2" href="$group__kbc.html#gadce7a7604f8b0782158b70bf728eb411" title=" " alt="" coords="392,42,519,69"/>
+<area shape="rect" id="node3" href="$group__kbc.html#ga7e311379d4d64f88873ef8ade5c82a25" title="Disable mouse data reporting." alt="" coords="183,5,324,47"/>
+<area shape="rect" id="node5" href="$group__kbc.html#gab03b20445da099487fdd96bc31007b0e" title="Enable data reporting." alt="" coords="163,71,344,98"/>
+<area shape="rect" id="node4" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,42,115,69"/>
+</map>

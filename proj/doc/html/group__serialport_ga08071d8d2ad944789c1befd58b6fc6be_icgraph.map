@@ -1,0 +1,16 @@
+<map id="ser_read_lsr_status" name="ser_read_lsr_status">
+<area shape="rect" id="node1" title="Reads the Line Status Register to check for errors and available data." alt="" coords="1048,93,1184,120"/>
+<area shape="rect" id="node2" href="$group__serialport.html#gafe652e0add554a59ead8c1960eefb6b1" title="If data is available it will read all entries in the buffer until there are none left(to maintain it ..." alt="" coords="885,43,989,69"/>
+<area shape="rect" id="node7" href="$group__serialport.html#ga9763e9d84c9c2217d5bfe4e59ee69d64" title="Sends the given data to the Transmitter Holding Register." alt="" coords="873,119,1000,145"/>
+<area shape="rect" id="node3" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,49,115,76"/>
+<area shape="rect" id="node4" href="$group__serialport.html#ga0310282e052b0d6daacdcf32745aad12" title="Enables interrupts for recieving data, reads leftover data in the Receiver Buffer Register and transm..." alt="" coords="717,43,781,69"/>
+<area shape="rect" id="node5" href="$group__handlers.html#ga1bf786f0d1e4fb655a95618665e88b73" title="Proceed with the actions in the Menu State of the respective given device." alt="" coords="339,48,437,75"/>
+<area shape="rect" id="node6" href="$group__handlers.html#gad932b9bf23b1de26f712a4aacdc7df9b" title="Invokes the respective handler according to the game state." alt="" coords="163,105,257,132"/>
+<area shape="rect" id="node8" href="$group__handlers.html#ga548238780299a9ec09e8056c88748815" title="Proceed with the actions in the Two Players Game State of the respective given device." alt="" coords="305,105,471,132"/>
+<area shape="rect" id="node9" href="$group__model.html#ga24da2da95651b6475088ef64735a50d6" title="Return true if any of the players has won the game." alt="" coords="525,144,619,171"/>
+<area shape="rect" id="node11" href="$group__model.html#ga7c9c7f327063d813b3f52c0bc6044d14" title="Checks if any player has scored a point and raises his score if so Returns true if someone has scored..." alt="" coords="726,195,773,221"/>
+<area shape="rect" id="node13" href="$group__serialport.html#gab72ff27750fce4726c3861005ee392c6" title="Used in the beginning of the connection to determine what to do next." alt="" coords="673,245,825,272"/>
+<area shape="rect" id="node10" href="$group__handlers.html#ga873159fcdceb7f2d32914e2f0332e918" title="Proceed with the actions in the One Player Game State of the respective given device." alt="" coords="309,156,467,183"/>
+<area shape="rect" id="node12" href="$group__model.html#ga888f87088027abf44920c0b80e7e91b5" title="Calculates and moves the ball to its next position Changes trajectory if collisions are detected." alt="" coords="535,195,609,221"/>
+<area shape="rect" id="node14" href="$group__handlers.html#gac888ba9be6cce74613cae45eaa6a5a02" title="Proceed with the actions in the Wait Menu State of the respective given device." alt="" coords="519,245,625,272"/>
+</map>

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_rtc_8c_source" xml:lang="en-US">
+<title>rtc.c</title>
+<indexterm><primary>rtc/rtc.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_rtc_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;lcom/lcf.h&gt;</emphasis>
+<anchor xml:id="_rtc_8c_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;stdbool.h&gt;</emphasis>
+<anchor xml:id="_rtc_8c_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
+<anchor xml:id="_rtc_8c_source_1l00004"/>00004 
+<anchor xml:id="_rtc_8c_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;lcom/utils.h&gt;</emphasis>
+<anchor xml:id="_rtc_8c_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_rtc_8h">rtc.h</link>&quot;</emphasis>
+<anchor xml:id="_rtc_8c_source_1l00007"/>00007 
+<anchor xml:id="_rtc_8c_source_1l00008"/><link linkend="_rtc_8c_1a6c52a1d32571a429369253ce7c3a3d7a">00008</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_rtc_8c_1a6c52a1d32571a429369253ce7c3a3d7a">rtc_hook_id</link>&#32;=&#32;1;
+<anchor xml:id="_rtc_8c_source_1l00009"/><link linkend="_view_8c_1aad078aa1776d7d886e8200f08329a2ca">00009</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_rtc_8c_1aad078aa1776d7d886e8200f08329a2ca">darkmode</link>;
+<anchor xml:id="_rtc_8c_source_1l00010"/>00010 
+<anchor xml:id="_rtc_8c_source_1l00011"/><link linkend="_group__rtc_1ga861d2f079d8248ed95f305600eaa0567">00011</link> <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__rtc_1ga861d2f079d8248ed95f305600eaa0567">rtc_wait_for_access</link>)()&#32;{
+<anchor xml:id="_rtc_8c_source_1l00012"/>00012 &#32;&#32;&#32;&#32;uint32_t&#32;status;
+<anchor xml:id="_rtc_8c_source_1l00013"/>00013 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">do</emphasis>&#32;{
+<anchor xml:id="_rtc_8c_source_1l00014"/>00014 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sys_outb(<link linkend="_group__rtc_1ga710b98232df2c563009e6f8a6cd18220">RTC_ADDR_REG</link>,<link linkend="_group__rtc_1gae5ffad506b363f28bed1bb5e5926bd2d">RTC_REG_A</link>);
+<anchor xml:id="_rtc_8c_source_1l00015"/>00015 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sys_inb(<link linkend="_group__rtc_1ga2f258a00c59c3f347c8d2d4a75471ce0">RTC_DATA_REG</link>,&amp;status);
+<anchor xml:id="_rtc_8c_source_1l00016"/>00016 &#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">while</emphasis>&#32;((status&#32;&amp;&#32;<link linkend="_group__rtc_1ga1e6e1cd792f1947834dbbfff106fa6f9">RTC_A_UIP</link>)&#32;!=&#32;0);
+<anchor xml:id="_rtc_8c_source_1l00017"/>00017 }
+<anchor xml:id="_rtc_8c_source_1l00018"/>00018 
+<anchor xml:id="_rtc_8c_source_1l00019"/><link linkend="_group__rtc_1gaef48ce217f5c004635226cc27c0d4081">00019</link> uint8_t&#32;<link linkend="_group__rtc_1gaef48ce217f5c004635226cc27c0d4081">rtc_convert_BCD</link>(uint8_t&#32;n)&#32;{
+<anchor xml:id="_rtc_8c_source_1l00020"/>00020 &#32;&#32;&#32;&#32;uint8_t&#32;temp&#32;=&#32;n&#32;&amp;&#32;0x0f;
+<anchor xml:id="_rtc_8c_source_1l00021"/>00021 
+<anchor xml:id="_rtc_8c_source_1l00022"/>00022 &#32;&#32;&#32;&#32;temp&#32;+=&#32;((n&#32;&amp;&#32;0xf0)&#32;&gt;&gt;&#32;4)&#32;*&#32;10;
+<anchor xml:id="_rtc_8c_source_1l00023"/>00023 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;temp;
+<anchor xml:id="_rtc_8c_source_1l00024"/>00024 }
+<anchor xml:id="_rtc_8c_source_1l00025"/>00025 
+<anchor xml:id="_rtc_8c_source_1l00026"/><link linkend="_group__rtc_1gac06a0a3580daf870240d95679167b593">00026</link> <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__rtc_1gac06a0a3580daf870240d95679167b593">rtc_update_darkmode</link>)()&#32;{
+<anchor xml:id="_rtc_8c_source_1l00027"/>00027 
+<anchor xml:id="_rtc_8c_source_1l00028"/>00028 &#32;&#32;&#32;&#32;<link linkend="_group__rtc_1ga861d2f079d8248ed95f305600eaa0567">rtc_wait_for_access</link>();
+<anchor xml:id="_rtc_8c_source_1l00029"/>00029 &#32;&#32;&#32;&#32;uint8_t&#32;hour;
+<anchor xml:id="_rtc_8c_source_1l00030"/>00030 &#32;&#32;&#32;&#32;
+<anchor xml:id="_rtc_8c_source_1l00031"/>00031 &#32;&#32;&#32;&#32;sys_outb(<link linkend="_group__rtc_1ga710b98232df2c563009e6f8a6cd18220">RTC_ADDR_REG</link>,<link linkend="_group__rtc_1gafcde079409215e1bc489858dc183d922">RTC_HRS</link>);
+<anchor xml:id="_rtc_8c_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<link linkend="_utils_8c_1a79a031a8611f5b2d6afa4158e92b0fb4">util_sys_inb</link>(<link linkend="_group__rtc_1ga2f258a00c59c3f347c8d2d4a75471ce0">RTC_DATA_REG</link>,&amp;hour);
+<anchor xml:id="_rtc_8c_source_1l00033"/>00033 &#32;&#32;&#32;&#32;hour&#32;=&#32;<link linkend="_group__rtc_1gaef48ce217f5c004635226cc27c0d4081">rtc_convert_BCD</link>(hour);
+<anchor xml:id="_rtc_8c_source_1l00034"/>00034 
+<anchor xml:id="_rtc_8c_source_1l00035"/>00035 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(hour&#32;&gt;&#32;8&#32;&amp;&amp;&#32;hour&#32;&lt;&#32;20)&#32;<link linkend="_rtc_8c_1aad078aa1776d7d886e8200f08329a2ca">darkmode</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_rtc_8c_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<link linkend="_rtc_8c_1aad078aa1776d7d886e8200f08329a2ca">darkmode</link>&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_rtc_8c_source_1l00037"/>00037 }
+<anchor xml:id="_rtc_8c_source_1l00038"/>00038 
+<anchor xml:id="_rtc_8c_source_1l00039"/>00039 
+<anchor xml:id="_rtc_8c_source_1l00040"/><link linkend="_group__rtc_1ga6bbe679f115cec90d36d50eb2aac1b89">00040</link> int&#32;(<link linkend="_group__rtc_1ga6bbe679f115cec90d36d50eb2aac1b89">rtc_subscribe_int</link>)(uint8_t&#32;*bit_no)&#32;{
+<anchor xml:id="_rtc_8c_source_1l00041"/>00041 &#32;&#32;<link linkend="_rtc_8c_1a6c52a1d32571a429369253ce7c3a3d7a">rtc_hook_id</link>&#32;=&#32;*bit_no;
+<anchor xml:id="_rtc_8c_source_1l00042"/>00042 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;sys_irqsetpolicy(<link linkend="_group__rtc_1ga4e22feb6ffbc1cda32fadff5c740dc51">RTC_IRQ</link>,IRQ_REENABLE|IRQ_EXCLUSIVE,&amp;<link linkend="_rtc_8c_1a6c52a1d32571a429369253ce7c3a3d7a">rtc_hook_id</link>);
+<anchor xml:id="_rtc_8c_source_1l00043"/>00043 }
+<anchor xml:id="_rtc_8c_source_1l00044"/>00044 
+<anchor xml:id="_rtc_8c_source_1l00045"/><link linkend="_group__rtc_1ga9d4850bb2a488644672d43287f160622">00045</link> int&#32;(<link linkend="_group__rtc_1ga9d4850bb2a488644672d43287f160622">rtc_unsubscribe_int</link>)()&#32;{
+<anchor xml:id="_rtc_8c_source_1l00046"/>00046 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;sys_irqrmpolicy(&amp;<link linkend="_rtc_8c_1a6c52a1d32571a429369253ce7c3a3d7a">rtc_hook_id</link>);
+<anchor xml:id="_rtc_8c_source_1l00047"/>00047 }
+<anchor xml:id="_rtc_8c_source_1l00048"/>00048 
+</programlisting></section>

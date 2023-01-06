@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_ball" xml:lang="en-US">
+<title>Ball Struct Reference</title>
+<indexterm><primary>Ball</primary></indexterm>
+<para>
+
+<para>Struct that saves all data about the ball. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;model.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_struct_ball_1af1617c91937fbd9d9d670940427d9b44">x_pos</link></para>
+
+<para>Position of the ball on the x-axis. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_ball_1a375120430014d7e06dcc37d9ca4fcdb8">y_pos</link></para>
+
+<para>Position of the ball on the y-axis. </para>
+</listitem>
+            <listitem><para>unsigned int <link linkend="_struct_ball_1aeedc2afa1e522527db2235d0700a3b0d">color</link></para>
+
+<para>Colour with which the ball is drawn 
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_ball_1a762e5d3223ac3d030e967017b61cbb53">vel_x</link></para>
+
+<para>Distance, on the x-axis, per unit of time. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_ball_1a0da6adbd050c0f1bf04b34380b2131a9">vel_y</link></para>
+
+<para>Distance, on the y-axis, per unit of time. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_ball_1ad12fc34ce789bce6c8a05d8a17138534">height</link></para>
+
+<para>Height of the ball. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_ball_1a2474a5474cbff19523a51eb1de01cda4">width</link></para>
+
+<para>Width of the ball. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Struct that saves all data about the ball. </para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00051">51</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_struct_ball_1aeedc2afa1e522527db2235d0700a3b0d"/><section>
+    <title>color</title>
+<indexterm><primary>color</primary><secondary>Ball</secondary></indexterm>
+<indexterm><primary>Ball</primary><secondary>color</secondary></indexterm>
+<para><computeroutput>unsigned int color</computeroutput></para><para>
+
+<para>Colour with which the ball is drawn 
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00054">54</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_ball_1ad12fc34ce789bce6c8a05d8a17138534"/><section>
+    <title>height</title>
+<indexterm><primary>height</primary><secondary>Ball</secondary></indexterm>
+<indexterm><primary>Ball</primary><secondary>height</secondary></indexterm>
+<para><computeroutput>int height</computeroutput></para><para>
+
+<para>Height of the ball. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00057">57</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_ball_1a762e5d3223ac3d030e967017b61cbb53"/><section>
+    <title>vel_x</title>
+<indexterm><primary>vel_x</primary><secondary>Ball</secondary></indexterm>
+<indexterm><primary>Ball</primary><secondary>vel_x</secondary></indexterm>
+<para><computeroutput>int vel_x</computeroutput></para><para>
+
+<para>Distance, on the x-axis, per unit of time. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00055">55</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_ball_1a0da6adbd050c0f1bf04b34380b2131a9"/><section>
+    <title>vel_y</title>
+<indexterm><primary>vel_y</primary><secondary>Ball</secondary></indexterm>
+<indexterm><primary>Ball</primary><secondary>vel_y</secondary></indexterm>
+<para><computeroutput>int vel_y</computeroutput></para><para>
+
+<para>Distance, on the y-axis, per unit of time. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00056">56</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_ball_1a2474a5474cbff19523a51eb1de01cda4"/><section>
+    <title>width</title>
+<indexterm><primary>width</primary><secondary>Ball</secondary></indexterm>
+<indexterm><primary>Ball</primary><secondary>width</secondary></indexterm>
+<para><computeroutput>int width</computeroutput></para><para>
+
+<para>Width of the ball. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00058">58</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_ball_1af1617c91937fbd9d9d670940427d9b44"/><section>
+    <title>x_pos</title>
+<indexterm><primary>x_pos</primary><secondary>Ball</secondary></indexterm>
+<indexterm><primary>Ball</primary><secondary>x_pos</secondary></indexterm>
+<para><computeroutput>int x_pos</computeroutput></para><para>
+
+<para>Position of the ball on the x-axis. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00052">52</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_ball_1a375120430014d7e06dcc37d9ca4fcdb8"/><section>
+    <title>y_pos</title>
+<indexterm><primary>y_pos</primary><secondary>Ball</secondary></indexterm>
+<indexterm><primary>Ball</primary><secondary>y_pos</secondary></indexterm>
+<para><computeroutput>int y_pos</computeroutput></para><para>
+
+<para>Position of the ball on the y-axis. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00053">53</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+game/<link linkend="_model_8h">model.h</link></section>
+</section>

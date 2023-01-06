@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_arena" xml:lang="en-US">
+<title>Arena Struct Reference</title>
+<indexterm><primary>Arena</primary></indexterm>
+<para>
+
+<para>Struct that saves all data about game arena. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;model.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_struct_arena_1a5f0d610eafd05463bc8771cfd8da1adc">max_y</link></para>
+
+<para>Maximum value of position on y-axis. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_arena_1a5fb18fec2bc2c10f230d683506bb5a8f">min_y</link></para>
+
+<para>Minimum value of position on y-axis. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_arena_1ad7b7359077f6690e77dea66d70abe213">max_x</link></para>
+
+<para>Maximum value of position on x-axis. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_arena_1a9c8ab844b7e5b610b7a4ac433ea148a1">min_x</link></para>
+
+<para>Minimum value of position on y-axis. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_arena_1ad12fc34ce789bce6c8a05d8a17138534">height</link></para>
+
+<para>Length of the arena. </para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_arena_1a2474a5474cbff19523a51eb1de01cda4">width</link></para>
+
+<para>Width of the arena. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Struct that saves all data about game arena. </para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00064">64</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_struct_arena_1ad12fc34ce789bce6c8a05d8a17138534"/><section>
+    <title>height</title>
+<indexterm><primary>height</primary><secondary>Arena</secondary></indexterm>
+<indexterm><primary>Arena</primary><secondary>height</secondary></indexterm>
+<para><computeroutput>int height</computeroutput></para><para>
+
+<para>Length of the arena. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00069">69</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_arena_1ad7b7359077f6690e77dea66d70abe213"/><section>
+    <title>max_x</title>
+<indexterm><primary>max_x</primary><secondary>Arena</secondary></indexterm>
+<indexterm><primary>Arena</primary><secondary>max_x</secondary></indexterm>
+<para><computeroutput>int max_x</computeroutput></para><para>
+
+<para>Maximum value of position on x-axis. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00067">67</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_arena_1a5f0d610eafd05463bc8771cfd8da1adc"/><section>
+    <title>max_y</title>
+<indexterm><primary>max_y</primary><secondary>Arena</secondary></indexterm>
+<indexterm><primary>Arena</primary><secondary>max_y</secondary></indexterm>
+<para><computeroutput>int max_y</computeroutput></para><para>
+
+<para>Maximum value of position on y-axis. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00065">65</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_arena_1a9c8ab844b7e5b610b7a4ac433ea148a1"/><section>
+    <title>min_x</title>
+<indexterm><primary>min_x</primary><secondary>Arena</secondary></indexterm>
+<indexterm><primary>Arena</primary><secondary>min_x</secondary></indexterm>
+<para><computeroutput>int min_x</computeroutput></para><para>
+
+<para>Minimum value of position on y-axis. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00068">68</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_arena_1a5fb18fec2bc2c10f230d683506bb5a8f"/><section>
+    <title>min_y</title>
+<indexterm><primary>min_y</primary><secondary>Arena</secondary></indexterm>
+<indexterm><primary>Arena</primary><secondary>min_y</secondary></indexterm>
+<para><computeroutput>int min_y</computeroutput></para><para>
+
+<para>Minimum value of position on y-axis. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00066">66</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<anchor xml:id="_struct_arena_1a2474a5474cbff19523a51eb1de01cda4"/><section>
+    <title>width</title>
+<indexterm><primary>width</primary><secondary>Arena</secondary></indexterm>
+<indexterm><primary>Arena</primary><secondary>width</secondary></indexterm>
+<para><computeroutput>int width</computeroutput></para><para>
+
+<para>Width of the arena. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00070">70</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+game/<link linkend="_model_8h">model.h</link></section>
+</section>

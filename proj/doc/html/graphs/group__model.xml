@@ -1,0 +1,475 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__model" xml:lang="en-US">
+<title>Game Model</title>
+<indexterm><primary>Game Model</primary></indexterm>
+<simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_player">Player</link></para>
+
+<para>Struct that saves all data about one player. </para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_ball">Ball</link></para>
+
+<para>Struct that saves all data about the ball. </para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_arena">Arena</link></para>
+
+<para>Struct that saves all data about game arena. </para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_mouse">Mouse</link></para>
+
+<para>Struct that saves all data about the mouse. </para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_wall">Wall</link></para>
+
+<para>Struct that saves all data about the wall (origianted by a power-up) </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group__model_1ga5f2e1fcf0055d20ce17664b1027bb9eb">ENTRIES</link>   3</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__model_1gac5e7c173213772b349ccecd660397b85">addMenuEntry</link> ()</para>
+
+<para>In the menu, it goes to the next option. If there is no next option, the selection remains unchanged. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__model_1ga6c4d95dd6d5eef5cc2de39f9f71604fd">backMenuEntry</link> ()</para>
+
+<para>In the menu, it goes to the previous option. If there is no previous option, the selection remains unchanged. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__model_1gafe5875991840df952715c5f334c06df4">getCurrentEntryImg</link> ()</para>
+
+<para>Returns the value of the corrent entry in the menu. </para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_player">Player</link>() <link linkend="_group__model_1ga0a0e52c507f486a0d13eb2b1ee372593">getPlayer</link> ()</para>
+
+<para>Returns a default Player1. </para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_arena">Arena</link>() <link linkend="_group__model_1gaa8a9c5a0f7298642e3d1a5485f033464">getArena</link> ()</para>
+
+<para>Returns a default <link linkend="_struct_arena">Arena</link>. </para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_ball">Ball</link>() <link linkend="_group__model_1ga4f6b9e278f80ec6fe017054fb41bee62">getBall</link> ()</para>
+
+<para>Returns a default ball. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link> <link linkend="_group__model_1ga9d486c3d9622330fe1190c3fb7b8663e">resetPositions</link> ()</para>
+
+<para>Resets the ball and the player(s) after someone has scored a point. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__model_1gafe55e58ebbd50b7aa93ca36dd2d3cc0e">resetGame</link> ()</para>
+
+<para>Resets the ball, the player(s) and the scores at the start of a match. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__model_1ga99f1a612af219e385acfb9b8fa5034eb">playerUp</link> ()</para>
+
+<para>Receives a <link linkend="_struct_player">Player</link> and moves it up (y-axis) </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__model_1ga54d357d99f00323a825c20098189ebd3">playerDown</link> ()</para>
+
+<para>Receives a <link linkend="_struct_player">Player</link> and moves it down (y-axis) </para>
+</listitem>
+            <listitem><para>bool <link linkend="_group__model_1ga7c9c7f327063d813b3f52c0bc6044d14">goal</link> ()</para>
+
+<para>Checks if any player has scored a point and raises his score if so Returns true if someone has scored. </para>
+</listitem>
+            <listitem><para>bool() <link linkend="_group__model_1ga888f87088027abf44920c0b80e7e91b5">moveBall</link> ()</para>
+
+<para>Calculates and moves the ball to its next position Changes trajectory if collisions are detected. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__model_1gab0666b83c2e0f39b683b43eb5e5ecb3e">movePCPlayer</link> ()</para>
+
+<para>Moves the computer-controlled player in the case of Single <link linkend="_struct_player">Player</link> mode. </para>
+</listitem>
+            <listitem><para>bool() <link linkend="_group__model_1ga24da2da95651b6475088ef64735a50d6">gameWinner</link> ()</para>
+
+<para>Return true if any of the players has won the game. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__model_1ga9c904e10fe53d2e0439050c1f363c399">moveMouse</link> (int x, int y)</para>
+
+<para>Changes the position of the mouse cursor depending on the input data (x-axis, y-axis) </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__model_1ga74a986100caea06aac8df2db6574176e">mouseActionLeft</link> ()</para>
+
+<para>Activates the power associated with the left mouse click. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__model_1ga1f3df81991dde3d050e1cab3691be1da">mouseActionRight</link> ()</para>
+
+<para>Activates the power associated with the righ mouse click. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__model_1gaa704b1067d557c8e4d1af0854055dc24">wallDecrease</link> ()</para>
+
+<para>Reduces the wall (power up) over time. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Functions and data structures useful to the construction of the game </para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_group__model_1ga5f2e1fcf0055d20ce17664b1027bb9eb"/><section>
+    <title>ENTRIES</title>
+<indexterm><primary>ENTRIES</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>ENTRIES</secondary></indexterm>
+<para><computeroutput>#define ENTRIES   3</computeroutput></para>
+<para>Total number of entries on the menu </para>
+<para>
+Definition at line <link linkend="_model_8h_source_1l00013">13</link> of file <link linkend="_model_8h_source">model.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_group__model_1gac5e7c173213772b349ccecd660397b85"/><section>
+    <title>addMenuEntry()</title>
+<indexterm><primary>addMenuEntry</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>addMenuEntry</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() addMenuEntry ( )</computeroutput></para><para>
+
+<para>In the menu, it goes to the next option. If there is no next option, the selection remains unchanged. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8c_source_1l00009">9</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_group__model_1ga6c4d95dd6d5eef5cc2de39f9f71604fd"/><section>
+    <title>backMenuEntry()</title>
+<indexterm><primary>backMenuEntry</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>backMenuEntry</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() backMenuEntry ( )</computeroutput></para><para>
+
+<para>In the menu, it goes to the previous option. If there is no previous option, the selection remains unchanged. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8c_source_1l00014">14</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_group__model_1ga24da2da95651b6475088ef64735a50d6"/><section>
+    <title>gameWinner()</title>
+<indexterm><primary>gameWinner</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>gameWinner</secondary></indexterm>
+<para><computeroutput>bool() gameWinner ( )</computeroutput></para><para>
+
+<para>Return true if any of the players has won the game. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>true </para>
+
+<para>false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_model_8c_source_1l00221">221</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__model_ga24da2da95651b6475088ef64735a50d6_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__model_1gaa8a9c5a0f7298642e3d1a5485f033464"/><section>
+    <title>getArena()</title>
+<indexterm><primary>getArena</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>getArena</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_struct_arena">Arena</link>() getArena ( )</computeroutput></para><para>
+
+<para>Returns a default <link linkend="_struct_arena">Arena</link>. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_model_8c_source_1l00052">52</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_group__model_1ga4f6b9e278f80ec6fe017054fb41bee62"/><section>
+    <title>getBall()</title>
+<indexterm><primary>getBall</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>getBall</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_struct_ball">Ball</link>() getBall ( )</computeroutput></para><para>
+
+<para>Returns a default ball. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_model_8c_source_1l00056">56</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_group__model_1gafe5875991840df952715c5f334c06df4"/><section>
+    <title>getCurrentEntryImg()</title>
+<indexterm><primary>getCurrentEntryImg</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>getCurrentEntryImg</secondary></indexterm>
+<para><computeroutput>int() getCurrentEntryImg ( )</computeroutput></para><para>
+
+<para>Returns the value of the corrent entry in the menu. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_model_8c_source_1l00019">19</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_group__model_1ga0a0e52c507f486a0d13eb2b1ee372593"/><section>
+    <title>getPlayer()</title>
+<indexterm><primary>getPlayer</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>getPlayer</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_struct_player">Player</link>() getPlayer ( )</computeroutput></para><para>
+
+<para>Returns a default Player1. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_model_8c_source_1l00048">48</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_group__model_1ga7c9c7f327063d813b3f52c0bc6044d14"/><section>
+    <title>goal()</title>
+<indexterm><primary>goal</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>goal</secondary></indexterm>
+<para><computeroutput>bool goal ( )</computeroutput></para><para>
+
+<para>Checks if any player has scored a point and raises his score if so Returns true if someone has scored. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>true </para>
+
+<para>false </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_model_8c_source_1l00117">117</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__model_ga7c9c7f327063d813b3f52c0bc6044d14_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__model_1ga74a986100caea06aac8df2db6574176e"/><section>
+    <title>mouseActionLeft()</title>
+<indexterm><primary>mouseActionLeft</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>mouseActionLeft</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() mouseActionLeft ( )</computeroutput></para><para>
+
+<para>Activates the power associated with the left mouse click. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8c_source_1l00268">268</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_group__model_1ga1f3df81991dde3d050e1cab3691be1da"/><section>
+    <title>mouseActionRight()</title>
+<indexterm><primary>mouseActionRight</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>mouseActionRight</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() mouseActionRight ( )</computeroutput></para><para>
+
+<para>Activates the power associated with the righ mouse click. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8c_source_1l00275">275</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_group__model_1ga888f87088027abf44920c0b80e7e91b5"/><section>
+    <title>moveBall()</title>
+<indexterm><primary>moveBall</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>moveBall</secondary></indexterm>
+<para><computeroutput>bool() moveBall ( )</computeroutput></para><para>
+
+<para>Calculates and moves the ball to its next position Changes trajectory if collisions are detected. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8c_source_1l00172">172</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__model_ga888f87088027abf44920c0b80e7e91b5_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__model_1ga9c904e10fe53d2e0439050c1f363c399"/><section>
+    <title>moveMouse()</title>
+<indexterm><primary>moveMouse</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>moveMouse</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() moveMouse (int x, int y)</computeroutput></para><para>
+
+<para>Changes the position of the mouse cursor depending on the input data (x-axis, y-axis) </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>x</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>y</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_model_8c_source_1l00250">250</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_group__model_1gab0666b83c2e0f39b683b43eb5e5ecb3e"/><section>
+    <title>movePCPlayer()</title>
+<indexterm><primary>movePCPlayer</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>movePCPlayer</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() movePCPlayer ( )</computeroutput></para><para>
+
+<para>Moves the computer-controlled player in the case of Single <link linkend="_struct_player">Player</link> mode. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8c_source_1l00211">211</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="group__model_gab0666b83c2e0f39b683b43eb5e5ecb3e_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_group__model_1ga54d357d99f00323a825c20098189ebd3"/><section>
+    <title>playerDown()</title>
+<indexterm><primary>playerDown</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>playerDown</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() playerDown ( )</computeroutput></para><para>
+
+<para>Receives a <link linkend="_struct_player">Player</link> and moves it down (y-axis) </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>player</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_group__model_1ga99f1a612af219e385acfb9b8fa5034eb"/><section>
+    <title>playerUp()</title>
+<indexterm><primary>playerUp</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>playerUp</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() playerUp ( )</computeroutput></para><para>
+
+<para>Receives a <link linkend="_struct_player">Player</link> and moves it up (y-axis) </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>player</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_group__model_1gafe55e58ebbd50b7aa93ca36dd2d3cc0e"/><section>
+    <title>resetGame()</title>
+<indexterm><primary>resetGame</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>resetGame</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() resetGame ( )</computeroutput></para><para>
+
+<para>Resets the ball, the player(s) and the scores at the start of a match. </para>
+</para>
+</section>
+<anchor xml:id="_group__model_1ga9d486c3d9622330fe1190c3fb7b8663e"/><section>
+    <title>resetPositions()</title>
+<indexterm><primary>resetPositions</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>resetPositions</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link> resetPositions ( )</computeroutput></para><para>
+
+<para>Resets the ball and the player(s) after someone has scored a point. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8c_source_1l00060">60</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+<anchor xml:id="_group__model_1gaa704b1067d557c8e4d1af0854055dc24"/><section>
+    <title>wallDecrease()</title>
+<indexterm><primary>wallDecrease</primary><secondary>Game Model</secondary></indexterm>
+<indexterm><primary>Game Model</primary><secondary>wallDecrease</secondary></indexterm>
+<para><computeroutput><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() wallDecrease ( )</computeroutput></para><para>
+
+<para>Reduces the wall (power up) over time. </para>
+</para>
+<para>
+Definition at line <link linkend="_model_8c_source_1l00283">283</link> of file <link linkend="_model_8c_source">model.c</link>.</para>
+</section>
+</section>
+</section>

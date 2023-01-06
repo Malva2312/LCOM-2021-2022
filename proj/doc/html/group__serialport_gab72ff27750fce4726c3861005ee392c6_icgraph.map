@@ -1,0 +1,6 @@
+<map id="ser_check_connection" name="ser_check_connection">
+<area shape="rect" id="node1" title="Used in the beginning of the connection to determine what to do next." alt="" coords="460,5,612,32"/>
+<area shape="rect" id="node2" href="$group__handlers.html#gac888ba9be6cce74613cae45eaa6a5a02" title="Proceed with the actions in the Wait Menu State of the respective given device." alt="" coords="305,5,412,32"/>
+<area shape="rect" id="node3" href="$group__handlers.html#gad932b9bf23b1de26f712a4aacdc7df9b" title="Invokes the respective handler according to the game state." alt="" coords="163,5,257,32"/>
+<area shape="rect" id="node4" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,115,32"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="keyboard/i8042.h" name="keyboard/i8042.h">
+<area shape="rect" id="node1" title=" " alt="" coords="365,5,487,32"/>
+<area shape="rect" id="node2" href="$kbc_8h.html" title=" " alt="" coords="371,80,481,107"/>
+<area shape="rect" id="node3" href="$handlers_8h.html" title=" " alt="" coords="243,155,361,181"/>
+<area shape="rect" id="node9" href="$proj_8c.html" title=" " alt="" coords="355,379,409,405"/>
+<area shape="rect" id="node10" href="$kbc_8c.html" title=" " alt="" coords="464,155,575,181"/>
+<area shape="rect" id="node4" href="$handlers_8c.html" title=" " alt="" coords="5,229,124,256"/>
+<area shape="rect" id="node5" href="$model_8h.html" title=" " alt="" coords="149,229,253,256"/>
+<area shape="rect" id="node7" href="$view_8h.html" title=" " alt="" coords="245,304,338,331"/>
+<area shape="rect" id="node6" href="$model_8c.html" title=" " alt="" coords="117,304,221,331"/>
+<area shape="rect" id="node8" href="$view_8c.html" title=" " alt="" coords="237,379,330,405"/>
+</map>

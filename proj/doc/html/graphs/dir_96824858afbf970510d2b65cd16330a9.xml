@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_96824858afbf970510d2b65cd16330a9" xml:lang="en-US">
+<title>sprites/powerups Directory Reference</title>
+<indexterm><primary>sprites/powerups Directory Reference</primary></indexterm>
+Directory dependency graph for powerups:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_96824858afbf970510d2b65cd16330a9_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_power1_8h">power1.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_power2_8h">power2.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

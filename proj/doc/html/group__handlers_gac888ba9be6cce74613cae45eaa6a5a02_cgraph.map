@@ -1,0 +1,8 @@
+<map id="waitingHandler" name="waitingHandler">
+<area shape="rect" id="node1" title="Proceed with the actions in the Wait Menu State of the respective given device." alt="" coords="5,31,112,57"/>
+<area shape="rect" id="node2" href="$group__model.html#ga9d486c3d9622330fe1190c3fb7b8663e" title="Resets the ball and the player(s) after someone has scored a point." alt="" coords="183,5,289,32"/>
+<area shape="rect" id="node3" href="$group__serialport.html#gab72ff27750fce4726c3861005ee392c6" title="Used in the beginning of the connection to determine what to do next." alt="" coords="160,56,312,83"/>
+<area shape="rect" id="node4" href="$group__serialport.html#ga9763e9d84c9c2217d5bfe4e59ee69d64" title="Sends the given data to the Transmitter Holding Register." alt="" coords="360,56,487,83"/>
+<area shape="rect" id="node5" href="$group__serialport.html#ga08071d8d2ad944789c1befd58b6fc6be" title="Reads the Line Status Register to check for errors and available data." alt="" coords="535,56,671,83"/>
+<area shape="rect" id="node6" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="719,56,809,83"/>
+</map>

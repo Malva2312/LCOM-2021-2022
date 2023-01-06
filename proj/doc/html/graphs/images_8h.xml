@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_images_8h" xml:lang="en-US">
+<title>game/images.h File Reference</title>
+<indexterm><primary>game/images.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;lcom/lcf.h&gt;
+#include &lt;stdio.h&gt;
+#include &quot;../sprites/menu/menu.h&quot;
+#include &quot;../sprites/menu/player1_selected.h&quot;
+#include &quot;../sprites/menu/player2_selected.h&quot;
+#include &quot;../sprites/menu/about_selected.h&quot;
+#include &quot;../sprites/numbers/0.h&quot;
+#include &quot;../sprites/numbers/1.h&quot;
+#include &quot;../sprites/numbers/2.h&quot;
+#include &quot;../sprites/numbers/3.h&quot;
+#include &quot;../sprites/numbers/4.h&quot;
+#include &quot;../sprites/numbers/5.h&quot;
+#include &quot;../sprites/end/Lost_menu.h&quot;
+#include &quot;../sprites/end/Won_p1_menu.h&quot;
+#include &quot;../sprites/end/Won_p2_menu.h&quot;
+#include &quot;../sprites/end/Lost_menu_player.h&quot;
+#include &quot;../sprites/wait_menu.h&quot;
+#include &quot;../sprites/powerups/power1.h&quot;
+#include &quot;../sprites/powerups/power2.h&quot;
+#include &quot;../sprites/sun.h&quot;
+#include &quot;../sprites/discoball.h&quot;
+#include &quot;../sprites/about.h&quot;
+</programlisting>Include dependency graph for images.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="images_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="images_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group__images_1ga9cb64526659b4bebea0d36565debb187">NUM_IMAGES</link>   20</para>
+
+<para>Total number od images to be load. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_group__images_1ga50f04280d5437776a6ed5478ce534846">game_image_t</link> { 
+<link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a4f87871d1956e15e335db3338223fb39">MENU_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a2b318d4c04620dcbbdc0e35beeb29ae0">PLAYER1_SELECTED_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a1e320be59ca91ee4d6a8a7672f2f111a">PLAYER2_SELECTED_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846ab97432162a763d4e846beac38a9bb66c">ABOUT_SELECTED_IMG</link>
+, 
+<link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a8c2b58ce41523e65625036f2f80dc51e">NUMBER0_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a9a7e5c43117339ac3086132cc1d3acdd">NUMBER1_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a6e0f66f95f700a2c631f98532478e920">NUMBER2_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a5663965641f210c87d5437990b1baffb">NUMBER3_IMG</link>
+, 
+<link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a005bc580342043700cea0a08ecda201c">NUMBER4_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a9584074a47973e30035ea44ac19f93d7">NUMBER5_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a485529d59d2efb0aa461baa63c6afd30">LOST_MENU_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846af61a1fe5c028fc23eb2c6e17a1cf1d73">LOST_MENU_PLAYER_IMG</link>
+, 
+<link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a1db0d2cdba94409852adb864c56131c9">WON_P1_MENU_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846ab3b1b54a9a9207e135286723794d7abe">WON_P2_MENU_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846aaa003715583e12e7d335e4f5ca250724">POWER1_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a68af1bef087f8e65f6eefe6e3796d358">POWER2_IMG</link>
+, 
+<link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846ab316890bcc162088f6726dd12a74c187">WAIT_MENU_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a4d9cc8fbf9e36ca5aef7447edd1bd95e">SUN_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a1e17279e92245e136640874adec99d2f">DISCO_IMG</link>
+, <link linkend="_group__images_1gga50f04280d5437776a6ed5478ce534846a527aebcfaaac1410ac8684c4ae012440">ABOUT_PAGE_IMG</link>
+ }</para>
+
+<para>Enumerates each image in the game. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__images_1ga8a6bd0a6090487314e7d566acd5dbf7f">load_all_images</link> ()</para>
+
+<para>Load all images into the game. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>xpm_image_t <link linkend="_group__images_1ga34bcf325103efe12271f8e301024e7a9">game_images</link> [<link linkend="_group__images_1ga9cb64526659b4bebea0d36565debb187">NUM_IMAGES</link>]</para>
+
+<para>Images data cointainer. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

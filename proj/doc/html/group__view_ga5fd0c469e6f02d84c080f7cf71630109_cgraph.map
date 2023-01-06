@@ -1,0 +1,6 @@
+<map id="drawMenu" name="drawMenu">
+<area shape="rect" id="node1" title="Calls the functions responsible for drawing the menu." alt="" coords="5,31,87,57"/>
+<area shape="rect" id="node2" href="$video_8c.html#a9502773109672e86799bba9705b835bd" title="Draw a sprite." alt="" coords="158,5,246,32"/>
+<area shape="rect" id="node4" href="$group__model.html#gafe5875991840df952715c5f334c06df4" title="Returns the value of the corrent entry in the menu." alt="" coords="135,56,269,83"/>
+<area shape="rect" id="node3" href="$video_8c.html#a576ad65187107e487c85b9fb42fa0220" title="Set the color of a pixel." alt="" coords="317,5,411,32"/>
+</map>

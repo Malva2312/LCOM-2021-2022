@@ -1,0 +1,12 @@
+<map id="sprites/menu/player1_selected.h" name="sprites/menu/player1_selected.h">
+<area shape="rect" id="node1" title=" " alt="" coords="110,5,252,47"/>
+<area shape="rect" id="node2" href="$images_8h.html" title=" " alt="" coords="126,95,236,121"/>
+<area shape="rect" id="node3" href="$handlers_8h.html" title=" " alt="" coords="122,169,240,196"/>
+<area shape="rect" id="node5" href="$model_8h.html" title=" " alt="" coords="28,244,132,271"/>
+<area shape="rect" id="node7" href="$view_8h.html" title=" " alt="" coords="134,319,228,345"/>
+<area shape="rect" id="node9" href="$proj_8c.html" title=" " alt="" coords="360,393,415,420"/>
+<area shape="rect" id="node10" href="$images_8c.html" title=" " alt="" coords="476,169,587,196"/>
+<area shape="rect" id="node4" href="$handlers_8c.html" title=" " alt="" coords="231,244,350,271"/>
+<area shape="rect" id="node6" href="$model_8c.html" title=" " alt="" coords="6,319,110,345"/>
+<area shape="rect" id="node8" href="$view_8c.html" title=" " alt="" coords="134,393,228,420"/>
+</map>

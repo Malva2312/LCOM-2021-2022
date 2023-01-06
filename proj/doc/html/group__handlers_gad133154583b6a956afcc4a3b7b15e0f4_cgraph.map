@@ -1,0 +1,7 @@
+<map id="endGameHandler" name="endGameHandler">
+<area shape="rect" id="node1" title="Proceed with the actions in the End Game State of the respective given device." alt="" coords="5,31,128,57"/>
+<area shape="rect" id="node2" href="$group__view.html#ga56eabf3da014865044c6b983dbfafaec" title="Draws an end&#45;of&#45;game message depending on whether the player wins or loses." alt="" coords="176,5,283,32"/>
+<area shape="rect" id="node5" href="$video_8c.html#a8241e421a3811f46b59bed9f166a48d1" title="Copy the secondary buffer contents to the main buffer." alt="" coords="180,56,279,83"/>
+<area shape="rect" id="node3" href="$video_8c.html#a9502773109672e86799bba9705b835bd" title="Draw a sprite." alt="" coords="331,5,419,32"/>
+<area shape="rect" id="node4" href="$video_8c.html#a576ad65187107e487c85b9fb42fa0220" title="Set the color of a pixel." alt="" coords="467,5,560,32"/>
+</map>

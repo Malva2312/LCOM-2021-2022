@@ -1,0 +1,51 @@
+<map id="mainHandler" name="mainHandler">
+<area shape="rect" id="node1" title="Invokes the respective handler according to the game state." alt="" coords="5,501,100,528"/>
+<area shape="rect" id="node2" href="$group__handlers.html#gab87384990fed0586611e699156a7d24c" title="Proceed with the actions in the About State of the respective given device." alt="" coords="376,400,475,427"/>
+<area shape="rect" id="node7" href="$group__handlers.html#gad133154583b6a956afcc4a3b7b15e0f4" title="Proceed with the actions in the End Game State of the respective given device." alt="" coords="364,349,487,376"/>
+<area shape="rect" id="node9" href="$group__handlers.html#ga873159fcdceb7f2d32914e2f0332e918" title="Proceed with the actions in the One Player Game State of the respective given device." alt="" coords="151,1084,310,1111"/>
+<area shape="rect" id="node38" href="$group__handlers.html#ga548238780299a9ec09e8056c88748815" title="Proceed with the actions in the Two Players Game State of the respective given device." alt="" coords="148,805,313,832"/>
+<area shape="rect" id="node39" href="$group__handlers.html#ga1bf786f0d1e4fb655a95618665e88b73" title="Proceed with the actions in the Menu State of the respective given device." alt="" coords="376,197,475,224"/>
+<area shape="rect" id="node48" href="$group__handlers.html#gac888ba9be6cce74613cae45eaa6a5a02" title="Proceed with the actions in the Wait Menu State of the respective given device." alt="" coords="372,603,479,629"/>
+<area shape="rect" id="node3" href="$group__view.html#gada296e3c248457584fc6702e98aa5df9" title="Draws about menu." alt="" coords="572,400,655,427"/>
+<area shape="rect" id="node6" href="$video_8c.html#a8241e421a3811f46b59bed9f166a48d1" title="Copy the secondary buffer contents to the main buffer." alt="" coords="564,451,663,477"/>
+<area shape="rect" id="node4" href="$video_8c.html#a9502773109672e86799bba9705b835bd" title="Draw a sprite." alt="" coords="761,375,849,401"/>
+<area shape="rect" id="node5" href="$video_8c.html#a576ad65187107e487c85b9fb42fa0220" title="Set the color of a pixel." alt="" coords="1104,704,1197,731"/>
+<area shape="rect" id="node8" href="$group__view.html#ga56eabf3da014865044c6b983dbfafaec" title="Draws an end&#45;of&#45;game message depending on whether the player wins or loses." alt="" coords="560,349,667,376"/>
+<area shape="rect" id="node10" href="$group__view.html#ga3a53f2894b80e553e4e9754e2a1b9b5d" title="Draw the Arena and its boundaries." alt="" coords="384,755,467,781"/>
+<area shape="rect" id="node15" href="$group__view.html#ga2fed2d7071be915d687d533e5a971414" title="Calls the functions needed to draw the match." alt="" coords="383,907,467,933"/>
+<area shape="rect" id="node19" href="$group__view.html#gaa632458efe74b5b5009fab6cf993fdb2" title="Draws the mouse cursor according to its position." alt="" coords="381,1059,469,1085"/>
+<area shape="rect" id="node20" href="$group__view.html#ga66a54e56b10b46d1f9fc29adc4de5b16" title="Draw the wall originated by a power&#45;up." alt="" coords="388,1109,463,1136"/>
+<area shape="rect" id="node21" href="$group__model.html#ga24da2da95651b6475088ef64735a50d6" title="Return true if any of the players has won the game." alt="" coords="378,704,473,731"/>
+<area shape="rect" id="node25" href="$group__model.html#ga74a986100caea06aac8df2db6574176e" title="Activates the power associated with the left mouse click." alt="" coords="366,1363,485,1389"/>
+<area shape="rect" id="node26" href="$group__model.html#ga1f3df81991dde3d050e1cab3691be1da" title="Activates the power associated with the righ mouse click." alt="" coords="361,1464,489,1491"/>
+<area shape="rect" id="node27" href="$group__model.html#ga888f87088027abf44920c0b80e7e91b5" title="Calculates and moves the ball to its next position Changes trajectory if collisions are detected." alt="" coords="388,856,463,883"/>
+<area shape="rect" id="node32" href="$group__model.html#ga9c904e10fe53d2e0439050c1f363c399" title="Changes the position of the mouse cursor depending on the input data (x&#45;axis, y&#45;axis)" alt="" coords="380,1261,471,1288"/>
+<area shape="rect" id="node33" href="$group__model.html#gab0666b83c2e0f39b683b43eb5e5ecb3e" title="Moves the computer&#45;controlled player in the case of Single Player mode." alt="" coords="372,1413,479,1440"/>
+<area shape="rect" id="node34" href="$model_8c.html#a24c1dbdf1ef1689d51bf55d12e98911a" title=" " alt="" coords="569,1413,658,1440"/>
+<area shape="rect" id="node35" href="$model_8c.html#a5f56ae59c8261c8b496175d01ab0db16" title=" " alt="" coords="577,1261,650,1288"/>
+<area shape="rect" id="node36" href="$group__model.html#gafe55e58ebbd50b7aa93ca36dd2d3cc0e" title="Resets the ball, the player(s) and the scores at the start of a match." alt="" coords="382,1008,469,1035"/>
+<area shape="rect" id="node37" href="$group__model.html#gaa704b1067d557c8e4d1af0854055dc24" title="Reduces the wall (power up) over time." alt="" coords="376,1312,475,1339"/>
+<area shape="rect" id="node11" href="$group__view.html#gabf33bd02905aaba8995c238e140295bb" title="Calls the functions responsable for drawing the score board." alt="" coords="572,653,655,680"/>
+<area shape="rect" id="node13" href="$video_8c.html#a5e5b25bd525250f61f40b9e9f212d5e6" title="Draw a horizontal line of pixels." alt="" coords="937,755,1039,781"/>
+<area shape="rect" id="node14" href="$video_8c.html#a1135e6421577648c6d1c0abc1e971663" title="Draw a vertical line of pixels." alt="" coords="938,704,1038,731"/>
+<area shape="rect" id="node12" href="$view_8c.html#a34bb0b5ed37722af7b8463df6d522ee0" title=" " alt="" coords="751,653,858,680"/>
+<area shape="rect" id="node16" href="$video_8c.html#a905cdcdafb03104ab75c6c59e0f5e7cb" title="Draw a rectangle." alt="" coords="750,1084,859,1111"/>
+<area shape="rect" id="node17" href="$group__view.html#ga86cf8241a4f3a8daf2876e484636a650" title="Draws the Ball in the arena according to Ball&#39;s data." alt="" coords="578,1109,649,1136"/>
+<area shape="rect" id="node18" href="$group__view.html#gab79e0b6f71e4ecf1f37d95fdafcf62b5" title="Receives a Player pointer and draws the Player&#39;s paddle in the arena according to the pointer data." alt="" coords="570,1008,657,1035"/>
+<area shape="rect" id="node22" href="$group__serialport.html#ga9763e9d84c9c2217d5bfe4e59ee69d64" title="Sends the given data to the Transmitter Holding Register." alt="" coords="741,527,868,553"/>
+<area shape="rect" id="node23" href="$group__serialport.html#ga08071d8d2ad944789c1befd58b6fc6be" title="Reads the Line Status Register to check for errors and available data." alt="" coords="920,211,1056,237"/>
+<area shape="rect" id="node24" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="1105,185,1196,212"/>
+<area shape="rect" id="node28" href="$model_8c.html#a4cf55b77cc02efad5aaebe5e3a79a7c6" title=" " alt="" coords="551,907,676,933"/>
+<area shape="rect" id="node29" href="$model_8c.html#a113f4b3fda8579a672c13893e8e2347a" title=" " alt="" coords="556,957,671,984"/>
+<area shape="rect" id="node30" href="$group__model.html#ga7c9c7f327063d813b3f52c0bc6044d14" title="Checks if any player has scored a point and raises his score if so Returns true if someone has scored..." alt="" coords="590,856,637,883"/>
+<area shape="rect" id="node31" href="$group__model.html#ga9d486c3d9622330fe1190c3fb7b8663e" title="Resets the ball and the player(s) after someone has scored a point." alt="" coords="561,805,666,832"/>
+<area shape="rect" id="node40" href="$group__model.html#gac5e7c173213772b349ccecd660397b85" title="In the menu, it goes to the next option. If there is no next option, the selection remains unchanged." alt="" coords="560,197,667,224"/>
+<area shape="rect" id="node41" href="$group__model.html#ga6c4d95dd6d5eef5cc2de39f9f71604fd" title="In the menu, it goes to the previous option. If there is no previous option, the selection remains un..." alt="" coords="557,45,670,72"/>
+<area shape="rect" id="node42" href="$video_8c.html#af7831592ef04114ca9b46e672c0e646b" title="Clear the secondary buffer." alt="" coords="569,96,657,123"/>
+<area shape="rect" id="node43" href="$group__view.html#ga5fd0c469e6f02d84c080f7cf71630109" title="Calls the functions responsible for drawing the menu." alt="" coords="573,248,654,275"/>
+<area shape="rect" id="node44" href="$group__model.html#gafe5875991840df952715c5f334c06df4" title="Returns the value of the corrent entry in the menu." alt="" coords="737,223,872,249"/>
+<area shape="rect" id="node45" href="$group__view.html#gac03b90d30597233ea059a89bce73dbf3" title="Calls the function responsible for drawing the waiting menu, while waiting other player." alt="" coords="559,299,667,325"/>
+<area shape="rect" id="node46" href="$group__serialport.html#ga0310282e052b0d6daacdcf32745aad12" title="Enables interrupts for recieving data, reads leftover data in the Receiver Buffer Register and transm..." alt="" coords="581,147,645,173"/>
+<area shape="rect" id="node47" href="$group__serialport.html#gafe652e0add554a59ead8c1960eefb6b1" title="If data is available it will read all entries in the buffer until there are none left(to maintain it ..." alt="" coords="753,160,857,187"/>
+<area shape="rect" id="node49" href="$group__serialport.html#gab72ff27750fce4726c3861005ee392c6" title="Used in the beginning of the connection to determine what to do next." alt="" coords="537,552,689,579"/>
+</map>

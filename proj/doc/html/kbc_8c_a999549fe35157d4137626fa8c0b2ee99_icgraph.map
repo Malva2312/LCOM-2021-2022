@@ -1,0 +1,9 @@
+<map id="mouse_get_status_byte" name="mouse_get_status_byte">
+<area shape="rect" id="node1" title=" " alt="" coords="757,35,919,61"/>
+<area shape="rect" id="node2" href="$group__kbc.html#gaed4404005e4c565ac36656307386e0ac" title="Control of mouse interrupts." alt="" coords="416,5,495,32"/>
+<area shape="rect" id="node4" href="$group__kbc.html#ga486b669d172327d510db1fff96ea6b60" title="Write a command to a port." alt="" coords="567,60,709,87"/>
+<area shape="rect" id="node3" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,60,115,87"/>
+<area shape="rect" id="node5" href="$group__kbc.html#gadce7a7604f8b0782158b70bf728eb411" title=" " alt="" coords="392,60,519,87"/>
+<area shape="rect" id="node6" href="$group__kbc.html#ga7e311379d4d64f88873ef8ade5c82a25" title="Disable mouse data reporting." alt="" coords="183,53,324,94"/>
+<area shape="rect" id="node7" href="$group__kbc.html#gab03b20445da099487fdd96bc31007b0e" title="Enable data reporting." alt="" coords="163,119,344,145"/>
+</map>

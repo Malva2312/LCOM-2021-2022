@@ -1,0 +1,7 @@
+<map id="ser_read_data" name="ser_read_data">
+<area shape="rect" id="node1" title="If data is available it will read all entries in the buffer until there are none left(to maintain it ..." alt="" coords="564,5,668,32"/>
+<area shape="rect" id="node2" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,115,32"/>
+<area shape="rect" id="node3" href="$group__serialport.html#ga0310282e052b0d6daacdcf32745aad12" title="Enables interrupts for recieving data, reads leftover data in the Receiver Buffer Register and transm..." alt="" coords="452,31,516,57"/>
+<area shape="rect" id="node4" href="$group__handlers.html#ga1bf786f0d1e4fb655a95618665e88b73" title="Proceed with the actions in the Menu State of the respective given device." alt="" coords="305,31,404,57"/>
+<area shape="rect" id="node5" href="$group__handlers.html#gad932b9bf23b1de26f712a4aacdc7df9b" title="Invokes the respective handler according to the game state." alt="" coords="163,31,257,57"/>
+</map>

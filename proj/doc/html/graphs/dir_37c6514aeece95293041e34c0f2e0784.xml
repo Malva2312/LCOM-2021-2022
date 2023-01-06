@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_37c6514aeece95293041e34c0f2e0784" xml:lang="en-US">
+<title>game Directory Reference</title>
+<indexterm><primary>game Directory Reference</primary></indexterm>
+Directory dependency graph for game:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_37c6514aeece95293041e34c0f2e0784_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_handlers_8c">handlers.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_handlers_8h">handlers.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_images_8c">images.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_images_8h">images.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_model_8c">model.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_model_8h">model.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_view_8c">view.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_view_8h">view.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

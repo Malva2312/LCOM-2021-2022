@@ -1,0 +1,5 @@
+<map id="drawEndGame" name="drawEndGame">
+<area shape="rect" id="node1" title="Draws an end&#45;of&#45;game message depending on whether the player wins or loses." alt="" coords="5,5,112,32"/>
+<area shape="rect" id="node2" href="$video_8c.html#a9502773109672e86799bba9705b835bd" title="Draw a sprite." alt="" coords="160,5,248,32"/>
+<area shape="rect" id="node3" href="$video_8c.html#a576ad65187107e487c85b9fb42fa0220" title="Set the color of a pixel." alt="" coords="296,5,389,32"/>
+</map>

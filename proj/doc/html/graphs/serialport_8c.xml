@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_serialport_8c" xml:lang="en-US">
+<title>serialport/serialport.c File Reference</title>
+<indexterm><primary>serialport/serialport.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;lcom/lcf.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;lcom/utils.h&gt;
+#include &quot;serialport.h&quot;
+</programlisting>Include dependency graph for serialport.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="serialport_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int() <link linkend="_group__serialport_1ga0310282e052b0d6daacdcf32745aad12">ser_init</link> ()</para>
+
+<para>Enables interrupts for recieving data, reads leftover data in the Receiver Buffer Register and transmits a initial message saying it is ready to connect. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__serialport_1ga08071d8d2ad944789c1befd58b6fc6be">ser_read_lsr_status</link> (uint8_t *status)</para>
+
+<para>Reads the Line Status Register to check for errors and available data. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__serialport_1gafe652e0add554a59ead8c1960eefb6b1">ser_read_data</link> ()</para>
+
+<para>If data is available it will read all entries in the buffer until there are none left(to maintain it updated) </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__serialport_1ga9763e9d84c9c2217d5bfe4e59ee69d64">ser_transmit_data</link> (uint8_t <link linkend="_proj_8c_1a325819a8e492ac69542e8b31705af6e9">data</link>)</para>
+
+<para>Sends the given data to the Transmitter Holding Register. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__serialport_1gab72ff27750fce4726c3861005ee392c6">ser_check_connection</link> ()</para>
+
+<para>Used in the beginning of the connection to determine what to do next. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__serialport_1gaf21628f0f9d46b62067ae790f7861e84">ser_subscribe_int</link> (uint8_t *bit_no)</para>
+
+<para>Unubscribes to interrupts from the Serial Port. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__serialport_1ga30ae83ae28ebc465baa2d2f2ee51a145">ser_unsubscribe_int</link> ()</para>
+
+<para>Unubscribes to interrupts from the Serial Port. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_serialport_8c_1a965a9c411b8854c55368dfef16b58cf5">ser_hook_id</link> = 1</para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_serialport_8c_1ac2e72b5a2e01b5b5ae740469f6c558b2">read_data</link> = 0x00</para>
+</listitem>
+            <listitem><para>bool <link linkend="_serialport_8c_1a5e44ca6acb60e6dd2ccda995b1e3e3f3">other_ready</link> = false</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_serialport_8c_1a5e44ca6acb60e6dd2ccda995b1e3e3f3"/><section>
+    <title>other_ready</title>
+<indexterm><primary>other_ready</primary><secondary>serialport.c</secondary></indexterm>
+<indexterm><primary>serialport.c</primary><secondary>other_ready</secondary></indexterm>
+<para><computeroutput>bool other_ready = false</computeroutput></para><para>
+Definition at line <link linkend="_serialport_8c_source_1l00010">10</link> of file <link linkend="_serialport_8c_source">serialport.c</link>.</para>
+</section>
+<anchor xml:id="_serialport_8c_1ac2e72b5a2e01b5b5ae740469f6c558b2"/><section>
+    <title>read_data</title>
+<indexterm><primary>read_data</primary><secondary>serialport.c</secondary></indexterm>
+<indexterm><primary>serialport.c</primary><secondary>read_data</secondary></indexterm>
+<para><computeroutput>uint8_t read_data = 0x00</computeroutput></para><para>
+Definition at line <link linkend="_serialport_8c_source_1l00009">9</link> of file <link linkend="_serialport_8c_source">serialport.c</link>.</para>
+</section>
+<anchor xml:id="_serialport_8c_1a965a9c411b8854c55368dfef16b58cf5"/><section>
+    <title>ser_hook_id</title>
+<indexterm><primary>ser_hook_id</primary><secondary>serialport.c</secondary></indexterm>
+<indexterm><primary>serialport.c</primary><secondary>ser_hook_id</secondary></indexterm>
+<para><computeroutput>int ser_hook_id = 1</computeroutput></para><para>
+Definition at line <link linkend="_serialport_8c_source_1l00008">8</link> of file <link linkend="_serialport_8c_source">serialport.c</link>.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_rtc_8c" xml:lang="en-US">
+<title>rtc/rtc.c File Reference</title>
+<indexterm><primary>rtc/rtc.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;lcom/lcf.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;lcom/utils.h&gt;
+#include &quot;rtc.h&quot;
+</programlisting>Include dependency graph for rtc.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="rtc_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__rtc_1ga861d2f079d8248ed95f305600eaa0567">rtc_wait_for_access</link> ()</para>
+
+<para>Waits until Update in Progress in Register A is complete. </para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_group__rtc_1gaef48ce217f5c004635226cc27c0d4081">rtc_convert_BCD</link> (uint8_t n)</para>
+
+<para>Converts the number in BCD to hexadecimal. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__rtc_1gac06a0a3580daf870240d95679167b593">rtc_update_darkmode</link> ()</para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__rtc_1ga6bbe679f115cec90d36d50eb2aac1b89">rtc_subscribe_int</link> (uint8_t *bit_no)</para>
+
+<para>Subscribes to interrupts from the RTC. </para>
+</listitem>
+            <listitem><para>int() <link linkend="_group__rtc_1ga9d4850bb2a488644672d43287f160622">rtc_unsubscribe_int</link> ()</para>
+
+<para>Unubscribes to interrupts from the RTC. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_rtc_8c_1a6c52a1d32571a429369253ce7c3a3d7a">rtc_hook_id</link> = 1</para>
+</listitem>
+            <listitem><para>bool <link linkend="_rtc_8c_1aad078aa1776d7d886e8200f08329a2ca">darkmode</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_rtc_8c_1aad078aa1776d7d886e8200f08329a2ca"/><section>
+    <title>darkmode</title>
+<indexterm><primary>darkmode</primary><secondary>rtc.c</secondary></indexterm>
+<indexterm><primary>rtc.c</primary><secondary>darkmode</secondary></indexterm>
+<para><computeroutput>bool darkmode</computeroutput></para><para>
+Definition at line <link linkend="_rtc_8c_source_1l00009">9</link> of file <link linkend="_rtc_8c_source">rtc.c</link>.</para>
+</section>
+<anchor xml:id="_rtc_8c_1a6c52a1d32571a429369253ce7c3a3d7a"/><section>
+    <title>rtc_hook_id</title>
+<indexterm><primary>rtc_hook_id</primary><secondary>rtc.c</secondary></indexterm>
+<indexterm><primary>rtc.c</primary><secondary>rtc_hook_id</secondary></indexterm>
+<para><computeroutput>int rtc_hook_id = 1</computeroutput></para><para>
+Definition at line <link linkend="_rtc_8c_source_1l00008">8</link> of file <link linkend="_rtc_8c_source">rtc.c</link>.</para>
+</section>
+</section>
+</section>

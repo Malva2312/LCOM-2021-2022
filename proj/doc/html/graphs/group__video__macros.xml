@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__video__macros" xml:lang="en-US">
+<title>video_macros</title>
+<indexterm><primary>video_macros</primary></indexterm>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga3c5cde2577e877adb5f9827014079dde">VIDEO_MODE</link>   0x115</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga6f413bd85a0e7a99d4300605ba08034a">VBE_AH_CALL_FUNCTION</link>   0x4F</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga67f264124681f9698713bb2b4ae0c904">VBE_AL_SET_VBE_MODE</link>   0x02</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga4cc320958a14fbddc6c316f1690bf815">VBE_AL_RETURN_VBE_MODE_INFO</link>   0x01</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga1b7a91f6b79588f27c2fc1cbf5c1f88e">VBE_AL_RETURN_VBE_CONTROLLER_INFO</link>   0x02</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1gae7f2a61f3796cb09725a12cf9e65c0f9">VBE_AH_FUN_SUCCESS</link>   0x00</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga70312f757567f59adf11ab393d2bf364">VBE_AH_FUN_CALL_FAILED</link>   0x01</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga6ef2f65d639ba995b6611d58d551c42a">VBE_AH_FUN_NOT_SUPPORTED</link>   0x02</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga86709670d93e4315c37c5d9b1832a51e">VBE_AH_FUN_INVALID_MODE</link>   0x03</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga0eb3f5348376766c04f05dbab81771e6">VBE_INTNO_BIOS_VIDEO_SERVICES</link>   0x10</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga32c54370baa8fbcf13ed1cb40d251afd">VBE_RES_1024x768</link>   0x105</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga0da31a2e279970e09fbc99d83159c525">VBE_RES_640x480</link>   0x110</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1ga5c061346f9c5bad28f4fe58c84fcc50b">VBE_RES_800x600</link>   0x115</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1gaa13d671cbe4a7208933a23846715da8d">VBE_RES_1280x1024</link>   0x11A</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1gaeb531b96103956e89ae004bcfcb0cbb9">VBE_RES_1152x864</link>   0x14C</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1gae43d16ffe87b80dfb60ef0b93abbb30f">VBE_BX_SET_MODE</link>   BIT(14)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group__video__macros_1gad8d76e6c21761d3b5e993d24e73310f0">GET_N_BYTE</link>(w,  n)   ((w &gt;&gt; (8*n)) &amp; 0xFF)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Constants for programming the video card in graphic mode. </para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_group__video__macros_1gad8d76e6c21761d3b5e993d24e73310f0"/><section>
+    <title>GET_N_BYTE</title>
+<indexterm><primary>GET_N_BYTE</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>GET_N_BYTE</secondary></indexterm>
+<para><computeroutput>#define GET_N_BYTE( w,  n)   ((w &gt;&gt; (8*n)) &amp; 0xFF)</computeroutput></para>
+<para>Get nth byte of a word </para>
+<para>
+Definition at line <link linkend="_video__macros_8h_source_1l00041">41</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+<anchor xml:id="_group__video__macros_1ga6f413bd85a0e7a99d4300605ba08034a"/><section>
+    <title>VBE_AH_CALL_FUNCTION</title>
+<indexterm><primary>VBE_AH_CALL_FUNCTION</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>VBE_AH_CALL_FUNCTION</secondary></indexterm>
+<para><computeroutput>#define VBE_AH_CALL_FUNCTION   0x4F</computeroutput></para><para>
+Definition at line <link linkend="_video__macros_8h_source_1l00015">15</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+<anchor xml:id="_group__video__macros_1ga70312f757567f59adf11ab393d2bf364"/><section>
+    <title>VBE_AH_FUN_CALL_FAILED</title>
+<indexterm><primary>VBE_AH_FUN_CALL_FAILED</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>VBE_AH_FUN_CALL_FAILED</secondary></indexterm>
+<para><computeroutput>#define VBE_AH_FUN_CALL_FAILED   0x01</computeroutput></para><para>
+Definition at line <link linkend="_video__macros_8h_source_1l00024">24</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+<anchor xml:id="_group__video__macros_1ga86709670d93e4315c37c5d9b1832a51e"/><section>
+    <title>VBE_AH_FUN_INVALID_MODE</title>
+<indexterm><primary>VBE_AH_FUN_INVALID_MODE</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>VBE_AH_FUN_INVALID_MODE</secondary></indexterm>
+<para><computeroutput>#define VBE_AH_FUN_INVALID_MODE   0x03</computeroutput></para><para>
+Definition at line <link linkend="_video__macros_8h_source_1l00026">26</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+<anchor xml:id="_group__video__macros_1ga6ef2f65d639ba995b6611d58d551c42a"/><section>
+    <title>VBE_AH_FUN_NOT_SUPPORTED</title>
+<indexterm><primary>VBE_AH_FUN_NOT_SUPPORTED</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>VBE_AH_FUN_NOT_SUPPORTED</secondary></indexterm>
+<para><computeroutput>#define VBE_AH_FUN_NOT_SUPPORTED   0x02</computeroutput></para><para>
+Definition at line <link linkend="_video__macros_8h_source_1l00025">25</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+<anchor xml:id="_group__video__macros_1gae7f2a61f3796cb09725a12cf9e65c0f9"/><section>
+    <title>VBE_AH_FUN_SUCCESS</title>
+<indexterm><primary>VBE_AH_FUN_SUCCESS</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>VBE_AH_FUN_SUCCESS</secondary></indexterm>
+<para><computeroutput>#define VBE_AH_FUN_SUCCESS   0x00</computeroutput></para><para>
+Definition at line <link linkend="_video__macros_8h_source_1l00023">23</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+<anchor xml:id="_group__video__macros_1ga1b7a91f6b79588f27c2fc1cbf5c1f88e"/><section>
+    <title>VBE_AL_RETURN_VBE_CONTROLLER_INFO</title>
+<indexterm><primary>VBE_AL_RETURN_VBE_CONTROLLER_INFO</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>VBE_AL_RETURN_VBE_CONTROLLER_INFO</secondary></indexterm>
+<para><computeroutput>#define VBE_AL_RETURN_VBE_CONTROLLER_INFO   0x02</computeroutput></para><para>
+Definition at line <link linkend="_video__macros_8h_source_1l00020">20</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+<anchor xml:id="_group__video__macros_1ga4cc320958a14fbddc6c316f1690bf815"/><section>
+    <title>VBE_AL_RETURN_VBE_MODE_INFO</title>
+<indexterm><primary>VBE_AL_RETURN_VBE_MODE_INFO</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>VBE_AL_RETURN_VBE_MODE_INFO</secondary></indexterm>
+<para><computeroutput>#define VBE_AL_RETURN_VBE_MODE_INFO   0x01</computeroutput></para><para>
+Definition at line <link linkend="_video__macros_8h_source_1l00019">19</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+<anchor xml:id="_group__video__macros_1ga67f264124681f9698713bb2b4ae0c904"/><section>
+    <title>VBE_AL_SET_VBE_MODE</title>
+<indexterm><primary>VBE_AL_SET_VBE_MODE</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>VBE_AL_SET_VBE_MODE</secondary></indexterm>
+<para><computeroutput>#define VBE_AL_SET_VBE_MODE   0x02</computeroutput></para><para>
+Definition at line <link linkend="_video__macros_8h_source_1l00018">18</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+<anchor xml:id="_group__video__macros_1gae43d16ffe87b80dfb60ef0b93abbb30f"/><section>
+    <title>VBE_BX_SET_MODE</title>
+<indexterm><primary>VBE_BX_SET_MODE</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>VBE_BX_SET_MODE</secondary></indexterm>
+<para><computeroutput>#define VBE_BX_SET_MODE   BIT(14)</computeroutput></para><para>
+Definition at line <link linkend="_video__macros_8h_source_1l00039">39</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+<anchor xml:id="_group__video__macros_1ga0eb3f5348376766c04f05dbab81771e6"/><section>
+    <title>VBE_INTNO_BIOS_VIDEO_SERVICES</title>
+<indexterm><primary>VBE_INTNO_BIOS_VIDEO_SERVICES</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>VBE_INTNO_BIOS_VIDEO_SERVICES</secondary></indexterm>
+<para><computeroutput>#define VBE_INTNO_BIOS_VIDEO_SERVICES   0x10</computeroutput></para><para>
+Definition at line <link linkend="_video__macros_8h_source_1l00029">29</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+<anchor xml:id="_group__video__macros_1ga32c54370baa8fbcf13ed1cb40d251afd"/><section>
+    <title>VBE_RES_1024x768</title>
+<indexterm><primary>VBE_RES_1024x768</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>VBE_RES_1024x768</secondary></indexterm>
+<para><computeroutput>#define VBE_RES_1024x768   0x105</computeroutput></para><para>
+Definition at line <link linkend="_video__macros_8h_source_1l00032">32</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+<anchor xml:id="_group__video__macros_1gaeb531b96103956e89ae004bcfcb0cbb9"/><section>
+    <title>VBE_RES_1152x864</title>
+<indexterm><primary>VBE_RES_1152x864</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>VBE_RES_1152x864</secondary></indexterm>
+<para><computeroutput>#define VBE_RES_1152x864   0x14C</computeroutput></para><para>
+Definition at line <link linkend="_video__macros_8h_source_1l00036">36</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+<anchor xml:id="_group__video__macros_1gaa13d671cbe4a7208933a23846715da8d"/><section>
+    <title>VBE_RES_1280x1024</title>
+<indexterm><primary>VBE_RES_1280x1024</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>VBE_RES_1280x1024</secondary></indexterm>
+<para><computeroutput>#define VBE_RES_1280x1024   0x11A</computeroutput></para><para>
+Definition at line <link linkend="_video__macros_8h_source_1l00035">35</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+<anchor xml:id="_group__video__macros_1ga0da31a2e279970e09fbc99d83159c525"/><section>
+    <title>VBE_RES_640x480</title>
+<indexterm><primary>VBE_RES_640x480</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>VBE_RES_640x480</secondary></indexterm>
+<para><computeroutput>#define VBE_RES_640x480   0x110</computeroutput></para><para>
+Definition at line <link linkend="_video__macros_8h_source_1l00033">33</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+<anchor xml:id="_group__video__macros_1ga5c061346f9c5bad28f4fe58c84fcc50b"/><section>
+    <title>VBE_RES_800x600</title>
+<indexterm><primary>VBE_RES_800x600</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>VBE_RES_800x600</secondary></indexterm>
+<para><computeroutput>#define VBE_RES_800x600   0x115</computeroutput></para><para>
+Definition at line <link linkend="_video__macros_8h_source_1l00034">34</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+<anchor xml:id="_group__video__macros_1ga3c5cde2577e877adb5f9827014079dde"/><section>
+    <title>VIDEO_MODE</title>
+<indexterm><primary>VIDEO_MODE</primary><secondary>video_macros</secondary></indexterm>
+<indexterm><primary>video_macros</primary><secondary>VIDEO_MODE</secondary></indexterm>
+<para><computeroutput>#define VIDEO_MODE   0x115</computeroutput></para><para>
+Definition at line <link linkend="_video__macros_8h_source_1l00012">12</link> of file <link linkend="_video__macros_8h_source">video_macros.h</link>.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_kbc_8c_source" xml:lang="en-US">
+<title>kbc.c</title>
+<indexterm><primary>keyboard/kbc.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_kbc_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_kbc_8h">kbc.h</link>&quot;</emphasis>
+<anchor xml:id="_kbc_8c_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;minix/sysutil.h&gt;</emphasis>
+<anchor xml:id="_kbc_8c_source_1l00003"/>00003 
+<anchor xml:id="_kbc_8c_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_kbc_8h">kbc.h</link>&quot;</emphasis>
+<anchor xml:id="_kbc_8c_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;minix/sysutil.h&gt;</emphasis>
+<anchor xml:id="_kbc_8c_source_1l00006"/>00006 
+<anchor xml:id="_kbc_8c_source_1l00007"/>00007 
+<anchor xml:id="_kbc_8c_source_1l00008"/><link linkend="_kbc_8c_1a66950d98786a9b087f74991e4b6794e3">00008</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_kbc_8c_1a66950d98786a9b087f74991e4b6794e3">kbc_hook_id</link>&#32;=&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00009"/><link linkend="_kbc_8c_1a325819a8e492ac69542e8b31705af6e9">00009</link> uint8_t&#32;<link linkend="_kbc_8c_1a325819a8e492ac69542e8b31705af6e9">data</link>&#32;=&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00010"/><link linkend="_kbc_8c_1a0210a44039b20cccb04801fb03ae47c1">00010</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_kbc_8c_1a83b83f0755f115b133c5afa21cbcfd1b">makecode</link>,&#32;<link linkend="_kbc_8c_1aa02e483eb21e700531ca2ddf2508d189">kbd_valid</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>,&#32;<link linkend="_kbc_8c_1a0210a44039b20cccb04801fb03ae47c1">full_code_ready</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00011"/><link linkend="_kbc_8c_1a439227feff9d7f55384e8780cfc2eb82">00011</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_kbc_8c_1a439227feff9d7f55384e8780cfc2eb82">size</link>&#32;=&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00012"/><link linkend="_handlers_8c_1a01577ed8d3646775ae6a8e00d24c1d94">00012</link> uint8_t&#32;<link linkend="_kbc_8c_1a01577ed8d3646775ae6a8e00d24c1d94">scancode</link>[2];
+<anchor xml:id="_kbc_8c_source_1l00013"/>00013 
+<anchor xml:id="_kbc_8c_source_1l00014"/><link linkend="_group__kbc_1ga5761bd4aad91ac1d68916ad88f583d9f">00014</link> <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__kbc_1ga5761bd4aad91ac1d68916ad88f583d9f">kbc_ih</link>)(<link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>)&#32;{
+<anchor xml:id="_kbc_8c_source_1l00015"/>00015 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_group__kbc_1ga459c5f03316bc61703727fd38f1f1965">kbd_get_status_byte</link>())&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00016"/>00016 
+<anchor xml:id="_kbc_8c_source_1l00017"/>00017 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_group__kbc_1gad2fe6cbf61c2613cd7f4d7998979ee29">kbc_read_value</link>())&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00018"/>00018 }
+<anchor xml:id="_kbc_8c_source_1l00019"/>00019 
+<anchor xml:id="_kbc_8c_source_1l00020"/><link linkend="_group__kbc_1ga459c5f03316bc61703727fd38f1f1965">00020</link> int&#32;(<link linkend="_group__kbc_1ga459c5f03316bc61703727fd38f1f1965">kbd_get_status_byte</link>)()&#32;{
+<anchor xml:id="_kbc_8c_source_1l00021"/>00021 &#32;&#32;&#32;&#32;uint8_t&#32;status;
+<anchor xml:id="_kbc_8c_source_1l00022"/>00022 &#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1aa02e483eb21e700531ca2ddf2508d189">kbd_valid</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00023"/>00023 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_utils_8c_1a79a031a8611f5b2d6afa4158e92b0fb4">util_sys_inb</link>(<link linkend="_group__i8042_1ga6f977b36b770dca3092d0bdf8c949cfe">KBC_ST_REG</link>,&#32;&amp;status))&#32;{
+<anchor xml:id="_kbc_8c_source_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;reading&#32;status&#32;register&quot;</emphasis>);
+<anchor xml:id="_kbc_8c_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00026"/>00026 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00027"/>00027 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(status&#32;&amp;&#32;(<link linkend="_group__i8042_1gaea2ef6dda1aabebf291eeee29b66c04a">KBC_PAR_ERR</link>&#32;|&#32;<link linkend="_group__i8042_1gae31c3653f5881b02cbfdd4ccbb7ccf50">KBC_TO_ERR</link>&#32;|&#32;<link linkend="_group__i8042_1ga5a01c98e394aedacd058f4dc3b953bb0">KBC_ST_AUX</link>))&#32;{
+<anchor xml:id="_kbc_8c_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1aa02e483eb21e700531ca2ddf2508d189">kbd_valid</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;ERROR&#32;parity,&#32;timeout&#32;or&#32;mouse&quot;</emphasis>);
+<anchor xml:id="_kbc_8c_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00031"/>00031 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(status&#32;&amp;&#32;<link linkend="_group__i8042_1ga38010ed603a29beee559b2c20de50dcd">KBC_ST_OBF</link>)&#32;{
+<anchor xml:id="_kbc_8c_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1aa02e483eb21e700531ca2ddf2508d189">kbd_valid</link>&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00035"/>00035 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00037"/>00037 }
+<anchor xml:id="_kbc_8c_source_1l00038"/>00038 
+<anchor xml:id="_kbc_8c_source_1l00039"/><link linkend="_group__kbc_1gad2fe6cbf61c2613cd7f4d7998979ee29">00039</link> int&#32;(<link linkend="_group__kbc_1gad2fe6cbf61c2613cd7f4d7998979ee29">kbc_read_value</link>)(){
+<anchor xml:id="_kbc_8c_source_1l00040"/>00040 &#32;&#32;&#32;&#32;
+<anchor xml:id="_kbc_8c_source_1l00041"/>00041 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_kbc_8c_1a0210a44039b20cccb04801fb03ae47c1">full_code_ready</link>)&#32;{&#32;&#32;&#32;<emphasis role="comment">//reset&#32;das&#32;variaveis</emphasis>
+<anchor xml:id="_kbc_8c_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a0210a44039b20cccb04801fb03ae47c1">full_code_ready</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a439227feff9d7f55384e8780cfc2eb82">size</link>&#32;=&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00044"/>00044 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00045"/>00045 &#32;&#32;&#32;&#32;
+<anchor xml:id="_kbc_8c_source_1l00046"/>00046 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_utils_8c_1a79a031a8611f5b2d6afa4158e92b0fb4">util_sys_inb</link>(<link linkend="_group__i8042_1ga1ccde68b2b6d4e45b50eef1403e10bb7">KBC_OUT_BUF</link>,&#32;&amp;<link linkend="_kbc_8c_1a325819a8e492ac69542e8b31705af6e9">data</link>)){
+<anchor xml:id="_kbc_8c_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;reading&#32;out&#32;buffer&quot;</emphasis>);
+<anchor xml:id="_kbc_8c_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00049"/>00049 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00050"/>00050 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(!<link linkend="_kbc_8c_1aa02e483eb21e700531ca2ddf2508d189">kbd_valid</link>)&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00051"/>00051 
+<anchor xml:id="_kbc_8c_source_1l00052"/>00052 &#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a01577ed8d3646775ae6a8e00d24c1d94">scancode</link>[<link linkend="_kbc_8c_1a439227feff9d7f55384e8780cfc2eb82">size</link>]&#32;=&#32;<link linkend="_kbc_8c_1a325819a8e492ac69542e8b31705af6e9">data</link>;
+<anchor xml:id="_kbc_8c_source_1l00053"/>00053 &#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a439227feff9d7f55384e8780cfc2eb82">size</link>++;
+<anchor xml:id="_kbc_8c_source_1l00054"/>00054 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_kbc_8c_1a439227feff9d7f55384e8780cfc2eb82">size</link>&#32;==&#32;1&#32;&amp;&amp;&#32;(<link linkend="_kbc_8c_1a325819a8e492ac69542e8b31705af6e9">data</link>&#32;==&#32;<link linkend="_group__i8042_1ga322b65f62d443658a88cfd7ec20fc9d3">KBC_TWO_BYTE</link>))&#32;{&#32;&#32;&#32;<emphasis role="comment">//quando&#32;ainda&#32;nao&#32;esta&#32;pronto</emphasis>
+<anchor xml:id="_kbc_8c_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a0210a44039b20cccb04801fb03ae47c1">full_code_ready</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00056"/>00056 &#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{&#32;&#32;&#32;&#32;<emphasis role="comment">//quando&#32;ja&#32;esta&#32;pronto</emphasis>
+<anchor xml:id="_kbc_8c_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a83b83f0755f115b133c5afa21cbcfd1b">makecode</link>&#32;=&#32;((<link linkend="_kbc_8c_1a325819a8e492ac69542e8b31705af6e9">data</link>&#32;&amp;&#32;0x80)&#32;==&#32;0x80)&#32;?&#32;false&#32;:&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a0210a44039b20cccb04801fb03ae47c1">full_code_ready</link>&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00059"/>00059 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00060"/>00060 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00061"/>00061 
+<anchor xml:id="_kbc_8c_source_1l00062"/>00062 }
+<anchor xml:id="_kbc_8c_source_1l00063"/>00063 
+<anchor xml:id="_kbc_8c_source_1l00064"/><link linkend="_group__kbc_1ga4d01b87977dde6d295c19c982e5426ea">00064</link> int&#32;(<link linkend="_group__kbc_1ga4d01b87977dde6d295c19c982e5426ea">kbc_read_cmd</link>)(uint8_t*&#32;cmd)&#32;{
+<anchor xml:id="_kbc_8c_source_1l00065"/>00065 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(sys_outb(<link linkend="_group__i8042_1ga6d57c7927a10f638c83046b52c8caac9">KBC_CMD_REG</link>,<link linkend="_group__i8042_1ga595a5cad2d3c793963da50865b2c1b47">KBC_READ_CMD</link>))&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00066"/>00066 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_utils_8c_1a79a031a8611f5b2d6afa4158e92b0fb4">util_sys_inb</link>(<link linkend="_group__i8042_1ga1ccde68b2b6d4e45b50eef1403e10bb7">KBC_OUT_BUF</link>,cmd))&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00067"/>00067 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00068"/>00068 }
+<anchor xml:id="_kbc_8c_source_1l00069"/>00069 
+<anchor xml:id="_kbc_8c_source_1l00070"/><link linkend="_group__kbc_1gab06ce595703807400f3d90171f7f9884">00070</link> int&#32;(<link linkend="_group__kbc_1gab06ce595703807400f3d90171f7f9884">kbc_write_cmd</link>)(uint8_t&#32;cmd)&#32;{
+<anchor xml:id="_kbc_8c_source_1l00071"/>00071 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(sys_outb(<link linkend="_group__i8042_1ga6d57c7927a10f638c83046b52c8caac9">KBC_CMD_REG</link>,<link linkend="_group__i8042_1gaaa62a6987753a109d2f7a609ce8b7334">KBC_WRITE_CMD</link>))&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00072"/>00072 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(sys_outb(<link linkend="_group__i8042_1ga02e4d55add7b39e9d9d1af03f2f89b5d">KBC_ARG_CMD</link>,cmd))&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00073"/>00073 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00074"/>00074 }
+<anchor xml:id="_kbc_8c_source_1l00075"/>00075 
+<anchor xml:id="_kbc_8c_source_1l00076"/><link linkend="_group__kbc_1gac47c4cbc1a0bcfa157d20dd35d29da57">00076</link> <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__kbc_1gac47c4cbc1a0bcfa157d20dd35d29da57">kbc_restore_interrupts</link>)()&#32;{
+<anchor xml:id="_kbc_8c_source_1l00077"/>00077 &#32;&#32;&#32;&#32;<emphasis role="comment">//not&#32;my&#32;code</emphasis>
+<anchor xml:id="_kbc_8c_source_1l00078"/>00078 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;restoring&#32;keyboard&#32;\n&quot;</emphasis>);
+<anchor xml:id="_kbc_8c_source_1l00079"/>00079 &#32;&#32;&#32;&#32;uint8_t&#32;command;
+<anchor xml:id="_kbc_8c_source_1l00080"/>00080 &#32;&#32;&#32;&#32;<link linkend="_group__kbc_1ga4d01b87977dde6d295c19c982e5426ea">kbc_read_cmd</link>(&amp;command);
+<anchor xml:id="_kbc_8c_source_1l00081"/>00081 &#32;&#32;&#32;&#32;command&#32;|=&#32;BIT(0);
+<anchor xml:id="_kbc_8c_source_1l00082"/>00082 &#32;&#32;&#32;&#32;<link linkend="_group__kbc_1gab06ce595703807400f3d90171f7f9884">kbc_write_cmd</link>(command);
+<anchor xml:id="_kbc_8c_source_1l00083"/>00083 &#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;done&#32;\n&quot;</emphasis>);
+<anchor xml:id="_kbc_8c_source_1l00084"/>00084 }
+<anchor xml:id="_kbc_8c_source_1l00085"/>00085 
+<anchor xml:id="_kbc_8c_source_1l00086"/><link linkend="_group__kbc_1ga4ac9231a99a664d6a9f0b69767e0d707">00086</link> int&#32;(<link linkend="_group__kbc_1ga4ac9231a99a664d6a9f0b69767e0d707">kbd_subscribe_int</link>)(uint8_t&#32;*bit_no)&#32;{
+<anchor xml:id="_kbc_8c_source_1l00087"/>00087 &#32;&#32;<link linkend="_kbc_8c_1a66950d98786a9b087f74991e4b6794e3">kbc_hook_id</link>&#32;=&#32;*bit_no;
+<anchor xml:id="_kbc_8c_source_1l00088"/>00088 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;sys_irqsetpolicy(<link linkend="_group__i8042_1ga16c5827f043d82f87c726c2d4369c11d">KBC_IRQ</link>,IRQ_REENABLE|IRQ_EXCLUSIVE,&amp;<link linkend="_kbc_8c_1a66950d98786a9b087f74991e4b6794e3">kbc_hook_id</link>);
+<anchor xml:id="_kbc_8c_source_1l00089"/>00089 }
+<anchor xml:id="_kbc_8c_source_1l00090"/>00090 
+<anchor xml:id="_kbc_8c_source_1l00091"/><link linkend="_group__kbc_1gaee0a7b54ee426fade9c780418d110fe0">00091</link> int&#32;(<link linkend="_group__kbc_1gaee0a7b54ee426fade9c780418d110fe0">kbd_unsubscribe_int</link>)()&#32;{
+<anchor xml:id="_kbc_8c_source_1l00092"/>00092 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;sys_irqrmpolicy(&amp;<link linkend="_kbc_8c_1a66950d98786a9b087f74991e4b6794e3">kbc_hook_id</link>);
+<anchor xml:id="_kbc_8c_source_1l00093"/>00093 }
+<anchor xml:id="_kbc_8c_source_1l00094"/>00094 
+<anchor xml:id="_kbc_8c_source_1l00095"/>00095 <emphasis role="comment">/*****************MOUSE*******************/</emphasis>
+<anchor xml:id="_kbc_8c_source_1l00096"/>00096 
+<anchor xml:id="_kbc_8c_source_1l00097"/>00097 
+<anchor xml:id="_kbc_8c_source_1l00098"/><link linkend="_kbc_8c_1a37cad7cad93664f8a1ed1b0258fe958b">00098</link> <emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_kbc_8c_1a37cad7cad93664f8a1ed1b0258fe958b">mouse_hook_id</link>&#32;=&#32;2,&#32;<link linkend="_kbc_8c_1a705fcc072b6072606ca4e4aae812d598">mouse_packet_size</link>&#32;=&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00099"/><link linkend="_kbc_8c_1a5d9c2a41be94ab895b834e18856183b6">00099</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_kbc_8c_1a8a7aa94c9cf59b217a36bea458c1f8d4">mouse_valid</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>,&#32;<link linkend="_kbc_8c_1a5d9c2a41be94ab895b834e18856183b6">mouse_packet_ready</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00100"/><link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">00100</link> uint8_t&#32;<link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link>[3];
+<anchor xml:id="_kbc_8c_source_1l00101"/><link linkend="_handlers_8c_1a26e83eca70c2b9169fbbb0eac7e32e32">00101</link> <emphasis role="keyword">struct&#32;</emphasis>packet&#32;<link linkend="_kbc_8c_1a26e83eca70c2b9169fbbb0eac7e32e32">pp</link>;
+<anchor xml:id="_kbc_8c_source_1l00102"/>00102 
+<anchor xml:id="_kbc_8c_source_1l00103"/><link linkend="_group__kbc_1ga20285aed4b3ef45812cd967532dd09db">00103</link> int&#32;(<link linkend="_group__kbc_1ga20285aed4b3ef45812cd967532dd09db">mouse_subscribe_int</link>)(uint8_t&#32;*bit_no){
+<anchor xml:id="_kbc_8c_source_1l00104"/>00104 &#32;&#32;<link linkend="_kbc_8c_1a37cad7cad93664f8a1ed1b0258fe958b">mouse_hook_id</link>&#32;=&#32;*bit_no;
+<anchor xml:id="_kbc_8c_source_1l00105"/>00105 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;sys_irqsetpolicy(<link linkend="_group__i8042_1ga85964cb90343bb1a029b1d1b4229f910">MOUSE_IRQ</link>&#32;,IRQ_REENABLE|IRQ_EXCLUSIVE,&#32;&amp;<link linkend="_kbc_8c_1a37cad7cad93664f8a1ed1b0258fe958b">mouse_hook_id</link>);
+<anchor xml:id="_kbc_8c_source_1l00106"/>00106 }
+<anchor xml:id="_kbc_8c_source_1l00107"/>00107 
+<anchor xml:id="_kbc_8c_source_1l00108"/><link linkend="_group__kbc_1ga3ecf823d80520009ae5e0d76ae40a3c3">00108</link> int&#32;(<link linkend="_group__kbc_1ga3ecf823d80520009ae5e0d76ae40a3c3">mouse_unsubscribe_int</link>)()&#32;{
+<anchor xml:id="_kbc_8c_source_1l00109"/>00109 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;sys_irqrmpolicy(&amp;<link linkend="_kbc_8c_1a37cad7cad93664f8a1ed1b0258fe958b">mouse_hook_id</link>);
+<anchor xml:id="_kbc_8c_source_1l00110"/>00110 }
+<anchor xml:id="_kbc_8c_source_1l00111"/>00111 
+<anchor xml:id="_kbc_8c_source_1l00112"/><link linkend="_group__kbc_1gad133813912d3da691a07674fb9e15455">00112</link> int&#32;(<link linkend="_group__kbc_1gad133813912d3da691a07674fb9e15455">enable_mouse</link>)()&#32;{
+<anchor xml:id="_kbc_8c_source_1l00113"/>00113 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;sys_irqenable(&amp;<link linkend="_kbc_8c_1a37cad7cad93664f8a1ed1b0258fe958b">mouse_hook_id</link>);
+<anchor xml:id="_kbc_8c_source_1l00114"/>00114 }
+<anchor xml:id="_kbc_8c_source_1l00115"/>00115 
+<anchor xml:id="_kbc_8c_source_1l00116"/><link linkend="_group__kbc_1gaaf62ad2fc57a009e413accb7373fe33d">00116</link> int&#32;(<link linkend="_group__kbc_1gaaf62ad2fc57a009e413accb7373fe33d">disable_mouse</link>)()&#32;{
+<anchor xml:id="_kbc_8c_source_1l00117"/>00117 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;sys_irqdisable(&amp;<link linkend="_kbc_8c_1a37cad7cad93664f8a1ed1b0258fe958b">mouse_hook_id</link>);
+<anchor xml:id="_kbc_8c_source_1l00118"/>00118 }
+<anchor xml:id="_kbc_8c_source_1l00119"/>00119 
+<anchor xml:id="_kbc_8c_source_1l00120"/><link linkend="_kbc_8c_1a999549fe35157d4137626fa8c0b2ee99">00120</link> int&#32;(<link linkend="_kbc_8c_1a999549fe35157d4137626fa8c0b2ee99">mouse_get_status_byte</link>)(uint8_t&#32;*status)&#32;{
+<anchor xml:id="_kbc_8c_source_1l00121"/>00121 &#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a8a7aa94c9cf59b217a36bea458c1f8d4">mouse_valid</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00122"/>00122 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_utils_8c_1a79a031a8611f5b2d6afa4158e92b0fb4">util_sys_inb</link>(<link linkend="_group__i8042_1ga6f977b36b770dca3092d0bdf8c949cfe">KBC_ST_REG</link>,&#32;status))&#32;{
+<anchor xml:id="_kbc_8c_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;reading&#32;status&#32;register.\n&quot;</emphasis>);
+<anchor xml:id="_kbc_8c_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00125"/>00125 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00126"/>00126 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(*status&#32;&amp;&#32;(<link linkend="_group__i8042_1gaea2ef6dda1aabebf291eeee29b66c04a">KBC_PAR_ERR</link>&#32;|&#32;<link linkend="_group__i8042_1gae31c3653f5881b02cbfdd4ccbb7ccf50">KBC_TO_ERR</link>))&#32;{
+<anchor xml:id="_kbc_8c_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a8a7aa94c9cf59b217a36bea458c1f8d4">mouse_valid</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;ERROR&#32;parity,&#32;timeout.\n&quot;</emphasis>);
+<anchor xml:id="_kbc_8c_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00130"/>00130 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00131"/>00131 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!(*status&#32;&amp;&#32;<link linkend="_group__i8042_1ga5a01c98e394aedacd058f4dc3b953bb0">KBC_ST_AUX</link>)&#32;&amp;&amp;&#32;(*status&#32;&amp;&#32;<link linkend="_group__i8042_1ga38010ed603a29beee559b2c20de50dcd">KBC_ST_OBF</link>))&#32;{
+<anchor xml:id="_kbc_8c_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a8a7aa94c9cf59b217a36bea458c1f8d4">mouse_valid</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error,&#32;data&#32;from&#32;keyboard.\n&quot;</emphasis>);
+<anchor xml:id="_kbc_8c_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00135"/>00135 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00136"/>00136 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00137"/>00137 }
+<anchor xml:id="_kbc_8c_source_1l00138"/>00138 
+<anchor xml:id="_kbc_8c_source_1l00139"/><link linkend="_group__kbc_1gaed4404005e4c565ac36656307386e0ac">00139</link> <link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>&#32;(<link linkend="_group__kbc_1gaed4404005e4c565ac36656307386e0ac">mouse_ih</link>)(){
+<anchor xml:id="_kbc_8c_source_1l00140"/>00140 &#32;&#32;&#32;&#32;uint8_t&#32;status;
+<anchor xml:id="_kbc_8c_source_1l00141"/>00141 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_kbc_8c_1a999549fe35157d4137626fa8c0b2ee99">mouse_get_status_byte</link>(&amp;status))&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00142"/>00142 
+<anchor xml:id="_kbc_8c_source_1l00143"/>00143 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!(status&#32;&amp;&#32;<link linkend="_group__i8042_1ga38010ed603a29beee559b2c20de50dcd">KBC_ST_OBF</link>))&#32;{
+<anchor xml:id="_kbc_8c_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a8a7aa94c9cf59b217a36bea458c1f8d4">mouse_valid</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;No&#32;data&#32;to&#32;read&#32;from&#32;OBF.\n&quot;</emphasis>);
+<anchor xml:id="_kbc_8c_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00147"/>00147 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00148"/>00148 &#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a8a7aa94c9cf59b217a36bea458c1f8d4">mouse_valid</link>&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00149"/>00149 
+<anchor xml:id="_kbc_8c_source_1l00150"/>00150 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_group__kbc_1ga9e19cb92cae1a1257d65ae04e1e6cc6f">mouse_read_value</link>())&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00151"/>00151 }
+<anchor xml:id="_kbc_8c_source_1l00152"/>00152 
+<anchor xml:id="_kbc_8c_source_1l00153"/><link linkend="_group__kbc_1ga9e19cb92cae1a1257d65ae04e1e6cc6f">00153</link> int&#32;(<link linkend="_group__kbc_1ga9e19cb92cae1a1257d65ae04e1e6cc6f">mouse_read_value</link>)(){
+<anchor xml:id="_kbc_8c_source_1l00154"/>00154 
+<anchor xml:id="_kbc_8c_source_1l00155"/>00155 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_kbc_8c_1a5d9c2a41be94ab895b834e18856183b6">mouse_packet_ready</link>){
+<anchor xml:id="_kbc_8c_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a5d9c2a41be94ab895b834e18856183b6">mouse_packet_ready</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a705fcc072b6072606ca4e4aae812d598">mouse_packet_size</link>&#32;=&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00158"/>00158 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00159"/>00159 &#32;&#32;&#32;&#32;
+<anchor xml:id="_kbc_8c_source_1l00160"/>00160 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_utils_8c_1a79a031a8611f5b2d6afa4158e92b0fb4">util_sys_inb</link>(<link linkend="_group__i8042_1ga1ccde68b2b6d4e45b50eef1403e10bb7">KBC_OUT_BUF</link>,&#32;&amp;<link linkend="_kbc_8c_1a325819a8e492ac69542e8b31705af6e9">data</link>)){
+<anchor xml:id="_kbc_8c_source_1l00161"/>00161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;Error&#32;reading&#32;out&#32;buffer&quot;</emphasis>);
+<anchor xml:id="_kbc_8c_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00163"/>00163 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00164"/>00164 
+<anchor xml:id="_kbc_8c_source_1l00165"/>00165 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_kbc_8c_1a705fcc072b6072606ca4e4aae812d598">mouse_packet_size</link>&#32;==&#32;0){
+<anchor xml:id="_kbc_8c_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(!(<link linkend="_kbc_8c_1a325819a8e492ac69542e8b31705af6e9">data</link>&#32;&amp;&#32;<link linkend="_group__i8042_1ga7512d0cbbfd6071491dbd3d0758edadf">MOUSE_ALWAYS_1</link>)){
+<anchor xml:id="_kbc_8c_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(<emphasis role="stringliteral">&quot;The&#32;bit(3)&#32;is&#32;not&#32;set&#32;to&#32;1.\n&quot;</emphasis>);
+<anchor xml:id="_kbc_8c_source_1l00168"/>00168 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00170"/>00170 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00171"/>00171 
+<anchor xml:id="_kbc_8c_source_1l00172"/>00172 &#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link>[<link linkend="_kbc_8c_1a705fcc072b6072606ca4e4aae812d598">mouse_packet_size</link>]&#32;=&#32;<link linkend="_kbc_8c_1a325819a8e492ac69542e8b31705af6e9">data</link>;
+<anchor xml:id="_kbc_8c_source_1l00173"/>00173 &#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a705fcc072b6072606ca4e4aae812d598">mouse_packet_size</link>++;
+<anchor xml:id="_kbc_8c_source_1l00174"/>00174 
+<anchor xml:id="_kbc_8c_source_1l00175"/>00175 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_kbc_8c_1a705fcc072b6072606ca4e4aae812d598">mouse_packet_size</link>&#32;==&#32;3){
+<anchor xml:id="_kbc_8c_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a5d9c2a41be94ab895b834e18856183b6">mouse_packet_ready</link>&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_group__kbc_1ga4a3e729d49865f915c15092cfdda2835">parse_packet</link>();
+<anchor xml:id="_kbc_8c_source_1l00178"/>00178 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00179"/>00179 
+<anchor xml:id="_kbc_8c_source_1l00180"/>00180 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00181"/>00181 }
+<anchor xml:id="_kbc_8c_source_1l00182"/>00182 
+<anchor xml:id="_kbc_8c_source_1l00183"/>00183 
+<anchor xml:id="_kbc_8c_source_1l00184"/>00184 
+<anchor xml:id="_kbc_8c_source_1l00185"/><link linkend="_group__kbc_1ga4a3e729d49865f915c15092cfdda2835">00185</link> int&#32;(<link linkend="_group__kbc_1ga4a3e729d49865f915c15092cfdda2835">parse_packet</link>)(){
+<anchor xml:id="_kbc_8c_source_1l00186"/>00186 &#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a26e83eca70c2b9169fbbb0eac7e32e32">pp</link>.bytes[0]&#32;=&#32;<link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link>[0];
+<anchor xml:id="_kbc_8c_source_1l00187"/>00187 &#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a26e83eca70c2b9169fbbb0eac7e32e32">pp</link>.bytes[1]&#32;=&#32;<link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link>[1];
+<anchor xml:id="_kbc_8c_source_1l00188"/>00188 &#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a26e83eca70c2b9169fbbb0eac7e32e32">pp</link>.bytes[2]&#32;=&#32;<link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link>[2];
+<anchor xml:id="_kbc_8c_source_1l00189"/>00189 
+<anchor xml:id="_kbc_8c_source_1l00190"/>00190 &#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a26e83eca70c2b9169fbbb0eac7e32e32">pp</link>.x_ov&#32;=&#32;<link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link>[0]&#32;&amp;&#32;<link linkend="_group__i8042_1gac113431b56bb3f19e4e81c6af3e47a26">MOUSE_X_OVFL</link>;
+<anchor xml:id="_kbc_8c_source_1l00191"/>00191 &#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a26e83eca70c2b9169fbbb0eac7e32e32">pp</link>.y_ov&#32;=&#32;<link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link>[0]&#32;&amp;&#32;<link linkend="_group__i8042_1gaaa583bb56e5e2a9757d5d78a3c83f285">MOUSE_Y_OVFL</link>;
+<anchor xml:id="_kbc_8c_source_1l00192"/>00192 &#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a26e83eca70c2b9169fbbb0eac7e32e32">pp</link>.lb&#32;=&#32;<link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link>[0]&#32;&amp;&#32;<link linkend="_group__i8042_1ga79628b2d41b95ed700b7206635917000">MOUSE_LEFT_BUTT</link>;
+<anchor xml:id="_kbc_8c_source_1l00193"/>00193 &#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a26e83eca70c2b9169fbbb0eac7e32e32">pp</link>.rb&#32;=&#32;<link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link>[0]&#32;&amp;&#32;<link linkend="_group__i8042_1ga888b7cb1d96e369e6669f633b748fa1f">MOUSE_RIGHT_BUTT</link>;
+<anchor xml:id="_kbc_8c_source_1l00194"/>00194 &#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a26e83eca70c2b9169fbbb0eac7e32e32">pp</link>.mb&#32;=&#32;<link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link>[0]&#32;&amp;&#32;<link linkend="_group__i8042_1ga16131e6f23b536ee7b3138a11cffa3b9">MOUSE_MIDDLE_BUTT</link>;
+<anchor xml:id="_kbc_8c_source_1l00195"/>00195 &#32;&#32;&#32;&#32;
+<anchor xml:id="_kbc_8c_source_1l00196"/>00196 
+<anchor xml:id="_kbc_8c_source_1l00197"/>00197 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link>[0]&#32;&amp;&#32;<link linkend="_group__i8042_1gacd43b7d72e2f4da511b0f8a73df0fe79">MOUSE_X_SIGN</link>){
+<anchor xml:id="_kbc_8c_source_1l00198"/>00198 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a26e83eca70c2b9169fbbb0eac7e32e32">pp</link>.delta_x&#32;=&#32;<link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link>[1]&#32;-&#32;256;
+<anchor xml:id="_kbc_8c_source_1l00199"/>00199 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00200"/>00200 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>{
+<anchor xml:id="_kbc_8c_source_1l00201"/>00201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a26e83eca70c2b9169fbbb0eac7e32e32">pp</link>.delta_x&#32;=&#32;<link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link>[1];
+<anchor xml:id="_kbc_8c_source_1l00202"/>00202 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00203"/>00203 
+<anchor xml:id="_kbc_8c_source_1l00204"/>00204 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link>[0]&#32;&amp;&#32;<link linkend="_group__i8042_1gae0f95694f6f137fcae25644972556873">MOUSE_Y_SIGN</link>){
+<anchor xml:id="_kbc_8c_source_1l00205"/>00205 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a26e83eca70c2b9169fbbb0eac7e32e32">pp</link>.delta_y&#32;=&#32;<link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link>[2]&#32;-&#32;256;
+<anchor xml:id="_kbc_8c_source_1l00206"/>00206 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00207"/>00207 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>{
+<anchor xml:id="_kbc_8c_source_1l00208"/>00208 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_kbc_8c_1a26e83eca70c2b9169fbbb0eac7e32e32">pp</link>.delta_y&#32;=&#32;<link linkend="_kbc_8c_1ad37554a8b2f6fe22b01b22cda1273bfc">mouse_packet</link>[2];
+<anchor xml:id="_kbc_8c_source_1l00209"/>00209 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00210"/>00210 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00211"/>00211 }
+<anchor xml:id="_kbc_8c_source_1l00212"/>00212 
+<anchor xml:id="_kbc_8c_source_1l00213"/><link linkend="_group__kbc_1gab03b20445da099487fdd96bc31007b0e">00213</link> int&#32;(<link linkend="_group__kbc_1gab03b20445da099487fdd96bc31007b0e">mouse_enbl_data_reporting</link>)(<link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>)&#32;{
+<anchor xml:id="_kbc_8c_source_1l00214"/>00214 &#32;&#32;&#32;&#32;<link linkend="_group__kbc_1gadce7a7604f8b0782158b70bf728eb411">mouse_write_cmd</link>(<link linkend="_group__i8042_1ga754337587348c7bc757c921b836575a1">MCM_SET_STREAM_MODE</link>);
+<anchor xml:id="_kbc_8c_source_1l00215"/>00215 &#32;&#32;&#32;&#32;<link linkend="_group__kbc_1gadce7a7604f8b0782158b70bf728eb411">mouse_write_cmd</link>(<link linkend="_group__i8042_1gaed841950e2d83a4cb873f6b1e691e219">MCM_ENABLE_DATA_REP</link>);
+<anchor xml:id="_kbc_8c_source_1l00216"/>00216 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00217"/>00217 }
+<anchor xml:id="_kbc_8c_source_1l00218"/>00218 
+<anchor xml:id="_kbc_8c_source_1l00219"/><link linkend="_group__kbc_1ga7e311379d4d64f88873ef8ade5c82a25">00219</link> int&#32;(<link linkend="_group__kbc_1ga7e311379d4d64f88873ef8ade5c82a25">mouse_disable_data_reporting</link>)()&#32;{
+<anchor xml:id="_kbc_8c_source_1l00220"/>00220 &#32;&#32;&#32;&#32;<link linkend="_group__kbc_1gadce7a7604f8b0782158b70bf728eb411">mouse_write_cmd</link>(<link linkend="_group__i8042_1ga754337587348c7bc757c921b836575a1">MCM_SET_STREAM_MODE</link>);
+<anchor xml:id="_kbc_8c_source_1l00221"/>00221 &#32;&#32;&#32;&#32;<link linkend="_group__kbc_1gadce7a7604f8b0782158b70bf728eb411">mouse_write_cmd</link>(<link linkend="_group__i8042_1gad954c0d7cc6021941c2fb0c8bbb7bf0b">MCM_DISABLE_DATA_REP</link>);
+<anchor xml:id="_kbc_8c_source_1l00222"/>00222 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00223"/>00223 }
+<anchor xml:id="_kbc_8c_source_1l00224"/>00224 
+<anchor xml:id="_kbc_8c_source_1l00225"/><link linkend="_group__kbc_1ga486b669d172327d510db1fff96ea6b60">00225</link> int&#32;(<link linkend="_group__kbc_1ga486b669d172327d510db1fff96ea6b60">mouse_write_to_port</link>)(uint8_t&#32;port,&#32;uint8_t&#32;cmd)&#32;{
+<anchor xml:id="_kbc_8c_source_1l00226"/>00226 &#32;&#32;&#32;&#32;uint8_t&#32;status;
+<anchor xml:id="_kbc_8c_source_1l00227"/>00227 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_kbc_8c_1a999549fe35157d4137626fa8c0b2ee99">mouse_get_status_byte</link>(&amp;status)){
+<anchor xml:id="_kbc_8c_source_1l00228"/>00228 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00229"/>00229 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00230"/>00230 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(status&#32;&amp;&#32;<link linkend="_group__i8042_1ga141ccbc1ab10dfcdd1d450414dba13d4">KBC_ST_IBF</link>){
+<anchor xml:id="_kbc_8c_source_1l00231"/>00231 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//input&#32;buffer&#32;full</emphasis>
+<anchor xml:id="_kbc_8c_source_1l00232"/>00232 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_kbc_8c_source_1l00233"/>00233 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00234"/>00234 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(sys_outb(port,&#32;cmd))&#32;{
+<anchor xml:id="_kbc_8c_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00236"/>00236 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00237"/>00237 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00238"/>00238 }
+<anchor xml:id="_kbc_8c_source_1l00239"/>00239 
+<anchor xml:id="_kbc_8c_source_1l00240"/><link linkend="_group__kbc_1gadce7a7604f8b0782158b70bf728eb411">00240</link> int&#32;(<link linkend="_group__kbc_1gadce7a7604f8b0782158b70bf728eb411">mouse_write_cmd</link>)(uint8_t&#32;command){
+<anchor xml:id="_kbc_8c_source_1l00241"/>00241 &#32;&#32;&#32;&#32;uint8_t&#32;response;
+<anchor xml:id="_kbc_8c_source_1l00242"/>00242 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;full;
+<anchor xml:id="_kbc_8c_source_1l00243"/>00243 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">do</emphasis>{
+<anchor xml:id="_kbc_8c_source_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;full&#32;=&#32;<link linkend="_group__kbc_1ga486b669d172327d510db1fff96ea6b60">mouse_write_to_port</link>(<link linkend="_group__i8042_1ga6d57c7927a10f638c83046b52c8caac9">KBC_CMD_REG</link>,<link linkend="_group__i8042_1ga0fcdbd39ed7dcf62fede44082d09cb7a">WRITE_BYTE_TO_MOUSE</link>);
+<anchor xml:id="_kbc_8c_source_1l00245"/>00245 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(full&#32;==&#32;1)&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00246"/>00246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(full&#32;==&#32;-1)&#32;<emphasis role="keywordflow">continue</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00247"/>00247 
+<anchor xml:id="_kbc_8c_source_1l00248"/>00248 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;full&#32;=&#32;<link linkend="_group__kbc_1ga486b669d172327d510db1fff96ea6b60">mouse_write_to_port</link>(<link linkend="_group__i8042_1ga02e4d55add7b39e9d9d1af03f2f89b5d">KBC_ARG_CMD</link>,command);
+<anchor xml:id="_kbc_8c_source_1l00249"/>00249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(full&#32;==&#32;1)&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00250"/>00250 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(full&#32;==&#32;-1)&#32;<emphasis role="keywordflow">continue</emphasis>;
+<anchor xml:id="_kbc_8c_source_1l00251"/>00251 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_kbc_8c_source_1l00252"/>00252 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;tickdelay(micros_to_ticks(<link linkend="_group__i8042_1ga1a522aa19bcb695a9df30032a893bee3">DELAY_US</link>));
+<anchor xml:id="_kbc_8c_source_1l00253"/>00253 
+<anchor xml:id="_kbc_8c_source_1l00254"/>00254 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_utils_8c_1a79a031a8611f5b2d6afa4158e92b0fb4">util_sys_inb</link>(<link linkend="_group__i8042_1ga1ccde68b2b6d4e45b50eef1403e10bb7">KBC_OUT_BUF</link>,&#32;&amp;response))&#32;{
+<anchor xml:id="_kbc_8c_source_1l00255"/>00255 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00256"/>00256 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00257"/>00257 
+<anchor xml:id="_kbc_8c_source_1l00258"/>00258 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(response&#32;==&#32;<link linkend="_group__i8042_1ga04b45d2391bf02219b7b4c184c6bb0e2">MCM_ERROR</link>){
+<anchor xml:id="_kbc_8c_source_1l00259"/>00259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;
+<anchor xml:id="_kbc_8c_source_1l00260"/>00260 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_kbc_8c_source_1l00261"/>00261 &#32;&#32;&#32;&#32;}<emphasis role="keywordflow">while</emphasis>&#32;(response&#32;!=&#32;<link linkend="_group__i8042_1ga6a41a192d262d92b57a80ee61f4dd096">MCM_ACK</link>);
+<anchor xml:id="_kbc_8c_source_1l00262"/>00262 
+<anchor xml:id="_kbc_8c_source_1l00263"/>00263 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_kbc_8c_source_1l00264"/>00264 }
+</programlisting></section>

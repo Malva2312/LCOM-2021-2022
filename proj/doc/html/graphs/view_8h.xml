@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_view_8h" xml:lang="en-US">
+<title>game/view.h File Reference</title>
+<indexterm><primary>game/view.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;lcom/lcf.h&gt;
+#include &lt;stdio.h&gt;
+#include &quot;model.h&quot;
+#include &quot;images.h&quot;
+#include &quot;../video/video.h&quot;
+#include &quot;handlers.h&quot;
+</programlisting>Include dependency graph for view.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="view_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="view_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__view_1ga5fd0c469e6f02d84c080f7cf71630109">drawMenu</link> ()</para>
+
+<para>Calls the functions responsible for drawing the menu. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__view_1gac03b90d30597233ea059a89bce73dbf3">drawWaitMenu</link> ()</para>
+
+<para>Calls the function responsible for drawing the waiting menu, while waiting other player. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__view_1gabf33bd02905aaba8995c238e140295bb">drawBoard</link> ()</para>
+
+<para>Calls the functions responsable for drawing the score board. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__view_1gab79e0b6f71e4ecf1f37d95fdafcf62b5">drawPlayer</link> (struct <link linkend="_struct_player">Player</link> *p)</para>
+
+<para>Receives a <link linkend="_struct_player">Player</link> pointer and draws the <link linkend="_struct_player">Player</link>&apos;s paddle in the arena according to the pointer data. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__view_1ga86cf8241a4f3a8daf2876e484636a650">drawBall</link> ()</para>
+
+<para>Draws the <link linkend="_struct_ball">Ball</link> in the arena according to <link linkend="_struct_ball">Ball</link>&apos;s data. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__view_1ga2fed2d7071be915d687d533e5a971414">drawGame</link> ()</para>
+
+<para>Calls the functions needed to draw the match. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__view_1ga3a53f2894b80e553e4e9754e2a1b9b5d">drawArena</link> ()</para>
+
+<para>Draw the <link linkend="_struct_arena">Arena</link> and its boundaries. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__view_1gaa632458efe74b5b5009fab6cf993fdb2">drawMouse</link> ()</para>
+
+<para>Draws the mouse cursor according to its position. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__view_1ga66a54e56b10b46d1f9fc29adc4de5b16">drawWall</link> ()</para>
+
+<para>Draw the wall originated by a power-up. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__view_1ga56eabf3da014865044c6b983dbfafaec">drawEndGame</link> ()</para>
+
+<para>Draws an end-of-game message depending on whether the player wins or loses. </para>
+</listitem>
+            <listitem><para><link linkend="_model_8c_1a30fba3af276124b2d8854069c2a50c7e">void</link>() <link linkend="_group__view_1gada296e3c248457584fc6702e98aa5df9">drawAbout</link> ()</para>
+
+<para>Draws about menu. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

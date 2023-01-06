@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="en-US">
+<title>Data Structures</title>
+Here are the data structures with brief descriptions:<link linkend="_struct_arena">Arena</link>
+<para>Struct that saves all data about game arena </para>
+<link linkend="_struct_ball">Ball</link>
+<para>Struct that saves all data about the ball </para>
+<link linkend="_struct_mouse">Mouse</link>
+<para>Struct that saves all data about the mouse </para>
+<link linkend="_struct_player">Player</link>
+<para>Struct that saves all data about one player </para>
+<link linkend="_uniontimer__status__field__val">timer_status_field_val</link>
+<para>Union for storing values of timer status fields, including the full status byte </para>
+<link linkend="_struct_wall">Wall</link>
+<para>Struct that saves all data about the wall (origianted by a power-up) </para>
+</section>
